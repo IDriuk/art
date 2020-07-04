@@ -12,8 +12,11 @@
     "server": "nodemon index",
     "client-install": "npm install --prefix client",
     "client": "npm run start --prefix client",
+    "client-react-install": "npm install --prefix client_react",
+    "client-react": "npm run start --prefix client_react",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run client-install && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run client-react-install && npm run build --prefix client_react",
+    "heroku-postbuild-angular6": "NPM_CONFIG_PRODUCTION=false npm run client-install && npm run build --prefix client"
   },
   "keywords": [
     "express",
