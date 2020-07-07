@@ -1,23 +1,27 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Transform angular example to react
-        </a>
-      </header>
-    </div>
+    <>
+      <nav>
+        <div className="nav-wrapper grey darken-1">
+          <a routerLink="/" className="brand-logo">
+            Newborn
+          </a>
+          <ul id="nav-mobile" className="right hide-on-med-and-down">
+            <li routerLinkActive="active">
+              <a routerLink="/login">Вход</a>
+            </li>
+            <li routerLinkActive="active">
+              <a routerLink="/register">Регистрация</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div className="auth-block">{/* <router-outlet></router-outlet> */}</div>
+    </>
   );
 }
 
