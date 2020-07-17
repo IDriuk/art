@@ -31,26 +31,16 @@ app.use('/api/order', orderRoutes)
 app.use('/api/position', positionRoutes)
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client_react/build'))
+  app.use(express.static('client/build'))
 
   app.get('*', (req, res) => {
     res.sendFile(
       path.resolve(
-        __dirname, 'client_react', 'build', 'index.html'
+        __dirname, 'client', 'build', 'index.html'
       )
     )
   })
 
-  /* Angular client */
-  // app.use(express.static('client/dist/client'))
-
-  // app.get('*', (req, res) => {
-  //   res.sendFile(
-  //     path.resolve(
-  //       __dirname, 'client', 'dist', 'client', 'index.html'
-  //     )
-  //   )
-  // })
 }
 
 
