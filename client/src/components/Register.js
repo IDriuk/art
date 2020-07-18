@@ -5,9 +5,20 @@ export default () => {
   const passwordRef = useRef(null)
 
   return (
-    <form onSubmit={(e) =>{
+    <form onSubmit={async (e) =>{
       e.preventDefault()
-      console.log(emailRef.current.value, passwordRef.current.value)
+      const { value: email } = emailRef.current
+      const { value: password } = passwordRef.current
+      console.log(email, password);
+      const res = await fetch(`http://localhost:5000/api/auth/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      const json = await res.json();
+      console.log("json ====", json);
     }}>
       <input ref={emailRef} type="email" />
       <br />

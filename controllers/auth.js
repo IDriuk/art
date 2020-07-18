@@ -37,6 +37,7 @@ module.exports.login = async function(req, res) {
 
 
 module.exports.register = async function(req, res) {
+  console.log('email ======', req.body.email)
   // email password
   const candidate = await User.findOne({email: req.body.email})
 
