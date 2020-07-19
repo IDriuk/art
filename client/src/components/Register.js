@@ -1,10 +1,10 @@
 import React, { useRef } from 'react'
 
+const isProd = process.env.NODE_ENV === 'production'
+
 export default () => {
   const emailRef = useRef(null)
   const passwordRef = useRef(null)
-
-  console.log('process.env ======', process.env)
 
   return (
     <form onSubmit={async (e) =>{
@@ -12,7 +12,7 @@ export default () => {
       const { value: email } = emailRef.current
       const { value: password } = passwordRef.current
       console.log(email, password);
-      const res = await fetch(`http://localhost:5000/api/auth/register`, {
+      const res = await fetch(`${isProd ? '' : 'http://localhost:5000'}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
