@@ -4,6 +4,8 @@ export default () => {
   const emailRef = useRef(null)
   const passwordRef = useRef(null)
 
+  console.log('process.env ======', process.env)
+
   return (
     <form onSubmit={async (e) =>{
       e.preventDefault()
