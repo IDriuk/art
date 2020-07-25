@@ -1,5 +1,13 @@
-import React, { useRef } from 'react'
-import { register } from '../../services/api'
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+  incrementAsync,
+  selectCount,
+} from './counterSlice';
+import styles from './Counter.module.css';
 
 export default () => {
   const emailRef = useRef(null)
