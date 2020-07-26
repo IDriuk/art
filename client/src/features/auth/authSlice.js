@@ -23,7 +23,7 @@ export const authSlice = createSlice({
 
 export const { updateEmail, updatePassword, updateToken } = authSlice.actions;
 
-export const updateTokenAsync = (email, password) => async dispatch => {
+export const updateTokenAsync = ({ email, password }) => async dispatch => {
   const token = await register( email, password)
   dispatch(updateToken(token));
 };

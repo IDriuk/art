@@ -11,13 +11,14 @@ import styles from './Auth.module.css';
 export const Auth = () => {
   const emailRef = useRef(null)
   const passwordRef = useRef(null)
+  const dispatch = useDispatch();
 
   return (
     <form onSubmit={async (e) =>{
       e.preventDefault()
       const { value: email } = emailRef.current
       const { value: password } = passwordRef.current
-      updateTokenAsync(email, password)
+      dispatch(updateTokenAsync({ email, password }))
     }}>
       <input ref={emailRef} type="email" />
       <br />

@@ -6,13 +6,16 @@ const errorHandler = require('../utils/errorHandler')
 
 
 module.exports.register = async function(req, res) {
+  let token = ''
+  const { email, password } = req.body
   const candidate = await User.findOne({email: req.body.email})
 
   if (candidate) {
+    
     const passwordResult = bcrypt.compareSync(req.body.password, candidate.password)
     if (passwordResult) {
-      // Генерация токена, пароли совпали
-      const token = jwt.sign({
+      
+      token = jwt.sign({
         email: candidate.email,
         userId: candidate._id
       }, keys.jwt, {expiresIn: 60 * 60})
@@ -21,17 +24,15 @@ module.exports.register = async function(req, res) {
         token: `Bearer ${token}`
       })
     } else {
-      // Пароли не совпали
+      
       res.status(401).json({
-        message: 'Пароли не совпадают. Попробуйте снова.'
+        message: 'Passwords not match'
       })
     }
   } else {
-    // Нужно создать пользователя
     const salt = bcrypt.genSaltSync(10)
-    const password = req.body.password
     const user = new User({
-      email: req.body.email,
+      email,
       password: bcrypt.hashSync(password, salt)
     })
 
@@ -39,7 +40,7 @@ module.exports.register = async function(req, res) {
       await user.save()
       const newUser = await User.findOne({email: req.body.email})
 
-      const token = jwt.sign({
+      token = jwt.sign({
         email: newUser.email,
         userId: newUser._id
       }, keys.jwt, {expiresIn: 60 * 60})
