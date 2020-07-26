@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  decrement,
-  increment,
-  incrementByAmount,
-  incrementAsync,
-  selectCount,
-} from './counterSlice';
-import styles from './Counter.module.css';
+  updateEmail,
+  updatePassword,
+  updateToken,
+  updateTokenAsync
+} from './authSlice';
+import styles from './Auth.module.css';
 
-export default () => {
+export const Auth = () => {
   const emailRef = useRef(null)
   const passwordRef = useRef(null)
 
@@ -18,7 +17,7 @@ export default () => {
       e.preventDefault()
       const { value: email } = emailRef.current
       const { value: password } = passwordRef.current
-      register()
+      updateTokenAsync(email, password)
     }}>
       <input ref={emailRef} type="email" />
       <br />
