@@ -16,21 +16,6 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/users">Users</Link>
-              </li>
-            </ul>
-          </nav>
-
           <Switch>
             <Route path="/about">
               <App />
@@ -42,7 +27,6 @@ ReactDOM.render(
               <App />
             </Route>
           </Switch>
-        </div>
       </Router>
     </Provider>
   </React.StrictMode>,
