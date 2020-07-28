@@ -11,9 +11,8 @@ export const register = async (email, password) => {
       body: JSON.stringify({ email, password }),
     });
   
-    const json = await res.json();
-    console.log('json =====', json)
-    return 125
+    const { token } = await res.json();
+    return token
   } catch (e) {
     return e
   }

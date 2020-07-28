@@ -1,0 +1,14 @@
+.signin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signin__input {
+  margin-top: 1vmin;
+}
+
+.signin__confirm {
+  margin-top: 2vmin;
+}

@@ -1,15 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 import { Auth } from './features/auth/Auth';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>SignIn</h1>
-        <Auth />
-      </header>
+      <Router>
+          <Switch>
+            <Route path="/about">
+              <Auth />
+            </Route>
+            <Route path="/users">
+              <Auth />
+            </Route>
+            <Route path="/">
+              <Auth />
+            </Route>
+          </Switch>
+      </Router>
     </div>
   );
 }
