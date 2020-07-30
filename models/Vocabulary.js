@@ -16,4 +16,4 @@ const vocabularySchema = new Schema({
   }
 })
 
-module.exports = mongoose.model('vacancies', vocabularySchema)
+module.exports = mongoose.model('vocabulary', vocabularySchema)

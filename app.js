@@ -9,6 +9,7 @@ const categoryRoutes = require('./routes/category')
 const orderRoutes = require('./routes/order')
 const positionRoutes = require('./routes/position')
 const vacancyRoutes = require('./routes/vacancy')
+const vocabularyRoutes = require('./routes/vocabulary')
 const keys = require('./config/keys')
 const app = express()
 
@@ -32,6 +33,7 @@ app.use('/api/category', categoryRoutes)
 app.use('/api/order', orderRoutes)
 app.use('/api/position', positionRoutes)
 app.use('/api/vacancy', vacancyRoutes)
+app.use('/api/vocabulary', vocabularyRoutes)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
