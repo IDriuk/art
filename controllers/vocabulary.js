@@ -7,10 +7,8 @@ module.exports.getAll = async function(req, res) {
     user: req.user.id
   }
 
-  // Дата старта
   if (req.query.start) {
     query.date = {
-      // Больше или равно
       $gte: req.query.start
     }
   }
