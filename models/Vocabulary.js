@@ -10,6 +10,11 @@ const vocabularySchema = new Schema({
     type: String,
     default: ''
   },
+  /* if no video, then add some description, how and where find audio */
+  location: {
+    type: String,
+    default: ''
+  },
   user: {
     ref: 'users',
     type: Schema.Types.ObjectId
