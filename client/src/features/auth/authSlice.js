@@ -27,7 +27,7 @@ export const updateTokenAsync = (user, history) => async dispatch => {
   const { email, password } = user
   const token = await register( email, password )
   if ( /Bearer/.test(token)) {
-    history.push('about')
+    history.push('vocabulary')
   }
   dispatch(updateToken(token));
 };

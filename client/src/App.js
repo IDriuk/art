@@ -5,6 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import { Auth } from './features/auth/Auth';
+import { Vocabulary } from './features/vocabulary/Vocabulary';
 import './App.css';
 
 function App() {
@@ -12,11 +13,8 @@ function App() {
     <div className="App">
       <Router>
           <Switch>
-            <Route path="/about">
-              <Auth />
-            </Route>
-            <Route path="/users">
-              <Auth />
+            <Route path="/vocabulary">
+              <Vocabulary />
             </Route>
             <Route path="/">
               <Auth />
