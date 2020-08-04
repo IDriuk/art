@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { updatePhrasesAsync } from "./vocabularySlice";
+import { updatePhrasesAsync, selectPhrases } from "./vocabularySlice";
 import styles from "./Vocabulary.module.css";
 
 export const Vocabulary = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const phrases = useSelector(selectPhrases);
 
   return (
     <ul>
