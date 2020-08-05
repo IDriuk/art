@@ -38,3 +38,24 @@ module.exports.getAll = async function(req, res) {
     errorHandler(res, e)
   }
 }
+
+module.exports.create = async function(req, res) {
+  try {
+
+    const { phrase, link, description } = req.body
+    const { _id } = req.user
+
+    console.log( phrase, link, description, _id ) 
+
+    const result = await new Vocabulary({
+      phrase,
+      link,
+      description,
+      user: _id
+    }).save()
+
+    res.status(201).json(result)
+  } catch (e) {
+    errorHandler(res, e)
+  }
+}

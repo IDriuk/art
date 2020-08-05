@@ -28,6 +28,7 @@ export const updateTokenAsync = (user, history) => async dispatch => {
   const token = await register( email, password )
   if ( /Bearer/.test(token)) {
     history.push('vocabulary')
+    localStorage.setItem('auth-token', token)
   }
   dispatch(updateToken(token));
 };

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getPhrases } from '../../services/api'
+import { getPhrases, addPhrase } from '../../services/api'
 
 export const vocabularySlice = createSlice({
   name: 'vocabulary',
@@ -18,6 +18,11 @@ export const { updatePhrases } = vocabularySlice.actions;
 export const updatePhrasesAsync = (token) => async dispatch => {
   const phrases = await getPhrases(token)
   dispatch(updatePhrases(phrases));
+};
+
+export const addPhraseAsync = ({ phrase, link, description }) => async dispatch => {
+
+  await addPhrase({ phrase, link, description })
 };
 
 export const selectPhrases = state => state.vocabulary.phrases;

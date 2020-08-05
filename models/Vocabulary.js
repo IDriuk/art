@@ -2,18 +2,25 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const vocabularySchema = new Schema({
+  created: { 
+    type: Date, 
+    default: Date.now 
+  },
   phrase: {
     type: String,
     required: true
   },
-  link_to_video: {
+  link: {
     type: String,
     default: ''
   },
-  /* if no video, then add some description, how and where find audio */
-  location: {
+  description: {
     type: String,
     default: ''
+  },
+  tags: {
+    type: [String],
+    default: []
   },
   user: {
     ref: 'users',
