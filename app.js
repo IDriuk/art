@@ -4,7 +4,6 @@ const passport = require('passport')
 const path = require('path')
 const bodyParser = require('body-parser')
 const authRoutes = require('./routes/auth')
-const vacancyRoutes = require('./routes/vacancy')
 const vocabularyRoutes = require('./routes/vocabulary')
 const keys = require('./config/keys')
 const app = express()
@@ -23,7 +22,6 @@ app.use(bodyParser.json())
 app.use(require('cors')())
 
 app.use('/api/auth', authRoutes)
-app.use('/api/vacancy', vacancyRoutes)
 app.use('/api/vocabulary', vocabularyRoutes)
 
 if (process.env.NODE_ENV === 'production') {
