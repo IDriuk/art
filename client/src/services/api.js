@@ -18,11 +18,18 @@ export const register = async (email, password) => {
   }
 }
 
-export const getPhrases = async (email, password) => {
+export const getPhrases = async () => {
+  let token = localStorage.getItem('auth-token')
   
   try {
-    const res = await fetch(`${apiUrl}/vocabulary`);
-
+    const res = await fetch(`${apiUrl}/vocabulary`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        "Authorization": token
+      }
+    });
+  
     return await res.json();
   } catch (e) {
     return e

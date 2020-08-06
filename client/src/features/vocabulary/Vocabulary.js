@@ -1,15 +1,19 @@
-import React, { /* useEffect, */ useRef } from "react";
-import { useDispatch/* , useSelector */ } from "react-redux";
-import { addPhraseAsync/* , selectPhrases */ } from "./vocabularySlice";
+import React, { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addPhraseAsync, updatePhrasesAsync, selectPhrases } from "./vocabularySlice";
 /* import styles from "./Vocabulary.module.css"; */
 
 export const Vocabulary = () => {
-  const phraseRef = useRef(null);
-  const linkRef = useRef(null);
-  const descriptionRef = useRef(null);
+  const phraseRef = useRef(null)
+  const linkRef = useRef(null)
+  const descriptionRef = useRef(null)
 
-  const dispatch = useDispatch();
-  // const phrases = useSelector(selectPhrases);
+  const dispatch = useDispatch()
+  const phrases = useSelector(selectPhrases)
+
+  useEffect(() => {
+    dispatch(updatePhrasesAsync())
+  }, [dispatch])
 
   return (
     <div>
@@ -40,9 +44,11 @@ export const Vocabulary = () => {
         <input type="submit" />
       </form>
       <ul>
-        <li>phrase 1</li>
-        <li>phrase 2</li>
-        <li>phrase 3</li>
+        {phrases.map( ({ phrase, link, description}) => <li key={phrase}>
+          <div>{phrase}</div>
+          <div>{link}</div>
+          <div>{description}</div>
+        </li> )}
       </ul>
     </div>
   );
