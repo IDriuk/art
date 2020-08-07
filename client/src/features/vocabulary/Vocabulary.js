@@ -45,7 +45,7 @@ export const Vocabulary = () => {
       </form>
       <ul>
         {phrases.map( ({ phrase, link, description}) => <li key={phrase}>
-          <div><a href={link} title={description}>{phrase}</a></div>
+          <div><a href={link} title={description} target="_blank">{phrase}</a></div>
         </li> )}
       </ul>
     </div>
