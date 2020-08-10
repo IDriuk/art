@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
+import _ from 'lodash'
 import {
   addPhraseAsync,
   updatePhrasesAsync,
@@ -9,6 +10,7 @@ import {
 
 export const Vocabulary = () => {
   const vidRef = useRef(null);
+  const [plaing, setPlaing] = useState(false)
 
   const phraseRef = useRef(null);
   const linkRef = useRef(null);
@@ -23,7 +25,12 @@ export const Vocabulary = () => {
 
   return (
     <div>
-      <video ref={vidRef} width="0" height="0" />
+      <video ref={vidRef} width="0" height="0" >
+        <source
+          src="https://drive.google.com/uc?export=download&amp;id=1QDvlHH6WjjkwU2oKSdvI4BZcrLwGF2S6"
+          type="video/mp4"
+        />
+      </video>
 
       <form
         onSubmit={async (e) => {
@@ -44,20 +51,18 @@ export const Vocabulary = () => {
           <li key={phrase}>
             <div
               onClick={(e) => {
-                let vid = vidRef.current;
-                vid.pause()
-                if (
-                  vid.src ==
-                  `https://drive.google.com/uc?export=download&id=1wOLAVi25cf89EheyyANt5lreoBTme7Iy#t=29.3,40`
-                ) {
-                  vid.src =
-                    "https://drive.google.com/uc?export=download&id=1Kyg0XBDSdVuFOFmrFC0qPEJfLCisLgmW#t=5,10"
-                } else {
-                  vid.src = `https://drive.google.com/uc?export=download&id=1wOLAVi25cf89EheyyANt5lreoBTme7Iy#t=29.3,40`
+                if (plaing) {
+                  clearTimeout(plaing)
                 }
 
-                vid.load()
-                vid.play()
+                let vid = vidRef.current;
+                vid.currentTime = 7 // start
+                vid.play().then(() => {
+                  setPlaing(_.delay(() => {
+                    vid.pause() 
+                    setPlaing(false)
+                  }, 5000 /* (end - start) * 1000 */))
+                })
               }}
             >
               <a title={description}>
@@ -70,3 +75,7 @@ export const Vocabulary = () => {
     </div>
   );
 };
+
+// vid.src = `https://drive.google.com/uc?export=download&id=1wOLAVi25cf89EheyyANt5lreoBTme7Iy#t=29.3,40`
+// vid.load()
+// vid.play()

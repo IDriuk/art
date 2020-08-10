@@ -14,6 +14,14 @@ const vocabularySchema = new Schema({
     type: String,
     default: ''
   },
+  start: {
+    type: String,
+    default: '1'
+  },
+  end: {
+    type: String,
+    default: '10'
+  },
   description: {
     type: String,
     default: ''
