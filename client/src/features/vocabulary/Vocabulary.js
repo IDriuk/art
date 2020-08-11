@@ -32,7 +32,7 @@ export const Vocabulary = () => {
       <video ref={vidRef} width="0" height="0" >
         <source
           ref={vidSrcRef}
-          src=' '
+          src={`https://drive.google.com/uc?export=download&id=1QDvlHH6WjjkwU2oKSdvI4BZcrLwGF2S6`}
           type="video/mp4"
         />
       </video>
@@ -70,7 +70,6 @@ export const Vocabulary = () => {
                 }
 
                 if ( vidSrc.src !== link ) {
-                  // "https://drive.google.com/uc?export=download&id=1QDvlHH6WjjkwU2oKSdvI4BZcrLwGF2S6"
                   vidSrc.src = link
                   vid.load()
                 } 
