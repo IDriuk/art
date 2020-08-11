@@ -23,10 +23,10 @@ export const updatePhrasesAsync = () => async dispatch => {
   dispatch(updatePhrases(phrases));
 };
 
-export const addPhraseAsync = ({ phrase, link, description }) => async dispatch => {
+export const addPhraseAsync = ({ phrase, link, start, end, tags, description }) => async dispatch => {
 
-  await addPhrase({ phrase, link, description })
-  dispatch(addPhraseOptimistic({ phrase, link, description }))
+  await addPhrase({ phrase, link, start, end, tags, description })
+  dispatch(addPhraseOptimistic({ phrase, link, start, end, tags, description }))
 };
 
 export const selectPhrases = state => state.vocabulary.phrases;

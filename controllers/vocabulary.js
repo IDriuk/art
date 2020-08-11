@@ -21,13 +21,16 @@ module.exports.getAll = async function(req, res) {
 module.exports.create = async function(req, res) {
   try {
 
-    const { phrase, link, description } = req.body
+    const { phrase, link, start, end, tags, description } = req.body
     const { _id } = req.user
 
     const result = await new Vocabulary({
       phrase,
       link,
       description,
+      start,
+      end,
+      tags: tags.split(' ') || [],
       user: _id
     }).save()
 

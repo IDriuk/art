@@ -36,7 +36,7 @@ export const getPhrases = async () => {
   }
 }
 
-export const addPhrase = async ({ phrase, link, description }) => {
+export const addPhrase = async ({ phrase, link, start, end, tags, description }) => {
 
   let token = localStorage.getItem('auth-token')
   
@@ -47,7 +47,7 @@ export const addPhrase = async ({ phrase, link, description }) => {
         "Content-Type": "application/json;charset=utf-8",
         "Authorization": token
       },
-      body: JSON.stringify({ phrase, link, description }),
+      body: JSON.stringify({ phrase, link, start, end, tags, description }),
     });
   
     return await res.json();
