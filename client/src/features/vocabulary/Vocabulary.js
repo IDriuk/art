@@ -6,6 +6,7 @@ import {
   updatePhrasesAsync,
   selectPhrases,
 } from "./vocabularySlice";
+import { defaultVideoLink } from '../../config'
 /* import styles from "./Vocabulary.module.css"; */
 
 export const Vocabulary = () => {
@@ -32,7 +33,7 @@ export const Vocabulary = () => {
       <video ref={vidRef} width="0" height="0" >
         <source
           ref={vidSrcRef}
-          src={`https://drive.google.com/uc?export=download&id=1QDvlHH6WjjkwU2oKSdvI4BZcrLwGF2S6`}
+          src={defaultVideoLink}
           type="video/mp4"
         />
       </video>
@@ -50,7 +51,7 @@ export const Vocabulary = () => {
         }}
       >
         <input ref={phraseRef} type="text" placeholder="phrase" />
-        <input ref={linkRef} type="text" placeholder="link" defaultValue={`https://drive.google.com/uc?export=download&id=1QDvlHH6WjjkwU2oKSdvI4BZcrLwGF2S6`}/>
+        <input ref={linkRef} type="text" placeholder="link" defaultValue={defaultVideoLink}/>
         <input ref={startRef} type="text" placeholder="start" />
         <input ref={endRef} type="text" placeholder="end" />
         <input ref={tagsRef} type="text" placeholder="tags separated by space" />
@@ -59,7 +60,7 @@ export const Vocabulary = () => {
       </form>
       <ul>
         {phrases.map(({ phrase, link, start, end, tags, description }) => (
-          <li key={phrase} title={description} >
+          <li key={phrase} title={tags.join(' ')} >
             <div
               onClick={(e) => {
                 let vid = vidRef.current;
