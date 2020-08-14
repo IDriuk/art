@@ -50,7 +50,7 @@ export const Vocabulary = () => {
         }}
       >
         <input ref={phraseRef} type="text" placeholder="phrase" />
-        <input ref={linkRef} type="text" placeholder="link" />
+        <input ref={linkRef} type="text" placeholder="link" defaultValue={`https://drive.google.com/uc?export=download&id=1QDvlHH6WjjkwU2oKSdvI4BZcrLwGF2S6`}/>
         <input ref={startRef} type="text" placeholder="start" />
         <input ref={endRef} type="text" placeholder="end" />
         <input ref={tagsRef} type="text" placeholder="tags separated by space" />
