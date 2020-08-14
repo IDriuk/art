@@ -11,6 +11,8 @@ export const vocabularySlice = createSlice({
       state.phrases = action.payload;
     },
     addPhraseOptimistic: (state, action) => {
+      const phrase = action.payload
+      phrase.tags = phrase.tags.split(' ')
       state.phrases.push(action.payload)
     }
   },

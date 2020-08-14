@@ -59,7 +59,7 @@ export const Vocabulary = () => {
         <input type="submit" />
       </form>
       <ul>
-        {phrases.map(({ phrase, link, start, end, tags, description }) => (
+        {phrases.map(({ phrase, link, start, end, tags/* , description */ }) => (
           <li key={phrase} title={tags.join(' ')} >
             <div
               onClick={(e) => {
