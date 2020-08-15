@@ -13,6 +13,8 @@ import { defaultVideoLink } from '../../config'
 export const Vocabulary = () => {
   const vidRef = useRef(null);
   const [plaing, setPlaing] = useState(false)
+  const [showForm, toggleForm] = useState(false)
+  const [search, updateSearch] = useState('')
   
   const vidSrcRef = useRef(null);
   const phraseRef = useRef(null);
@@ -23,9 +25,8 @@ export const Vocabulary = () => {
   const descriptionRef = useRef(null);
 
   const dispatch = useDispatch();
-  const phrases = useSelector(selectPhrases);
-
-  const [showForm, toggleForm] = useState(false)
+  const phrases = useSelector(selectPhrases)
+    .filter(el => RegExp(search.toLowerCase()).test(el.phrase.toLowerCase()));
 
   useEffect(() => {
     dispatch(updatePhrasesAsync());
@@ -64,9 +65,18 @@ export const Vocabulary = () => {
         <button type="submit">Save</button>
         <button onClick={() => { toggleForm(false) }}>Cancel</button>
       </form> :
-      <div> 
+      <div>
+        <input 
+          type="text" 
+          placeholder="enter part of phrase" 
+          value={search} 
+          onChange={(e) => {
+            updateSearch(e.target.value)
+        }} />
+        <button onClick={() => { updateSearch('') }}>Clear Search</button>
+        <button onClick={() => { toggleForm(true) }}>Add Phrase</button>
         <ul>
-          {phrases.map(({ phrase, link, start, end, tags/* , description */ }) => (
+          {phrases.map(({ phrase, link, start, end, tags, description }) => (
             <li key={phrase} title={tags.join(' ')} >
               <div
                 onClick={(e) => {
@@ -92,7 +102,18 @@ export const Vocabulary = () => {
                 }}
               >
                 <div>{phrase}</div>
-                <button>edit</button>
+                <button onClick={(e) => {
+                  e.stopPropagation()
+                  toggleForm(true)
+                  _.delay(() => {
+                    phraseRef.current.value = phrase
+                    linkRef.current.value = link
+                    startRef.current.value = start
+                    endRef.current.value = end
+                    descriptionRef.current.value = description
+                    tagsRef.current.value = tags.join(' ')
+                  }, 10)
+                }}>edit</button>
                 <button onClick={(e) => {
                   e.stopPropagation()
                   if (window.confirm('Are you sure?')) {
@@ -103,7 +124,6 @@ export const Vocabulary = () => {
             </li>
           ))}
         </ul>
-        <button onClick={() => { toggleForm(true) }}>Add Phrase</button>
       </div>} 
     </div>
   );
