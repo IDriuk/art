@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getPhrases, addPhrase } from '../../services/api'
+import { getPhrases, addPhrase, deletePhrase } from '../../services/api'
 
 export const vocabularySlice = createSlice({
   name: 'vocabulary',
@@ -16,7 +16,7 @@ export const vocabularySlice = createSlice({
       state.phrases.push(action.payload)
     },
     deletePhraseOptimistic: (state, action) => {
-      const phrases = state.phrases.filter(({phrase}) => phrase != action.payload)
+      const phrases = state.phrases.filter(({phrase}) => phrase !== action.payload)
       state.phrases = phrases
     }
   },
@@ -36,7 +36,7 @@ export const addPhraseAsync = ({ phrase, link, start, end, tags, description }) 
 };
 
 export const deletePhraseAsync = (phrase) => async dispatch => {
-  // await deletePhrase(phrase)
+  await deletePhrase(phrase)
   dispatch(deletePhraseOptimistic(phrase)) 
 }
 

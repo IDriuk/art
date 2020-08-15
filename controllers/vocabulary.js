@@ -39,3 +39,14 @@ module.exports.create = async function(req, res) {
     errorHandler(res, e)
   }
 }
+
+module.exports.remove = async function(req, res) {
+  try {
+    await Vocabulary.remove({phrase: req.params.phrase})
+    res.status(200).json({
+      message: 'Phrase deleted from vocabulary list, check that phrase cuted from video'
+    })
+  } catch (e) {
+    errorHandler(res, e)
+  }
+}

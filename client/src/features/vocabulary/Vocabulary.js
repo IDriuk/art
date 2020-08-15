@@ -95,7 +95,9 @@ export const Vocabulary = () => {
                 <button>edit</button>
                 <button onClick={(e) => {
                   e.stopPropagation()
-                  dispatch(deletePhraseAsync(phrase))
+                  if (window.confirm('Are you sure?')) {
+                    dispatch(deletePhraseAsync(phrase))
+                  }
                 }}>delete</button>
               </div>
             </li>
