@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import _ from 'lodash'
 import {
   addPhraseAsync,
+  deletePhraseAsync,
   updatePhrasesAsync,
   selectPhrases,
 } from "./vocabularySlice";
@@ -24,6 +25,8 @@ export const Vocabulary = () => {
   const dispatch = useDispatch();
   const phrases = useSelector(selectPhrases);
 
+  const [showForm, toggleForm] = useState(false)
+
   useEffect(() => {
     dispatch(updatePhrasesAsync());
   }, [dispatch]);
@@ -38,6 +41,7 @@ export const Vocabulary = () => {
         />
       </video>
 
+      {showForm ? 
       <form
         onSubmit={async (e) => {
           e.preventDefault()
@@ -48,6 +52,7 @@ export const Vocabulary = () => {
           const { value: description } = descriptionRef.current
           const { value: tags } = tagsRef.current
           dispatch(addPhraseAsync({ phrase, link, start, end, tags, description }))
+          toggleForm(false)
         }}
       >
         <input ref={phraseRef} type="text" placeholder="phrase" />
@@ -56,39 +61,48 @@ export const Vocabulary = () => {
         <input ref={endRef} type="text" placeholder="end" />
         <input ref={tagsRef} type="text" placeholder="tags separated by space" />
         <input ref={descriptionRef} type="text" placeholder="description" />
-        <input type="submit" />
-      </form>
-      <ul>
-        {phrases.map(({ phrase, link, start, end, tags/* , description */ }) => (
-          <li key={phrase} title={tags.join(' ')} >
-            <div
-              onClick={(e) => {
-                let vid = vidRef.current;
-                let vidSrc = vidSrcRef.current;
+        <button type="submit">Save</button>
+        <button onClick={() => { toggleForm(false) }}>Cancel</button>
+      </form> :
+      <div> 
+        <ul>
+          {phrases.map(({ phrase, link, start, end, tags/* , description */ }) => (
+            <li key={phrase} title={tags.join(' ')} >
+              <div
+                onClick={(e) => {
+                  let vid = vidRef.current;
+                  let vidSrc = vidSrcRef.current;
 
-                if (plaing) {
-                  clearTimeout(plaing)
-                }
+                  if (plaing) {
+                    clearTimeout(plaing)
+                  }
 
-                if ( vidSrc.src !== link ) {
-                  vidSrc.src = link
-                  vid.load()
-                } 
+                  if ( vidSrc.src !== link ) {
+                    vidSrc.src = link
+                    vid.load()
+                  } 
 
-                vid.currentTime = start / 1000
-                vid.play().then(() => {
-                  setPlaing(_.delay(() => {
-                    vid.pause() 
-                    setPlaing(false)
-                  }, end - start))
-                })
-              }}
-            >
-              {phrase}
-            </div>
-          </li>
-        ))}
-      </ul>
+                  vid.currentTime = start / 1000
+                  vid.play().then(() => {
+                    setPlaing(_.delay(() => {
+                      vid.pause() 
+                      setPlaing(false)
+                    }, end - start))
+                  })
+                }}
+              >
+                <div>{phrase}</div>
+                <button>edit</button>
+                <button onClick={(e) => {
+                  e.stopPropagation()
+                  dispatch(deletePhraseAsync(phrase))
+                }}>delete</button>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <button onClick={() => { toggleForm(true) }}>Add Phrase</button>
+      </div>} 
     </div>
   );
 };
