@@ -1,4 +1,4 @@
-Раздел 1:Get Started Here!
+===== Раздел 1:Get Started Here! 
 1. How to Get Help
 
 Hello and welcome.
@@ -38,3 +38,303 @@ So that's the three ways to get help if you ever get stuck during this course.
 Let's pause right now and we'll start talking about our first technical topic in the next video so I'll
 
 see you in just a minute.
+----------------------------------------------------------------------------------------------------------
+
+2. The All Important Coding Interview
+
+Before we dive into any technical content we are going to discuss some important items regarding interviews
+
+and white board questions.
+
+I want to put you in a certain frame of mind of how you should approach interviews and interview questions
+
+so let's get to it.
+
+We'll start off by looking at a couple of different diagrams.
+
+First I want to show you a quick timeline of the general job seeking process at any given company getting
+
+an offer from a company is really split into two different phases the contact phase in the interview
+
+phase contact phase is when you try to get in contact with a living breathing human at a company and
+
+this might take the form of talking to a recruiter getting a referral from a friend or submitting your
+
+resume through some online form.
+
+Now this part at the top isn't too bad.
+
+You know right now there's a pretty good amount of demand for software engineers.
+
+And so after some amount of time of sending out your resume talking to recruiters.
+
+Eventually you will get through this phase.
+
+What comes after the contact phase is much more interesting.
+
+So after you make this initial contact you move on to the interview phase the interview phase consists
+
+of phone screens take home coding assignments and on site interviews.
+
+This is the real make or break part the part that decides whether or not you're going to get an offer
+
+with these two phases in mind.
+
+I want to now ask you a question.
+
+So during each of these two phases What is the average company looking to evaluate in you.
+
+Well I've got a couple of thoughts about that.
+
+I think that the average company is evaluating a couple different qualities in you during each of these
+
+two phases.
+
+So during the initial contact phase the company kind of wants to get a general idea of who you are.
+
+So what work experience do you have.
+
+Do you have any interesting side projects.
+
+Are you friends with many people at the company during the second phase.
+
+However during the interview phase there are some distinctly different qualities that a company really
+
+wants to evaluate once you meet and interview in person they are going to try to decide whether or not
+
+you're a good culture fit like whether your personality is going to mesh well with other people at that
+
+company.
+
+But much much more importantly than that it's during this interview phase that a company is going to
+
+attempt to evaluate whether or not you are an effective coder or a good engineer.
+
+So what's the point of this.
+
+I'm sure you know you've already gotten a good idea of how companies hire people.
+
+But the point here is I want to really make sure that it's clear that of all these different qualities
+
+out of everything that a company is doing to evaluate you there is exactly one make or break quality
+
+that you can improve.
+
+Right now today.
+
+And that is your ability to code your ability to answer a coding interview questions is the single most
+
+important quality that you are going to be judged on during the interview process.
+
+I personally have seen many people apply and get accepted to companies like Google Facebook Amazon and
+
+many of them had little work experience no side projects no social contacts.
+
+They might not be the nicest person in the world.
+
+Maybe they didn't have the best culture fit but they could code and they could answer whiteboard questions
+
+effectively.
+
+And that is going to override every other quality during the interview process.
+
+So the big takeaway here is that just by being here in this course watching this video right now you're
+
+making a great move because you are are on the path to improving one of the most critical and easily
+
+improvable areas for getting a great job.
+
+And I hope that doesnt sound like too much of a marketing statement on my part but really I want you
+
+to understand that there is nothing that gives you bang for your buck in the job seeking world.
+
+Like being good at coding interviews.
+
+So with all of this in mind let's continue in the next section and start to break down exactly how you
+
+can get better at coding questions.
+---------------------------------------------------------------------------------------------------------------------------
+
+3. Getting Better at Coding
+Questions
+
+In an interview setting interviewers have three big tools to evaluate your coding ability.
+
+First they can assign you a take home project which is something that you would usually do on your own
+
+time and then submit to the company looking to hire you.
+
+Second your interviewer can sit down next to you at a computer and the two of you can do a little bit
+
+of pair programming.
+
+Usually this peer programming focuses on a more practical use of skills rather than algorithms or theoretical
+
+questions.
+
+Third and what you will see most frequently at large companies like Google or Facebook is whiteboarding.
+
+So the term whiteboarding is a reference to standing at a whiteboard or a chalkboard and writing out
+
+some code to satisfy your interviewers questions whiteboard interviews have traditionally been seen
+
+as kind of confrontational and certainly very nerve wracking as well.
+
+Nonetheless it really is the tool of preference for many large companies.
+
+And like we just mentioned the last video whiteboarding really is the easiest area for you to get better
+
+at.
+
+So the natural question to ask here is how do we get better at whiteboard questions.
+
+If this is how we get hired if doing well Whiteford questions is how we get hired at a job.
+
+How do we get better at doing them.
+
+And the answer there might be a little bit disappointing is of course practice practice practice nonstop
+
+practice.
+
+There's no magic pill that you can take.
+
+There's no secret.
+
+One time exercise that is going to turn you into a pro at Whiteford interview questions all you can
+
+do is practice.
+
+Let me tell you a little bit about why practice is so important for interview questions by showing you
+
+two extremely common interview questions.
+
+So we're going to look at two very calm questions and we're going to kind of break them down a little
+
+bit.
+
+And I think you're going to find this a little bit interesting.
+
+So the first one that we're going to look at is the classic fizz buzz problem.
+
+If you've never seen it before this buzz is an extremely common interview question that requires you
+
+to print out all the numbers between 1 and 100.
+
+If a printed number is divisible by three divisible by three excuse me you should print out the string
+
+fizz and if the number is divisible by 5 then you should print out the string buzz and then there's
+
+one other case on here as well not super important.
+
+This is considered to be one of the easiest interview questions around but people still fail this question
+
+all the time in interviews.
+
+So why is that.
+
+Is it that lots of people are just really bad at programming.
+
+Well in my opinion the reason that so many people fail at a supposedly easy question is that it's not
+
+really an easy question at all.
+
+My personal belief is that this is a moderately difficult one that has a little trick to it but once
+
+you see that trick once you know what that trick is the problem becomes amazingly simple and amazingly
+
+straightforward.
+
+So I don't think that this is an inherently easy question.
+
+It's that as soon as you know the trick it becomes incredibly simple.
+
+And that is repeated with so many interview questions so many programming candidates who get interviewed
+
+are not sitting there in a boat like a programming genius an interview because they get every question
+
+right.
+
+It's because they have done enough questions on their own time.
+
+They've done enough practice to know the little trick that is required to solve each question.
+
+The more problems you practice and the more problems you solve the better off you will be at knowing
+
+these little tricks as they come up.
+
+So see one other great example of this.
+
+This kind of phenomenon.
+
+So here is another amazingly common interview question.
+
+This is a question that I've been asked myself so many times in interviews and I have seen it asked
+
+at companies I've worked at as well.
+
+One company I worked on particular asked every single candidate this question.
+
+So I've seen this question asked many times and I've seen it answered many times as well.
+
+So this is a question about the Fibonacci series and this question.
+
+You're supposed to print out a specific number from the Fibonacci series.
+
+Now it's not really important to understand what the Fibonacci series is just yet.
+
+I kind of want to have just or commentary about what's going on around this question.
+
+In most interviews an interviewer will ask the candidate to solve this problem with a recursive solution.
+
+So here's the recursive solution down here.
+
+Now I'm going to level with you.
+
+And be really honest here.
+
+I have seen amazingly few candidates over the years who have sat down and come up with this recursive
+
+solution on the fly.
+
+Like in other words nobody is really being asked this question.
+
+For the first time in an interview and giving this as a solution I'm 100 percent convinced of that.
+
+Instead every last one of these candidates who ever get this question right has always practiced this
+
+exact question in the past.
+
+They memorize this very short solution right here and then.
+
+Hey soon as you get answer ask this question.
+
+Great here's this like three line solution right here.
+
+So the more you practice these problems the more likely it is that you'll be asked a problem that you
+
+have already seen.
+
+Of course if you have been in their interview and came up with a solution on the fly you know if that
+
+has happened to you in the past that's great.
+
+You know I'm not saying that it's impossible and doesn't happen for people to figure this out on the
+
+fly.
+
+I'm just saying that the bulk of my experience.
+
+Most people who solve this question have seen it before and most people who have not seen it usually
+
+fail the question which is certainly not good.
+
+OK so hopefully at this point it's clear why solving problems nonstop really is the best way to get
+
+better at technical interviews.
+
+So let's continue with the next video where we're going to start to discuss how problems in this course
+
+are laid out.
+
+So quick break and I'll see you in just a minute.
+-------------------------------------------------------------------------------------------------------------
