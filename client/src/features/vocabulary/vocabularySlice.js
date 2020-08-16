@@ -16,8 +16,7 @@ export const vocabularySlice = createSlice({
       state.phrases.push(action.payload)
     },
     deletePhraseOptimistic: (state, action) => {
-      const phrases = state.phrases.filter(({phrase}) => phrase !== action.payload)
-      state.phrases = phrases
+      state.phrases = state.phrases.filter(({_id}) => _id !== action.payload)
     }
   },
 });
@@ -35,9 +34,9 @@ export const addPhraseAsync = ({ phrase, link, start, end, tags, description }) 
   dispatch(addPhraseOptimistic({ phrase, link, start, end, tags, description }))
 };
 
-export const deletePhraseAsync = (phrase) => async dispatch => {
-  await deletePhrase(phrase)
-  dispatch(deletePhraseOptimistic(phrase)) 
+export const deletePhraseAsync = (_id) => async dispatch => {
+  await deletePhrase(_id)
+  dispatch(deletePhraseOptimistic(_id)) 
 }
 
 export const selectPhrases = state => state.vocabulary.phrases;

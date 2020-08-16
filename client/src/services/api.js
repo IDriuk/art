@@ -56,12 +56,12 @@ export const addPhrase = async ({ phrase, link, start, end, tags, description })
   }
 }
 
-export const deletePhrase = async (phrase) => {
+export const deletePhrase = async (_id) => {
 
   let token = localStorage.getItem('auth-token')
   
   try {
-    const res = await fetch(`${apiUrl}/vocabulary/${phrase}`, {
+    const res = await fetch(`${apiUrl}/vocabulary/${_id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json;charset=utf-8",

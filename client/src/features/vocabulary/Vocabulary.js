@@ -76,7 +76,7 @@ export const Vocabulary = () => {
         <button onClick={() => { updateSearch('') }}>Clear Search</button>
         <button onClick={() => { toggleForm(true) }}>Add Phrase</button>
         <ul>
-          {phrases.map(({ phrase, link, start, end, tags, description }) => (
+          {phrases.map(({ _id, phrase, link, start, end, tags, description }) => (
             <li key={phrase} title={tags.join(' ')} >
               <div
                 onClick={(e) => {
@@ -117,7 +117,7 @@ export const Vocabulary = () => {
                 <button onClick={(e) => {
                   e.stopPropagation()
                   if (window.confirm('Are you sure?')) {
-                    dispatch(deletePhraseAsync(phrase))
+                    dispatch(deletePhraseAsync(_id))
                   }
                 }}>delete</button>
               </div>
