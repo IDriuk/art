@@ -11,8 +11,8 @@ export const Auth = () => {
   const history = useHistory();
 
   return (
-    <>
-      <h1>SignIn</h1>
+    <div className={styles.auth}>
+      <h1 className={styles.title}>SignIn</h1>
       <form
         className={styles.signin}
         onSubmit={async (e) => {
@@ -23,19 +23,23 @@ export const Auth = () => {
         }}
       >
         <input
-          className={styles.signin__input}
+          className={`${styles.input} form-control`}
           ref={emailRef}
           type="email"
           placeholder="email"
         />
         <input
-          className={styles.signin__input}
+          className={`${styles.input} form-control`}
           ref={passwordRef}
           type="password"
           placeholder="password"
         />
-        <input className={styles.signin__confirm} type="submit" />
+        <button 
+          className={`${styles.submit} btn btn-lg btn-primary btn-block`} 
+          type="submit">
+          Signin
+        </button>
       </form>
-    </>
+    </div>
   );
 };

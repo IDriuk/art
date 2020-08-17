@@ -1,3 +1,15 @@
+.auth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
 .signin {
   display: flex;
   flex-direction: column;
@@ -5,10 +17,10 @@
   align-items: center;
 }
 
-.signin__input {
-  margin-top: 1vmin;
+.input {
+  margin: 5px;
 }
 
-.signin__confirm {
-  margin-top: 2vmin;
+.submit {
+  margin: 10px;
 }
