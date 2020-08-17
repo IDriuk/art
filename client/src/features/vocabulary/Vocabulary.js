@@ -33,7 +33,7 @@ export const Vocabulary = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="container">
       <video ref={vidRef} width="0" height="0" >
         <source
           ref={vidSrcRef}
@@ -56,70 +56,95 @@ export const Vocabulary = () => {
           toggleForm(false)
         }}
       >
-        <input ref={phraseRef} type="text" placeholder="phrase" />
-        <input ref={linkRef} type="text" placeholder="link" defaultValue={defaultVideoLink}/>
-        <input ref={startRef} type="text" placeholder="start" />
-        <input ref={endRef} type="text" placeholder="end" />
-        <input ref={tagsRef} type="text" placeholder="tags separated by space" />
-        <input ref={descriptionRef} type="text" placeholder="description" />
-        <button type="submit">Save</button>
-        <button onClick={() => { toggleForm(false) }}>Cancel</button>
+        <input className="form-control mb-3" ref={phraseRef} type="text" placeholder="ente phrase text" />
+        <input className="form-control mb-3" ref={linkRef} type="text" placeholder="enter link to mp4 video file" defaultValue={defaultVideoLink}/>
+        <input className="form-control mb-3" ref={startRef} type="text" placeholder="enter start of phrase in milliseconds" />
+        <input className="form-control mb-3" ref={endRef} type="text" placeholder="enter end of phrase in milliseconds" />
+        <input className="form-control mb-3" ref={tagsRef} type="text" placeholder="enter tags separated by space" />
+        <input className="form-control mb-3" ref={descriptionRef} type="text" placeholder="enter description" />
+        <div className="d-flex justify-content-center">
+          <button className="btn btn-primary mr-1" type="submit">Save</button>
+          <button className="btn btn-secondary" onClick={() => { toggleForm(false) }}>Cancel</button>
+        </div>
       </form> :
       <div>
-        <input 
-          type="text" 
-          placeholder="enter part of phrase" 
-          value={search} 
-          onChange={(e) => {
-            updateSearch(e.target.value)
-        }} />
-        <button onClick={() => { updateSearch('') }}>Clear Search</button>
-        <button onClick={() => { toggleForm(true) }}>Add Phrase</button>
-        <ul>
+        <div className="form-row ">
+          <div className="flex-grow-1">
+            <input
+              className="form-control" 
+              type="text" 
+              placeholder="enter part of phrase" 
+              value={search} 
+              onChange={(e) => {
+                updateSearch(e.target.value)
+            }} />
+          </div>
+          <div className="btn-group ml-3">
+            <button className="btn btn-secondary" onClick={() => { updateSearch('') }}>Clear Search</button>
+            <button className="btn btn-secondary" onClick={() => { toggleForm(true) }}>Add Phrase</button>
+          </div>
+        </div>
+        
+        <ul className="list-group mt-3">
           {phrases.map(({ _id, phrase, link, start, end, tags, description }) => (
-            <li key={phrase} title={tags.join(' ')} >
-              <div
-                onClick={(e) => {
-                  let vid = vidRef.current;
-                  let vidSrc = vidSrcRef.current;
+            <li 
+              className="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+              key={phrase} 
+              title={tags.join(' ')} 
+              onClick={(e) => {
+                let vid = vidRef.current;
+                let vidSrc = vidSrcRef.current;
 
-                  if (plaing) {
-                    clearTimeout(plaing)
-                  }
+                if (plaing) {
+                  clearTimeout(plaing)
+                }
 
-                  if ( vidSrc.src !== link ) {
-                    vidSrc.src = link
-                    vid.load()
-                  } 
+                if ( vidSrc.src !== link ) {
+                  vidSrc.src = link
+                  vid.load()
+                } 
 
-                  vid.currentTime = start / 1000
-                  vid.play().then(() => {
-                    setPlaing(_.delay(() => {
+                vid.currentTime = start / 1000
+                vid.play().then(() => {
+                  setPlaing(_.delay(() => {
+                    try {
                       vid.pause() 
-                      setPlaing(false)
-                    }, end - start))
-                  })
-                }}
-              >
-                <div>{phrase}</div>
-                <button onClick={(e) => {
-                  e.stopPropagation()
-                  toggleForm(true)
-                  _.delay(() => {
-                    phraseRef.current.value = phrase
-                    linkRef.current.value = link
-                    startRef.current.value = start
-                    endRef.current.value = end
-                    descriptionRef.current.value = description
-                    tagsRef.current.value = tags.join(' ')
-                  }, 10)
-                }}>edit</button>
-                <button onClick={(e) => {
-                  e.stopPropagation()
-                  if (window.confirm('Are you sure?')) {
-                    dispatch(deletePhraseAsync(_id))
-                  }
-                }}>delete</button>
+                    } catch (e) {
+                      console.log('called pause then plaing =====', e)
+                      vid.load()
+                      vid.pause()
+                    }
+                    setPlaing(false)
+                  }, end - start))
+                })
+              }}
+            >
+              {phrase}
+              <div className="btn-group">
+                <button
+                  className="btn btn-secondary" 
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    toggleForm(true)
+                    _.delay(() => {
+                      phraseRef.current.value = phrase
+                      linkRef.current.value = link
+                      startRef.current.value = start
+                      endRef.current.value = end
+                      descriptionRef.current.value = description
+                      tagsRef.current.value = tags.join(' ')
+                    }, 10)
+                  }}
+                >edit</button>
+                <button
+                  className="btn btn-danger"  
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    if (window.confirm('Are you sure?')) {
+                      dispatch(deletePhraseAsync(_id))
+                    }
+                  }}
+                >delete</button>
               </div>
             </li>
           ))}
