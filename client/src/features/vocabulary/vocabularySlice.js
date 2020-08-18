@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getPhrases, addPhrase, deletePhrase } from '../../services/api'
+import { getPhrases, addPhrase, deletePhrase, updatePhrase } from '../../services/api'
 
 export const vocabularySlice = createSlice({
   name: 'vocabulary',
@@ -17,11 +17,15 @@ export const vocabularySlice = createSlice({
     },
     deletePhraseOptimistic: (state, action) => {
       state.phrases = state.phrases.filter(({_id}) => _id !== action.payload)
+    },
+    updatePhraseOptimistic: (state, action) => {
+      let index = state.phrases.findIndex(({_id}) => _id == action.payload.oldId)
+      state.phrases[index] = action.payload
     }
   },
 });
 
-export const { updatePhrases, addPhraseOptimistic, deletePhraseOptimistic } = vocabularySlice.actions;
+export const { updatePhrases, addPhraseOptimistic, deletePhraseOptimistic, updatePhraseOptimistic } = vocabularySlice.actions;
 
 export const updatePhrasesAsync = () => async dispatch => {
   const phrases = await getPhrases()
@@ -37,6 +41,12 @@ export const addPhraseAsync = ({ phrase, link, start, end, tags, description }) 
 export const deletePhraseAsync = (_id) => async dispatch => {
   await deletePhrase(_id)
   dispatch(deletePhraseOptimistic(_id)) 
+}
+
+export const updatePhraseAsync = ({_id, phrase, link, start, end, tags, description }) => async dispatch => {
+  let updatedPhrase = await updatePhrase({_id, phrase, link, start, end, tags, description })
+  updatedPhrase.oldId = _id
+  dispatch(updatePhraseOptimistic(updatedPhrase))
 }
 
 export const selectPhrases = state => state.vocabulary.phrases;

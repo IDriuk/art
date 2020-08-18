@@ -8,7 +8,7 @@ const vocabularyRoutes = require('./routes/vocabulary')
 const keys = require('./config/keys')
 const app = express()
 
-mongoose.connect(keys.mongoURI, { useUnifiedTopology: true, useNewUrlParser: true })
+mongoose.connect(keys.mongoURI, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false })
   .then(() => console.log('MongoDB connected.'))
   .catch(error => console.log(error))
 mongoose.set('useCreateIndex', true);

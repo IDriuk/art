@@ -50,3 +50,28 @@ module.exports.remove = async function(req, res) {
     errorHandler(res, e)
   }
 }
+
+module.exports.update = async function(req, res) {
+  const { phrase, link, start, end, tags, description } = req.body
+
+  const updated = {
+    phrase, 
+    link, 
+    start, 
+    end, 
+    description, 
+    tags: tags.split(' ') || [],
+    updated: Date.now()
+  }
+
+  try {
+    const phrase = await Vocabulary.findOneAndUpdate(
+      {_id: req.params.id},
+      {$set: updated},
+      {new: true}
+    )
+    res.status(200).json(phrase)
+  } catch (e) {
+    errorHandler(res, e)
+  }
+}

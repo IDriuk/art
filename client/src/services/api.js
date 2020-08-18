@@ -74,3 +74,23 @@ export const deletePhrase = async (_id) => {
     return e
   }
 }
+
+export const updatePhrase = async ({_id, phrase, link, start, end, tags, description }) => {
+
+  let token = localStorage.getItem('auth-token')
+  
+  try {
+    const res = await fetch(`${apiUrl}/vocabulary/${_id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        "Authorization": token
+      },
+      body: JSON.stringify({ phrase, link, start, end, tags, description })
+    });
+  
+    return await res.json();
+  } catch (e) {
+    return e
+  }
+}

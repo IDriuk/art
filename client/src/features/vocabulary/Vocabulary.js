@@ -5,6 +5,7 @@ import {
   addPhraseAsync,
   deletePhraseAsync,
   updatePhrasesAsync,
+  updatePhraseAsync,
   selectPhrases,
 } from "./vocabularySlice";
 import { defaultVideoLink } from '../../config'
@@ -52,7 +53,8 @@ export const Vocabulary = () => {
           const { value: end } = endRef.current
           const { value: description } = descriptionRef.current
           const { value: tags } = tagsRef.current
-          dispatch(addPhraseAsync({ phrase, link, start, end, tags, description }))
+          let action = showForm == "add" ? addPhraseAsync : updatePhraseAsync
+          dispatch(action({_id: showForm, phrase, link, start, end, tags, description }))
           toggleForm(false)
         }}
       >
@@ -81,7 +83,7 @@ export const Vocabulary = () => {
           </div>
           <div className="btn-group ml-3">
             <button className="btn btn-secondary" onClick={() => { updateSearch('') }}>Clear Search</button>
-            <button className="btn btn-secondary" onClick={() => { toggleForm(true) }}>Add Phrase</button>
+            <button className="btn btn-secondary" onClick={() => { toggleForm("add") }}>Add Phrase</button>
           </div>
         </div>
         
@@ -125,7 +127,7 @@ export const Vocabulary = () => {
                   className="btn btn-secondary" 
                   onClick={(e) => {
                     e.stopPropagation()
-                    toggleForm(true)
+                    toggleForm(_id)
                     _.delay(() => {
                       phraseRef.current.value = phrase
                       linkRef.current.value = link
