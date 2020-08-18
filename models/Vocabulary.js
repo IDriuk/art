@@ -6,6 +6,10 @@ const vocabularySchema = new Schema({
     type: Date, 
     default: Date.now 
   },
+  updated: {
+    type: Date,
+    default: Date.now
+  },
   phrase: {
     type: String,
     required: true
