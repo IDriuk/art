@@ -1,4 +1,4 @@
-===== Раздел 1:Get Started Here! 
+Раздел 1:Get Started Here! 
 1. How to Get Help
 
 Hello and welcome.
@@ -338,3 +338,2673 @@ are laid out.
 
 So quick break and I'll see you in just a minute.
 -------------------------------------------------------------------------------------------------------------
+=============================================================================================================
+
+
+
+Раздел 2:A Touch of Setup
+
+5. Environment Setup
+
+Now that we have a good sense of why it is so important to practice coding problems will well now to
+
+continue by doing a little bit of environment setup in this section we'll be cleaning a get help repot
+
+that contains all the exercises and problems that we'll be working on throughout this course.
+
+So let's get to it.
+
+I mean the first change on over to my browser and I'm going to navigate to get hub dot com slash Stephen
+
+Greider slash algo casse and I'll paste the link right here just to make sure it's nice and legible
+
+for you.
+
+I also put this link in the last lecture as text so you can always go back there and copy the link as
+
+well.
+
+OK so once I'm at this page I need to find the green button on the right hand side that says clone or
+
+download a click it and then you can either download this entire repo as a zip file or clone it with
+
+get.
+
+In my case I can go ahead and clone it with get by copying the link right here.
+
+So I copy the link.
+
+I'm going to change back over to my terminal and then I will clone the repository by writing get clone
+
+and then that link next will change into that directory that was just created.
+
+And that's pretty much it.
+
+Now there is one little dependency that we have to install here.
+
+We're going to first install the dependency in this section and then we'll talk about what it does in
+
+the next video.
+
+So still at my command line I'm going to run the command sudo NPM install Dashti just now really important
+
+if you're on Windows you don't need sudo right here.
+
+So if you are on Windows go back over to the very left hand side and you'll delete that sudo only if
+
+you're on Windows.
+
+Otherwise go ahead and run the command.
+
+You'll be prompted for your system password.
+
+You can go ahead and give it and then run the command.
+
+All right so this is going to take a couple of minutes to install.
+
+So let's wait for it to finish and continue in the next section.
+---------------------------------------------------------------------------------------------------------------
+
+
+6. Repo Test Setup
+In the last section we installed a get repo that contain all the exercises and programs they'll be working
+
+through inside this course and then we install the just command line tool with NPM.
+
+Let's now take a look at the contents of this repo.
+
+And we'll also discuss what that geste program is for.
+
+So I'm going to start up my code editor inside this directory that we just cloned and we'll take a look
+
+at some of the files and folders inside of it.
+
+OK.
+
+So inside of here you'll notice two folders right here.
+
+You might notice one or two more folders.
+
+After I have gone through income and recension records all the content of this course.
+
+But what you and I are really concerned with right now is this exercises directory.
+
+So we open up the exercises folder you'll see a number of some folders inside of that.
+
+Now for you you're probably going to see many more folders inside of here for me as I'm recording this
+
+course.
+
+I decided to just keep a minimal number of folders inside of you at any given one time.
+
+So it's easier for you to understand where I'm working inside of the directory structure inside of each
+
+of these folders you'll find both the index start ups and a test dot js file.
+
+So the idea behind these different folders is that each one represents a specific problem that we're
+
+going to work on.
+
+All the code that you and I are going to write to solve the problem will go into the index not just
+
+file of each respective problem and then some code to test our solution has been already written for
+
+us inside of the test.
+
+JS file.
+
+So if I could open up test not genius you'll see some number of tests inside of here.
+
+So that just command line tool that we just installed is a test runner that we're going to use to evaluate
+
+all these different tests for each of these different exercises.
+
+Let's now flip back over to the command line tool and just kind of see how it works.
+
+So back in my command line I'm going to change into the exercises directory and then I'm going to run
+
+the just command.
+
+So I'll simply run just like so now when we run just it's going to automatically attempt to execute
+
+every last test inside of this repository for us.
+
+So we'll see something that says like hey here's some number of tests that might have passed in some
+
+number that might have failed.
+
+Now we are not going to want to really run all the tests for all the exercises every single time.
+
+Instead we're going to usually be running one set of tests.
+
+In other words just a set of tests for one specific problem that we're working on in order to run one
+
+batch of tests.
+
+We're going to modify how we run that just command slightly.
+
+So here's what we're going to do.
+
+Let's imagine that we want to run the tests for this fib exercise right here to run just the test for
+
+this fib exercise.
+
+We'll run the command just fed slash test drive J us and then slash slash or seen dash dash watch.
+
+Like so.
+
+So in other words you will write out the test file for just the exercise that we're trying to run.
+
+Now in general throughout the course as we are working on each and every different one of these exercises
+
+I will be showing you how to write the command.
+
+So you don't need to necessarily memorize this command right here or be sure to show you over time how
+
+we are going to run it again and again and again just to give you a good reminder.
+
+So we now run this command.
+
+You'll see that we are running only with tests related to that fib problem.
+
+So I see now just six Tests being passed ran six Tests executed because there are six tests inside of
+
+this test file for the fifth exercise.
+
+Now just some other quick things to understand.
+
+Whenever you change any of the code inside the project structure these tests will automatically rerun
+
+for us.
+
+But if for some reason you want to rerun them manually you can press the Enter key on your keyboard
+
+and that will rerun all these tests once you're done running all the tests for a particular exercise.
+
+And you're ready to run to move on to the next one.
+
+You can always Press Control C on your keyboard and that will stop the test runner.
+
+So if I press control C that will stop the test runner like so and then of course I can always start
+
+them back up and then exit out again by pressing Control-C again.
+
+OK.
+
+So that's pretty much it.
+
+This is our testing setup we're going to be using it throughout the course for each of the different
+
+problems so we end up working on.
+
+So the good thing about this test setup is that if you ever decide you want to deviate from the course
+
+and just solve all these problems on your own or maybe come back later on and practice the problems
+
+on your own then hey fantastic you've got a bunch of tests here to make sure you're doing the correct
+
+work.
+
+So now that we have our development setup all put together let's continue on the next section and get
+
+started on our first practice problem.
+--------------------------------------------------------------------------------------------------------
+========================================================================================================
+
+
+
+
+Раздел 3:String Reversal
+
+8. First Question! Reverse String.
+Now that we've set up our repo and we have a better idea how to run tests.
+
+Let's get started with our first problem.
+
+So the first question that we're going to tackle here is the one marked as reverse string is going to
+
+open up that folder and then open up the index G-S file inside of it.
+
+Now before we talk about this question too much I want to start up my tests for this particular question.
+
+So back in my terminal I'm going to make sure that I'm inside of my exercises directory if I list out
+
+all my files and folders inside of here I should see the reverse string problem listed.
+
+Now to start my tests or run just reverse string slash test G-S then dash dash watch like so so a run
+
+this and that will start up our tests and the first time they run I should see two test failing and
+
+at least one test is passing which is great.
+
+So you're going to work out this question and then as you start to solve it or whenever you think you
+
+have a solution come back over to your terminal and make sure that all three tests are passing.
+
+This is a nice kind of mild.
+
+First question to start off with.
+
+So hopefully we'll get kind of a knack around the pattern of writing a little code and then coming back
+
+and checking out the tests.
+
+All right now let's check out the question itself.
+
+So inside of my reverse string index dot G-S file you'll see the directions list at the top.
+
+Now essentially all we really want to do here is take a string that is provided as an argument as TR
+
+short for string.
+
+Reverse it and then return it from the function.
+
+And the last part is really important.
+
+Don't forget to return the string that gets reversed.
+
+Very important.
+
+So inside of this function body right here you're going to write in your solution.
+
+Save the file and then whenever the file is saved you should see your tests rerun and repeat until you
+
+see these things pass.
+
+Now in this particular case I'm going to very purposely not give you a lot of direction on this question.
+
+I want you to kind of dive in head first into this particular question but on future questions we will
+
+talk a lot about pre-amble and different possibilities to solve it and all that kind of good stuff.
+
+So just on the first one I want to just dive in headfirst.
+
+Give it your best try.
+
+One thing keep in mind is that if you ever start to get frustrated on the question please please please
+
+just stop working on it and watch the solution especially when you're first getting started with practicing
+
+interview questions.
+
+It's really really important to make sure that you don't end up getting to know a little bit frustrated
+
+when you're first getting started.
+
+It's all about just seeing a lot of questions very quickly so you can start to get a handle on the types
+
+of questions that you'll be asked.
+
+So again if you are spending a lot of time on this question or any other one we work on just take a
+
+break watch this solution and then give it another shot and I'll remind you this several times as we
+
+go through the course.
+
+OK.
+
+So I'll leave this up to you.
+
+Or catching the next section and we'll go and walk over the solution.
+------------------------------------------------------------------------------------------------------------------
+
+9. String Reversal, Solution #1
+OK hopefully you had some success with this problem in this section we're going to walk through one
+
+possible solution.
+
+Now the first solution that we're gonna start off with is by far the easiest one.
+
+However it's also not necessarily the most obvious one.
+
+So this one requires a little bit of trivia knowledge of javascript in general.
+
+So rather than going and writing out the solution right away I want to show you a little bit of documentation.
+
+And as soon as you see this documentation you might have an auto type moment.
+
+So let's take a look.
+
+So inside my browser I'm going to open up the documentation for a re prototype reverse reverse is a
+
+built in function that is included with all versions of javascript.
+
+I should say most recent versions the reverse function right here will reverse all of the elements within
+
+a given array and you can very easily see with the documentation right here.
+
+We have one two three.
+
+The reverse method is called on it and then a contains three to one instead.
+
+Now this is very important to note here.
+
+A method that belongs to all arrays.
+
+But we were passed a string.
+
+So in order to use this very easy very simple straightforward solution right here we need to make sure
+
+that we are working with an array not a string.
+
+Fortunately we can use a little method to convert our string into an array called the reverse method
+
+on it and then turn it back into a string.
+
+So if we put this into a kind of flow diagram Here's what we get.
+
+So we're going to take in that SDR short for string arguments we're going to turn it into an array we'll
+
+call reverse on it will join that array back into a string and then return the result.
+
+So let's give this a shot.
+
+Back inside my code editor I'm going to take this as TR short for String argument and we'll turn it
+
+into an array.
+
+So I'll say Konst A R R I like to abbreviate array as simply a r r.
+
+By the way I will call string dot split and pass in an empty string.
+
+So when we call split and pass in an empty string it takes the provided string and turns it into an
+
+array with every element in that array consisting of a different character from the string.
+
+So right here with a r r we're now working with a ray of characters we can call a r r dot reverse that
+
+will flip or reverse all the elements within the array.
+
+And then finally we can join it all back together again by calling a r r join in passing in an empty
+
+string as well.
+
+So this will join all those elements back into a string and then finally we'll make sure we return the
+
+result.
+
+So I can put my return keyword in here.
+
+So let's save this.
+
+Check our test and see how we're doing so save the file.
+
+I'll check on my terminal.
+
+It looks like all of our tests are successfully passing.
+
+Cool.
+
+So like I said this was a solution that kind of relied on a little bit of trivia.
+
+Now it's entirely possible that you took a different solution.
+
+So we're still going to cover two other possible solutions one that uses a for loop and another that
+
+uses an array helper.
+
+I do really recommend you check out these other two solutions that we're going to take a look at because
+
+both them you might be required to give one of these other solutions your interviewer might say hey
+
+don't cheat and use that reverse helper.
+
+So we will look at two other solutions that take care of this process manually before we go however
+
+I want to point out that we can do a little bit of code cleanup to make this function a little bit more
+
+concise than it is.
+
+Notice how right now we split our string into an array and assign it to this variable.
+
+We then call reverse on it and then we join it back together.
+
+So in fact we don't really need to make use of this temporary variable right here.
+
+We could simply call reverse on the result of this expression and then call join on the results of that.
+
+So let's look at that alternate solution that's just going to kind of clean up our code here a little
+
+bit.
+
+So I'm going to delete everything and I will return as TR dot split.
+
+So that's going to give us our character or our array of characters we'll call reverse on that which
+
+will reverse all the elements within that array and then we will join it all back together like so now
+
+when I save the file.
+
+I have a built in little code formatter so you'll notice that my formatter automatically splits it out
+
+to a couple of lines here but it's all 100 percent equivalent to the code we just were looking at a
+
+second ago.
+
+So I'll save this file and if I go back over to my terminal again it looks like the tests are still
+
+passing great.
+
+So this is one possible solution.
+
+Let's pause right now.
+
+Continue in the next section and look at another possible solution.
+-----------------------------------------------------------------------------------------------------------
+
+10. String Reversal, Solution #2
+In the last section we put together one very straightforward solution for reversing a string.
+
+Now it's entirely possible that your interviewer might say hey don't use the reverse helper because
+
+obviously if you know this thing exists it really makes the question quite easy and quite straightforward.
+
+So in this section we're going to look at an alternative solution that's a little bit more manual work.
+
+OK.
+
+Now just to keep a record of all of my solutions as we go through I am going to copy this down to the
+
+bottom of the file and comment out our first solution just to keep a record of all the different solutions
+
+we come up with.
+
+And I'm going to delete the contents of the reverse function.
+
+OK.
+
+So let's talk about the second solution.
+
+The second solution is going to make use of a for loop.
+
+So we're going to create an empty string and we'll call that thing maybe reversed.
+
+I think that's a reasonable name for it then we're going to iterate through the string that was provided
+
+and for each character in that string will take that character and add it to the start of the reversed
+
+string.
+
+After we iterate through the entire string we'll then return the variable reversed.
+
+So essentially we're going to make an empty string.
+
+We're going to take each character out of the original string and stick it into the new one.
+
+One at a time.
+
+And because we are adding the new characters because we're adding each character to the start of reversed
+
+the reversed variable contain the reversed string.
+
+So let's see what this solution looks like.
+
+All right.
+
+So back at our code editor We'll start off by declaring a temporary variable that we'll call reversed
+
+and also sign it an empty string.
+
+So this is the string that we're going to kind of assemble over time as we iterate through the string
+
+variable right here.
+
+OK so now we need a for loop.
+
+One thing I want to mention about for loops in general and I'm going to tell you this many times throughout
+
+this course wherever possible I really recommend you avoid writing for loops in the kind of very classic
+
+syntax.
+
+In other words the for loop syntax that looks like var i equal to zero.
+
+I less than string length.
+
+Plus plus.
+
+So I really recommend you try to avoid for loops like this right here.
+
+And the reason for that is that there are so many tiny little spots inside of here that you can very
+
+easily make a mistake or make a typo for example maybe you accidentally flip the less then sign right
+
+here.
+
+Maybe you actually accidentally flip it the other way maybe rather than looking at string length maybe
+
+you accidentally looked at reversed length maybe instead of semi colons you put in commas instead which
+
+is honest to God something that I accidentally did on an interview one time.
+
+So whenever you use you use this long form for loop you're just introducing many different locations
+
+where you can accidentally make a little typo.
+
+So for us throughout this course where ever possible we're not going to use this classic for loop.
+
+Instead we're going to use a new syntax for four loops that was introduced with as 2015 called the four
+
+of syntax.
+
+So let's write the code for it and see what it looks like.
+
+I'll say for lead character of S.
+
+TR So that's the string that we got passed in as an argument.
+
+Then in the body of the loop we'll say reversed equals character plus reversed.
+
+Then at the bottom we will return reversed.
+
+OK so let's talk about what's going on here.
+
+So again this is a new syntax for for loops we say for a variable declaration.
+
+So I'm creating a temporary variable that is redeclare.
+
+Every single time through this loop of character than we say of.
+
+And then the iterable object that we want to iterate through.
+
+So in this case we are iterating through all of the characters of the string variable right here.
+
+So we're going to iterate through each character of string one by one and set each character equal to
+
+this temporary variable character.
+
+We then take that character added on to the start of the string reversed and then after the entire four
+
+loop we return the string reversed.
+
+So again in general I really recommend you make use of this new and improved loops syntax rather than
+
+attempting to write out the full for loop by herself.
+
+Now there are several questions out there and I should say actually many questions out there where you
+
+can use this syntax because maybe rather than iterating through every single element inside of a string
+
+or an array or something maybe you want to iterate through every third element or iterate through every
+
+fifth and there are Interview questions that require that type of logic.
+
+And so if you are confronted with needing to loop through every so many elements within the array Well
+
+then you do have to go back to using a for loop or even a while loop for that matter.
+
+However as much as possible I do encourage you to try this new and improved syntax.
+
+OK let's save this and see how we're doing a flip back over to our terminal and it looks like we're
+
+still passing here as well.
+
+So this has been a second solution.
+
+This one's a little bit more manual and something that I would probably expect to be asked in a interview
+
+question.
+
+You know I would really kind of expect that any competent interviewer might say oh yeah don't use reverse.
+
+That's just too easy.
+
+All right.
+
+So this one is a little bit more complicated.
+
+Let's continue in the next section and we're going to look at one more possible solution.
+
+So quick break and I'll see you in just a minute.
+-------------------------------------------------------------------------------------------------------------
+
+11. String Reversal, Solution #3
+We have now put together two possible solutions to the string reversal problem.
+
+Now I do want to look at one third solution you might be sitting there thinking Stephen do we really
+
+need a third solution.
+
+You know aren't the two we have good enough.
+
+Well to be honest throughout this course I want to usually show you multiple solutions to the same problem
+
+because inevitably first some people one type of solution is going to stick.
+
+And another one will not.
+
+In addition as we look at these solutions I'm going to usually be showing you some of the more complicated
+
+ways of solving a problem.
+
+Now sometimes you do want to use a slightly more complicated way just because it might show your interviewer
+
+that you kind of know what you're talking about.
+
+So this last solution is going to use a very complicated little array helper but it's also going to
+
+make it very evident to your interviewer that you really know how to reverse a string.
+
+So let's give this last solution a shot.
+
+I'm going to start off by copying the second solution down to the bottom the file and commenting it
+
+out and then I'll delete the function body for our solution right here.
+
+So here's what we're going to do.
+
+We're going to take our string.
+
+We're going to turn it into an array by calling the Split function on it.
+
+And then we're going to use the reduce helper.
+
+So the reduce helper is a method helper that was included with.
+
+Yes 5.1.
+
+We'll take a look at how it's used in just a second.
+
+So first turn this thing into an array by calling string split with an empty string like so and it will
+
+set up the reduce helper function.
+
+Reduce is used to take all the different values with an array and condense them all down to one singular
+
+value which is essentially exactly what we're trying to do here.
+
+We want to take all the values within this array that we just created and condensed them down to a single
+
+string value.
+
+Reduce takes two separate arguments.
+
+The first one is going to be an arrow function that'll set up like so and then the second argument is
+
+going to be a starting initial value for our function which I'm going to pass in an empty string like
+
+so.
+
+Now whenever reduce runs it's going to take this starting argument.
+
+It's going to pass it into this arrow function has the first argument and then whatever gets returned
+
+from that inner function will be then used as the starting argument for every successive run of the
+
+function.
+
+In total the function runs one time for every element within the array right here.
+
+So in other words we can really picture that this first value for the first argument that has passed
+
+introduce is are reversed string.
+
+So I will receive it as an argument named reversed.
+
+Then the second argument is the element or the character that we are currently operating on out of our
+
+array.
+
+And I'll receive that as an argument called character then the logic inside this function ends up being
+
+the exact same thing that it was with our FOR loop solution.
+
+So we're going to take our character that we're operating on right now.
+
+We will add it to the total reverse string or the string that represents the reversed string that we
+
+were past and then return the result.
+
+So I will say return character plus reversed like so.
+
+So this reduced call will yield a string that has the reversed form of the string that was passed down.
+
+So the last thing we have to do is make sure that we return the results.
+
+It's going to get my return key word in there like so.
+
+All right.
+
+So let's look at our tests.
+
+Looks like everything is still passing.
+
+Fantastic.
+
+So this is definitely a solution that would work.
+
+The last thing that would probably do here is to kind of simplify some of the syntax a little bit by
+
+using some knowledge of iOS 6.
+
+Again this is little improvement that is not necessary but something that might kind of impress your
+
+interviewer just to show that yes you are familiar with.
+
+Yes 2015 and understand the differences in syntax.
+
+So one way that I could condense this function call write your down a little bit is to remove both the
+
+return statement and the curly braces.
+
+So I would remove the return statement.
+
+I would remove the curly braces there's the other curly brace and then I also don't need the semi colon
+
+here anymore.
+
+Finally having the full word reversed in character is you know a little bit long here.
+
+So I might choose to replace these variable names with simply Rev and char like so.
+
+That's 100 percent you know up to you style preference but it's something that I think still conveys
+
+their meaning but really condenses down the line.
+
+All right.
+
+So looking at this as a one line solution it's still not quite as brief as the reverse function call
+
+with that first solution we did.
+
+But I think it's certainly a little bit more condensed down than the second solution where we use the
+
+for loop.
+
+So again any three of these solutions works A-okay 100 percent just fine.
+
+And of course there are other solutions out there that we didn't even cover many different ways to solve
+
+this problem.
+
+However if I want to really wow my interviewer or at least make them think that I understood some advanced
+
+array helpers like say The reduce helper then this is likely a solution I would go with right here.
+
+OK.
+
+So this is our first problem.
+
+We've gone through hopefully three different solutions.
+
+Wasn't too tiring.
+
+Like I said in general I want to show you multiple solutions just so you see different ways of solving
+
+a problem.
+
+So hopefully this first problem went along.
+
+OK let's continue in the next section and start working on our next question.
+---------------------------------------------------------------------------------------------------------------
+
+12. Debugger Statements
+We've now looked at three possible solutions to the reverse string function.
+
+Now as you were working on your own solution here you might have noticed that it was kind of hard to
+
+debug your work.
+
+In other words the function that you put together you might have noticed that it's kind of tough to
+
+figure out whether or not you're doing the right thing until all the tests are passing over here and
+
+these tests aren't the most effective thing for helping you arrive at the solution or develop a solution.
+
+They're really more about making sure you did the right thing.
+
+So in the section I want to give you a quick little tool that you can use to very easily debug your
+
+work and this tool.
+
+I'm going to show you can be used not only on this reverse string function you can use it anywhere inside
+
+the course so the tool that we're going to use is a regular debugger statement.
+
+If you've never used debuggers before that's totally fine.
+
+We'll take a look at exactly how they're put together.
+
+So let's imagine for a second that maybe we want to pause execution of our code inside this function
+
+so that we can inspect some variable inside of here to do so we can place a debugger statement like
+
+so.
+
+So now any time the javascript interpreter executes this line of code it will pause in execution and
+
+we can take that opportunity to inspect some of the different variables that are floating around our
+
+program.
+
+This makes it extremely useful for debugging or essentially developing our solution to make sure that
+
+we can actually catch this debugger right here whenever we place a debugger statement like this.
+
+We do have to manually call the function.
+
+So right now we are defining the function and then to merely export it.
+
+If you want to use a debugger make sure that you call the function.
+
+So I'll call it right after afterwards right after we define it.
+
+I mean I'll call it with a string of SDF.
+
+So now if we run this function in debugger mode or if we run this file we will pause an execution right
+
+here and then we can inspect a couple different variables and just kind of see what's going on.
+
+So let's figure out exactly how that works.
+
+I'm going to flip on over to my terminal.
+
+I'm going to kill my test by pressing Control-C and then going to change into my reverse string directory.
+
+Reverse string and then I'm going to execute that file that function that we were just working on in
+
+debugger mode and I can do that by writing Noad inspect index G-S like so now when I do so you're going
+
+to see some information pop up.
+
+It says that we have a debugger listening and it's attached to our running process.
+
+You'll then see some little snippet of code right here and then we get kind of a prompt right.
+
+You're asking us what we want to do.
+
+So we just launched that file in debugger mode the instant it started up inside of our console right
+
+here.
+
+It paused in execution on the very first line of our file.
+
+So right now nothing is running.
+
+It's just saying hey I'm ready to start to inspect your code to tell this inspector to continue executing
+
+our code.
+
+We can write Khant short or continue or you can write just simply see and then hit enter.
+
+So now the debugger started to or I should say the interpreter executed our file line by line until
+
+it found a debugger statement.
+
+Once it got to the debugger statement it paused in execution and it's now saying hey if you want to
+
+you you can inspect some of the variables that are floating around inside this function.
+
+Now let's imagine that we wanted to look at the argument right here of SDR or string.
+
+You can't you cannot just put in TR right here to actually inspect a variable.
+
+We have to enter a REPL mode REPL being short for read at it something something.
+
+Whatever it is.
+
+So will run the command Ruppel that'll kick us into an actual javascript console right here where we
+
+can start to inspect variables that exist inside of our codebase.
+
+So I could look at the variable string and it returns to me.
+
+Ok here is what you're what that the value of that variable is.
+
+And then if I wanted to I could always start to say copy over some code like I'll copy this expression
+
+right here.
+
+I can paste it right here.
+
+And I see.
+
+OK.
+
+Looks like that did in fact reverse the string properly so you can use this entire REPL and debug all
+
+D.C.M. debugger thing to very easily audit your code base and just kind of develop it on the fly and
+
+get a sense of exactly how the data inside of your function is working.
+
+So this is a tool that I highly recommend you give a shot with on some future solutions.
+
+You know definitely give us a shot.
+
+Obviously you can't always do this in an interview setting but as you're practicing these problems this
+
+is extremely useful to use.
+
+Just to give you a slightly better example of why this would be useful.
+
+Let's look at a slightly different implementation of this.
+
+So by the way to exit the REPL I can that's not the REPL I can hit Control C that kicks me back to debug
+
+mode and then to you execution of my file I can hit C and enter again.
+
+And in this case there was no other debugger statement inside my code base.
+
+So it just quit.
+
+And I can hit Control C again to completely exit the debugger.
+
+So to get a better example of this I'm going to remove the debugger statement we had placed.
+
+I'm going to take this last implementation of reverse that we had put together.
+
+I'm going to cut it.
+
+I'm going to move it to the bottom of the file and comments it out.
+
+And I want to take that earlier solution we had put together with a for loop.
+
+So I'm going to uncomment this thing.
+
+I'm going to cut it and then I'll paste it above the reverse function call like so.
+
+And then let's say that maybe something appears to be going wrong inside of our For loop right here.
+
+So maybe after we start to concatenate the string together let's put a debugger statement right here
+
+and this will allow us to inspect all the different variables inside the for loop and figure out exactly
+
+what's going on there.
+
+So again I can go over to my Turnell.
+
+All right.
+
+Node inspect index.
+
+Yes.
+
+Again I get kicked into debug mode.
+
+We are poznań execution on the first line of the file all run.
+
+See to continue execution of our code until we get to the debugger statement.
+
+So here's the debugger statement and now I can enter the REPL and start to inspect some of the variables.
+
+At this point in time.
+
+So possible variables that I might want to look at would be a B character string or reversed.
+
+You know anything in here.
+
+So we could look at reversed.
+
+OK there's what Reversed is when to look at character.
+
+What character is and string like so.
+
+Now notice how this is a for loop.
+
+So the body of the for loop will be executed many times in a row.
+
+So if I want to I could press control Control-C to leave the REPL.
+
+I can continue execution again.
+
+And now I just got paused again at the second iteration through the for loop and if I hit C again there's
+
+the third time.
+
+And then the fourth time.
+
+So I can enter Ruppel again.
+
+I can look at the reverse string.
+
+And now it's the entire reverse string.
+
+And of course I can look at characters well and now it's the last character that we were iterating over
+
+which in this case is at so do be aware that if you place a debugger statement somewhere inside of a
+
+for loop or a foreach or a map statement or whatever it will be called multiple times and you'll have
+
+to use that C command to skip through it multiple times.
+
+OK so I think that you've got a reasonable idea of the debugger here.
+
+Again you can use it throughout the course on any problem we are working on.
+
+To get a better idea of how your code is working I'll show you a diagram in just a second to remind
+
+you of some of the steps you need to go through to set up the debugger.
+
+Just keep in mind that when you are all done with the debugger you will want to remove the debugger
+
+statement and then also remove the manual function call.
+
+Down here we have to add that manual function call.
+
+The one that we just had a second ago because if we don't call the function manually then when we start
+
+to inspect this file there's nothing that actually invokes the reverse function inside of here.
+
+So if we just if we ran the debugger on this file as is nothing actually invokes the reverse function.
+
+So even if we had a debugger inside of here it would never get caught because we're never executing
+
+the function.
+
+So that's why we add it added in the manual function call right here.
+
+OK.
+
+So like I said one last thing I wish to you is the diagram of the steps to use to get the debugger to
+
+show up if you want to you could take a screenshot of this right here.
+
+Also remember that all the diagrams in this course are available inside of the Get hub repository.
+
+So you could always go in take a screenshot or just manually download this diagram just to have the
+
+steps of how to do this thing up for yourself.
+
+All right.
+
+So I'm glad that we now have some method to effectively debug our code.
+
+We will use this method inside these videos several times throughout the rest of the course but again
+
+feel free to use this debugger method as you are developing solutions throughout any problem.
+
+You can use this on any problem you look at.
+
+And I really encourage you to do so because it will give you a much better understanding of what's going
+
+on behind the scenes.
+
+All right.
+
+So I think that's enough of that.
+
+Let's take a break and continue with our next problem in the next section.
+--------------------------------------------------------------------------------------------------------
+=========================================================================================================
+
+
+
+
+
+Раздел 4:Palindromes
+
+13. Palindromes
+Now that we know a couple of different ways of reversing a string we're going to immediately start to
+
+look at another problem that requires you to reverse a string.
+
+So inside of my exercises directory I'm going to find the question marked palindrome.
+
+So here it is right here.
+
+I'll open up the index dot J.S. file and then will also make sure that we immediately start up our tests
+
+for this exercise as well.
+
+So I'll flip back over to my terminal.
+
+I'll end my running test runner by pressing control C and I'll start my test back up for that new exercise
+
+by running just palindrome slash test J us slash dash dash excuse me watch like so.
+
+So that will start up our tests and it looks like we have five passing and three failed right now.
+
+Cool.
+
+So let's look at the directions for this problem.
+
+Back inside my code editor you'll find the directions listed at the top so the idea behind a palindrome
+
+is that we should be able to reverse a string if the reverse string is equal to the original one then
+
+that word is a palindrome.
+
+Otherwise it is not.
+
+So for example if we take the string A B B A and reverse it we end up with a string a BVA.
+
+This is the reversed form of APBA the two strings right here are identical.
+
+And so we would return true from our function to indicate that yes this is a palindrome.
+
+However for the string ABC TFG if we reverse that we end up with G F E D CBA.
+
+This is not equal to the original string.
+
+And so we would say that this is not a palindrome.
+
+One important thing to really keep in mind here is that you are not being asked to return a reverse
+
+string you are asked to be.
+
+You're being asked to return true or false to indicate whether or not this is a palindrome.
+
+So you really want to make sure that after all your logic inside of your you ultimately end up returning
+
+a boolean value something that says true yes this is a palindrome or false.
+
+It is not.
+
+So I'm going to leave you to put the solution together here.
+
+Obviously there is an element of string reversal here.
+
+So you'll probably want to remember how to reverse a string.
+
+And then you'll probably want to think of some way to take that reverse string and compare it with the
+
+original one.
+
+So I'll leave it up to you on how to approach this.
+
+Remember I can't say it enough.
+
+If you get frustrated don't sweat it.
+
+Just go to the solutions.
+
+Take a glance and then give it another shot.
+
+Don't get frustrated here right at the beginning.
+
+If you get frustrated now it just means that you might end up getting too frustrated and end up quitting
+
+and all we really care about at this point is seeing enough problems to get a really good sense of what
+
+you will be frequently asked inside of an interview.
+
+So give this a shot and I'll see you in the next section and we'll take a look at some solutions.
+-------------------------------------------------------------------------------------------------------------
+
+14. Palindromes, Solution #1
+OK hopefully you had some success in checking to see if you're working with a palindrome here if you
+
+were not able to get the test to pass.
+
+One thing I want to remind you about right now is to recall that you're supposed to return a true or
+
+false value from this function.
+
+That's what the tests are looking for.
+
+The tests want to see a truth or falsity value being returned.
+
+All right.
+
+So let's give this thing a shot with our first solution.
+
+Now the first solution we're going to look at is the easiest or I should say kind of like the most direct
+
+solution or the most compact one.
+
+When I say easiest I don't necessarily mean the most obvious solution or the solution that you should
+
+have gotten.
+
+I really just mean to say this is probably the most direct solution.
+
+So let's give this a shot.
+
+The first thing to recognize is that we want to somehow reverse the string that is provided to us.
+
+So we just learned how to reverse strings in three separate fashions.
+
+So the first thing I'm going to do here is to reverse the string that is passed to us.
+
+So I will say Konst reversed is string dot split.
+
+That gives me an array that I will reverse.
+
+And then I will join it back together.
+
+And so in one line right here I now have the reversed string available to me.
+
+Now remember if a string is a palindrome the reversed form should be equal to the original form.
+
+And so there's not a lot of additional logic I need here.
+
+I can just do a direct comparison between reversed in string and return the result to that if the two
+
+are equal.
+
+Fantastic.
+
+They must be a palindrome.
+
+Otherwise if they are not equal then it must not be a palindrome so right underneath.
+
+I can simply say return String equal equal equal reversed.
+
+So this is a Boolean statement right here.
+
+Or I should say it produces a boolean value if string is equal to the value of reversed then we will
+
+return true.
+
+Otherwise if they are not equal to each other than we will return false.
+
+So like I said this is the most straightforward solution.
+
+Not necessarily the easiest one to come up with just the most straightforward one.
+
+So I will save this file.
+
+Let's check our tests and see how we're doing.
+
+And so it looks like that solved it.
+
+Not bad.
+
+OK.
+
+So if you didn't come with that solution of course don't sweat it might me personally.
+
+When I first sit down to look at these I usually come up with a very round about solution one that's
+
+not always the best.
+
+So there's many different ways of solving this problem.
+
+Many many different ways.
+
+If you came up with another solution that is totally fine.
+
+Let's take a quick break right now.
+
+In the next section we're going to look at a second way of solving this problem.
+
+So quick break and we'll take a look at that second solution in the next section.
+-------------------------------------------------------------------------------------------------------
+
+
+15. Palindromes, Alternate Solution
+Let's take a look at another way of solving the palindrome problem.
+
+Now remember there is no ONE way of solving all these problems.
+
+So if you came with a solution that is different from my own totally fine for this alternative solution
+
+we are not going to manually reverse any string at all.
+
+Instead for this solution we're going to make use of another array helper just like the reduce helper
+
+that we use just a moment ago.
+
+So let's take a look at some documentation in this solution.
+
+We're going to make use of the every array helper.
+
+So we'll take our string will turn into an array and then we will use this every helper on it.
+
+Now I'm at the Indiana documentation for every and if you want.
+
+You can come here yourself and take a look at some of the documentation but I'll give you a quick description
+
+of how every works right now the every function is used to do a boolean check on every element within
+
+an array.
+
+So for example if we had an array containing the values 0 10 and 14 and we wanted to ask the question
+
+if every single value in there was greater than 5 we could write some code that looks like this right
+
+here.
+
+We would take the array we'd call the every function on it and then we would pass in a function to invoke
+
+for every element within the array.
+
+So the first time that this function was executed we would pass in the first element as Val.
+
+We would check to see if 0 was greater than 5.
+
+In this case zero is not greater than 5.
+
+So we would return false from this statement right here when the every function runs it checks to see
+
+the return value of every function run if every function or if any function I should say of any function
+
+returns false then the over all expression will return false as well.
+
+However if the inner function comparison right here returns true for every element then the entire function
+
+expression will return true.
+
+So every as very aptly named It's essentially executing a check or some type of comparison for every
+
+element within the array.
+
+So I bet you might be able to have some idea of how we can use this to check to see if we are working
+
+in a palindrome.
+
+Here's what we're going to do.
+
+Let's imagine this is the array of characters that we're working with.
+
+We're going to take the first element of the array which is a.
+
+And we'll compare it with the element at the very end.
+
+If that if the two are equal then we will return TRUE and say OK looks good so far this is a palindrome.
+
+Then for the next element we'll take it and compare it to the second to last value.
+
+We'll compare the two and say are the same.
+
+OK.
+
+And then we will repeat the process throughout the array.
+
+So for C we will essentially compare C to itself because it's at the very center we'll then compare
+
+B to the previous B and we'll compare the last element to the first one.
+
+Now one thing that you might immediately lock on here is to notice that we are doing more comparisons
+
+that are necessary.
+
+And that is absolutely true.
+
+Once we have checked every element up to that very center right here we don't really have to check all
+
+the remaining elements because we already checked to see if a.
+
+Or the first stone was equal to the last one.
+
+So we technically don't have to iterate through the rest of the array and compare them back to the first
+
+elements inside of here.
+
+And so I'm going to say that this is not an ideal solution for this problem just because we are doing
+
+essentially twice as much work as we really have to do.
+
+However there is a reason I am showing you this solution and I'm showing the solution just so you can
+
+explain to your interviewer what I just explained to you when you are working with an interviewer and
+
+answering their questions.
+
+In many cases they'll see you.
+
+Hey like I think that your problem or your solution has a problem.
+
+Here's what it is.
+
+What are you going to do about it.
+
+And so many times you need to be able to respond identify and somehow solve these issues that come up
+
+with your own solutions.
+
+The issue here of double comparison so comparing the first to the last and again the last two the first
+
+is a really easy thing to bring up an interview and it's a really easy way to look good to your interviewer.
+
+You can propose this solution with every helper and then say you know what I think this is a clear solution.
+
+However it's comparer is comparing or it's doing about twice as much as it needs to do.
+
+And so maybe you could then suggest some alternative solution.
+
+So when you are in an interview setting Remember you don't have to be line.
+
+The best solution right away if you can think of multiple solutions to a problem.
+
+I highly recommend you give multiple solutions.
+
+It just shows your interviewer that you are aware of multiple ways of solving a problem and also makes
+
+them aware that you can compare and contrast between different ways of solving a problem.
+
+So as I've said many times so far and I will say several times again throughout the course many ways
+
+to solve a problem.
+
+And it's really in your interest to be aware of all the different ways of doing it.
+
+OK.
+
+So with that in mind let's put this to the test.
+
+So back inside my index file I'm going to make a backup of our initial solution and then I will delete
+
+the function body here and we'll put together a solution with the every function.
+
+So the first thing we have to do is turn our string into an array.
+
+Remember strings do not have access to that.
+
+Every helper.
+
+It's only arrays.
+
+So the call string got split.
+
+Passing the empty string and then call every now the first element or first argument to every function.
+
+Excuse me is a function that will be called for every element in the array we will receive the first
+
+argument to this function which is each character from the array as an argument that we will call char
+
+or short for character.
+
+And then the other thing to keep in mind here is that because we want to compare each element to it's
+
+essentially mere On the other side we also need to figure out some way of getting access to the element.
+
+On the other side of the array.
+
+So fortunately as a second argument to this function right here we are given the index of the element
+
+that we are currently iterating over which the record is high.
+
+So the first time this inner function is called I will be equal to zero because we are operating on
+
+the first element in the array so now inside if you're inside the function we can return a comparison
+
+between the current element and the mirrored element.
+
+On the other side of the array now getting access to the other side is a little bit complicated but
+
+it's really not that bad.
+
+So the first time we run our function we are at index 0 right here.
+
+So I would be equal to zero to get access to the element on the opposite side.
+
+We could look at the entire string array and access the element at the length of the array minus one.
+
+So remember all arrays and Javascript are zero indexed.
+
+So right here we would start off as 0 1 2 3 4.
+
+So over here would be four.
+
+There are five elements in the array so we can't say.
+
+Look at the element.
+
+At length we have to say look at the element at array length minus 1 to give us 4.
+
+So in other words long story short all we really do here is look at the string at string length.
+
+Linus I so that we'll make sure we increment for every step through the loop or through the every function
+
+minus one and the minus one right here is to make sure that we are taking into account the fact that
+
+length is the overall length.
+
+But we are zero indexed with javascript arrays cook.
+
+So it's looking good.
+
+Now last thing we have to do and this is a real gotcha.
+
+Never forget it.
+
+We need to make sure we return the result of the every function call.
+
+So I will put my return statement in here.
+
+I also forgot to comment out the palindrome function down here I'll make sure I do that.
+
+And I think we're ready to test this.
+
+So I'm going to save the file.
+
+We'll check our terminal and it looks like all of our tests are still passing great.
+
+So again this is not an ideal solution right here but it definitely gives you a little bit of you know
+
+ammunition to work with with your interview or it gives you something to talk about and say here's a
+
+solution.
+
+It makes use of an advanced array helper which shows you know what you're talking about but it's also
+
+not the best way of solving it which gives you something to talk about and you can then propose this
+
+other solution down here.
+
+So this has been a pretty good solution.
+
+Let's continue the next section and look at our next problem.
+-----------------------------------------------------------------------------------------------------------
+===========================================================================================================
+
+
+
+
+Раздел 5:Integer Reversal
+
+16. Reversing an Int
+Time to move on to our next problem I'm going to find the reverse in a folder inside my project you
+
+know open up the folder and open up the index js file.
+
+Now before we forget We'll also start the new test file for this project as well.
+
+So back at my terminal I'll stop the running test runner by pressing control C and they'll start up
+
+the new set of tests by running just reverse it.
+
+Slash test dot J.S. dash dash watch like so look at.
+
+So you should see about four tests or so running.
+
+All right.
+
+So back over to our code editor let's look at the description for this problem.
+
+Now before we talk about the problem itself I want to say that this is going to be another very similar
+
+reversing type problem but this one has a couple of extra challenges stacked on top of it.
+
+This problem right here is a fantastic example of how understanding and really succeeding at interview
+
+questions is all about practice and practicing more and different types of questions.
+
+Cause at first glance this is kind of a tricky problem.
+
+However if you understand the one or two little tricks behind it and there are distinct little tricks
+
+here if you understand the tricks then this turns into an extraordinarily straightforward question.
+
+So there is a very straightforward solution to this but it's all about understanding that little trick.
+
+So if you want to get this problem a try on your own then go ahead and pause a video right now.
+
+Read the directions and take a look at the examples and give it a shot.
+
+Otherwise stick around.
+
+We're going to look at the problem.
+
+We're going to talk about some of the little tricks that you should understand to really effectively
+
+solve this.
+
+And personally I recommend you stick around and listen to these tricks.
+
+Otherwise this problem is just kind of a nightmare to deal with.
+
+All right.
+
+So first let's look at the directions and the examples.
+
+Again we are reversing some type of data entry here.
+
+In this case it is an integer.
+
+So if I pass an integer or 15 I should see the numbers in there get reversed.
+
+2:51 981 would go to 1 8 9.
+
+If the number ends with zeroes then when we flip it those zeros should disappear.
+
+So 500 should not be 0 0 5.
+
+It should be just 5 and the other interesting thing is handling negative numbers as well.
+
+So negative 15 should become negative 51.
+
+And if we kind of take this issue with the zeros together with the negatives negative 90 should turn
+
+into simply negative nine.
+
+Now what they want to make sure is really clear here even though we're in a section on this course where
+
+I said we're all talking about strings and whatnot both the input and the output should be numbers.
+
+So if we wanted to kind of apply the same kind of string reversal stuff that we've been doing that's
+
+fine but the end result of what we're doing should produce a number not a string.
+
+So make sure that's really clear.
+
+OK.
+
+So let's now talk about some of the little gotchas here are some of the things that make this problem
+
+really easy.
+
+So first off you and I know at this point how to reverse a string.
+
+Very well.
+
+We've seen two problems already.
+
+Each of them with multiple solutions on how to reverse a string.
+
+However we've been talking about reversing strings not numbers.
+
+We can turn a number into a string.
+
+However by using a function called to string.
+
+So let's take a look at my little code editor here and I'll practice this out really quick.
+
+Now on the left hand side going to write some code and we'll see the results of that code up here on
+
+the right hand side.
+
+So this is a quick example let me show you maybe Konst my number equals 200 if I want to turn this number
+
+this integer right you're into a string.
+
+I can call line number dot to string and returns a string 200.
+
+So at that point I can then use familiar functions like say split and turn it into an array of strings.
+
+I can join it back together to form another string and so on.
+
+So by using this two string function right here we can turn our number into a string and then work on
+
+it as though it was a string and take care of it.
+
+With all the usual reversal techniques we've looked at so far.
+
+So it's kind of a trick number one trick.
+
+Number two I want you to be aware of is a little function built into the math library that is included
+
+with Javascript.
+
+So I've got the documentation for it in a new tab right here.
+
+I'm out the Mozilla Developer Network.
+
+Looking at the documentation for math dot sign.
+
+So I'm not going to tell you exactly where to use this in this problem but it's going to punt this function
+
+out with this math sine function.
+
+We can pass in a number if that number number is positive mouth sign will return 1.
+
+Otherwise if the number that we pass in is negative then it will return negative 1.
+
+So for example math got sign of 5 or 4000 or turn 1 mapped out sign of negative 4000 returns negative
+
+1.
+
+So I just want you to be aware of this little helper function because I think that it might be really
+
+helpful in solving the issue with maintaining this sign here on the actual number.
+
+Now the last thing I want to tell you about the last little trick.
+
+Remember how we were just talking about.
+
+Well you can turn a number into a string by using a string.
+
+So let's say we have 400 again just to make sure it's really clear once we called to string on this
+
+thing if we then split it into an array and join it back together.
+
+We're still dealing with a number.
+
+I mean we're still dealing with a string in order to turn all this stuff back into an actual number
+
+which is exactly what we're really trying to do here.
+
+You can use the parse int function so parse it like so.
+
+So parsing it takes a string and it returns a number or at least what it thinks is a number inside that
+
+string.
+
+And then once it's been turned back into a number we can then add an add something to it like you know
+
+add 2000 or divide by 2000 or whatever we want to do.
+
+So clearly after calling parce and we are now dealing with a number here.
+
+OK so that's the three little tricks part sent to string and math sign between those.
+
+I think that you've got the tools to kind of take the reversing of string technique that we've been
+
+looking at and apply it to this new problem that we are working on.
+
+So at this point I encourage you to pause the video take a shot at the solution and we will go over
+
+the solution in the next section so I'll see you in just a minute.
+----------------------------------------------------------------------------------------------------------
+
+
+17. Reversing an Int Solution
+All right hopefully you had some success with this problem in this section we're going to walk through
+
+the solution now for this particular problem.
+
+We're only going to go through one solution.
+
+There are certainly multiple solutions to this.
+
+When you consider the fact that actually reversing the set of numbers here can be done many different
+
+ways.
+
+However we already spoke about some of the different ways to reverse strings.
+
+In one of the last problems we worked on.
+
+So this time around we're just going to kind of B-line a very direct way of reversing the actual number
+
+and we'll focus a lot more on how we kind of work with the number in general and how we maintain that
+
+negative sign on there.
+
+So let's give this a shot inside my function body.
+
+The first thing I really want to do is give myself the ability to reverse the number.
+
+That's why I really care about here.
+
+I want to reverse the number.
+
+So in order to reverse the number we're going to use the same methodology that we use in that previous
+
+section.
+
+We're going to take the number.
+
+We're going to somehow treat it as a string.
+
+We'll split that number into an array.
+
+We'll use the reverse method on it and then we'll join it back together.
+
+So let's at least do that much and see what happens.
+
+So I'm going to take n that's the number that gets provided to us and I want to first turn this number
+
+into a string.
+
+So I'm going to call and dot to straight.
+
+So now we're working with a string as opposed to a number.
+
+And at this point we can now use all that split reverse enjoying methodology that we saw in the previous
+
+problem.
+
+So I can call split to turn this into an array.
+
+I can reverse it because it is an array.
+
+And then I can join it back together into a string like so.
+
+Now at this point let's just kind of make sure we get our return statement in here and I want to run
+
+our tests and see how far this gets us I want to see what this is really going to do for us.
+
+So back in my command line I can run my test again by pressing the enter key and it looks like ha.
+
+Interesting.
+
+So here is one of the tests right here.
+
+Rather than producing the expected negative 5 negative 5 Our code is currently producing 5 minus as
+
+a string.
+
+Notice the set of quotes right there.
+
+So looks like we've got two big issues on the one hand.
+
+We're not properly dealing with the negative sign.
+
+And on the other hand we're still returning a string here as opposed to the number that we are expected
+
+to return.
+
+So let's take a look at this and see what we can do.
+
+Well in order to make sure that we return a number out of this thing we can use the parse and function.
+
+So rather than immediately returning the result of this reversal I'm going to assign this to a variable
+
+they'll call reversed
+
+and then right underneath Let's return parse.
+
+Int of reversed like so.
+
+So now we're trying to actually pull an integer out of this string that we just produced.
+
+I'll say this.
+
+And let's see what happens now.
+
+So now if we look at our test again it looks like we're passing more tests than we were before.
+
+We still have this one test down here failing specifically around handling a negative number.
+
+So at this point we are expected to return negative 5 on this.
+
+But our code has produced five.
+
+So it appears that even though we were able to somehow pull an integer out of that reversal we did not
+
+actually maintain the sign.
+
+So we're not including the negative side and we somehow lost the negative sign during the parse and
+
+process.
+
+So now all we really have to do is figure out whether or not we should get this number to be negative
+
+or positive.
+
+Deciding that really comes down to that input number of N so if and is greater than zero then we want
+
+to just leave everything as is if an is less than zero then we want to multiply the result of this by
+
+negative 1 to turn it into a negative number.
+
+So let's try writing out that logic we can say if an is less than zero then return parse end of reversed
+
+and we will multiply this by negative 1 like so.
+
+So if it's less than zero return early multiply by negative 1.
+
+Otherwise just parse the number out and we're done.
+
+So let's try this.
+
+I'll save the file and now it looks like our tests are passing.
+
+Cool.
+
+So this is definitely a working solution right here.
+
+But clearly having these two return statements that both call Parsons isn't super ideal.
+
+So if you stuck around at the end of the last section when I spoke about some of the little tricks that
+
+you can use to really solve this problem in a very direct fashion.
+
+The other the last trick that I suggested was a function that is a part of the JavaScript standard library
+
+called Math Daut sign.
+
+So if we pass math taught sign a positive number it will return 1.
+
+If we pass math that sign in negative number it will return negative 1.
+
+So rather than putting this complicated statement in here we can just dump the entire thing and instead
+
+multiply the result of our parse in function right here.
+
+Times math does sign and we'll pass in.
+
+So now math dot sign is really taking the place of the if statement that we just had if and is greater
+
+than zero it'll be positive or the result of all this will be positive.
+
+Otherwise it is less than zero than the result of all of this will be a negative one and we'll end up
+
+with a negative number.
+
+So let's save this and see how we're doing.
+
+Go.
+
+So now we're still back to four passing tests.
+
+But our code here is looking pretty straightforward.
+
+Now one thing I want to throw out there.
+
+It's totally up to you.
+
+This is really a style thing but you'll notice that we didn't really have to come up with this temporary
+
+variable reversed right here.
+
+We could have easily wrapped this entire statement inside of the parsing function call.
+
+However I think that the code right here looks pretty legible in this fashion.
+
+And really if we wanted to kind of put everything into a one liner it really ends up being kind of nasty.
+
+And I've actually got a example of that that I'll copy paste onto the screen.
+
+So this would be kind of a one line solution right here.
+
+I think that it's really tough to understand what's going on.
+
+So personally I would really recommend leaving it as the two separate statements like so great.
+
+So like I said this is just one solution.
+
+There was many ways that we could kind of reiterate on this thing and change up the actual reversal
+
+of the number.
+
+But we already spoke about some of the different ways of reversing a string if you came up with a different
+
+solution for actually handling the negative sign here.
+
+We're actually pulling in number.
+
+How do the string.
+
+That's totally fine.
+
+But this is definitely a solution that works as well.
+
+So let's take a break here.
+
+We'll continue the next section and move on to our next problem.
+------------------------------------------------------------------------------------------------------------
+============================================================================================================
+
+
+
+
+Раздел 6:MaxChars
+
+18. Max Chars Problem
+I'm really excited about this next question that we're going to work on because the technique that we're
+
+going to use to solve it is directly applicable to many other string related questions.
+
+So in this one question Max Chaar there we're going to work on.
+
+Let's open up the index not just file for it.
+
+The technique that we're going to use to solve this can be used to solve many other string related questions
+
+as well.
+
+And I'll give you a list of some of the other ones that are very closely related in just a second.
+
+First let's make sure that we start up our tests for this problem.
+
+So at my terminal I think you know what to do by now.
+
+We'll run just Max Chaar test dot genius dash dash watch like so you know I think I made a little.
+
+It's not Max char's just Max Chaar.
+
+My mistake.
+
+Like so we should see at least three tests running.
+
+OK.
+
+So let's look at this problem in good detail and let's talk about the technique that we're going to
+
+use to solve it.
+
+So given a string we are going to return the character that is used the most.
+
+Inside that string for example if we pass in a string of A B C C C C C will clearly C is used most frequently
+
+inside of here.
+
+So we see a return seat.
+
+Likewise if we pass an apple and then 1 2 3 1 1 1.
+
+Yeah.
+
+These are numbers but they are inside of a string so they're still considered to be characters as far
+
+as we are concerned.
+
+And so clearly the most use character inside of here is one.
+
+So we return the character or the string one not the number.
+
+So no concern about numbers or in particular we're just saying unique characters inside of a string.
+
+Ok so let's talk about the trick that we're going to use to solve this problem and many others like
+
+it.
+
+So first I want to show you some other common variations of this question.
+
+So if you ever see questions like this on the screen right here you want to be thinking about using
+
+this exact same technique.
+
+And honestly I was going to put some of these other questions into this course but we would have just
+
+been using the same technique again and again and again which would have been kind of annoying for you.
+
+So I figured we would just do this one problem and have a good grasp on how to do it.
+
+So if you ever see questions like the most common character on the string you see something like Does
+
+one string have the same characters in the same quantity as another string.
+
+That's what we refer to as an anagram.
+
+By the way or do you ever see the question.
+
+Does a given string have any repeated characters in it.
+
+So anything like this anything around counting the number of characters or comparing the number of characters
+
+between two strings.
+
+You can always use this technique.
+
+So let's talk about what it is here's what we're going to do for all these different problems that are
+
+related to counting or verifying the number of characters in the string.
+
+We are going to take our string and we're going to essentially convert it into an object where the keys
+
+of the object are the characters from the string and the values are the number of times that that character
+
+has been found.
+
+So for example we could take the string Hello there.
+
+Notice how hello there has one H.
+
+It has three E's.
+
+Here's what he 2E and three and he has two L's.
+
+So with that in mind let's look at the resulting object that we would build up.
+
+So inside of our object we would have one capital H and would have a value of 1 because that character
+
+specifically capital H was found in our string exactly one time.
+
+There are three E's present and they're each lower case so we would add a key of E and assign it a value
+
+of three because it has been found three times.
+
+Finally for l there is clearly two els here.
+
+So we would put L in as a key and then assign a value of 2 and then we would repeat the process for
+
+the rest of the string as well.
+
+So when you have this kind of map right here it makes many different types of questions very straightforward.
+
+For example if I asked you what is the most common character in the string which is pretty much what
+
+we are trying to do right now.
+
+Well now that we have this object we could walk through the object find the value that has the highest
+
+there is give me find a property with the highest number assigned to it which in this case would have
+
+been 3 and we would really know.
+
+OK looks like is the most frequently used character.
+
+If someone ever asks you to string a string B how the same characters at the same frequency.
+
+Well we could build up an object that looks like this for both string a and string B and then compare
+
+the two and make sure that both objects have the same number of properties inside of it and the same
+
+values.
+
+Finally does the string have any repeated characters so the words are there any duplicate characters
+
+in the string.
+
+Well this one's probably easiest overall.
+
+If there's any value inside of this object with a value greater than 1.
+
+Yeah that means that found say l twice were eat three times which means if someone asked me Does that
+
+string have your repeated characters I would say yes that definitely does.
+
+In this particular case.
+
+So setting up an object like this is clearly a really strong tool for solving any type of question around
+
+producing some counts or verification or validation of a word.
+
+So with that in mind let's continue in the next section and I'll give you a quick overview on how we
+
+would put together an object like this.
+
+So quick break and we'll tackle this thing in the next section.
+------------------------------------------------------------------------------------------------------------
+
+19. Max Chars Character Map
+In the last section we spoke about how turning a string into an object where the objects keys are the
+
+letters in the string or the characters in the string can be used to solve a wide variety of problems.
+
+In this section we're going to look at one possible way of generating this object right here.
+
+Now if you want to give this entire problem that we're working on a go on your own and maybe even come
+
+up with a solution that doesn't use an object like this that's totally fine.
+
+Just pause the video here and continue on in the next section.
+
+Otherwise let's get to this thing.
+
+So I'm going to go ahead and use my little notepad over here to show you the solution.
+
+So I hope to hear is that maybe you watch the solution but don't copy it down.
+
+So maybe you watch it right now and then when you attempt the max Keres problem Remax charas problem
+
+that we have cued up right now.
+
+Maybe you tried to reproduce the solution from scratch at that point but of course I leave it up to
+
+you.
+
+All right so here's what we're going to do.
+
+We're going to create some new string and I'll say hello there.
+
+Just like the one we just saw in the diagram and then we're going to iterate through this string.
+
+And for every character we're going to add that character to a new object.
+
+So maybe you'll make a new object as well called chars short for characters.
+
+So now there's a couple of different ways that we can take these characters and add them to the object.
+
+We can either split the string into an array and then use a For Each helper to loop over all the characters
+
+or we can use a four of loop to live through all the characters inside there and do basically the same
+
+thing because we just saw the four of syntax just a little bit ago.
+
+I think we should use four of again because it's nice and fresh in our minds.
+
+So we will iterate through our string.
+
+And for every character inside there we will either add the character as a property and assign it a
+
+value of 1 or if we've already seen that character before we will add 1 to it.
+
+So we'll save for let char of string and then for every character that we find and iterate over we're
+
+going to add a property to chars to do that.
+
+We'll say char's we'll use our index notation.
+
+So this right here will return a reference to that particular character or at least its value.
+
+Now if it's the first time that we are seeing this character we want to set its value to 1.
+
+So if we have never seen chars at SE Capital H then this right here will evaluate to undefined.
+
+So we need to make sure we handle that case.
+
+So we'll say if nothing exists here right now.
+
+Then set char's at Chaar to one otherwise assuming that there is a number already there will take charge
+
+Chaar and will increment it by one like so.
+
+So then at the very end we can print out charters and we end up with our object.
+
+So we have a capital H with one.
+
+We have three E's two l's and you get the idea.
+
+Now the logic that we placed inside this for loop break here can certainly be condensed down from what
+
+we have.
+
+So a good way to simplify this would be to maybe use a tertiary expression.
+
+We could also kind of condense this down to one line with a little bit of boolean logic and you want
+
+let's let's see a quick example of that.
+
+So another way of putting this logic inside if you're together without using an if statement would be
+
+something like chars at char is char's char plus 1.
+
+Now you'll notice this is why we can't just say add one.
+
+Because if we try to add 1 to undefined we end up with no.
+
+As you see right here.
+
+So that's why we have to put in that statement to see if that value exists yet.
+
+So one way of handling this eloquently in this particular case would be to say if adding one onto this
+
+number resulted in a null value that's fine.
+
+Then instead assign the value of 1 like so.
+
+So if this is falsie then otherwise assign one to char at char and we end up with the same object either
+
+way.
+
+It's like I said many different ways of putting together the body of the for loop right here.
+
+It's really up to you which way you want to do it.
+
+All right.
+
+So hopefully that kind of illuminates how we put this data structure together.
+
+So at this point let's take a look at our question here and make sure it's really clear what we're trying
+
+to do.
+
+So inside this question member we are inside the max char folder in the index start G-S file.
+
+We want to pass in a string to max char and then return the character that is most frequently used inside
+
+that string.
+
+So clearly inside the string C is used the most.
+
+So I would expect to return see otherwise if we have Apple 1 2 3 1 1 1.
+
+Well then we want to return one call.
+
+So at this point we're going to take a break give this thing a shot see if you can't solve it.
+
+And we'll go over the solution in the next video.
+------------------------------------------------------------------------------------------------------------
+
+20. Max Chars Solution
+In the last section we spoke about how he can use a character map to solve a wide variety of different
+
+string related questions a character map is an object where we take every character out of a string
+
+we added as a key to the object.
+
+And then the value for each for that key is the number of times that letter has been found in the string.
+
+So hello there has three E's Inside of it.
+
+So we have a Kievan E and assign a value of three.
+
+Let's take this technique right here and approach and apply it to our Max char problem.
+
+So remember inside of Max char we're trying to find the character that occurs most frequently inside
+
+of a source string.
+
+So definitely a problem that is well-suited to building up a character map.
+
+So let's get to it inside of our function.
+
+We'll start off by declaring a new variable called Char map which is short for Character Map and will
+
+be an empty object.
+
+Next will iterate over our source string right here and use that to build out the character map.
+
+So we'll save for let char of string and then for every character that we receive we will add an entry
+
+to Character Map and if an entry already exists there.
+
+Then we'll just add 1 to the number.
+
+So we'll say if Char map at char.
+
+So if this exists if we already have an entry here.
+
+Great.
+
+Let's increment it by one
+
+otherwise we will set char map at Char equal to 1.
+
+So char map that char equal to 1.
+
+Now you'll notice that I wrote this out opposite of how we just said in the example of minute ago I'm
+
+just doing that on purpose just to give you a little bit of variety and make you use your brain just
+
+a little bit.
+
+So do you take note that I flip the kind of order of operations here between the two cases.
+
+So now we should have our character map built up at the bottom of the file.
+
+Or this function let's print out the character map that we just built just to make sure that it is working
+
+correctly.
+
+So I will console log char map like so let's flip on over to the terminal and see what happens.
+
+So over at the terminal I should see my two console logs appear right here.
+
+And so it looks like I correctly have.
+
+Here's my character of one.
+
+A B C D F G.
+
+So remember this is some test input that is provided right here.
+
+So looks like the test input has the character 1 and it's used six times.
+
+So I would definitely say it this looks like it's working correctly right now.
+
+All right let's take a quick pause right now.
+
+We'll continue in the next section and we'll discuss how we can now iterate through our character map
+
+and find the character that is most frequently used.
+
+It's a quick break and we'll finish this up in the next video.
+--------------------------------------------------------------------------------------------------------
+
+21. Max Chars Solution Continued
+In the last section we were able to verify that we successfully built a character map to represent our
+
+strength.
+
+Now it's up to us to somehow iterate through this character map and find the character that was used
+
+most frequently in a given string.
+
+So taking care of this is going to be very much like iterating through an object.
+
+We're going to iterate through it.
+
+We're going to try to find the value that has been used most frequently.
+
+Now there's several different ways to iterate through an object like this and find the max value.
+
+But we're going to take a very direct straightforward approach.
+
+So we're going to start off by declaring to helper variables at the top of the function we'll say let
+
+Max set that equal to zero and then let Max char and set that to an empty string.
+
+So we're going to iterate through the character map if we ever find a character that has more uses than
+
+max.
+
+Then we'll set max equal to that new value and we'll set max char to a character that was responsible
+
+for that number of uses.
+
+So in other words the first time we iterate through say this hello world object right here we would
+
+look at the key value pair of H and one.
+
+Now one is greater than the initial variable of Max.
+
+So we would say oh this must be a new maximum that we found.
+
+So we would set max to 1 and then Max char would be set to the key at that location which is H.
+
+We would then go onto the next value.
+
+This one has three.
+
+So we would set three equal to max and then Max char would be updated to e because that is the new maximum
+
+character.
+
+So in practice really not the worst thing in the world.
+
+Let's give this a shot.
+
+So I'm going to go down to the console log at the bottom and we will replace this with the new loop
+
+to iterate through our character map.
+
+So we'll save for let char.
+
+And now here's something that's going to kind of blow your mind.
+
+Notice how in the past we've been talking about that for of loop.
+
+So the for loop is used for iterating through an array or a string or any type of iterable object.
+
+But in this case we are iterating through an actual object like a collection of key value pairs.
+
+So to iterate through this object or any type of javascript object as opposed to an array or a string
+
+we instead use a slightly different kind of loop.
+
+So in this case we use a loop that uses the for in syntax as opposed to four of the way that I remember
+
+the difference between the two of these are just remember that object starts with 0.
+
+And ironically they chose not to use of or you know starting with 0 to iterate through an object.
+
+So I remember object starts with 0.
+
+We do not use the four of which begins with 0 to iterate over an object.
+
+Instead we use for it in.
+
+So that's how I remember it personally.
+
+So look at each character for char map.
+
+Then if the char map at this particular character is greater than our Max we're going to update both
+
+the max number and the max character.
+
+So Max will become char map at char and Max char will become char.
+
+So as you can guess right now when we iterate with a for in loop char right here is assigned to the
+
+keys inside that object.
+
+So this is not the values it is the key.
+
+So char will be the different letters that we have added to our object.
+
+Now after we run the loop we should then know which character is the greatest number of uses it will
+
+be assigned to max char which means at the very end all we have to do is return Max char like so.
+
+All right let's see how our tests are doing.
+
+It looks like they're all passing.
+
+Terrific.
+
+OK.
+
+Like I said using this kind of character map set up right here can be used to solve many different types
+
+of string related questions.
+
+And I really recommend you keep this technique close at hand whenever you are an interviewer they ask
+
+you anything about strings it can be used in so many different locations.
+
+So hopefully this has been helpful.
+
+Let's continue the next section and continue working.
+
+So a quick break and I'll see you in just a minute.
+-----------------------------------------------------------------------------------------------------------------
+=================================================================================================================
+
+
+
+
+Раздел 7:The Classic FizzBuzz!
+
+22. FizzBuzz Problem Statement
+The next problem that we're going to work on is going to be a lot of fun because it is the classic interview
+
+question.
+
+It is this buzz the question that has been asked more times than you could possibly believe in an interview
+
+setting.
+
+So in our physio's folder we're going to open up the index not just file will also immediately start
+
+up our tests for Hizbullah's it as well.
+
+So at my terminal or run just this buzz slash test that J us dash dash watch like so and then we should
+
+verify and make sure that we see three Tests in total right now.
+
+Two are failing one or passing OK.
+
+Like I said this is the classic interview question.
+
+As we said much earlier in the course one of the first sections we looked at and that one of those earlier
+
+sections we had said that this is a problem that is really kind of challenging maybe moderately challenging
+
+the first time you see it but as soon as you learn that little trick to it it becomes the easiest thing
+
+in the world or so everyone claims.
+
+So really if you haven't seen this problem before.
+
+Don't sweat it.
+
+If it seems challenging it's not until you see the little trick that it starts to get a little bit easier
+
+to handle.
+
+So let's make sure that it's really clear exactly how this problem works.
+
+We have our first bus function down here towards the bottom when we call the fizz buzz function with
+
+some whole number.
+
+So some whole positive number we need to print out all the numbers from 1 to that number.
+
+So when I say print out I really mean console logs we're going to cancel log out all the numbers from
+
+1 to n. However for any number that is a multiple of three it's a multiple of three.
+
+We are going to print out the string fills.
+
+If the number is a multiple of five we're going to print out because if the number is a multiple of
+
+both 3 and 5 then we're going to print out fizz buzz.
+
+That's it.
+
+So the real challenge here is I would really imagine you know how to count Konst alog you know how to
+
+write a for loop to loop from 1 to n..
+
+Clearly the challenge here is determining when the number is a multiple of 3 and five.
+
+So that's it.
+
+That's the little trick.
+
+That's all there is as long as you can figure out exactly how to calculate a multiple of a number.
+
+You can solve this problem without any issue.
+
+So let's do a quick reminder on how to calculate a multiple of a given number in Javascript.
+
+So I kind of flip back over to my little notepad here.
+
+So we're going to use a very specific operator.
+
+Now when I say operator I'm talking about like an addition sign a negative sign or a minus sign division
+
+whatever it might be.
+
+So if we say for example one missed one in this case the minus sign right here is our operator.
+
+Now there is a very rarely used operator in the javascript world called the modulo operator and we spelled
+
+out maade modulo like so.
+
+So the modulo operator we can determine the remainder of a number during during division.
+
+So for example if we took nine modulo three and returns zero.
+
+So in this case it is zero.
+
+Because if we divide 9 by 3 3 goes into 9 exactly three times and there is no remainder left over.
+
+However if we divide 10 by three we'll then 3 goes into 10 still three times.
+
+And there's one left over.
+
+So three times three equals nine.
+
+That is 1 away from 10.
+
+And that's why we get a result of one over here.
+
+If we do 11 mod 3 we'll then we're two away.
+
+But if we go to 12 12 is again a multiple of three.
+
+So we're back to zero.
+
+So to determine if a number is a multiple of another we can use the modulo operator.
+
+And essentially what we want to do is take some given number that we're trying to test use the modulo
+
+operator with the number that we are using as the multiple.
+
+And then the real question here that we are asking is whether or not the result to that is equal to
+
+zero if 12 maade three is equal to zero then 12 must be a multiple of three.
+
+However if we use 11 mod 3 this is not equal to zero.
+
+So we get false.
+
+So the story here is pretty much it.
+
+This right here is the line that is the sole trick to fizz Buzz.
+
+All you need to know is how the modulo operator works and then you can solve the entire problem.
+
+So in practice you're going to test for each number from 1 to n and remember and is the number that
+
+we pass in as an argument to the physio's function right here.
+
+You're going to test to see if a given number modulo 3 is equal to zero.
+
+And if a given number modulo 5 is equal to a given number person B is equal to zero.
+
+And that's pretty much it.
+
+That's the challenge here.
+
+So I'd like you to give this thing a shot now as you're working through it.
+
+There is one thing I want to point out here just because of how the tests are written.
+
+Note that when you are printing out fizz and buzz and fizz buzz for multiples of three and five.
+
+Notice that the expectation is that you're going to print out lower case things.
+
+So lower case is not upper case for doing lower case fears here.
+
+That is specifically what the tests are looking for.
+
+Now the other thing to keep in mind is that you are not returning these numbers.
+
+So if you find a multiple you're not returning it from the function you are con. logging the number.
+
+OK.
+
+OK.
+
+So with that I'd like you to take a shot give it the best.
+
+Darren can help go over the solution in the next section so I'll see you in just a minute.
+-----------------------------------------------------------------------------------------------------------------
