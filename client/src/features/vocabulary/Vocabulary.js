@@ -95,6 +95,7 @@ export const Vocabulary = () => {
               title={tags.join(' ')} 
               onClick={(e) => {
                 let vid = vidRef.current;
+                // probably need to remove souce tag inside video tag, to have promise rejection https://developers.google.com/web/updates/2017/06/play-request-was-interrupted#danger-zone
                 let vidSrc = vidSrcRef.current;
 
                 if (plaing) {
@@ -108,7 +109,6 @@ export const Vocabulary = () => {
 
                 vid.currentTime = start / 1000
                 vid.play().then((...args) => {
-                  console.log('args of play promise ========', args)
                   setPlaing(_.delay(() => {
                     vid.pause()
                     setPlaing(false)
