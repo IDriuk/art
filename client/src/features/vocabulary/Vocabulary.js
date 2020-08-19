@@ -107,7 +107,8 @@ export const Vocabulary = () => {
                 } 
 
                 vid.currentTime = start / 1000
-                vid.play().then(() => {
+                vid.play().then((...args) => {
+                  console.log('args of play promise ========', args)
                   setPlaing(_.delay(() => {
                     vid.pause()
                     setPlaing(false)
