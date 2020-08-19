@@ -113,6 +113,7 @@ export const Vocabulary = () => {
                       vid.pause() 
                     } catch (e) {
                       console.log('called pause then plaing =====', e)
+                      vidSrc.src = link
                       vid.load()
                       vid.pause()
                     }
