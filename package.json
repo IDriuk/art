@@ -13,7 +13,8 @@
     "client-install": "npm install --prefix client",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run client-install && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run client-install && npm run build --prefix client",
+    "cypress:open": "cypress open"
   },
   "keywords": [
     "express",
@@ -36,6 +37,7 @@
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
+    "cypress": "^4.12.1",
     "nodemon": "^2.0.4"
   }
 }
