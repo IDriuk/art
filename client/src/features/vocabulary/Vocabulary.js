@@ -109,14 +109,7 @@ export const Vocabulary = () => {
                 vid.currentTime = start / 1000
                 vid.play().then(() => {
                   setPlaing(_.delay(() => {
-                    try {
-                      vid.pause() 
-                    } catch (e) {
-                      console.log('called pause then plaing =====', e)
-                      vidSrc.src = link
-                      vid.load()
-                      vid.pause()
-                    }
+                    vid.pause()
                     setPlaing(false)
                   }, end - start))
                 })
