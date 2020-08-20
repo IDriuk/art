@@ -3008,3 +3008,221 @@ So with that I'd like you to take a shot give it the best.
 
 Darren can help go over the solution in the next section so I'll see you in just a minute.
 -----------------------------------------------------------------------------------------------------------------
+
+23. Solving FizzBuzz with Style
+All right hopefully you had some success with putting together your fist but solution in this section
+
+we're going to walk through the solution and make sure it's really clear exactly how it works.
+
+Remember the whole key to the solution is recognizing exactly how that modulo operator works.
+
+The other thing that's really important to keep in mind is that as we are iterating through our list
+
+of numbers we want to print out the number or features or buzz or fix bugs.
+
+So for one particular number we print out only one thing we don't print out like three and four is for
+
+the number three right here we print out only fizz.
+
+So let's get started.
+
+Step one is to make sure that we can iterate from 1 to n inside of our function.
+
+So I get to find my first bus function down here towards the bottom and we're going to set up a loop
+
+inside of it to iterate from one to end.
+
+Now I know that I said a little bit ago that whenever you're doing interview questions you want to avoid
+
+setting up manual for loops.
+
+However this is one of those cases where we really can't get around it.
+
+We don't have any object to iterate over.
+
+We don't have any numbers or me any array to iterate over all we know is that we want to iterate from
+
+one to end.
+
+So this would be a case where we kind of are in a situation where we really want to just set up a for
+
+loop manually.
+
+So we'll set up our for loop to iterate from 1 to eat less than or equal to N and each time we're going
+
+to increment by one.
+
+Now one important thing to keep in mind here is yes we do want to start at 1.
+
+If you write a lot of four loops in your life well you might be used to saying start off at zero.
+
+We're not starting at zero here are the directions specifically say that we are iterating from 1 to
+
+10.
+
+So we're going to make sure we write out our loop like so next.
+
+What I really recommend you do an interview setting just to make sure you nail this question 100 percent
+
+is to write out some comments to guide you.
+
+So the first thing we want to do here is check to see if the number is a multiple of both 3 and 5.
+
+So we're going to say is the number a multiple of 3 and 5.
+
+Because if so we want to cancel log and then do nothing else in this step through the loop.
+
+And that's really important.
+
+Remember if our number is say equal to 3 we only want to print out things and we don't want to print
+
+out the number three.
+
+So we need to make sure that we whenever we do all of these checks we initiate the check.
+
+We print out the statement that is required and then we do nothing else inside of the step through the
+
+loop.
+
+So let's get started by writing out the if statement that is going to check to see if our number is
+
+a multiple of both 3 and 5.
+
+So I'll say if I modulo 3 is equal to zero.
+
+So that's going to check to see if we have a multiple of three.
+
+And if I modulo 5 is a multiple of zero then we want to cancel log out fizz buzz like so so that's step
+
+one.
+
+Now one thing that I will mention right away is if you look at this and you are kind of got a thing
+
+for numbers.
+
+You'll very quickly realize that we only are going to meet this kind of criteria right here having a
+
+multiple three and a multiple of five when it is a multiple of 15.
+
+So any number that is a multiple of three and five is going to be a multiple of 15 because three times
+
+five is 15.
+
+So if you came up with a solution where you said I modulo 15 and left it just like that.
+
+That's totally fine and appropriate.
+
+This is something that sometimes people do because it is just a little bit more terse and easier to
+
+read but honestly you're totally fine leaving it just like so.
+
+All right.
+
+So we have successfully checked to see if we are a multiple of three and five.
+
+Now the thing to recognize next is that we don't want to set up a nother separate if statement.
+
+So if we met this situation right here this condition this is the only code this council is the only
+
+law that we want to execute.
+
+So essentially what I'm saying here is we want to make sure that if we meet this case we don't execute
+
+any other code inside the for loop.
+
+And so to make sure that's the case rather than writing out a bunch of separate if statements we'll
+
+write out a bunch of ELSE IF statements.
+
+So we're going to see if we meet this condition if we do.
+
+Great.
+
+Do the console log and go on to the next step through the loop.
+
+Otherwise if we meet this next condition execute the next console log and so on.
+
+So for the next one we'll check to see if we have a multiple of three
+
+and I'll add a comment here just to remind myself is the number a multiple of three.
+
+And if it is a console log out this next we'll out in the next.
+
+Else if if so if we have a multiple of five then we'll cancel log out buzz.
+
+And then finally if we have failed all three if statements inside of here.
+
+So if we are not a multiple of 15 not a multiple or three not a multiple of five.
+
+Finally at the very end here we'll just print out the number.
+
+And so I will console log simply.
+
+I like so ok.
+
+You'll notice I missed my comments on these last two cases but I think you have a reasonable idea of
+
+what those comments would be if you want to add them in.
+
+So this right here is the classic an imitation of this buzz.
+
+Now you will see sometimes other situations online or other implementations that kind of condense this
+
+code down a little bit and they might use Tzschirner expressions or some oddities around javascript
+
+to shorten it.
+
+But honestly at the end of the day if someone asks you this question I really recommend you basically
+
+just do exactly this right here.
+
+There's really no need to get fancy.
+
+And honestly if you start to get fancy with fizz buzz that's kind of something that interviewers lock
+
+on to interviewers like to see that you understand advanced syntax and they want to see that you know
+
+how some neat helpers inside javascript works.
+
+But if you start putting what is otherwise very straightforward legible code like this into some really
+
+fancy one liner honestly it's kind of ironic.
+
+But their first inclination and I've seen this happen so many times in person.
+
+Their first inclination is to say something like Wow you took some really easy code and you turned in
+
+as some fancy one liner.
+
+That's really hard to understand.
+
+And so it's like well you know on some questions they want you to go above and beyond and use some fancy
+
+javascript.
+
+But on the ones they really want it to be just straightforward and simple.
+
+And I would definitely classify fizz buzz as one to leave as very straightforward and simple.
+
+So I really recommend you just kind of leave it in long form like this and not try to make it fancy
+
+or condense it down to anything else.
+
+OK.
+
+Let's make sure that our tests are passing.
+
+If we flip on over to the terminal.
+
+Yup looks like we got three test passing.
+
+Awesome.
+
+So again classic this was all you got to remember is how the modulo operator works as long as you do
+
+you're going to have an easy time with this question.
+
+So now that we've heard this buzz it's time to move on.
+
+Let's get on our next topic in the next section.
+------------------------------------------------------------------------------------------------------------------------------
