@@ -3226,3 +3226,108 @@ So now that we've heard this buzz it's time to move on.
 
 Let's get on our next topic in the next section.
 ------------------------------------------------------------------------------------------------------------------------------
+
+24. Array Chunk Problem Statement
+
+I'm really excited about the next prong are going to work on because it's one of my personal favorites
+
+in as much as you can have a favorite interview question.
+
+So inside my code editor I'm going to find the chunk folder and then open up the index G-S file inside
+
+of it and then of course before we forget we'll also flip on over to our terminal and start up our tests
+
+as well.
+
+So just showing tested.
+
+Yes.
+
+Dash dash watch like so and just make sure that you have.
+
+Let's see five-Test popping up.
+
+That's how many we have for this particular exercise.
+
+So let's look at the directions here inside the index file.
+
+You'll find the directions at the top.
+
+So given an array in a chunk size as arguments and so look at the chunk function right here it accepts
+
+an array and the size as argument.
+
+Using those we want to divide the array into many sub arrays where each subarray is of length size.
+
+So in other words we're taking one big array and splitting it into many smaller substrates that are
+
+all contained within one larger array.
+
+This function is probably easiest to understand when you start looking at some examples.
+
+So let's do exactly that.
+
+Let's look at the first one right here.
+
+If we call chunk with an array of the numbers 1 2 3 and 4 and specify a chunk length of 2 then we should
+
+end up with one big array that contains smaller arrays inside of it.
+
+And so these smaller arrays are what we would refer to as the sub arrays each separate is of length
+
+2 because two as we passed in as the size.
+
+Notice that the two here is specifying the number of elements that go into each chunk.
+
+It's not specifying the total number of chunks.
+
+So to write here doesn't mean that we should have two separate chunks.
+
+It means that there should be two elements in each chunk.
+
+Perhaps the next one gives a little bit better example in that regard.
+
+So in this case we have 1 2 3 4 and 5 and we still have a chunk size of 2.
+
+So in this case we put two elements into the first chunk two elements into the next junk and there's
+
+only one element remaining.
+
+And so we take that one last element and put it into its own chunk at the very end and then you can
+
+see this repeated throughout the other examples as well.
+
+Another good example might be the one down here second to the bottom.
+
+So we have one two three four five and a chunk size of four.
+
+So we create one chunk that has one two three four elements inside of it.
+
+And the only remaining element goes into its own chunk.
+
+So in other words if you have kind of an orphaned element or you don't have enough elements to fill
+
+up its own chunk that's totally fine.
+
+You just stick it into its own chunk at the very end.
+
+So that's pretty much it.
+
+That's the challenge.
+
+This is definitely a harder problem to solve.
+
+But nonetheless I'd love it if you gave it a shot.
+
+I'm going to let you kind of take it from here.
+
+Without a lot more input from me.
+
+Consider this a little trial by fire.
+
+But of course if you get stuck at all don't sweat it.
+
+Watch a couple of minutes of the solution and then come back and give it another shot.
+
+So a quick break for you to work on this and we'll look at the first solution in the next section.
+----------------------------------------------------------------------------------------------------------------
