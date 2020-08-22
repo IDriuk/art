@@ -19,7 +19,7 @@ export const vocabularySlice = createSlice({
       state.phrases = state.phrases.filter(({_id}) => _id !== action.payload)
     },
     updatePhraseOptimistic: (state, action) => {
-      let index = state.phrases.findIndex(({_id}) => _id == action.payload.oldId)
+      let index = state.phrases.findIndex(({_id}) => _id === action.payload.oldId)
       state.phrases[index] = action.payload
     }
   },

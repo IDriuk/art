@@ -53,7 +53,7 @@ export const Vocabulary = () => {
           const { value: end } = endRef.current
           const { value: description } = descriptionRef.current
           const { value: tags } = tagsRef.current
-          let action = showForm == "add" ? addPhraseAsync : updatePhraseAsync
+          let action = showForm === "add" ? addPhraseAsync : updatePhraseAsync
           dispatch(action({_id: showForm, phrase, link, start, end, tags, description }))
           toggleForm(false)
         }}
