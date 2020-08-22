@@ -17,7 +17,6 @@ export const Vocabulary = () => {
   const [showForm, toggleForm] = useState(false)
   const [search, updateSearch] = useState('')
   
-  const vidSrcRef = useRef(null);
   const phraseRef = useRef(null);
   const linkRef = useRef(null);
   const startRef = useRef(null);
@@ -35,13 +34,7 @@ export const Vocabulary = () => {
 
   return (
     <div className="container">
-      <video ref={vidRef} width="0" height="0" >
-        <source
-          ref={vidSrcRef}
-          src={defaultVideoLink}
-          type="video/mp4"
-        />
-      </video>
+      <video ref={vidRef} src={defaultVideoLink} width="0" height="0" />
 
       {showForm ? 
       <form
@@ -95,24 +88,26 @@ export const Vocabulary = () => {
               title={tags.join(' ')} 
               onClick={(e) => {
                 let vid = vidRef.current;
-                // probably need to remove souce tag inside video tag, to have promise rejection https://developers.google.com/web/updates/2017/06/play-request-was-interrupted#danger-zone
-                let vidSrc = vidSrcRef.current;
 
                 if (plaing) {
                   clearTimeout(plaing)
                 }
 
-                if ( vidSrc.src !== link ) {
-                  vidSrc.src = link
+                if ( vid.src !== link ) {
+                  vid.src = link
                   vid.load()
                 } 
 
                 vid.currentTime = start / 1000
-                vid.play().then((...args) => {
+                vid.play().then(() => {
                   setPlaing(_.delay(() => {
                     vid.pause()
                     setPlaing(false)
                   }, end - start))
+                }).catch(e => {
+                  console.log('play video error =======', e)
+                  vid.load()
+                  vid.pause()
                 })
               }}
             >
