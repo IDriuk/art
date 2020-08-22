@@ -3331,3 +3331,196 @@ Watch a couple of minutes of the solution and then come back and give it another
 
 So a quick break for you to work on this and we'll look at the first solution in the next section.
 ----------------------------------------------------------------------------------------------------------------
+
+25. Chunk Solution #1
+
+Hopefully you had some success with that chunk problem.
+
+This is definitely a pretty challenging one.
+
+So if you ran into any issues hey don't sweat it.
+
+In this section we're going to go through one possible solution to that chunk problem.
+
+Now there are two solutions that come to mind kind of easily when I think about this problem.
+
+So we're going to look at one possible solution in this video and then we'll look at another possible
+
+solution in the next one.
+
+Now I think that the difficulty between these two solutions are kind of equal in putting them together.
+
+But I think the second solution so the one that we'll look at in a little bit is probably more challenging
+
+to arrive at by yourself.
+
+So this is another great example of when you know the trick things get easy.
+
+But if you don't know the trick well life is a little bit hard.
+
+OK.
+
+So we're going to look at a diagram.
+
+This is going to describe our first solution.
+
+So let's take a look at this.
+
+So we're going to walk through this series of steps right here.
+
+So this is our algorithm starting at the top and going down.
+
+And as we talk through this algorithm We're also going to kind of trace out how all these different
+
+puzzle pieces are changing or all these different arrays are changing over time.
+
+So it's going to be just a little bit awkward.
+
+Hopefully you can bear with me as I tried to diagram or demonstrate this with some of these shapes.
+
+So let's get to it.
+
+First off we're going to assume that our chunk function gets called with some array that has three elements
+
+inside of it.
+
+And so this green thing right here this is the array that our function is going to be called with.
+
+We're also going to assume that we have a chunk size of two just for the purposes of walking through
+
+this example.
+
+So here's the algorithm we're going to use.
+
+We'll first start off by creating a brand new empty array to hold this kind of chunky version of our
+
+data and we're going to call this thing chunked.
+
+So this is like the chunked version of our array.
+
+So we're going to represent this brand new array that you and I are going to create with this blue box
+
+right here.
+
+And so I will draw an arrow from that step to this blue box to just remind you hey this is the chunka
+
+version of our array.
+
+After creating this empty array we will then start to L to iterate through the original n chunked array
+
+that was passed into our function.
+
+So the unchecked array is this original one right here up top in green then for each element in that
+
+unchecked array we're going to go through a series of steps right here.
+
+First we're going to retrieve the last element in the blue chunk.
+
+So the last element the element that's Furnas to the right hand side.
+
+Now the first time our algorithm runs this brand new chunk array will be completely empty.
+
+So when we attempt to retrieve the last element inside of it we will end up with essentially undefined
+
+will have nothing to show for it.
+
+So the next line is how we handle that we're going to look at that element that we just retrieve the
+
+last element in the chunk array.
+
+We will say that if the last element does not exist or if the last element inside the chunk Drey is
+
+equal to chunk size then execute this step right here.
+
+So we definitely fall into this statement right here because the last element in our chunk doré does
+
+not yet exist for the first time we run through this.
+
+So we're going to execute this line of code right here in this line of code says that we are going to
+
+push a new sub array or a new chunk into the blue chunk to one with the current element that we are
+
+iterating over which is 1.
+
+So this is the for loop that we are iterating through right here.
+
+So we're going to take a new sub array this kind of chunk right here.
+
+We're going to push it in and then we're going to add our first element to it.
+
+And that concludes our first loop through this array.
+
+We now will will iterate through this array again.
+
+So we're going to move on to element 2 right here.
+
+We will attempt to retrieve the last element and chunked.
+
+Now this time it's going to be this blue chunk that we return right here.
+
+So this is the last element in our chunk.
+
+So this time we checked to see if that last element does not exist.
+
+It does exist.
+
+So that's not satisfied.
+
+We then checked to see if the length of that chunk is equal to our chunk size of two.
+
+Well at present our chunk size is 1.
+
+So we don't fall into that case.
+
+So rather than executing this line of code we'll go down to the else case right here in the case says
+
+add the current element which is to into the chunk the last element in the chunk Drey.
+
+So we're going to take two and added And right there.
+
+Finally we'll iterate through the last element inside of our unchecked array.
+
+So this is going to be a 3.
+
+We retrieve the last element in chunked.
+
+So that's going to be the purple block box right here.
+
+We checked to see if its length is equal to the chunk size.
+
+And so now at this point in time there are two elements inside of here and we have 2 a chunk size of
+
+two.
+
+So we do satisfy the if statement right here.
+
+And we're going to run this line of code so we're going to push a new chunk into chunks.
+
+So we're going to take this new chunk shove it in there and then we'll take the current element and
+
+put it inside that.
+
+And now we have nothing else to iterate through with our for loop.
+
+Our original loop right here is now empty.
+
+We've gone through everything and we have ended up with our correctly chunked array right here.
+
+So this is it.
+
+This is pretty much how we're going to accomplish this.
+
+First run through this first solution.
+
+Now again if you came up with a different solution than this one that's totally fine.
+
+Totally appropriate.
+
+This is just one possible solution and one that I personally think is kind of straightforward and easy
+
+to understand or at least relatively easy.
+
+So let's now take a break.
+
+We'll continue in the next section and start to code this solution up.
+----------------------------------------------------------------------------------------------------------------------------
