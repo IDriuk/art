@@ -3524,3 +3524,124 @@ So let's now take a break.
 
 We'll continue in the next section and start to code this solution up.
 ----------------------------------------------------------------------------------------------------------------------------
+
+26. More on Chunk
+
+In the last section we looked at the diagram to understand our chunk solution.
+
+Let's now continue by coding this thing up.
+
+So inside my code editor I'm going to make sure I'm inside of my shunk index dot js file.
+
+I will open up my function here and we'll start adding a little bit of code.
+
+So remember Step one is to declare a new array that is going to hold all these different chunks.
+
+So I'm going to create a new array.
+
+I'm going to call it chunked to say hey this is the array that holds all the different chunks of data.
+
+Next we will iterate through our original array of elements right here to iterate through the array
+
+we're going to use the four of helper again.
+
+So we'll say for let element of array and then we'll execute some logic inside of here to look out the
+
+last element inside of our chunked array.
+
+So to get the last element inside the chunk array we'll make a temporary variable.
+
+So we'll say last is to say this is the last element inside that array and then you get the last element
+
+inside of there.
+
+We can say chunked at chunked dot length minus 1 like so.
+
+Now the next part is pretty well explained by the diagram over here.
+
+We want to check both to see if that last element does not exist or if its length is equal to the chunk
+
+size because if it is we want to push a new chunk into chunked with a current element that we are iterating
+
+over.
+
+So to accomplish that we can say if last does not exist or if the length of last is equal to our chunk
+
+size remember chunk size appear as an argument.
+
+Then we want to add a new element to chunked or a new chunk to chunked and put our element inside that.
+
+So to do that we can say chunked Daut push and then rather than put a new chunk inside of it and then
+
+add the element ID in we can do both things at the same time.
+
+So we'll push in a new chunk and we'll immediately put our element that we are currently iterating over
+
+inside there.
+
+So we're doing both things in one step.
+
+Now the last thing we have to take care of is the case in which we already have a chunk but it does
+
+not get full.
+
+So in that case we're going to take the current element and add it to the chunk and remember the chunk
+
+that we're discussing is this last variable right here.
+
+So otherwise we will last dot push because remember last year is going to be the chunk that we are currently
+
+working with and we will put our elements into that thing.
+
+Now the very last step and make sure you never forget this.
+
+This is such an easy thing to forget.
+
+Make sure that you return the chunked array at the very bottom.
+
+So we will make sure that we return shopped like some.
+
+OK.
+
+So save this let's check our tests and see how we're doing.
+
+Well hey it looks good to me.
+
+We've got five test passing out five.
+
+So like I said this is one possible solution.
+
+I think that this might be the slightly more obvious one.
+
+Are you whenever I say obvious I don't mean hey this is so obvious you should definitely get this.
+
+I just mean to say this one is probably a little bit more evident than the alternative solution that
+
+we'll look at in the next section.
+
+I do consider the next solution to be a little bit easier to put together and probably easier to understand.
+
+But it's definitely more challenging to kind of think of on your own.
+
+It's one where you can have to sit down and kind of noodle on it for a little bit.
+
+This kind of iterative solution right here is probably one of the first ways a lot of people will think
+
+about accomplishing this.
+
+Now maybe if you thought of a solution like this and you didn't take this entire hey let's look at the
+
+last chunk and see what to do with it.
+
+Well maybe you didn't take that approach but maybe you at least did this kind of let's iterate through
+
+the array and consider each element.
+
+That's what I mean by you know I think this one might be a little bit more common to see in the wild.
+
+So this is one possible solution.
+
+Let's continue in the next section we're going to look at the second possible solution to this problem.
+
+So quick break and I'll see you in just a minute.
+------------------------------------------------------------------------------------------------------------
