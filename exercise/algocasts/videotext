@@ -3645,3 +3645,147 @@ Let's continue in the next section we're going to look at the second possible so
 
 So quick break and I'll see you in just a minute.
 ------------------------------------------------------------------------------------------------------------
+
+27. Chunk Solution #2
+
+In this section we're going to look at a alternate solution to that chunk problem.
+
+Now as usual we'll make a backup of our solution.
+
+So inside of my current index not just file I'm going to copy my first attempt at chunk I'll paste it
+
+down at the bottom of the file just for records.
+
+Now a comment that went out and clean up the original chunk function by deleting the contents like the
+
+OK so just like the previous section or the previous two lectures in this video will look at this alternative
+
+approach.
+
+We'll take a break and we'll come back and code up the solution because I do want to give you the opportunity
+
+to attempt a solution with this other fashion if you want to.
+
+So let's get to it.
+
+All right now knowledge of this second solution.
+
+Like I said it's a little bit harder to come at this solution on your own unless you are very familiar
+
+or have very recently at least how this function in mind one particular function that has to do with
+
+arrays and this function is called sleights.
+
+So if we call letters dot slice.
+
+So this is a function or a method that exists on all arrays.
+
+We can pass in some start index.
+
+So let's say I start index of 0 and then as the second argument some and index.
+
+So maybe I'll put in three like so.
+
+So this says starting at element 0.
+
+Give me a copy.
+
+That's very important.
+
+We are taking a copy of every element inside of letters from 0 to element 3 but not including element
+
+3.
+
+So in this case element 3 would be the letter D right here.
+
+So take everything from 0 up to element 3 but not including it.
+
+One very common mistake around slice is thinking that the second argument is the number of elements
+
+that we want to slice out of the array.
+
+That is not correct.
+
+If we change say the first Delman right tool 1 we're now taking everything from Element 1 up to but
+
+not including element 3.
+
+So clearly the second argument is not a length here.
+
+If it was a length then we would still see three elements inside our result over here.
+
+So with this slice method in mind we can start to think of a alternative approach to the chunk problem.
+
+So again we're going to kind of sketch this out with a diagram.
+
+I know this is kind of sloppy to do with the diagrams but frankly I can't do animations and you know
+
+fancy Illustrator or what have you whatever you would use to make illustrations so I kind of like just
+
+drawing it out keeps it simple.
+
+So again we're going to start off by creating a empty trunked array and that's going to be our blue
+
+box right here.
+
+Then we're going to create a index variable.
+
+So just some random variable.
+
+We're going to call it index and we're going to start it off at 0.
+
+We will then create a for loop or be a while loop and this while loop will run as long as index is less
+
+than our original arrays length.
+
+And then here's where things get interesting.
+
+Inside this while loop we are going to take a slice out of our original array starting at index and
+
+ending at index plus size will take a slice out of it and then we will push that into our chunk array.
+
+So let's put some numbers to this thing for the first go through.
+
+We're going to start off with the index of 0 and we have a chunk size of two.
+
+So we're going to take a chunk size from 0 to.
+
+And we're going to put that into our array right here.
+
+So our a slice from 0 to 2 on the green array would include everything from 1 to 2 right here.
+
+So take that slice it puts it into our chunked array element one element to we then add size to index.
+
+So chunk size to index.
+
+So the second time around we then restart our while loop right here.
+
+Index would now be equal to 2 and we'd then repeat the process.
+
+So we had now attempt to take a slice from two to four.
+
+And in this case we don't have elements going up to 4.
+
+So it just gives us everything left inside the array.
+
+And we would end up sticking everything in like so.
+
+So I think as far as the code goes with this solution it's probably far less code that we have to write.
+
+And there's really kind of less edge cases that we have to worry about but it really does.
+
+It's all predicated on your knowledge of the slice method.
+
+If you're not familiar with slice in the interview setting.
+
+Well then this would be a hard one to kind of pull out of a hat and imagine if you did come up with
+
+a solution.
+
+I've got to like hats off to you like nice job coming up with this one because this is definitely not
+
+a solution that I think I would come up with on top of my head personally.
+
+So now that we have a better idea of how this works let's take a quick break and then put together the
+
+implementation in the next section.
