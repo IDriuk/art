@@ -3789,3 +3789,94 @@ a solution that I think I would come up with on top of my head personally.
 So now that we have a better idea of how this works let's take a quick break and then put together the
 
 implementation in the next section.
+--------------------------------------------------------------------------------------------------------
+
+28. Even More on Chunk!
+All right let's give a shot at our second implementation here by using the slice function.
+
+So I'm back inside my chunk file I'm going to open up my function and we'll start off by following some
+
+of the blueprints that we left over here on the diagram.
+
+So we had said that we would create an empty chunk array and we would create an index variable starting
+
+off at zero.
+
+So inside of chunked or something inside of chunk we'll create chunked which will be our empty array
+
+and it will create our index variable.
+
+Now index is going to be changing over time.
+
+So we're not going to use a concert keyword here.
+
+Instead we use a let keyword because this is a variable that we want to allowed to change over time.
+
+Next we'll set up our while loop.
+
+So we want to run this while loop as long as index is less than the original arrays length.
+
+So I will say while index is less than array length and then inside of here's where the magic really
+
+starts to happen first we'll write out the slice statement.
+
+So this would be the statement that we'll take a slice out of our original array right here.
+
+So we want to slice everything from index to index plus size.
+
+That's the magic that's the hard part right there.
+
+Array that slice produces an array that contains some number of elements out of the original array right
+
+here.
+
+So we can take this slice that gets produced and just stick it directly into the chunked array by using
+
+the push method.
+
+So we'll take this whole thing and stick it into chunked by saying chunked dot push like so and then
+
+make sure you're close off the parentheses on the other side.
+
+Then immediately after that after we do our slice statement right here we need to move on to the next
+
+index.
+
+So we're going to take our index variable and we'll add size to it.
+
+So we're not incrementing by one here where incrementing by the size variable because you want to essentially
+
+take big scoops out of the original array over time.
+
+So say index plus equal size and then remember that one very important step that I would never want
+
+you to forget.
+
+Make sure you return chunked at the bottom OK.
+
+Let's check our tests and it looks like they're still all passing.
+
+So I think you can agree with me that this is visually a kind of more straightforward solution at least
+
+in terms of lines of code.
+
+And as long as you understand how slice works it probably is a little bit easier to understand what's
+
+going on rather than the solution that we came up with before where we iterated through the entire array.
+
+Again I think this would be a harder one to come up with on your own so if you didn't come up with this
+
+hey don't sweat it.
+
+Remember this course is all about just giving you these little tricks and tips because that's how you
+
+get better over time.
+
+You just see more problems.
+
+You learn tips like this and you apply them to future problems that you see.
+
+So let's take a break right now.
+
+We'll continue in the next section and start looking at our next problem.
+--------------------------------------------------------------------------------------------------------------
