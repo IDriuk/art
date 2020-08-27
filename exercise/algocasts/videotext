@@ -3880,3 +3880,524 @@ So let's take a break right now.
 
 We'll continue in the next section and start looking at our next problem.
 --------------------------------------------------------------------------------------------------------------
+==============================================================================================================
+
+Раздел 9:Anagrams
+
+29. What Are Anagrams?
+
+Our goal here is to check to see if two strings are anagrams of each other.
+
+Remember an anagram is where we take one string and then generate another string out of it that has
+
+the same number and quantity of characters.
+
+So for example if we took the string rail safety and jumbled those letters into this string fairytales
+
+they both use the same number in quantity of each character.
+
+So for example I will find exactly 1 are in both strings.
+
+I will find two ways in both strings and so on.
+
+You get the idea.
+
+Now some special directions on this question in particular is note that we only want to consider characters
+
+we don't want to consider spaces or punctuation like say ex-school exclamation marks or anything like
+
+that so we can completely disregard exclamation marks and spaces.
+
+In addition we want to consider capital letters to be exactly the same as a lowercase character.
+
+So the second example right here is a great example of both those two rules.
+
+So you'll notice right above we have real safety and fairytales are anagrams.
+
+The second example right here has still real safety but with capital letters and exclamation marks.
+
+However we should still consider this to be an anagram of the lowercase fairy tales.
+
+Now just to make sure that you start down the right path.
+
+I want to give you a couple little tips for dealing with these kind of edge cases around characters
+
+and not spaces or punctuation.
+
+And also a quick tip around capital letters as well.
+
+So let's flip over to my browser really quick.
+
+We're going to look at some examples here.
+
+So the first thing I want to give you a quick note on is on the Indiana documentation we have Regg axes
+
+which are short for regular expressions regular expressions can be used to manipulate strings very easily.
+
+And in this case we can use a regular expression to very easily remove all the spaces and exclamation
+
+marks from a given string.
+
+So in this article I'm going to scroll down a little bit and one of the items inside of here right here.
+
+So backslash w specifically shows us how to match only characters and completely disregard any type
+
+of space or any type of punctuation or other symbol for that matter.
+
+So let's see an example of this in practice as a quick example let's say maybe we have a string called
+
+Word and it is the string.
+
+Hi there.
+
+All capitals with a lot of exclamation marks and a space in between right here.
+
+So we can very easily remove the space in all the exclamation marks from this thing by calling word
+
+dot Daut replace and they'll make use of a regular expression inside this.
+
+So I'm going to place a forward slash a square bracket a carrot backslash w a closing square of race
+
+slash G.
+
+And then we will replace any characters like that are that are found with an empty string.
+
+And so you can see that very easily that removes all the extraneous characters from the strings so it
+
+gives us something a little bit more cleaner to work with.
+
+Now the other thing to keep in mind is that we only want to work with lowercase characters.
+
+So a very easy way of making sure that we are working with a lowercase string of beats of chain on the
+
+method to lower case like so and so essentially with these two methods right here we can take a string
+
+that is capitalized with spaces and punctuation side of it and reduce it down to just the bare characters
+
+like so.
+
+So I really expect to you will end up making use of these two methods right here and your solution.
+
+So essentially copy these things down because I really expect you're going to need them.
+
+Now the other thing I want to mention just as a reminder about how we'd generally like to solve any
+
+type of question involving strings and comparison between them is to generate character maps and that
+
+was something that you'll recall we did earlier on in this course.
+
+So just as a suggestion.
+
+One possible way and this is just one way there is more than one way to do this question but one possible
+
+way is to generate a character map out of both the strings you are given.
+
+So for example if we are given the strings hello and I don't know what this is supposed to be.
+
+Li Li Ho I guess I don't know if we build a character map out of both these.
+
+We would end up with 1 h one e two l's and 1 0.
+
+And we would get the exact same character map for Leo as well.
+
+So we could iterate over one of these character maps and compare all the letters inside of it with all
+
+the letters and the other one and the quantities as well.
+
+So I'll leave that one up to you to kind of get through a little bit and figure out.
+
+So there is one last little gotcha around the character maps that you're going to generate here.
+
+If you decide to go with this method let me show you what this kind of edge case is when I just told
+
+you that you would want to compare these two character maps.
+
+You might have thought OK we can iterate through this object right here and then compare all the properties
+
+and values with the properties and values in the other object as well.
+
+So there's one little edge case that I want to throw out there just so you are aware of.
+
+Imagine the case of we were going to compare these two character maps.
+
+So notice I just change the diagram the word over here on the right has changed to close.
+
+So has an extra s on here.
+
+Now imagine if we wrote a loop to iterate only through this object if we only iterated through this
+
+object we would look at the character H see that it has one use and compare it over to this object we
+
+would say OK this one has h as well and it has one uses well within repeat the process for E.
+
+They're the same l they're the same.
+
+Oh they're the same.
+
+And that's it.
+
+We've now finished iterating through this object.
+
+But notice how we completely missed the fact that this other character map has an extra s on it.
+
+So one possible way of solving this problem is to compare first this character map to this one and then
+
+iterate through this character map and compare to this one.
+
+However there is the easier or kind of a little shortcut that we could use to avoid that.
+
+So we don't really have to do a comparison one way on a comparison back to the other.
+
+If you want to know what that little trick is I'm going to say right now what we can do is count the
+
+number of keys that are present inside of one object and compare it to the Keys that exist inside the
+
+other.
+
+So for example this key over here has four legs or letters inside of it.
+
+This one over here has five.
+
+And then another very obvious way of handling this would be to count the length of characters inside
+
+this string and compare it to this one over here.
+
+So just two ways of addressing that issue.
+
+OK.
+
+So we've laid out a couple of notes here.
+
+Now this anagrams question is a rather challenging one.
+
+So do give it a shot but as usual if you get stuck feel free to check out the solution and we'll walk
+
+through how to solve this thing together.
+
+So quick break and we'll continue with the solution in the next section.
+
+--------------------------------------------------------------------------------------------------------------
+
+30. Solving Anagrams
+I'll read my friends hopefully anagrams was not too bad.
+
+This is a rather challenging question.
+
+It is challenging but it's also one that I can almost guarantee that you would see in an interview setting.
+
+So if you go on like 10 interviews I would personally be surprised if you didn't get asked this question.
+
+So it's definitely a very good one to keep in your back pocket because you never know when it's going
+
+to be asked.
+
+So let's talk about her solution here by using character maps.
+
+We're going to build a character map out of string A and string B and then we'll compare all the characters
+
+inside those two maps together.
+
+So let's start off by giving ourselves a little bit of space inside this function.
+
+Now we're going to need to make a character map out of both of these things right here.
+
+So the first thing I'm going to recommend is we don't really want to build two for loops to iterate
+
+both through string A and string B instead.
+
+A really easy way to save ourselves the pain of having to write two separate four loops to iterate through
+
+each string right here would be to write a helper function to build a character map for us.
+
+Now if you didn't make a helper function if you wrote out two character map assemblies inside this function
+
+already that's totally fine.
+
+But the interview setting interview is kind of like to see you create helper functions and it kind of
+
+also allows you to better segregate or compartmentalize your code which is always helpful in sort of
+
+an interview.
+
+I have some other tips around creating helper functions that we'll talk about later on in the course.
+
+They're actually kind of a great thing to keep in mind in an interview setting.
+
+So let's first start off by making a helper function here.
+
+And we're going to use this helper function to build a character map for a given string.
+
+So we only have to write this logic one time and then we can use both on string A and string B will
+
+say function build char map and we'll pass a string in to that function.
+
+Then inside of here we'll create an empty object that will serve as our character map we'll then iterate
+
+through our string and for every character inside there will add it to our character map.
+
+Now one other thing to keep in mind is that we had said that our string needs to be only considering
+
+lowercase characters and we also need to strip out any spaces or any punctuation.
+
+So we certainly could do something like create a cleaned string ahead of time and do the Ragg X and
+
+the two lowercase call right here.
+
+But one easier way of doing it or maybe not easier but a slightly more compact way would be to tuck
+
+that kind of Clean-Up logic directly into a for loop itself.
+
+So let's look at what that might look like.
+
+You could say let char of string dot replace.
+
+So this is where we're going to do that replace in lower case logic logic just right here in line with
+
+the for loop.
+
+So we will replace forward slash square bracket.
+
+Carit backslash W..
+
+And then on the other side of the square brace we'll put a forward slash G.
+
+So note that everything inside of your code editor should very likely turn into a slightly different
+
+color when you've got this regular expression put together correctly.
+
+So any time that we find a character that is not a number a character Kapell character or a lowercase
+
+character we want to replace it with nothing or essentially an empty string after we've done that Clean-Up
+
+logic.
+
+Well then take the entire string and turn it to lower case like so you no open up our for loop.
+
+Ok so now we're iterating only over the portions of the string that we really care about and remember
+
+how we put our character maps together.
+
+We take our character map we assign a key to the character map of the current character that we're looking
+
+at and then we increment the value out that character.
+
+So we'll say char map at char is char map at Char plus 1 and then we need to handle the case in which
+
+this particular character has not yet been assigned to the character map.
+
+So to say or one like so then very important.
+
+I can't stress this enough because when you're in a high stress setting like interview or even when
+
+you're practicing these problems yourself at home.
+
+So easy to make tiny little mistakes so I I know it might be annoying for me to remind you all the time
+
+to get the return statements in here but honestly you have no idea how often people just honestly forget
+
+to put in a return statement so I will harp on that throughout the course.
+
+I apologize if that is annoying.
+
+OK so we've got our helper function here to build up our character map.
+
+Now we can use it to produce a character map both string a and string B.
+
+So let's declare a variable let's call it a char map will be build char map from string a and b Schar
+
+map will be build char map from string B.
+
+So we've now got these two character maps and it's now up to us to compare the two of them together.
+
+The other thing that we still need to keep in mind is that kind of edge case that we mentioned at the
+
+end the last video where if we only compare this object to this one we might miss out on some extra
+
+entries inside the second one.
+
+So I had mentioned that an easy way to solve this is to either compare the length of the two character
+
+or the two strings.
+
+If we do that do you remember that you would have to compare the length after subtracting out spaces
+
+and punctuation.
+
+So if you want to take that approach you can do the same kind of replace in two lowercase for both strings
+
+up here and then compare the length of the two of them.
+
+Another possible approach would be to look at the number of keys inside of both these maps and check
+
+to see if they are identical in length.
+
+So that is the approach that we're going to go with so we're going to pull out all the keys from both
+
+these objects right here and we'll count the number of keys that is contained in both.
+
+If you've never pulled out the number or the schism if you never pulled out the keys inside an object
+
+before that's totally fine I'll show you how to do that.
+
+Let's look at a quick example.
+
+So if we have an object that would call just O.B. J.
+
+And it has keys a b and c we can get a list of all the keys inside this object by calling object.
+
+Notice that is a capital O object.
+
+Keys will cast an object like so.
+
+So that returns an array with all the keys from our object.
+
+If we then call DOT length on that.
+
+Well then we can very easily tell how many keys exist inside of our object.
+
+And so this is the solution that we're going to use to address this problem of some extra character
+
+existing in one character map or the other.
+
+So we'll get the number of keys inside this character map the number of keys and this character map
+
+and then can compare the two together.
+
+So in practice will put a little if statement here will say if object we use for aid char map length
+
+is not equal to object.
+
+Keys for the char map length.
+
+Well then we must know that we do not have an anagram because they have a different number of characters
+
+or maybe a better way of putting that would be to say one character map has an extra character type
+
+that the other one does not.
+
+So if that's the case we'll just immediately return false from this function.
+
+Now if they do have the same number of characters that we want to proceed with the map checking process
+
+in which we will look at each one of these characters and compare the number of uses that it has to
+
+the other map most part might sound like it's kind of challenging.
+
+You know this I know that when I kind of see that with words you know I put it in a plain-English it
+
+sounds like it's something is challenging but honestly I think you know how to do this I think this
+
+is something that you definitely can do what we have to do here is to iterate over one char map look
+
+at every character inside of it and then compare it to the other Charmel.
+
+So we're going to iterate over a char map and really we could iterate over either one it doesn't really
+
+matter here we just have to pick one.
+
+In this case we'll iterate over a char map.
+
+So save for let char and then don't forget here a little.
+
+Gotcha.
+
+And if we are iterating iterating over an array We use of.
+
+But if we are iterating over an object we use in and remember that what's the term for it not anagram.
+
+We're we're working at anagrams.
+
+I know it's going to come to me.
+
+The little trick for remembering which one to use.
+
+If we are iterating over an object We use of which is really confusing because 0 starts where object
+
+starts with oh so you would think that you would use of to iterate through an object but that's not
+
+the case.
+
+So for an object we use in which is kind of doesn't line up with the first letter in that word right
+
+there.
+
+I know that's probably an awful way of remembering but that's what I use.
+
+So look through a char map and if a char map at char is not equal to the char map at char then something
+
+must be wrong.
+
+So let's say we're iterating through a char map and the first character that we look at is the letter
+
+A.
+
+We say how many times has a been used inside of HRO map if it has not been used the same number of times
+
+and of the term map.
+
+That means that something must be wrong or these two things do not line up at all.
+
+So in that case we can't immediately return false
+
+OK.
+
+Now the last thing and again I know I'm harping on the return statements here but this is another very
+
+easy one to forget.
+
+Notice how we set up here inside the directions that we need to return true if they are anagrams and
+
+false if they are not.
+
+So we've handled the cases in which they are not anagrams by basically returning false.
+
+And the thing that we cannot forget is that if we succeed in both these checks right here that means
+
+that they must be anagrams.
+
+And so in that case we should return true.
+
+Like so.
+
+OK so this is our solution this is solution number one for solving anagrams.
+
+Let's check our tests.
+
+It looks like they're all passing which is fantastic.
+
+So I think that is going to work out just fine.
+
+Now in the last video I had mentioned that this whole anagram question and the two solutions that we're
+
+going to look at is kind of nice because it frames some later content that we're going to discuss in
+
+the course.
+
+So I want you to kind of look at this solution right here.
+
+Very quickly when we look at it you'll notice that if we consider the number of times that we have to
+
+iterate through either these streams right here we iterate through string a one time to build our character
+
+map we iterate through string B one time to build our character map and then we iterate through one
+
+character map to do the final comparison here.
+
+And so I just want to very quickly point that out because we are going to come back to this question
+
+or this solution right here later on in the course and I'm going to just kind of point out some interesting
+
+things about the way that we solved this problem right here.
+
+And the way in which we solve it in the next section because we are going to look at a second solution.
+
+So if any minds let's pause right now we're going to continue the next video and we're going to look
+
+at another way of solving this problem that is far far easier.
+
+But it does run into some interesting issues that like I said we'll kind of consider later on in the
+
+course.
+
+So a quick break and we'll tackle that second solution in just a moment.
+--------------------------------------------------------------------------------------------------------------

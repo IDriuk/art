@@ -1,7 +1,11 @@
-// Valid Parentheses
-// https://www.codewars.com/kata/52774a314c2333f0a7000688/train/javascript
+// Valid parentheses
+// https://leetcode.com/problems/valid-parentheses/submissions/
 
-function validParentheses(s){
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function(s) {
   if (!s || s == "") return true
   let ar = s.split('')
   const map = {'(': ')', '[' : ']', '{' : '}'}
