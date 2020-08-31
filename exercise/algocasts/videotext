@@ -4401,3 +4401,267 @@ course.
 
 So a quick break and we'll tackle that second solution in just a moment.
 --------------------------------------------------------------------------------------------------------------
+
+31. Another Way to Tackle Anagrams
+
+All right.
+
+Time for a solution or two to anagrams.
+
+So this one's going to be a little bit more straightforward.
+
+Well I should say a lot more straightforward but like I said at the end of the last video it will run
+
+into some interesting performance concerns.
+
+That is something that we're going to kind of use to frame another topic later on in the course.
+
+So the first thing we're going to do is a little bit of clean up of our indexed not gigas file.
+
+So I'm going to take both the anagrams function and the build char map function.
+
+I'm going to highlight it all.
+
+I'm going to cut it.
+
+I'm going to move it to the bottom of the file and I'm going to comment both those functions out.
+
+So I do want to keep these around just for record keeping.
+
+Honestly it's for you for the future when you come back and review this stuff if you choose to.
+
+But we'll keep it there.
+
+And then we do need to redefine the function anagrams because we cut and pasted the entire thing.
+
+So call string A and string B like so.
+
+OK.
+
+Seligson.
+
+Now the second solution for handling anagrams.
+
+Like I said is going to be a little bit more straightforward but like many many things that we've seen
+
+inside this course it all depends upon knowing one little trick.
+
+So let me show you a little trick.
+
+It's going to flip on over here.
+
+I'm going to make an array and then we're going to look at one specific method that exists on array
+
+an array that will make solving these anagram things pretty straightforward.
+
+So let's make an array of numbers and I'll give it about ten thirty five negative ninety one 10000 where
+
+that is.
+
+So here's the interesting function.
+
+I want to show you where you look at numbers dot sort.
+
+So when we sort in array it will take all the elements in the array.
+
+And your javascript runtime will do its best to figure out how to somehow meaningfully sort the characters
+
+or I should say the elements within that array now sort cannot only be used with numbers.
+
+It can also be used with characters as well.
+
+So if we had instead like Z c b d y and then we sort it we end up with alphabetical order.
+
+And so this alphabetical order is what really forms the basis for this alternative solution to anagrams.
+
+So here's we're going to do.
+
+We're going to take our two inputs.
+
+So in this case like maybe rail safety and fairy tales we're going to clean up both strings by replacing
+
+or I should say removing any spaces or punctuation.
+
+We're going to lowercase both strings and then here's the magic part.
+
+We're going to sort both strings.
+
+So when we sort both them no matter what characters we have inside they will end up in the exact same
+
+order.
+
+If the two sorted strings are then completely identical then we can say that we have an anagram and
+
+so when you take this solution we you and I don't even have to do some four or Luper iteration or anything
+
+like that to look at every single string.
+
+We can just sort both these strings and then say that's it.
+
+Compare the two.
+
+We're done.
+
+I think the best way of covering this solution will probably be to write out some code and then we can
+
+copy that code over to this little editor over here and see it in play.
+
+I think that will be the best way of handling this.
+
+So let's get to it.
+
+So again I'm going to make myself a little helper function to automatically kind of clean up each of
+
+these strings.
+
+So remember that kind of replace statement and the two lowercase statement.
+
+And in this case doing the sorting of the string as well.
+
+So I don't want to duplicate that logic inside of this anagrams function so I'll make a helper function
+
+to do all that for us.
+
+So don't I make helper function called Clean string.
+
+It will be called with a string.
+
+We're going to return the string.
+
+We're going to replace and this will be our regular expression again.
+
+So do forward slash square brace square bracket
+
+carrot backslash W..
+
+And then on the other side of the square bracket forward slash G and we'll put an empty string inside
+
+there as a second argument.
+
+Next we'll do a two lower case and now before we attempt to sort this thing remember we just looked
+
+at the sort method that is a method that belongs to arrays not strings.
+
+So we do have to temporarily turn this string into an array sort it and then turn it back into a string.
+
+So we will split this thing on an empty string we'll sort it and then we will join it back together
+
+into a string.
+
+So that's a lot of statements chained together into one.
+
+Remember when we consider chaining of methods in javascript we read it essentially from left to right.
+
+So first we call replace then we call to lowercase on that then split then joint Simien then split then
+
+sort then join.
+
+I think maybe as a quick little test we should copy this over to that little code editor and just see
+
+how this thing works.
+
+So back over here I'll make a short string let's say Konst as TR is b c r c d do a real example.
+
+Hello there.
+
+So then if I paste that snippet.
+
+So here is string replace to lower case all that stuff.
+
+This is what we end up with right here.
+
+So if we then consider some anagram like let's say string two and this one is there.
+
+Hello.
+
+So these two are clearly anagrams of each other.
+
+Remember we are completely ignoring any punctuation.
+
+And so if I then do string two and then that whole chain loops let's clean that up.
+
+There we go.
+
+So now I've got two strings I can very easily compared to each other and in this case you can see very
+
+plainly.
+
+Yeah they've got the same characters in the same order so they must be anagrams.
+
+However if I start to add in characters to one of the other.
+
+Well this is clearly no longer an anagram because these two sorted strings over here are no longer equal.
+
+So now the last thing do is to figure out how to actually do that comparison between the two strings.
+
+So again you might be thinking OK we have to loop through one string and we have to compare every character
+
+to the other string.
+
+Well no it's actually a lot more straightforward than that.
+
+We will call clean string will pass in string a and then we're going to make it take advantage of the
+
+equals equals equals operator.
+
+So compared the cleaned up string a string the end if the two are absolutely identical.
+
+Then we must have an anagram.
+
+So essentially what we're doing with this line right here is to compare these two strings together.
+
+So of course if we wrote out let's do this actual statement if we wrote out is that equal to that well
+
+then we get true.
+
+So that's essentially what we're taking advantage of here.
+
+We don't have to compare this in character by character.
+
+We're going to say hey is this string identical to this string.
+
+Yes they are.
+
+OK well then we must have an anagram.
+
+And of course last thing never forget it.
+
+Don't forget that return statement.
+
+Most important part.
+
+OK.
+
+So this is the alternative solution.
+
+You know this is another one where once you see the trick once you understand OK we can split it into
+
+an array sorted and then join it back together and then compare the two results.
+
+This is a real easy you know maybe relatively easy solution to remember probably a little bit easier
+
+than remembering how to build a character map on the fly.
+
+So yet again out of so many examples that we've already seen in this course and so many that we will
+
+see as we go through.
+
+Once you've done these problems one time you learn that little trick and you'll be able to solve it
+
+more easily in the future on an interview.
+
+Now very last thing I need to save this file and we'll check our tests.
+
+So back at the terminal it looks like all six Tests are still passing here.
+
+Fantastic.
+
+Great.
+
+So this has been the anagram problem again.
+
+Very common one that I would really expect to see in an interview setting.
+
+Let's take a break and we'll continue to our next question in the next section.
+------------------------------------------------------------------------------------------------------------------------
+========================================================================================================================
