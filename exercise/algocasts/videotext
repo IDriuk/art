@@ -4665,3 +4665,482 @@ Very common one that I would really expect to see in an interview setting.
 Let's take a break and we'll continue to our next question in the next section.
 ------------------------------------------------------------------------------------------------------------------------
 ========================================================================================================================
+
+
+Раздел 10:Sentence Capitalization
+
+32. Understanding Capitalization
+
+The last problem that we worked on was a little bit more challenging.
+
+So in this section we're going to go live take a little bit of a breather with a slightly more easier
+
+problem or at least one that is certainly short in nature.
+
+Not many lines of code are required for this one.
+
+So inside of my exercises folder I'll find the capitalize directory and open up the index file inside
+
+there or then change on over to my terminal and I'll make sure that my tests are running over here by
+
+running the command just capitalize test.
+
+J.S. dash dash watch and we should see about three or four tests start to run.
+
+So it like yeah three tests right here.
+
+So let's look at this problem.
+
+Now this one is a little bit more straightforward but I think that it's one that appears at first glance
+
+to be very easy but in practice it does require at least a little bit of thought.
+
+So the goal is to write a function that takes a string.
+
+We want to capitalize the first letter of each word in that string and then return the capitalized version.
+
+So for example a short sentence which is all lowercase should turn into Kapolei short with the last
+
+sentence with the capital S..
+
+So essentially just capitalize the first letter of each word.
+
+That's pretty much it.
+
+Like I said at first glance it looks really easy but once you start pulling together well it might get
+
+a little bit more challenging.
+
+Now I'll tell you right now that there are two distinct solutions that we're going to look at this problem.
+
+The first one is going to will say that the first I'm thinking of them out of order here but I'll say
+
+that the first one that we're going to look at is pretty concise.
+
+It's rather few lines of code and it's rather easy to read.
+
+But that solution requires a pretty good knowledge of the JavaScript standard library for working with
+
+strings.
+
+The second solution.
+
+The second one that we're going to look at is kind of easy to reason about but it does require a kind
+
+of nasty looking for loop and it's kind of hard to tell exactly what's going on with it by just looking
+
+at the code.
+
+So I'm telling you right now that you can either take a slightly easier to read solution by having a
+
+good understanding of the JavaScript standard library or you can take a slightly more challenging to
+
+read version that just kind of brute forces it and makes it happen.
+
+So before I let you go I do want to give you a little tip or two on how to approach that kind of easier
+
+to read solution.
+
+And I want to point out to you a couple of methods that belong to the standard library that you might
+
+want to be aware of.
+
+So the first method that we're going to look at and again we are at the India and India documentation
+
+page is the slice method belonging to all strings.
+
+Remember slice can be used on a string.
+
+It will take some number of elements out of that string.
+
+The first argument is the index of that string to start from.
+
+And then there is an optional second argument of the end index.
+
+If you don't provide that second argument right there then the rest of the string is just automatically
+
+included.
+
+So where would this be useful.
+
+Well let me show you a quick example of it.
+
+Let's imagine that we have a word of simply there.
+
+If we do we're slice with simply one.
+
+It gives us everything after the T.
+
+Now if we wanted to get just the t we can look out word at 0 and now the part that you really need to
+
+be aware of.
+
+Remember we have access to the to upper case function like so.
+
+So very quickly I think you can see how we can take a lowercase word like this and start to capitalize
+
+just the first letter.
+
+So here is clearly a capital T.
+
+Here's the rest of the word and I'm sure you can figure out how to join those two together.
+
+So these two methods right here will lead you towards a rather straightforward solution.
+
+Again this is not the only solution you can take a little bit more brute force one and this but certainly
+
+give this a try.
+
+So I'm going to let you kind of roam free on this one.
+
+Give it a shot and I'll catch you in the next section and we will go through the first solution.
+
+So quick break and I'll see in a minute.
+-----------------------------------------------------------------------------------------------------------
+
+33. Capitalization Solution #1
+
+OK hopefully you had some success with this problem.
+
+Like I said you might have found that it is a little bit more challenging than it appears at first glance.
+
+However I do hope that you came together with a good solution in the section we're going to walk through
+
+one possible solution very quickly.
+
+We'll then take a look at an alternate solution in the next video as well.
+
+So for this first solution let's look at some pseudo code that will kind of guide us in exactly what
+
+we're going to do.
+
+We're going to start off by making an empty array that we're going to call words.
+
+This word's array is going to store the end result of the final kind of capitalized words that we are
+
+dealing with after we create this.
+
+Words.
+
+Empty array.
+
+We will then take the original string that was passed into our function and we'll split it by the space
+
+character to get an array of words.
+
+So each of those words are what we're going to try to capitalize.
+
+We will then loop through that an array.
+
+We will uppercase the first letter of each word.
+
+We will then join that first letter that is now capitalized with the rest of the word.
+
+And then we will push the result into that original words array that we created at the very beginning
+
+after we loop through each word.
+
+We will then join the words array together into a string and then we'll return it from the function.
+
+So that's the general idea here.
+
+Let's give it a shot.
+
+Back inside my code editor I'll get myself a little bit of space.
+
+We will declare an array of words that's going to start off as empty.
+
+We will then loop through our string.
+
+So we do need to split it by spaces.
+
+Remember if you split by spaces we can do so by.
+
+Let's say we have Konst sentence and our string is something like.
+
+Hi there buddy.
+
+We can call a sentence dot split and then rather than splitting on an empty string as we have done many
+
+times in this course we will split by a space character instead.
+
+And so now we're working with three individual words.
+
+And that's what we want to do here.
+
+So we're going to save for.
+
+Let word of string dot split with a space.
+
+So now whatever string gets passed in here assuming it is a sentence that is split by spaces they will
+
+be split up by this split statement.
+
+Next we will take the first character of each word so word at 0 and we will uppercase it by calling
+
+two upper case then we will join it with the rest of the word and we can get the rest of the word so
+
+everything minus that first character by using the slice function.
+
+So we'll say word dot slice with one which means give me everything from the element at index 1.
+
+So that's not the first element that's the second element.
+
+Everything from index 1 onto the last character in the word.
+
+So we're going to join us to get two together and then we will push the result into our words array.
+
+So I'll say words.
+
+Push and push the results into that.
+
+Then finally at the very bottom after we have iterated through all these different words we will take
+
+that word's array we will join them together with the space character.
+
+So note that again this is not an empty string.
+
+Here we are joining all of these different words together with the space character.
+
+We will make sure that we return the result.
+
+So let's see how we're doing.
+
+OK.
+
+Three-Test passing looks good to me.
+
+OK.
+
+So like I said this is the easier I think or maybe the more direct easier to read solution of the two.
+
+Let's take a pause.
+
+We're going to come back in the next video and we're going to look at another solution that is just
+
+a little bit more effort goes into it.
+
+But it's one that I think is much more easier to arrive at or I think that one it's easier to kind of
+
+picture the other solution.
+
+It is harder to code.
+
+That's what I mean to say.
+
+So let's take a quick break and then attempt that solution in the next video.
+---------------------------------------------------------------------------------------------------------------
+
+34. How Else Can We Capitalize?
+
+In this video we're going to take another look at the capitalized function and come up with a slightly
+
+different solution.
+
+So as usual I am going to back up my result here by copying it down to the bottom of the file and commenting
+
+it out.
+
+I will then clear out the contents of the capitalized function like so.
+
+All right let's look at a diagram that's going to help us understand this alternative solution.
+
+So here we go.
+
+Cascio here's a serious sequence of actions this time around.
+
+We're going to start off by creating an empty string called result.
+
+So notice that in this case we're creating an empty string not an array.
+
+We are then going to iterate through every character in the string for each character.
+
+We will look at it and we'll say in the character to the left of the current one.
+
+So whatever still left is that a space if it is a space then we're going to take the current character
+
+that we are iterating over.
+
+We'll capitalize it and we'll add it to the original result string.
+
+Otherwise if it is not a space to the left of the current one then we'll just simply take the character
+
+and added to result without capitalizing it.
+
+So essentially we can imagine a string.
+
+Say hi there.
+
+When we look we iterate through this thing and let's say we look at the character eye right here.
+
+We'll look at the character to the left of it.
+
+That's an H.
+
+It is not a space.
+
+So we're going to say no problem.
+
+Just add in to the result string.
+
+We'll then move onto the space.
+
+We don't care about the fact that this thing is a space.
+
+We're going to look to the left of it see that there is an eye there and we'll say OK that's an eye.
+
+We don't need to worry about it.
+
+So we'll take this character and add it into result then we'll move on to t with t look to the left.
+
+We'll see.
+
+Oh you know what that is a space.
+
+So we're going to capitalize T and then add it into the result string.
+
+Now this solution right here has one very big weakness to it.
+
+One very big weakness.
+
+I'm going to ask you if you can kind of find it right now based on a description I just gave you.
+
+The problem with this solution is that it doesn't work well with the very first character.
+
+So when we are capitalizing a sentence the very first character should always be capitalized.
+
+So if we try to look to the left of the first character well there's nothing to the left and so we will
+
+never attempt to capitalize it even though it absolutely should.
+
+So 8 easy way to solve this is to say that when we create this initial string result rather than creating
+
+it as an empty string we should create result which is the first character of the input string capitalized.
+
+So that's how we're going to get around that little limitation when we create this first result string
+
+the very the only content it's going to have will be this first character or just going to immediately
+
+capitalize it.
+
+Then when we start to iterate through the rest of this array of characters here we'll start with the
+
+first character or I should say the character at index 1.
+
+The second element and consider everything from here moving forward.
+
+So the downside to this approach is that it will require a manual for loop.
+
+We cannot use a for loop in this case because a for loop is always going to attempt to iterate through
+
+every character.
+
+And in this case we don't want to iterate through every character we want to skip that first one.
+
+So little bit of a downside here.
+
+But such as the way.
+
+All right.
+
+So let's give this a shot.
+
+Back over my code editor will first declare this starting string that we're going to call result.
+
+So say let result and it's going to take the first character out of string and automatically capitalize
+
+it because that first character we always want to capitalize.
+
+So we'll say string at zero dot to uppercase like so.
+
+Now we can iterate from one to the length of the string.
+
+And for every character will look to the left of it and decide whether or not we need to care to capitalize
+
+the current character.
+
+So we'll say four letters.
+
+I equals one.
+
+I less than string dot length plus plus.
+
+Now we'll look to the left.
+
+We'll say if at string I minus 1.
+
+So this is to the left of the current character.
+
+If that thing is a space then I want to take the current character that we're looking at.
+
+I want to uppercase it.
+
+We have two upper case with a capital C and then I'm going to add that on to the result string by saying
+
+result plus equals like so.
+
+If the character to the left of the current character is not a space well in that case we want to just
+
+add it on to the results string by saying string as I like so.
+
+And now if you look very carefully at my function I'm missing the most important parts.
+
+The return statement down at the bottom don't forget it.
+
+So will return results.
+
+All right let's look at our terminals.
+
+Our tests are doing looks good to me.
+
+So yeah this looks like a reasonable solution here this solution.
+
+I'm not super happy with personally because it is kind of weak against you know assuming that that first
+
+character always needs to be capitalized.
+
+You know what if for some crazy reason we are attempting to capitalize a Spanish string or something
+
+like that.
+
+You know I say Spanish because they've got you when they do a interrogative sentence they start off
+
+with a question mark like you ok tall like so.
+
+So clearly in this case that first character we wouldn't really want to capitalized because it is a
+
+question mark so you know but hey I'm not I don't think we can really clear claim that this solution
+
+would address that as well.
+
+I guess I'm just not super happy having this thing being hardcoded to always catalyze the first character.
+
+I don't know just kind of natural engineering judgment.
+
+I feel like it's a little bit off anyways.
+
+At the end of the day I would still claim that this solution is harder to take a glance at and really
+
+understand what's going on.
+
+I think that the solution right here.
+
+The first thing we worked on is very legible and I think that it would be pretty reasonable to hand
+
+this solution to an engineer.
+
+Ask them what is going on.
+
+And I think they'd be able to give you a reasonable answer as to what's happening here and I don't think
+
+that's really the case with the solution up here.
+
+But hey to each their own.
+
+OK.
+
+So that's their solution to the capitalized sentence function.
+
+Let's continue with our next example in the next section.
+----------------------------------------------------------------------------------------------------------
+==========================================================================================================
