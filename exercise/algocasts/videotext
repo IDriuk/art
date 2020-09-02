@@ -5144,3 +5144,1199 @@ So that's their solution to the capitalized sentence function.
 Let's continue with our next example in the next section.
 ----------------------------------------------------------------------------------------------------------
 ==========================================================================================================
+
+Раздел 11:Printing Steps
+
+35. The Steps Question
+
+I'm really excited for this next problem because the next problem we're going to work on is very closely
+
+related to the one after that.
+
+So we're going to have two questions in a row that are extremely closely related.
+
+The first version is going to be kind of a easier version of the problem and then the second one is
+
+definitely much more challenging in my opinion.
+
+So we'll get kind of like the warm up and then the real deal immediately after that.
+
+Now even the warm up is still kind of a hard problem and it is also definitely a problem that I think
+
+is very common to see our interviews.
+
+So they're both very useful but it's going to kind of prep us for the tougher ones.
+
+So I think it will be a nice little build up.
+
+So inside my code editor I'm going to find the steps folder and then I'll open up the index file inside
+
+there.
+
+And I think you know exactly what else we need to do.
+
+We'll start up our test with steps test Scott J J.S. dash dash watch lifeso and we should see a number
+
+of tests running in this case about four by the way just to clarify the reason I always point out the
+
+number of tests is just to help you make sure you don't make a typo in like you know the test file name.
+
+If I do a step slash test dodgiest then it's going to say Oh hey I can't find any tests to see you know
+
+that's why I always happen to mention that.
+
+Anyways let's take a look at this problem.
+
+So the directions are to write a function which is kind of already done for us that take an argument
+
+of a positive number.
+
+Or in this case really an integer n so some positive number the function should then cancel log.
+
+So key statement there we need to console log a step shape whatever that is with and levels using the
+
+pound character.
+
+So in practice you know the directions are kind of hard to read.
+
+It's a lot easier to just look at the examples right here.
+
+Basically is what we want to do.
+
+So if we call steps with two I want to see like pounde and then on the next line pound pound and so
+
+they're supposed to kind of form a visual staircase you know where the steps are the actual pound symbols
+
+here.
+
+That staircase is a little bit more evident on some of these larger number ones down here so like you
+
+know first step second step third step fourth step the number just to be clear is the number of lines
+
+that we want to log.
+
+So we pass into I want to see two lines of steps we pass and three we've got step one step two step
+
+three.
+
+The other thing that is extremely important and the other thing that makes this problem a little bit
+
+more challenging is the fact that we if we have like just one step right here out of two total there
+
+has to be a space character to the right of it.
+
+See there's a space character right here with Steps 3.
+
+We should have a pounds and then one space and then two space.
+
+So you can very easily kind of quickly realize that the number of characters in the strings is always
+
+going to be square.
+
+So we've got three console logs down for end of three and we have three characters from left to right.
+
+So character one character or two in character three that's really important.
+
+Don't forget that if you only log out just the bare minimum here of just the pound symbols the tests
+
+are going to fail so the tests specifically want to see the correct number of empty spaces to the right
+
+hand side.
+
+And that was important because like I said the next problem that we're going to work on is very closely
+
+related.
+
+And the next problem is going to kind of build on this idea of making sure that you actually print out
+
+your steps here.
+
+So make sure you do that.
+
+OK.
+
+So that's the problem.
+
+In this case I think that this is one that really just requires a little bit of thought on your end.
+
+So there's not necessarily any big tips I want to give you ahead of time.
+
+I'm going to I'm just going to let you give this one a stab.
+
+Remember that much earlier in the course we walk through the technique of placing a debugger statement
+
+so that you can kind of work with your code and see what it's doing.
+
+And remember the directions for that are in the diagrams for this course.
+
+This is a problem where I very highly recommend you use that debugger technique if you get stuck because
+
+it's going to be really easier to help you figure out exactly what's going on as you run through your
+
+code.
+
+So let's take a break here.
+
+Give it the best shot you can.
+
+Remember if you get stuck.
+
+Don't sweat it.
+
+Just go solution Watch a minor to the solution and then take another stab at it on your own.
+
+So quick break and we'll go over the solution in the next video.
+--------------------------------------------------------------------------------------------------------------
+
+36. Steps Solution #1
+
+All right hopefully you had some success with this exercise.
+
+One quick thing that I want to mention here is that the intent was that you should be making multiple
+
+console log statement calls.
+
+So we are not assembling one string and then escaping it with like a newline character at the end.
+
+We are making multiple strings and cancel logging each of them.
+
+When I say multiple strings I mean one string for each kind of set of steps here or each level to the
+
+staircase.
+
+So if you saw some error message saying Hey I expected you to call stairs more often or something like
+
+that that's probably why you were seeing the message.
+
+Make sure you are logging each independent level.
+
+OK.
+
+So in this section we're going to go through one possible solution.
+
+I think that this is definitely the easier to come up with solution that we're going to go through first
+
+after we look at this solution.
+
+We'll then take a look at an alternate way of solving this by using a little bit of recursion.
+
+I think that the recursion solution here is ultimately maybe a little bit easier to come up with and
+
+put together.
+
+However it does require to kind of use your recursion skills to think of which is definitely quite challenging.
+
+So anyways we'll do the iterative solution first and then take a look at the recursive solution.
+
+So let's look at a diagram that's going to help us understand this iterative solution.
+
+So the first thing to recognize here is that we are kind of dealing with a matrix of sorts or kind of
+
+like a to d array.
+
+We're not really working with the race here.
+
+We're always working with strings.
+
+That's what we are assembling.
+
+But it's helpful to just kind of think of it in terms of like indices.
+
+It's going to make it a lot easier to come up with the actual solution.
+
+So here's the idea.
+
+First we want to recognize that we're going to have some number of columns in the rows that we want
+
+to iterate through.
+
+So this would be row one right here and then row 2 and row 3 and then we are also kind of going to want
+
+to iterate through some number of columns so call them 1 call 2 and column 3.
+
+I came up with the nomenclature saying that we will reflect the current row that we are iterating through
+
+with a variable that we're going to call I.
+
+And then the current column with a variable that we're going to call J.
+
+One very easy way to make your solution look much more straightforward and you what I think that we'll
+
+probably end up doing this rather than calling is i and j.
+
+Because that's kind of tough to remember.
+
+Let's call this like row and column that makes life a little bit easier.
+
+I think that's going to be a little bit better.
+
+OK.
+
+So then mind let's take a look at exactly how we're going to do this.
+
+First we're going to write a for loop the first for loop that we're going to write is going to iterate
+
+through all the different rows that we have.
+
+We're going to iterate from 0 to N and we'll call this you know we'll say specifically iterate through
+
+rows then for each row that we are considering.
+
+So let's imagine this particular row right here.
+
+We are going to start off by creating an empty string that we'll call stare.
+
+Now Syria is meant to be singular like just stared by itself to indicate that this is one individual
+
+row that we're looking at.
+
+Then we're going to iterate from 0 to and again in this case this second for loop right here is meant
+
+to iterate through all of our different columns.
+
+So from left over to right then inside this inner loop will say if the current column that we are looking
+
+at is equal to or less than the current row we want to add a pound.
+
+So this is kind of like the big jump in logic right here.
+
+This is kind of tough part is this if statement.
+
+So I want you to look very carefully at this thing right here.
+
+We have columns 0 then column 1 column 2.
+
+Let's add a little bit of numbers on here just to make that all that easier.
+
+So do a copy so we'll say see 0 meaning column zero.
+
+I'll put that right here and then we'll put rows 0 right there and then I'll just do two others with
+
+this nomenclature we'll put our one right here.
+
+We'll put still sees zero right here because we're still in column 0 and then just one more we'll put
+
+Rozier show over here and see one right here.
+
+So when you start working on these problems where you are kind of iterating through two sets of rows
+
+and columns especially I honestly I want to use more generic terms but any time instructing in terms
+
+of row and column you want to start seeing if you can see a pattern of any sort here.
+
+And so if I start thinking about a pattern between which of these squares or which these characters
+
+are supposed to have pound which are supposed to have a space.
+
+The first thing they start to notice is that we want to have a pound.
+
+If C has a value that is equal to or less than R and we can see that in a very quick action here.
+
+So C is equal to our.
+
+So we get a pound.
+
+In this case C is less than our So we get a pound.
+
+But over here C is greater I said poun excuse me C is greater than our row.
+
+So we get a space instead and that's the pattern that we're following all throughout this thing.
+
+So even when we start going down to the very bottom right corner down here.
+
+So down here we would be working with column two and road 2 right here.
+
+So still we are less than or equal to the row count.
+
+So we're still going to get a pound down here.
+
+So that's basically the row that we're going or the rule excuse me that we're going to use if we do
+
+not meet this if statement right here.
+
+Dan Rather than adding a pound we must be on this kind of upper right hand triangular section up here
+
+in which case we want to add a space rather than a pound and the last kind of Keats.
+
+The problem here is that after running through this for loop where we iterate through all the different
+
+columns we will take that stair or that kind of row representation of this one line that we have and
+
+we will con. log it.
+
+Then we go through the next iteration or move onto the next row we're going to read it clear that Stehr
+
+variable as a new empty string.
+
+So that's very much the solution.
+
+Again this is just one possible solution.
+
+There's definitely more than one way of doing this but I think that this is a relatively straightforward
+
+way of doing it.
+
+So let's take a quick break right now.
+
+We'll continue the next section l put together the implementation for this solution.
+------------------------------------------------------------------------------------------------------------
+
+37. Steps Solution #1 Continued
+
+In the last section we looked at one possible solution to the steps problem and this section we're going
+
+to start to code up.
+
+We'll get through this solution pretty quickly and then we'll move on to an alternative solution that
+
+I think is a little bit more interesting in the next section.
+
+So let's get through this one.
+
+Now I want to use the steps that I've written out over here so we can very easily read through them
+
+as we put together the solution.
+
+So I going to kind of place my Windows ever so slightly so you can see both them at the same time throughout
+
+this course.
+
+You've seen me put together several diagrams like this that kind of use pseudo code to walk through
+
+a solution.
+
+I hope that you're definitely getting a sense of how you might put these together yourself in an interview
+
+setting.
+
+Anytime you're in an interview setting especially at a white board I highly highly recommend.
+
+I can't say enough.
+
+I highly recommend you try to write out a possible solution with pseudo code or like basically plain
+
+English before attempting to code it on the white board.
+
+When you use pseudo code pseudo code to outline your solution it's going to more easily communicate
+
+what you're trying to do to your interviewer and your interviewer might be able to help you catch errors
+
+rather than if you went straight into a code solution and they're both helping you try to catch errors
+
+but also understand what the heck you're trying to write with code.
+
+So in general I highly recommend you try writing out a pseudo code solution.
+
+All right let's give this a shot.
+
+So we're going to start off first by iterating from 0 to N and this is intended to be the current row
+
+that we are operating on where row is like one string set OK.
+
+So we'll say four let row equals zero row less than an ROE plus plus.
+
+And then inside of here for every different row that we are going to operate on we're going to create
+
+a completely empty string.
+
+A brand new string that we're going to call stare.
+
+Now we could call Stehr anything else.
+
+Honestly I just you know maybe you would be better to call it step or something.
+
+I thought Sarah was still reasonably related to the problem but different enough from the function name
+
+of steps like steps and step there a little bit too close.
+
+So I would definitely not you step personally so we'll say let's stare because going to be an empty
+
+string.
+
+Next we're going to iterate from zero to N and this is intended to be our iteration through all the
+
+different columns that we're going to work on.
+
+So for left column starting at zero column less than n column plus plus.
+
+So for each column we're going to write an IF statement we're going to say if the current column that
+
+we're looking at is equal to or less than the current row.
+
+So if the current column is less than or equal to the current row then we want to add a pound symbol
+
+to the stair string.
+
+So we'll say stair plus equals pound.
+
+If column is not less than or equal to RHO then we're going to instead add a space.
+
+So else stare plus equals space and make sure you have a space here not an empty string.
+
+It is supposed to be a space.
+
+Make sure you have a character inside there.
+
+Finally after we process one entire row.
+
+So this is the row processing step right here we have processed the entire row.
+
+We have now assembled a full stair string.
+
+We need to make sure that we can still log it it's console log Stehr make sure that you are logging
+
+Stehr still inside of the road for a loop because we want to end up with an number of console logs like
+
+in the case of passing and for here we want to end up with four console logs.
+
+So I don't want to put the console log at the very bottom of the function.
+
+I want to still be inside of my for a loop so that I get one console log for each row that we are attempting
+
+to assemble here.
+
+OK.
+
+So this looks good.
+
+Let's save this we'll run our tests and see how we're doing.
+
+So back over here in my terminal you can see that we got a lot of the console logs from the testing
+
+code and I've got four test passing which definitely makes me feel like we've got the right solution.
+
+So this is looking pretty good.
+
+This is one possible solution.
+
+If you are in an interview setting this is probably a type of solution.
+
+I recommend you go for.
+
+It's very easy to reason about.
+
+It's easy to troubleshoot.
+
+Pretty reasonable.
+
+Having said that we are going to look at an alternate solution in the next section that uses a little
+
+bit of recursion.
+
+This next solution is going to be a little bit more tricky and just because it is tricky I generally
+
+recommend not going straight to the solution.
+
+In an interview setting unless you are specifically asked for a recursion solution nonetheless we haven't
+
+spoken a lot about recursion yet inside this course.
+
+And so this is going to be our first good taste of recursion which is a topic that we'll be discussing
+
+a pretty good amount throughout the course as well.
+
+So let's take a quick pause and then start to tackle that second solution in the next video.
+---------------------------------------------------------------------------------------------------------------
+
+38. Step Up Your Steps Game
+In the last section we looked at an iterative solution to the steps problem in this section.
+
+We're now going to continue by looking at a recursive solution to this.
+
+Now if you're here in this course and you're preparing for a professional javascript interview I am
+
+going to assume that you have seen recursion before at least once.
+
+Nonetheless we will do a very quick review just to make sure that we are on the same page.
+
+Well then look at a couple of general tips around recursion and then we'll come back to this problem
+
+and figure out how to tackle it.
+
+So let's do a quick review first with recursion.
+
+We always start off with some type of function.
+
+So let's imagine we've got a function called about print number about that.
+
+Let's imagine that we want to make a recursive function called Print number.
+
+We should be able to pass this function a number and it will print from that number down to zero.
+
+So we'll assume that we always pass the thing a positive number.
+
+Let's write out an example of that.
+
+So let's pass it like the number 10.
+
+So I'll say that to succeed in this problem.
+
+I want to see a console log from 10 all the way down to 1 or 0 1 and the other.
+
+And the first thing that we always do with a recursive solution is to identify what is called a base
+
+case the base case is the case in which we decide there is no more work for us to do.
+
+And it's time to return and stop the recursion process.
+
+And so without even thinking about the term base case or anything like that.
+
+Think back to the description of this function I just gave you two seconds ago I said we want to print
+
+from whatever number is passed all the way down to zero and then at zero we stop and we do no more work.
+
+So to think of a base case in this situation I would say that if the number that is being passed to
+
+this function right here is equal to zero.
+
+That means there is nothing else we need to do.
+
+We have hit the base case and we want to stop recursion.
+
+So let's write that in here.
+
+Let's imagine that print number gets called with some number and as an argument we will check to see
+
+if n is equal to zero.
+
+And if an is equal to zero then we are going to return and we're going to do no more work during the
+
+recursion process.
+
+Nailing your base case like this is one thing that is absolutely critical during the recursion process.
+
+I really encourage you to spend a lot of time in general thinking about your base case.
+
+It's way too often that people start to think about the base case only at the end.
+
+And if you think about the base case only at the end Well usually it means that if you try running your
+
+function before then you'll end up in a infinite recursive solution which is always nasty to try to
+
+debug.
+
+So we start thinking about your base case from the get go after checking to see if we've met the base
+
+case.
+
+We will then do some amount of work and then call our function again.
+
+So in this case the work that we want to do is to print out the current number.
+
+And so I'm going to print out with a log.
+
+And then the last thing to do is to call our function again when we call the function again.
+
+It's extremely critical to make sure that we have changed the arguments in some fashion.
+
+If we call print number again with an We're going to immediately and are seemy we're going to enter
+
+an infinite loop because we have not changed the arguments and the exact same code path will occur.
+
+So I'm going to be 100 percent sure that I would to change the arguments they're going to call print
+
+number with here.
+
+I'm going to make sure that the change that I'm making will somehow eventually get r r and number here
+
+down to zero.
+
+So specifically I mean to say I want to make sure I subtract 1 or subtract some type and number.
+
+OK.
+
+So when we call print number again and this of course right here is the actual recursive step because
+
+we are calling the function that defines that this function call is defined in again then we see our
+
+numbers printed out here.
+
+Now you will notice that you see two if you're using this tool or if you're just looking at my screen
+
+you'll notice that we get two sets of prints from 10 down to 1.
+
+That's just because of the way that this tool right here behaves.
+
+The code that we have is 100 percent correct as just because the way that this tool works to make stuff
+
+print out nicely that you see the log out here twice.
+
+OK.
+
+So what are some takeaways that you can immediately notice about recursion from this process right here.
+
+Here they are.
+
+So the first thing that we really want to do is to identify the bare minimum pieces of information that
+
+represent what we are trying to accomplish.
+
+So in this case the bare minimum of minimum piece of information that we want to pass from loop to loop
+
+or from I should say call to call a recursive function is the current counter.
+
+I did not pass along some extra piece of information like what the number was the last time it was called
+
+or some object that we're not doing anything with.
+
+I identified just the bare minimum information that was needed to call our function again and progressed
+
+towards our base case.
+
+The next thing to keep month recursion is to always give yourself some reasonable defaults to those
+
+minimum pieces of information.
+
+So in this particular case we had said that we were going to provide the number and then always subtract
+
+1 to get towards our base case right here.
+
+But let's imagine that maybe we had said well maybe an additional requirement of the print number function
+
+was that it should be to be called with some number to decrease and by each time.
+
+So in other words maybe we don't want to always decrease by 1.
+
+Maybe we want to decrease by some other argument here that you know me we'll call mentor or something
+
+like that.
+
+So this second step right here giving reasonable defaults make sure that if there are any optional inputs
+
+you give some reasonable default input to them.
+
+So in this case I would want to maybe default the value of deck to be one.
+
+And then I could very safely use it down here.
+
+Print number and even if someone didn't pass in that debt variable or the deck value.
+
+I've got some reasonable default to make sure they don't accidentally fall into some infinite recursion
+
+situation right here.
+
+For example I can very easily show you if I were to I'm not going to because my browser would lock up
+
+but if I were to delete this declaration right here of deck or if I were to not default it to be one
+
+then every single time we called Print number we would take an minus deck.
+
+Deck would be undefined.
+
+If I didn't defaulted to be one and would we would then call print number again and would probably be
+
+like not a number or something like that.
+
+And so we would never hit the case where an equal zero in return.
+
+So make sure you have some reasonable default in here to safely handle your recursion.
+
+The next thing to do during the recursion process always remember to check that base case inside the
+
+base case you want to see is there anything left for us to do.
+
+If there's no work that's it we're done.
+
+OK.
+
+Don't color function anymore and return if we do not meet the base case then we want to make sure that
+
+we actually do some work.
+
+We call the function again and when ever we call the function again this is a really important part
+
+when ever we call the function again we want to make sure that we have changed our arguments in some
+
+fashion.
+
+The arguments have to change if they don't change.
+
+That means that we're very likely going to end up in an infinite recursive solution which is again something
+
+we don't want to deal with.
+
+OK.
+
+So with all this in mind let's take a quick pause.
+
+We're going to come back to the next section and we're going to apply these rules right here to the
+
+steps problem and we're going to come up with a recursive solution.
+
+So quick break and I'll see you in just a minute.
+---------------------------------------------------------------------------------------------------------------
+
+39. More on Steps
+In the last section we got a very quick review of recursion.
+
+Let's now take some of these lessons right here and apply them to the steps problem at hand.
+
+So I've taken one of the diagrams we were looking at previously and I pulled out some very interesting
+
+pieces of information.
+
+My goal here was to identify the base case and I also wanted to identify the remember bare minimum pieces
+
+of information that represent our problem.
+
+So let's take a look at some of these different notes that I made right here.
+
+OK.
+
+So the first big note right here is our base case.
+
+So if we imagine that we still have some row counter that we're going to pass during each recursion
+
+step then if we increment row each time we kind of progress down here when ever row is equal to N and
+
+member and was deciding how many steps we have in total then that means that we have hit the end of
+
+our problem.
+
+So this was something that we noticed with our Interesse solution as well.
+
+Remember we had the for loop where we iterated from an up to or something from 0 up to N and as soon
+
+as we hit that we said okay that's it.
+
+No more work for us to do.
+
+So essentially I think that our base case here is to say if we have some row piece of information that
+
+is being incremented from 0 to 1 to 2 and eventually to 3 as soon as we hit 3 that means nothing else
+
+for us to do.
+
+Now the next kind of interesting note that I made about our interim solution here was I noticed that
+
+the stair string remember the stairs string kind of represented a row and all the elements within that
+
+row.
+
+If that row has a length of N So RHO means length of and or a stair string has a length of.
+
+And it means that we are at the very end of the row and we are ready to print or do console log out
+
+that row.
+
+So if we have a string with one element to element 3 element inside of it three is equal to and equals
+
+three.
+
+That means that the stair string is ready to be printed.
+
+Now the last very important note here is that if the length of the stair string so if the length of
+
+the string that is being used to generate or it's that string is being used to represent the row here
+
+has a length that is equal to or less than the current row that we are working on.
+
+Then we want to add in a pound.
+
+Otherwise we're going to put in the space.
+
+We saw this exact same thing just a moment ago when we were looking at our iterative solution.
+
+So remember back over here we had said that we had that inner for loop we had the inner for loop that
+
+iterated through our list of columns and if the column counter that we had inside there was less than
+
+or equal to the row counter then we would use a pound sign.
+
+Otherwise we would use a space.
+
+The interesting thing about this solution right here is that you can kind of very quickly tell that
+
+this for loop right here.
+
+It was made to iterate from 0 to an but we actually have another piece of information inside of that
+
+interim solution that mirrors or kind of encodes that exact same counter the length of the stair string
+
+right here the length of it was always equal to the current count column that we were iterating over.
+
+So back here we were looking at the column counter to decide whether or not we wanted to use a pound
+
+or a space but for our recursive solution we're going to instead look at these stair string to decide
+
+whether or not we want a pound or a space.
+
+OK.
+
+So these are the three big things that are going to help us put together our recursive solution.
+
+So we're now going to flip back over to our code editor and we're going to put this thing together.
+
+Now as we write the code for this we're going to kind of speed through the implementation because honestly
+
+writing out recursive stuff is challenging to explain to say the least.
+
+So it's more important that you understand these kind of base cases right here and that you get a sense
+
+of how to kind of discover these on your own once you can think of your base case life gets a lot easier
+
+and you can start to put together this implementation.
+
+So anyways let's just put this thing together and see what it looks like.
+
+So back inside my code editor I'm going to take my whole steps function I'm going to copy it.
+
+I'm going to put it down at the bottom the file and comment it out again just so I have a nice little
+
+backup then scroll back up I'm going to clean out the steps function.
+
+So it's now empty.
+
+All right.
+
+So the first thing we're going to do here is we're going to define our base case and we're going to
+
+check to see if the base case is satisfied and if it is we will return.
+
+So I'm going to check to see if n is equal to Roe and if it is I'm going to immediately return now.
+
+Right away you'll notice that there's no variable inside of your called row.
+
+So let's say that every single time that we call the steps function one very important piece of information
+
+that we always want to pass along to every function call it steps is the current row that we are operating
+
+on.
+
+So as an argument to the steps function I'm going to add in row now the first time that steps gets called
+
+we can assume that we called like that steps of three.
+
+Remember that is exactly what the directions up here said it said Write a function that accepts a positive
+
+number.
+
+And so I'm kind of arbitrarily deciding that there is an additional argument I want to add into this
+
+function call.
+
+Now just like we saw a moment ago over in the code editor over here we need to make sure that if row
+
+is for some reason not defined in our function call we need to give it some default argument.
+
+Otherwise we might get some really unexpected behavior.
+
+So to handle it first time that steps is called Where presumably Roe will not be passed along.
+
+I'm going to default the value of row to zero.
+
+So this means right here I want to start on the very first row where the top row of our problem.
+
+OK.
+
+The next thing that we're going to do is we're going to examine our second case.
+
+The second important note here this one right here we're going to write in some code that checks to
+
+see if the length of the stair string is equal to a length and be equal to the variable and if it is
+
+then that means that we are at the end of the row and we should probably print out the stair string.
+
+So the next thing we'll do back over here we're going to check to see if an is equal to stare length.
+
+And if it is then we need to assume that we are at the end of this particular row.
+
+And we should print out the stair variable.
+
+Now again you will notice that we have not yet defined stare.
+
+So satyr is another piece of information that I really think that we need to share in between function
+
+calls.
+
+So as an additional argument I will assume that we are going to call this thing with a stare argument
+
+and I'm going to give it an initial default value of an empty string.
+
+So by default nothing is nothing is inside of stair.
+
+Now the only thing we have to take care of now is figuring out how exactly we are going to decide to
+
+call steps again in the future and how we are going to make changes to stare and row.
+
+So at some point in time we need to increment row right here.
+
+And at some point time we need to add a character onto stair.
+
+I can ask you a question here.
+
+When do you think we need to increment row row needs to be incremented when we hit the end of a row
+
+like when we have completed a stair and we just wrote an if statement for that right here.
+
+So when ever we have hit the end of a row we're going to cancel log out stare and then we're going to
+
+call steps again but this time around we're going to increment the value of rho.
+
+So after we hit the end of the stair we'll console log stair and then we'll call steps still with N
+
+but with RHO plus 1.
+
+Now you'll notice that I'm not going to provide a third argument here because when we move on to the
+
+next row I want to use an empty stare again and song and rely upon the fact that we are using a default
+
+Stehr value of empty string here.
+
+I could very much just as well do something like this.
+
+You know I could pass an empty string manually but it's not necessarily necessary because we've already
+
+got this default value set up here.
+
+Now the other thing to keep in mind is that if we hit the end of the row as indicated by this if statement
+
+and we Consolo this thing and we call steps again we don't want to do anything else inside this function.
+
+So if we meet this case right here there's nothing else we want to do.
+
+So when I call steps right here I'm going to make sure that I just return right away.
+
+Now we don't necessarily have to return the value of steps that's not necessary.
+
+You know if we wanted to we could put return down on the next statement because we are not returning
+
+anything here per se.
+
+I just want to point that out.
+
+Not really important either way.
+
+Just one thing to keep in mind.
+
+OK so we've handled the case that we have completed all of our work.
+
+We've handled the case where we've hit the end of a row.
+
+The last thing we have to do is handle the case in which we are still assembling our stair string and
+
+remember the big thing to keep in mind for that was that if the length of the stair string is less than
+
+or equal to the row that we are currently working on we're going to add a pound.
+
+Otherwise we're going to add the space.
+
+So for that we can add in a little if statement will say if stair length is less than or equal to Roe
+
+then we want to add a pound onto stair so we can say stair plus equals pound.
+
+Otherwise we want to add a space like so now the very last thing keep in mind here the last line of
+
+code we need to write.
+
+Notice how the only points and right now that we do any type of recursion is if we've hit the end of
+
+a row but we still need to make sure that we recurse through a row as well.
+
+So after we have appended on some character to the stair string We then need to call steps again and
+
+that's going to start the entire process over again.
+
+So after we do that statement we will again call steps we'll pass and we'll pass and row and notice
+
+that we are not going to change the value of Roe here because we are still working on the same row.
+
+And the last thing we'll do is pass and stare.
+
+Okay.
+
+So I know this has been a little bit complicated but I think that if you really think through these
+
+steps they make a lot of sense.
+
+The problem with recursion is that arriving at which steps to put together is really challenging.
+
+You know this is the kind of thing where you when you see the solution you can go like oh that makes
+
+sense.
+
+But before you see it it's the hardest thing in the world.
+
+And that's why recursion is kind of the story is difficult to pick up.
+
+All right let's do one last run through here.
+
+So the first some we call steps and I'm going to move steps 3 up here by the way make sure you get rid
+
+of that don't want to throw off any tests.
+
+So make sure you dump that statement.
+
+So the first steps we're going to have and of like 1 2 three four 5 whatever it might be will have a
+
+roll of zero.
+
+We'll have a stair of empty string.
+
+So a 0 0 empty string is an equal zero.
+
+No it's not because and is equal to 1 2 or 3 or whatever is an equal to stared at length.
+
+No it's not because there is still an empty string.
+
+OK.
+
+Well don't go down here is stared at length less than RHO will start at length zero RHO is equal to
+
+zero.
+
+So yes it is equal to or less than.
+
+So we're going to add a pound to stare.
+
+We then call steps again.
+
+So we go back up to the top again we have and of one two or three whatever it is we have a row of still
+
+zero.
+
+But now Stehr is a pound.
+
+This case doesn't apply.
+
+This case doesn't apply.
+
+We hit here again Stehr Now now has a length of 1 1 is not less than or equal to Rho.
+
+So we fall into this case here.
+
+We add on a space to stare and then we call steps again.
+
+So at this point in time Stehr is now equal to pound space RHO is still equal to zero and is still equal
+
+to 1 2 or 3 or whatever.
+
+So this no longer not not relevant not relevant.
+
+We hit here again stared at length will be too.
+
+So we fall into adding a space again we call steps again.
+
+We now add on an additional space and this is the last step we'll go through right now.
+
+We call steps again.
+
+We have let's say three in this case RHO is still zero Stehr is now pounde space space.
+
+We checked to see if and is equal to a row.
+
+No it's not.
+
+We checked to see if N which is three is equal to stared length which is three.
+
+Yes it is.
+
+OK.
+
+So we console log out stare.
+
+We then return from this function.
+
+So we do no other work inside of here.
+
+We call steps again but this time steps is now have steps of an equal to three and RHO is now moved
+
+on to one.
+
+The entire process repeats until we hit this case again and then eventually RHO is incremented up to
+
+three.
+
+We checked to see if any is equal to three.
+
+It is.
+
+And so we return here.
+
+All right.
+
+So that's a full run through.
+
+Yeah recursion is real nasty.
+
+Like I said earlier my big tip to you.
+
+In an interview setting if you get asked anything about recursion try to put together the solution first
+
+and then look to refactor it over to recursion it will make your life easier.
+
+In fact when I put together this recursive step solution right here that's exactly what I did.
+
+I put together this eritis solution.
+
+I looked at which variables were changing and then I realized OK like we can probably do at x y z and
+
+I identified that base case and it made life a lot easier.
+
+If you asked me to put together this recursive solution from the get go yeah I would have a tough time.
+
+Probably like most other people in the world.
+
+So I really recommend if possible you try the solution first just to get your mind in the right place
+
+and then go to the recursive solution.
+
+Now lesing I want to mention here.
+
+Completely optional.
+
+But if you wanted to we could definitely shorten this statement down here with a little bit of a turner
+
+expression.
+
+So this is totally optional.
+
+This is 100 percent equivalent syntax spital just kind of condensed down our solution.
+
+We could say something like Konst add equals square dot length less than three goals to row.
+
+And then if this expression right here is true we would assign a pound to add.
+
+Otherwise we would assign an empty string to add and then when we call steps we would pass and stare
+
+Plus at.
+
+So in this case add a short for like character to add.
+
+OK.
+
+So I think that's the only factor that I kind of want to do here to shorten things up.
+
+And of course I bet we could maybe shorten up one or two things here beyond this but I'll leave that
+
+up to you.
+
+OK.
+
+So that's pretty much it.
+
+That is our recursive solution.
+
+We will look at recursive recursion again in this course several times.
+
+Again I can't say enough.
+
+It's one of those things where you just have to see it many many times before you start to get a feeling
+
+for yourself.
+
+Now I did forget to do one thing.
+
+I'm going to check my tests.
+
+Yeah they're still passing.
+
+So we're all good there.
+
+OK.
+
+So I think that's enough on recursion.
+
+Let's take a break and continue on to our next problem in the next section.
+------------------------------------------------------------------------------------------------------------
+============================================================================================================
