@@ -6340,3 +6340,722 @@ So I think that's enough on recursion.
 Let's take a break and continue on to our next problem in the next section.
 ------------------------------------------------------------------------------------------------------------
 ============================================================================================================
+
+Раздел 12:Two Sided Steps - Pyramids
+
+40. Pyramids Vs Steps
+
+The next problem that we're going to work on is going to build directly off the steps problem.
+
+So we're going to take care of it right now while we still have the steps problem fresh in our mind
+
+inside of my exercises directory.
+
+I'll find the pyramid folder and then open up the index file and then of course will also start up our
+
+tests as well.
+
+So at the command line just a pyramid pyramid test Geass dash dash watch.
+
+And let's see how many tests we have.
+
+All right.
+
+So now you got about four tests running.
+
+All right let's take a look at this.
+
+So we're supposed to write a function that accepts a positive number and the function should cancel
+
+log a pyramid shape with an levels using the pound character.
+
+Make sure the pyramid has spaces on both the left and right hand sides.
+
+So this looks very similar to the problem we just worked on the steps one.
+
+However now it's not only one side that we want to put these kind of spaces on both sides.
+
+So we are now forming a pyramid shape.
+
+So definitely you can very quickly see why this is very much so similar to the problem with it we just
+
+worked on the steps one.
+
+So methodology will be very similar but now it's going to be up to you to kind of figure out some very
+
+interesting edge cases around this one.
+
+So I'm going to give you a little bit of a head start here.
+
+Beyond the fact you know saying obviously go back and look at the code from the steps problem we're
+
+going to look at a diagram that's going to kind of help you focus in on a couple of different areas.
+
+So we looked at one diagram very similar to this for the step problem.
+
+This time around I've kind of removed some information and changed some stuff around to accommodate
+
+the differences for pyramid.
+
+So I think that the general algorithm that we used for the solution for steps is still going to work
+
+here.
+
+So I think that we should still iterate from 0 to n so and here being the total number of rows that
+
+we have.
+
+So we'll start off at 0 1 2.
+
+Then for each of those rows I think we'll still create an empty string.
+
+But now things start to get really interesting is that inner for loop.
+
+So we're going to iterate from 0 2.
+
+I don't know if you're going to have to figure that part out.
+
+That's going to be one of the challenges here.
+
+In addition once you figure out exactly what balance you want to iterate to for that inner for loop
+
+you are also going to have to do some very interesting logic to decide whether or not the given column
+
+should have a pound.
+
+So remember previously it was a pretty easy determination for us before when we were doing the steps
+
+we said if the current column is equal to or less than the current row yes we want a pound.
+
+So this time around it's going to be a little bit more involved than that.
+
+I'm going to leave it up to you to figure out exactly how to do it.
+
+One tip that I will give you just so you are aware that this exists.
+
+And I really want to just give you a quick example of it.
+
+Remember that math floor is a function.
+
+So if you use math floor it will take a decimal number and it will rounded down to the nearest integer.
+
+In this case 5.
+
+So I don't know maybe they'll be helpful for you depending on how you tackle this.
+
+Maybe it won't.
+
+I just want to remind you that that function exists.
+
+So that's what you're going to have to do.
+
+You have to do a little bit of work to decide whether or not a given column should have a pound.
+
+Otherwise everything else is going to be pretty darn similar.
+
+Now I do want to focus on one thing here.
+
+Remember previously and was determining the number of rows and columns but like we just said now that
+
+enter number or that inner for loop or the number of columns is going to be not exactly identical to
+
+three.
+
+So this is an accurate diagram for and 3 because we have three rows here.
+
+But you can see that there's clearly more than three columns.
+
+And if we start to think about the different pyramid shapes that we might have you know put some of
+
+them together here.
+
+Here is the pyramid shape for any equals two.
+
+This one has three columns years and equals three.
+
+This one has five columns and we can go to any of those four and this one has seven.
+
+So in each case here you can see that the number is changing.
+
+Yes it's changing by two each time.
+
+But you know I'll leave it up to you exactly how to calculate it.
+
+So just keep that in mind anyways.
+
+Give this a shot.
+
+Obviously again you draw upon your experience from the steps problem quite a bit as you're working on
+
+this one.
+
+I will say that we are going to go over the iterative solution first.
+
+So I recommend you put together the iterative solution first and then we'll take a look at the recursive
+
+solution after that.
+
+So if you want to just do one or the other totally fine.
+
+I leave it up to you anyways.
+
+Quick break.
+
+Give it a shot and we will look at a solution in the next section.
+--------------------------------------------------------------------------------------------------------------------
+
+41. Pyramid Solution #1
+
+
+In this section we're going to start to look through the iterative solution to the Paramount problem.
+
+So let's get started.
+
+Now the first half of this solution is going to look very similar to the steps one.
+
+So we want to make a for loop that's going to iterate over each row of our output.
+
+So very similar to what we did before.
+
+Well write a for loop and iterate from row equal to zero row less than an ROE plus plus.
+
+So that will take us from row 0 all the way up to and minus one for each row that we create.
+
+Just like before.
+
+We'll make an empty string here.
+
+Now previously we call this empty string something like steps or something like that.
+
+This time around just because we're working with a pyramid I'm going to call this string level to represent
+
+a level of the pyramid.
+
+If you want to go with stair steps or whatever we use totally fine there is no difference.
+
+Now inside of here is where the real magic begins.
+
+So this is where things start to get a little bit different from our initial steps.
+
+Solution in sight here we want to iterate over all the different columns inside of our pyramid.
+
+And like we said at the end the last video the number of columns is not equal to N like it was before
+
+with steps.
+
+So this time around we have to say somehow produce four.
+
+And he goes to we need to get three columns for any equals three we need five and so on.
+
+Now one thing I would really caution you against really try not to look at the relation between each
+
+of these levels here like we're not trying to really derive a pattern from three going to five because
+
+you could very quickly be thinking OK I just need to like add to to something every time.
+
+And that's not correct.
+
+We don't want to think about the difference in rows.
+
+Irks me the difference in columns each time.
+
+We're really trying to think of is how N is related to the number of columns.
+
+So I don't want to compare three to five and try to figure out some pattern there.
+
+I want to look at two to three three to five and four to seven and try to figure out some combination
+
+or some pattern between each of those pairs of numbers.
+
+So the relation between these you know there's not a super easy way to lead into this I'm going to tell
+
+you what it is essentially the relation is we're going to take in we're going to double it and then
+
+subtract 1 and that will give us the total number of columns so we can test this out very quickly in
+
+our heads.
+
+So two times two is four minus one is three.
+
+So that works out two times three is six minus one is five.
+
+So that one's good.
+
+And then two times four minus one is seven.
+
+So that's pretty much it.
+
+We're going to iterate from 0 2 to two times and minus 1 and that will give us the correct number of
+
+columns.
+
+All right.
+
+So back over here we'll write out our inner for loop will save for left column equal to zero column.
+
+Less than two times and minus one column plus plus.
+
+Like so OK.
+
+So this will take care of our correct number of columns.
+
+Now very quickly we start to run into the next big issue.
+
+So previously when we worked this problem when it was all about steps we had a very clear and easy comparison
+
+to make.
+
+We had said that if the current column is equal to or less than the current row we should add a pound.
+
+But this time around it's way different we've got a much more complicated calculation going here.
+
+And really I'm not sure how much we can just do a very simple comparison between the two to figure out
+
+what to do here.
+
+In particular in this case we have some like range in-between here that we need to somehow figure out.
+
+So this is another location where the math starts to get a little bit hairy.
+
+Let's do a quick code up over here and figure out exactly what we need to do.
+
+So essentially going from 0 1 2 3 4.
+
+So from values 0 1 2 3 4 we need to make sure that number two or kind of value.
+
+Number two in there gets a pound.
+
+So I'm going to kind of make do a little pretend over here.
+
+Let's say our columns are 0 1 2 3 and 4 and then our ROE.
+
+Let's get some identifiers here.
+
+Our row at this point is zero.
+
+So I need to somehow relate these two sets of numbers together to make sure that I somehow can pull
+
+out a pound for this index right here and spaces for these other areas.
+
+And then if RHO was one then I would want to make sure.
+
+So just to be clear that would correspond to this second row right here if RHO is equal to 1.
+
+So in that case I would need to make sure that I can somehow produce a pound here a pound here a pound
+
+here.
+
+But then space's on the ends and then of course for RHO equals two.
+
+Everything needs to be a pound.
+
+So we need to figure out some relation to essentially generate that kind of stuff.
+
+So here's my thought.
+
+I think that what we can do is calculate the midpoint of our array right here.
+
+So we'll calculate the midpoint.
+
+Like what is the very center index of this thing.
+
+If we can figure out the center index then we can say that take row number of elements on either side
+
+of that Centerpoint and make those into pounds.
+
+So with words that's really confusing.
+
+So let's look at what this looks like in practice.
+
+So first I want to get the midpoint of columns right here to get the midpoint in and when I say midpoint
+
+I'm typing it like the index.
+
+So in this case I had one index of two.
+
+So I need to somehow turn zero one two three four or five into two.
+
+So essentially you know let's just get to the point here.
+
+Essentially we can do math.
+
+Floor two times and minus one and then divide that by two.
+
+Where and is the number of elements Hursey the number of total rows that we're working with.
+
+So if we wanted to only consider the actual number of rows here it would of course be we're dealing
+
+with five elements divided by two and then we'll take math top floor of that and that will give us a
+
+second element to Spickler that two times and minus one.
+
+I made a mistake right there this is the final solution.
+
+I didn't mean to go that far forward.
+
+Let's just forget we saw that and just think about five divided by two.
+
+So now we can think of two and zero elements on either side should also be made into a pound as well.
+
+So only element 2 in this case should be made into a pound.
+
+If RHO goes to 1.
+
+Then I want to take essentially math floor and math for floor plus 1 and math out for floor minus 1.
+
+So elements in position 1 2 and 3.
+
+So 1 2 and 3 should be made into pounds.
+
+So hopefully that makes a little bit of sense here.
+
+Again this is kind of getting into you know challenging stuff as far as some of these math calculations
+
+go.
+
+Let's try coding this up and I think it'll will start to make a little bit more sense.
+
+So back over here the first thing we're going to do is to calculate the midpoint of our row.
+
+So the midpoint of our row is going to change depending on N and that's why we had that two times and
+
+minus one calculation in there for a second.
+
+So we're going to say the midpoint is that index math Daut floor two times and minus one divided by
+
+two like so.
+
+So that's the midpoint index.
+
+Now the other thing to keep in mind here is that we are iterating through this list of columns.
+
+So in truth you know we don't really need to be calculating midpoint every single time here.
+
+We could actually calculate midpoint at the very top of our function because it's only ever going to
+
+be reliant upon and is never going to change.
+
+So let's pull midpoint out to the very top up here.
+
+And then inside of our loop all we really have to worry about is watching for row number of elements
+
+to the left of midpoint and row number of elements to the right of midpoint as well.
+
+So in code that would look a little something like this will say if midpoint less minus II is less than
+
+or equal to you know not.
+
+My mistake Roe if midpoint minus Roe is less than or equal to Culham.
+
+And if midpoint plus Roe is greater than or equal to column then we want to add a pound.
+
+So this if statement right here is going to make sure that the current column that we are looking at
+
+is within the bounds of midpoint minus Roe and midpoint plus Roe.
+
+So this is a check right here to make sure that we are inside of some bracket of numbers.
+
+So if we meet that condition we'll add in a pound.
+
+Otherwise we'll add in a space like so.
+
+All right.
+
+I know that was nasty but we did get through it.
+
+I am pretty confident that if you look at these numbers a little bit they will make sense.
+
+So do you know if it still seems a bit confusing do you try writing it out on paper.
+
+You know for all the matters and I think that you're going to get a hang of it pretty quickly.
+
+So here's our for loop inside of there we assemble one rows worth of numbers or one levels worth of
+
+numbers.
+
+So after that for loop just like before we will cancel log out level.
+
+So let's see how we're doing with our tests back over here.
+
+Looks like we've got 4 tests passing.
+
+All right.
+
+That was a challenging one but I think that steps gave us some pretty good preparation at least to pull
+
+it into kind of two separate problems that we had to worry about.
+
+So this looks good.
+
+Let's now continue in the next section.
+--------------------------------------------------------------------------------------------------------------------------
+
+42. Pyramid Solution #2
+
+In this section we're going to look at the solution to that pyramid problem by using recursion.
+
+Before we get started.
+
+Quick pause I wanted to tell you if you had any difficulty with the recursive solution to the steps
+
+problem that we worked on just a little bit ago I really encourage you to give a shot at doing pyramid
+
+on your own with the recursion solution because you essentially already know how the recursion solution
+
+is put together.
+
+All you really have to change is some of the bounds or some of the like you know essentially the range
+
+of numbers that we're considering with this new solution for Paramount.
+
+So this would be a great opportunity to practice some recurrent related stuff on a problem that you're
+
+already kind of familiar with.
+
+Now if you're to give it a shot or if you don't want to you know whatever it is no problem we're going
+
+to go through the recursive solution right now.
+
+So as usual we're going to make a backup of our pyramide function.
+
+So I will copy the whole thing go down the bottom.
+
+I'll paste it here it is right here and commented out.
+
+I'll then go back up and I will clean out the pyramid function.
+
+So now we've got only pyramid and the export statement right here.
+
+All right.
+
+So in general the recursive solution is going to look very similar to the recursive solution for the
+
+stairs problem.
+
+So the first half of this we're going to speed through pretty quickly.
+
+And then as soon as we start getting into some pyramid related stuff will slow down just a little bit.
+
+So just like before we're going to take special note of our argument list up here.
+
+We're still going to hold onto the value N we're still going to worry about which road we're currently
+
+looking at and we're still going to want to consider some given level here as an empty string.
+
+Now the most important thing as usual and we want to make sure we spend careful thought on this even
+
+if we are speeding through a recursions solution we always want to make sure that we set up our base
+
+case correctly.
+
+So just like before.
+
+We're still going to watch for when Roe is equal to and if Rose equal to N..
+
+That means we're all done with recursion.
+
+We need to return and stop calling pyramid anymore.
+
+Now note that Roe is still equal to and here because and ultimately was really describing the number
+
+of rows we want in the last video when we spent some amount of time figuring out how to calculate the
+
+number of squares going this way right here.
+
+That was all about calculation calculating the column direction.
+
+So Roe is still always going to be at a maximum of three.
+
+It's the width of this thing that's going to start to change in nature.
+
+Speaking of which that's going to be relevant right now because the next statement that we're going
+
+to put together is going to detect when we are at the end of a level.
+
+So at the very right hand side over here remember the maximum column length are the maximum number of
+
+columns that we can have in a row is determined by the calculation two times n minus 1.
+
+So essentially we want to check to see when our string the level string has a length of two times and
+
+minus one.
+
+If we are at that length then it's time for us to cancel the level and move on to the next row.
+
+So we'll say if level length is equal to two times and minus one then we need to console log the current
+
+level and move on to the next row.
+
+So we'll call it pyramid with an will increment row by 1 and note that we are definitely in a place
+
+the return statement here to make sure that we don't do any other work inside this function.
+
+OK.
+
+So that's looking good.
+
+Now the last third to this thing is where things start to get a little bit more hairy.
+
+Remember that the last third here is really intended to to decide whether or not we need to add a space
+
+or a pound to the level string.
+
+Now previously we had that very simple calculation to worry about how we had to worry about was if the
+
+length of our string was less than or equal to Rho.
+
+But this time around just like we had to kind of struggle a little bit with the solution this time around
+
+we have to again calculate that midpoint and then decide if the current element that we were considering
+
+is within that range of the midpoint.
+
+So just like before I know the description on this was a little bit challenging but we still want to
+
+do this kind of midpoint calculation.
+
+We want to consider the row that we're on and then mark every element that's within some range of that
+
+like plus or minus some amount to be a pound.
+
+Otherwise it should be a space.
+
+So let's look at the math for this first.
+
+We'll calculate the midpoint which will be math floor two times and minus one and then another.
+
+Outside of this first set of parentheses right here.
+
+Remember order of operations will divide by two.
+
+So that will give us our midpoint index.
+
+Next we're going to put together an if statement to decide whether or not we're going to add on a pound
+
+or a space.
+
+Now rather than do our actual function call to the next pyramid call inside the if statement I'm going
+
+to make a temporary variable called add at is going to contain the character that we're supposed to
+
+add to our level string.
+
+It'll make sense in just a second when we put down this if statement.
+
+So we'll say if this is the nasty part.
+
+So pretty big comparison we've got here.
+
+If midpoints minus Roe is less than or equal to level dot length.
+
+So remember in the recursive solution we determine which column we are currently operating on by looking
+
+at the length of our level string.
+
+So if the length the level string is less than or equal to or greater than or equal to the difference
+
+between midpoint a row.
+
+So it would essentially take care of making sure that we are you know on the right hand side of this
+
+barrier right here.
+
+And then we'll do the opposite side as well.
+
+So Iand if midpoints plus RHO is greater than or equal to level length
+
+then we will add in a pound.
+
+So the second portion of the statement over here.
+
+So this portion right here is making sure that we're still to the left of this found right here OK.
+
+So now we're going to decide which character to add or I should say we just did.
+
+We're going to sign the character that we should add to the variable add.
+
+So in that case it's going be pounde.
+
+Otherwise you want to get a space in there and of course to make sure that this is a space character
+
+not an empty string.
+
+So that's by the way why we use this temporary variable add right here.
+
+It's just to assign the character.
+
+We should add in and then down underneath all this stuff that's going on right here.
+
+We will then start off our next call to pyramid.
+
+So pyramid and is always going to be unchanged.
+
+We are not going to change Roe because we are still in the middle of a road here on this bottom third
+
+and then the last part we're going to make sure that we take this new character that we just generated
+
+and added on to our level strength.
+
+So we'll say level plus add like so
+
+just one.
+
+Let's see this.
+
+Check our terminal.
+
+Looks like I completely forgot to start my tests.
+
+Mr. Arty's back up we'll see how we're doing.
+
+All right.
+
+Four test passing out of four.
+
+Not bad.
+
+OK.
+
+So this has been our recursive solution.
+
+Again this was pretty good practice because we got to see kind of more straightforward application of
+
+it with the steps problem.
+
+And then we got to redo it over here with pyramid but with some added complexity on top.
+
+Both these problems.
+
+I know I say this all the time throughout this course.
+
+I know I said oh yeah this is a real common problem.
+
+But again all the problems I picked for the course are of course common problems.
+
+I really do expect you to see an interview.
+
+And so proms like this one right here that are kind of concerned with spatial things and you know laying
+
+out objects and spaces or whatever it is.
+
+Common interview questions you'll see even though yeah of course you know no one ever had no one in
+
+front end engineering ever is going to do some stuff like this.
+
+I know.
+
+You know that's a totally separate discussion that we haven't really touched on in this course.
+
+I know that most These questions are totally bogus and not relevant to relate to a real job at all.
+
+But you know that's just life.
+
+I could we could talk for hours about that.
+
+Anyways this has been a recursive solution.
+
+Let's move on to our next problem in the next section.
+
+So see you there.
+-------------------------------------------------------------------------------------------------------------------
+===================================================================================================================
