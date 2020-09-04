@@ -7059,3 +7059,358 @@ Let's move on to our next problem in the next section.
 So see you there.
 -------------------------------------------------------------------------------------------------------------------
 ===================================================================================================================
+
+Раздел 13:Find The Vowels
+
+43. Get Your Vowels
+
+Let's move on to our next question.
+
+This next one is going to be rather easy.
+
+Really very very easy.
+
+But it's one that I've seen asked in preliminary interviews more than one time.
+
+So what the heck let's just get through it.
+
+Inside my vals directory I'll open up the index file and then of course we'll flip on over to our terminal
+
+and start up our tests with just vowels test dot J us lunch like so and we should see four Tests.
+
+Very good.
+
+OK.
+
+So we'll flip back over to the index dot just file.
+
+Let's look at the description for this problem.
+
+So we're going to write a function that's going to take a string and scan return the number of vowels
+
+that are used in that string.
+
+And if you are a foreign English language speaker of English is not your primary language of vowel is
+
+any character a e i o n u.
+
+So essentially we pass a string like Hi there.
+
+Lis has one vowel two and three.
+
+So we would return three for the next one.
+
+Why'd you ask.
+
+We have one two three and four.
+
+So we were turned 4 and then the last one down here.
+
+No vowels so we turn return y.
+
+When I was back in elementary school we were always told like why is a half vowel.
+
+I guess that's not really a thing anymore so you know we're not going to count y.
+
+Who knows.
+
+Anyways as you might guess this is not the hardest problem in the world.
+
+So I encourage you to give it a shot.
+
+We will look at two different solutions.
+
+One is going to be an iterative solution and the other one is going to use a regular expression.
+
+So if you are not up to speed with regular expressions this would be a great time to get a little bit
+
+of practice in.
+
+So give it a shot and I'll catch you in the next section and we'll go through the iterative solution
+
+first.
+---------------------------------------------------------------------------------------------------------------------------
+
+44. Finding Vowels
+
+In this section we are going to look at an iterative solution to the vowels problem.
+
+Now this interim solution will be pretty darn straightforward.
+
+So we're going to create a counter variable at the top will initialize it with a default value of zero.
+
+We will then iterate through all the characters inside of our string.
+
+If a given character is a vowel we will then increment the counter and at the very end of the function
+
+will return that counter.
+
+So not that bad.
+
+Let's first start off by creating the counter variable.
+
+So I'll say let count starts off a 0 and then we will iterate through our string.
+
+So say for let char of and one thing that I want to point out here the directions didn't really indicate
+
+if we wanted to consider capital avowals or not.
+
+I think that it's entirely safe to assume that you want to include capital avowals and our fellow counting
+
+here.
+
+So we'll make sure that we lower case the string right before we iterate through it.
+
+So say string to lower case and then we'll put some logic inside of here to decide if we're working
+
+with a vowel.
+
+And then afterwards we will return count.
+
+OK.
+
+So now the real thing that we want to care about here.
+
+You know the real question is how are we going to check to see if we are working with a vowel.
+
+Well you might be thinking hey let's put down a bunch of if statements.
+
+If char is equal to A or if Char is equal to eat and so on.
+
+Well we can definitely do that.
+
+But that leads to some pretty nasty looking code with all these statements put together.
+
+So I want to show you a little helper method that is included with all strings and all arrays as well.
+
+That's going to dramatically simplify this.
+
+So we'll look at a very quick example of it over here at my code editor.
+
+I'm going to create a string.
+
+Let's call it simply word and I'll give it the content.
+
+Hello there.
+
+Now a method that this string has is called include.
+
+So I can Coale word dot include and then I'll pass in some substring that I want to see if it is included
+
+in this string right here.
+
+So maybe 0.
+
+What do we get from that scares me.
+
+Includes not include includes There we go.
+
+So we're done includes We pass an O and yep there's Owen there so we get back.
+
+True.
+
+And then we can do something like capital F that's not in there.
+
+We can do a substring like so.
+
+So EHLO Yep that's unhealth right there.
+
+So essentially using this includes method right here we'll go a long way towards helping us very elegantly
+
+figure out whether or not a given char right here is a vowel or not.
+
+So right above our for loop we will make a string that is going to contain all the different vowels
+
+that we want to consider.
+
+So I can say Konst.
+
+Ideally I would really want to call this thing vowels.
+
+But the function is already called vowels so we'll call this slight you know checker I don't know I'm
+
+making it up and I'll make this a string.
+
+So h e i o u like so now inside the for loop we can say if Sheckler
+
+dot includes char then counter plus plus like so.
+
+So if the character that we're looking at is included in this string right here then we're going to
+
+increment the counter.
+
+We'll iterate through all of our different characters and then eventually return it.
+
+Now one thing I want to point out here is that using a string in this fashion right here is kind of
+
+misleading.
+
+You know it's not really the most clear thing in the world to any future developer who looks at this.
+
+They might look at this and say oh is the order of characters here really important.
+
+So even though we can use a string of characters to use this includes method I would probably recommend
+
+that instead we should use an array as the kind of root comparison thing.
+
+So arrays also have this includes helper method on it as well.
+
+Let's see an example of what that would look like would be something like a b c c.
+
+There we go.
+
+And then we would want to see if C is included in the word array and Yezidis.
+
+So if we use an array like this I think that life just becomes a little bit more clear for future engineers
+
+who are working on this problem right here.
+
+So maybe a e i o and you like so in addition this would also allow us to put in like discrete substrings
+
+if we ever wanted to were kind of multi-character strings like if I ever wanted to.
+
+For some crazy reason look for ABC is like.
+
+Put that into this array.
+
+I could not very easily do this same thing with only a single big book string.
+
+So just one thing to keep in mind as well you know that's the kind of thing that interviewers want to
+
+see you having consideration of.
+
+To be honest.
+
+So even though it might seem like this is overkill discussion for a function check and see if we avowals.
+
+Honestly it's kind of a good discussion point to have during an interview.
+
+All right.
+
+Lesson do is make sure we're passing our test here.
+
+Let's check the terminal and it looks like we are failing here.
+
+Counter is not defined.
+
+My mistake I'm incrementing counter right here is should be simply count and back over here.
+
+We're now passing our tests.
+
+Very good.
+
+OK.
+
+So that's one possible solution.
+
+Now there is another solution that is much more condensed than this right here.
+
+So let's take a break and we'll check out that alternate solution in the next section.
+--------------------------------------------------------------------------------------------------------------
+
+45. Another Way to Find Vowels
+
+In the last section we went through an iterative solution for the vals function.
+
+We're now going to replace this with a slightly more condensed version so I'm going to copy this thing
+
+down to the bottom the file as usual.
+
+Commented out just to leave a backup here and then I'm going to clean out the contents of the vals function.
+
+Now this alternative solution is going to make use of a reg X expression or a regular expression.
+
+So using a regular expression here in my opinion is so easy it's almost like cheating.
+
+So what we're going to do is to look at the string we're going to call the match method on the string
+
+matches used to see if some possible thing right here is included inside of this string.
+
+So we can pass in a regular expression and this regular expression is going to check to see if we have
+
+any values inside of here.
+
+So our regular expression is going to have a pair of square braces when put in square pair of square
+
+braces like this where essentially saying hey if this string contains any character that is inside of
+
+the square brackets right here then let us know.
+
+So we're going to put in all the characters that we care about a B.
+
+I knew you'd think that we're going to do is to add on two options to the X itself.
+
+Both G and III the G.
+
+Regular Expression right here make sure that we don't stop at the first match that we find inside of
+
+our string.
+
+So if there are multiple vowels of some type in there we're going to attempt to find them all.
+
+And then the right here stands for insensitive or case insensitive.
+
+So remember before we had to manually turn our string into a lowercase version of itself the right here
+
+will automatically take care of cases for us.
+
+Now just one little odd thing about this match function right here.
+
+If it finds any matches it will return an array of all the matches that were found.
+
+So we will return that and assign it to a variable called matches.
+
+But the part that's kind of awkward is that if no matches are found then match will return.
+
+No instead.
+
+So in other words matches right here will be either an array or no.
+
+So we need to handle both cases appropriately.
+
+We're going to use a turner expression for this.
+
+So we're going to look at the matches variable if matches is no no considered to be a falsie value if
+
+it is an array then that is considered to be a truthy value.
+
+So for the first part of our turn an expression will say if this thing is a truthy value.
+
+So if it is in an array then I want to return matches length otherwise it matches is null or if it is
+
+a falsie value then I want to produce 0 and then ultimately we really want to just return the results
+
+of the Turner expression.
+
+So make sure we put the return keyword in there as well.
+
+All right so we'll save this and let's see how we're doing now.
+
+So still for passing.
+
+Fantastic.
+
+Again this is definitely more concise but it really is kind of predicated on you really closely understanding
+
+exactly how a match works especially the fact that it returns no if no matches are found.
+
+Personally if I were you I would probably stray towards this interim solution.
+
+It's very clear and you can have some side discussions with your interviewer like the one that I just
+
+mentioned at the end of the last video where using an array here is kind of the checker thing rather
+
+than a string is beneficial.
+
+So really up to you.
+
+But honestly I think that the kind of value or the solution down here is probably the safer bet.
+
+OK.
+
+This has been a nice little breather Meisl easy one.
+
+Let's now continue with our next exercise in the next section.
+------------------------------------------------------------------------------------------------------------------
+==================================================================================================================
+
