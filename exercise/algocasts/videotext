@@ -8274,3 +8274,769 @@ We're going to continue the next section and start working on our next problem.
 So see you in just a minute.
 --------------------------------------------------------------------------------------------------------------------
 ====================================================================================================================
+
+Раздел 15:Runtime Complexity
+
+49. What is Runtime Complexity?
+
+
+We've now gone through a number of different problems in this course and along the way we have seen
+
+many problems where we put together many different solutions.
+
+So in some cases we did two solutions or even three solutions in some cases as we compare those different
+
+solutions.
+
+I need a very personal claim.
+
+And I said oh yeah I think this solution is better than this one because it is easier to code or it's
+
+easier to come up with or it just looks better.
+
+However there is another way of comparing all these different solutions or algorithms that we are writing
+
+that is much more concrete than what I was telling you.
+
+So in this section we're going to start to investigate this much more concrete way of deciding what
+
+given solution is better than another.
+
+So this is where we are going to start to talk about something called runtime complexity runtime complexity
+
+is a term that we use to describe how performant an algorithm is.
+
+We use runtime complexity to compare different solutions to a given problem or different algorithms
+
+for solving a given problem in the context of an interview.
+
+So in the context of like you going and interviewing with someone you are going to be asked very frequently
+
+in many different interviews many times you're going to be asked what the runtime complexity of a given
+
+solution is.
+
+So usually I interviewer will ask you a question you will solve it on a computer or on a whiteboard
+
+and then they will turn to you and say OK what is the runtime complexity of the solution.
+
+You just did.
+
+So the real goal with runtime complexity for you and me like in this course right now our goal is to
+
+make sure that you have the ability to identify a given runtime complexity.
+
+That's our goal.
+
+That's what we're trying to learn here in this video.
+
+In the next few.
+
+So just keep that in mind.
+
+Now when we talk about runtime complexity we're really asking a very discrete question here we are saying
+
+how much more processing power do we need to run a given algorithm or a given solution.
+
+If we increase the number of inputs into our algorithm.
+
+So let's look at some examples of this right here and try to answer this question let's look at some
+
+examples of some problems that we have worked on and try to figure out what their runtime complexity
+
+might be.
+
+So the first problem we are going to look at is the string reverse problem we worked on.
+
+And let's pull up the code from that very quickly.
+
+So back in my code editor I'll pull up reverse string.
+
+Here it is right here.
+
+And I want specifically to look at the iterative solution that we put together that used a for loop.
+
+So for this problem right here we said that we would have some input string and then to execute our
+
+algorithm or our solution here.
+
+We iterated through each character of that string exactly one time.
+
+So it would be fair to say that as we started to add one additional character to the input to our algorithm
+
+or like the actual input string that we threw in there we had to do one additional step of work.
+
+So for each one character one additional step.
+
+So that meant that we had a very linear runtime we would refer to that as a linear runtime because there
+
+is a direct one to one relationship between the number of input elements that we got into our algorithm
+
+and the amount of work that we had to use to process it.
+
+Many of the problems that we've been working on so far have been linear runtime but we've also had a
+
+good example of another problem.
+
+Actually several of the problems we've worked on that had a slightly different runtime one that was
+
+not linear.
+
+So let's look at an example of one of those.
+
+So here is the steps algorithm that we worked on.
+
+And let's pull up the code from that one as well really quickly and come back out and I'll pull up my
+
+steps code.
+
+Here it is right here.
+
+And I want again specifically to look at the solution with for loops.
+
+Here's the for loop right here.
+
+So the for loop we took some input n right here and then based on the input n we had to nested for loops
+
+right here.
+
+So one nested inside of the other that meant that as we started to increase the value N into our algorithm
+
+we had to do significantly more things each time and was increased by 1.
+
+So when end was equal to 2 we essentially had to do four things we had to produce one to three four
+
+characters when Ed was equal to three.
+
+We then had to do nine things and one end was equal to four we had to do 16 things.
+
+So in this case there's clearly not a one to one relationship between the input to our algorithm and
+
+the number of things we had to do or the amount of processing power that was required in this case the
+
+number of things that we had to do was an squared or we had to do essentially end times and things to
+
+execute our algorithm.
+
+So when you have to do end times and things we would refer to this as an end squared runtime complexity
+
+or a quadratic runtime so we'd get these kind of different terminology for identifying or runtime.
+
+We get both this kind of equation looking thing right here which is the end squared.
+
+And we also have this kind of nomenclature or a kind of the verbal form I would identify this as quadratic
+
+in this case.
+
+So let's take a break right here.
+
+We're going to continue in the next section and we're going to look at several other very common run
+
+times and also start to talk about how we can identify the runtime of a given algorithm.
+
+So quick break and I'll see you in a minute.
+---------------------------------------------------------------------------------------------------------------------
+
+50. Determining Complexity
+
+
+In the last section we started talking about runtime complexity and we took a look at our reverse algorithm
+
+or string reverse one and these steps algorithm we had said that because the string reverse algorithm
+
+had to do one additional unit of work for each character that was added into the input we would have
+
+a linear runtime because there was a one to one relationship between the amount of work we do and the
+
+input set then for the steps algorithm we had said that each additional piece of input that we got or
+
+each increment to it I should say in this case meant we had to do and square more things so we had to
+
+do significantly more work.
+
+Each time our input increased.
+
+Now one thing I want to make really clear here because some of the nomenclature that I've used is not
+
+super obvious.
+
+Notice how during our steps algorithm when we were putting it together we had that input or the input
+
+argument was called n this and right here of four or three or two.
+
+This is a different and than the end that we're using over here to specify a runtime.
+
+So over here the input to our algorithm.
+
+This might have been better indicated as like you know a number of steps or something like that we could
+
+call it steps maybe that would have made life a little bit more clear.
+
+So the two are not the two are related but I'm not saying that it's the same exact number.
+
+That's all I mean to say.
+
+OK so let's now continue by looking at some very common run times that we will use to identify many
+
+different algorithms.
+
+So here's some notes on some different run times that we're going to see in the wild.
+
+These in general are really the Algor are the seeing of the runtime.
+
+You want to keep in mind there are other runtime that exist.
+
+There are other types that you have to do a little bit of math to calculate but in general many of the
+
+different interview questions you will be asked will fit into one of these buckets or some combination
+
+of two and we'll talk about some of the rules around when you might combine two and all that kind of
+
+good stuff.
+
+So I know that you know it's really boring when a presenter reads notes directly off a slide or a diagram.
+
+Nonetheless I do want to quickly read through some of these descriptions right here because a lot of
+
+them contain some very important notes.
+
+So we're going to start to talk and talk about this first run time and then go down towards the bottom.
+
+So let's first start talking about constant runtime cost runtime means that no matter what our input
+
+set is or no matter what input we give to the algorithm it's always going to take the exact same amount
+
+of time to execute the algorithm.
+
+So for example if we came up with some amazing magic algorithm that does not exist but if we came up
+
+with some amazing magic one where we said as the length of string that we put into our string reverse
+
+function changes it's always going to take exactly the same amount of time to reverse it.
+
+If we came up with some magic algorithm that did that we would refer to that as constant time.
+
+However such an algorithm doesn't exist as far as I know for a string of verse.
+
+So we don't really get to do that easily.
+
+All right back here.
+
+So Constantine we really see this as the Holy Grail and many times in an interview setting there might
+
+be some way to execute some problem or to solve some problem in a kind of easy way or there might be
+
+some very easy solution that might take say linear time or quadratic time.
+
+But your interviewer will say oh I specifically want you to solve this problem in constant time.
+
+So there are several problems that kind of fit into that category and your interviewer might ask you
+
+to target a solution that meets one of these specific times.
+
+The next one is logarithmic time.
+
+So log right here stands for logarithm.
+
+It's like you know the math term taking the logarithm of a number we have.
+
+We will have a runtime of logarithm or logarithmic time if we double the number of elements that we
+
+work with are working with or if we just increase them.
+
+But that doesn't exactly double the amount of work that we have to do logarithmic run times are most
+
+important.
+
+Whenever we start looking at any type of search algorithm.
+
+So searching through a sorted array of data we can always assume that that might take an algorithm that
+
+runs with logarithmic time and that's an important assumption especially as we start to try to calculate
+
+the runtime of different algorithms.
+
+That's another note that we'll talk about in just a little bit as well.
+
+Linear Time is one of the more common run times that you're going to see and a lot of interview questions
+
+especially the more simple or straightforward ones with linear runtime you can easily identify this
+
+by seeing if you are iterating through some collection of data.
+
+So for example in this course so far every problem that we have had where we had to iterate through
+
+some string in some fashion every single one of those has all been when your run time.
+
+So in each of those we had to iterate from zero to some length of some collection like an array length
+
+or a string length or whatever it was.
+
+And in each of those we were probably working with linear runtime again just like we were talking about
+
+with the reverse string function in the last video.
+
+Anytime you have linear time you are saying that if we add one element to our input set it's going to
+
+take one unit of performance or whatever you want to call it one unit of more time to complete the algorithm.
+
+Now the next one guy to look up the term the technical vocabulary term for this one I don't really like
+
+that name right there cause causal linear time whatever you want to call that basically Antibes log.
+
+And so this would be a runtime complexity that we would see if we start to increase our input set to
+
+our algorithm but increasing that input set by 1.
+
+Increase the amount of time it took to to execute the algorithm by one plus a little bit.
+
+So one plus a little bit for every element we add to our inputs set a very good example of this would
+
+be any type of or I should say any type but many different sorting algorithms that we might work with
+
+are usually going to be working with and times log and runtime.
+
+The next one is quadratic time here.
+
+So we just saw an example of quadratic time with our steps algorithm here.
+
+We had said that as soon as we started to increase or add one element to our input to the algorithm
+
+it started to take dramatically more time to produce the result set a very easy way of identifying an
+
+algorithm that uses quadratic runtime is what I like to refer to as the hand shake problem.
+
+So an easy way to picture this.
+
+Imagine a group of people standing in a room.
+
+If you send some additional person into that room and you introduced that new person to everyone else
+
+and you had them like Shake hands that would be essentially an end squared complexity.
+
+So each additional element that we add to a given collection has to touch or somehow iterate over or
+
+somehow deal with every other element in the collection.
+
+So you can kind of remember that handshake problem as an example of quadratic complexity as another
+
+person was added into the room.
+
+They then had to shake hands with every other person and every person in the room had to shake hands
+
+with everyone else finally exponential time.
+
+So this is absolute assurances.
+
+Worst case is not quite worst case but it's one of the worst cases that we're going to be considering.
+
+So if we start to add a single element to a collection the processing power significantly significantly
+
+starts to increase.
+
+And so this is not any type of algorithm that starts to use exponential time is one that we absolutely
+
+positively want to avoid and we will see an example of exponential time in just a moment with one of
+
+the problems that we're going to work on.
+
+If you start to suggest an exponential time solution to a problem in an interview that is a very big
+
+deal that's a very big bad deal to clarify.
+
+Very bad thing if we are able to identify an algorithm as requiring exponential time we never want to
+
+propose it as a real solution to a problem.
+
+In an interview you definitely can you know use it as a solution to get started but very likely if your
+
+interviewer is proposing a problem or asking you a problem and you're thinking oh this will probably
+
+take exponential time to solve.
+
+Chances are there's going to be a much better way of solving it.
+
+I can just about guarantee you.
+
+And that's what a lot of interview questions all revolve around.
+
+Your interviewer will ask you a question that might require exponential time or quadratic time.
+
+And so it's relatively a not very efficient algorithm and you might be able to identify a solution very
+
+easily that uses one of these.
+
+And your interviewer is going to expect you to say Oh well I can think of a solution that uses this
+
+but I can also think of this much more challenging and difficult to implement solution that might take
+
+linear time.
+
+That's what they're really asking.
+
+In those situations they want to see that you can recognize an algorithm as being inefficient and come
+
+up with some more efficient algorithm out of it.
+
+OK.
+
+So this has been a quick review of some of the very common runtime that we will see in action.
+
+Let's now take a quick break.
+
+We're going to continue in the next section and talk a little bit more about some common tips that I
+
+have for you about identifying runtime complexity.
+
+So quick break and we'll continue with this in the next video.
+---------------------------------------------------------------------------------------------------------------------
+
+51. More on Runtime Complexity
+
+In the last section we spoke about some common runtime complexities.
+
+We're not going to continue about by talking about some odds and ends around runtime complexity.
+
+So just some things I think you should really know about it.
+
+The first thing I want to discuss is Big O notation.
+
+So Big O is another way of referencing runtime complexity.
+
+So your interviewer after you finished some algorithm they might ask you hey what is the runtime complexity
+
+of your solution.
+
+They might also ask you what is the big O of your solution.
+
+Either thing that they ask.
+
+They are both asking what is the efficiency of your solution.
+
+You know what is the runtime of your algorithm.
+
+Big O notation is a way of writing out this runtime complexity that is commonly seen in the academic
+
+world.
+
+So for example linear runtime could be indicated by writing Oh and it's called Big O because it's literally
+
+a big O of n.
+
+So if you see all events like this that indicates linear run time all of one would be constant.
+
+Of and square to be quadratic.
+
+So essentially when you start seeing these big O's with some kind of little equation inside of it we're
+
+really still talking about these different run times over here.
+
+The term Big O in general means something slightly different in the academic world but in an interview
+
+setting any time you hear runtime complexity or Big-O notation or anything like that they're always
+
+asking you what is the run what is the efficiency of your algorithm.
+
+Now the next thing I want to tell you about is some tips around identifying runtime complexity.
+
+So for identifying complexity or number.
+
+This is what you're going to be asked in an interview setting for identifying the stuff.
+
+I've got good news and bad news.
+
+The good news is once you get some experience with it it gets pretty easy.
+
+The bad news is that like many other things in the interviewing world there's not some magic formula
+
+that you can just be given that 100 percent of time always correctly identifies the runtime complexity
+
+of something.
+
+It's something where you have to have a little bit of experience you have to look at some different
+
+algorithms and just get a sense of what's going on.
+
+There's really not a hard and fast rule of exactly how this stuff is done.
+
+So I'm going to give you some tips right here on some common complexities and how you can identify them
+
+as we go through many other algorithms and solutions in this course.
+
+We will also spend some time to discuss their runtime complexity as well so that you can start to develop
+
+that sense of what runtime complexity is and how to really determine it.
+
+So let's go through some of these really quickly.
+
+Again I know it's really annoying when a presenter reads directly off a diagram but you all add some
+
+extra words in here and each of these.
+
+So the first one is if you ever see yourself iterating through a simple for loop with like a single
+
+collection.
+
+Great example of which would have been our reverse string algorithm back here.
+
+So we had a simple for loop more or less iterating over a fixed set of records.
+
+Right like just these characters right here.
+
+When ever you see that chances are you have linear runtime extremely likely so simple for a loop probably
+
+means you have Brunt's seemy linear runtime complexity.
+
+The next thing to keep in mind is OK well if we are only iterating through say half a collection like
+
+if we only look at half a string.
+
+Does that mean that we are using a runtime of like end divided by two.
+
+No there is no such thing as like end divided by 2 or 1.5 times n or two times and or three times then
+
+in runtime complexity.
+
+Take any of those numbers like any of those what we refer to as constants and you always drop them out
+
+of the equation.
+
+So any time you see a for loop iterating over a closed set of data even if it stops early even if it
+
+says I'm only going to iterate through like half this thing it's still going to be a linear runtime.
+
+So always drop out those constants.
+
+Another thing to watch for is if you are iterating through two different collections of data.
+
+So imagine for example if we had said Okay write an algorithm that reverses two different strings two
+
+different strings reverse both them in one function call.
+
+That would be an example of iteration over two different collections of data into separate separate
+
+for loops.
+
+So you would have one for loop to reverse the first string and then one for loop to reverse the other
+
+string so those would be two separate for loops.
+
+In that case we would introduce an additional term into our runtime complexity.
+
+We would say something like that has runtime complexity.
+
+And plus him.
+
+So the end in this turn right here is meant to indicate the runtime or the performance impact of the
+
+first string.
+
+And then we would introduce this second term right here to represent the second string.
+
+Because in theory you could be passed a very very short string for the first argument to your dual reverse
+
+function and then a extremely extremely long string for that second argument or that second string.
+
+And so we would want to separate those two out and say OK we are reversing two separate completely different
+
+strings.
+
+One might be short.
+
+The other might be long and so we would want to represent those separately.
+
+In general you know this is not only applicable to two strings.
+
+Anytime you are iterating over or processing two completely different sets of data you'll frequently
+
+see the runtime complexity split out to two separate terms.
+
+Now the next one is very closely related.
+
+If you ever see nested for loops a nested for loop is like a big O Take a look at that right there you
+
+know it's a big red flag.
+
+If you ever see nested for loops iterating over the same collection.
+
+So this same collection of records very likely that you have quadratic runtime or and squared complexity
+
+and a great example of this was the stair algorithm.
+
+And the are seeing the steps algorithm right here heres the steps algorithm.
+
+So we had one for loop right here.
+
+And the second one nested inside of it.
+
+Another great example of this was the it algorithm that we put together.
+
+So here's pyramid.
+
+Here is the iterative solution right here.
+
+Oops there we go.
+
+So here's the iterative solution.
+
+And we very clearly had one for loop where we iterated from zero to some target number and then inside
+
+of that we had another for loop that it rated from zero to some upper bound up here.
+
+So any time you see these nested for loops huge red flag.
+
+Extremely likely that you might have and squared runtime very closely related.
+
+That again is if we have two nested for loops.
+
+But each one is iterating over a different collection of data a different collection.
+
+In that case just like we said a moment ago with two separate strings we might have one string or one
+
+collection of data that's very short and the other one might be very very long.
+
+So that would no longer be squared because we have two different collections of data and they might
+
+have different requirements for different lengths and each of them.
+
+And so we would reflect that as being End Times.
+
+And remember that's not quite so different than squared.
+
+Remember that squared is simply end times and as well.
+
+So it's really the same thing here.
+
+We are specifically saying hey there's this other set of data that is not related to.
+
+And it's called em.
+
+But still for every record in and we have to also iterate through him.
+
+And so that would be an example of end times in complexity.
+
+Now the last two here are two that are great shortcuts to have very close at hand.
+
+These are very very commonly used.
+
+Any time you ever see any requirement in assorting or a problem for sorting any requirement whatsoever
+
+you can essentially just assume that it's probably going to be and log and run time.
+
+So every sort.
+
+Operation the best runtime complexity we can have for sorting something is an log.
+
+And so if you have an algorithm where you have to sort something chances are you will probably see a
+
+term like this inside there.
+
+Then the other thing to keep in mind is sorting Sumeet searching through a sorted array.
+
+So if you have an array of say numbers or a collection of anything that is sorted in some fashion and
+
+you have to search through it chances are you have a log and runtime complexity from that operation.
+
+So I mean again anytime you see sorting or searching you likely will have something related with one
+
+of these run times right here.
+
+So just something to keep in mind.
+
+OK.
+
+So that is a quick list of big tips to watch out for when identified runtime complexity.
+
+Again this is something where you just got to have a little bit of experience you've got to do it.
+
+You have to be told OK here's the algorithm Here's what the runtime complexity is and you have to develop
+
+your own feeling for how it actually works.
+
+It's not something where I can just give you hey here is the absolute you know rule of thumb to use
+
+100 percent a time that doesn't exist for this.
+
+Unfortunately I wish it did.
+
+Now the very last thing I want to tell you about kind of a last minute thing I'm going to throw in here
+
+is space complexity.
+
+So we've been talking about runtime complexity which is a reference to the performance of an algorithm
+
+in terms of processing power.
+
+Another thing to are that you might be asked an interview setting is the space complexity of an algorithm.
+
+So space complexity is extremely similar to performance but it is a reference to how much RAM or memory
+
+or space an algorithm needs to complete a given task.
+
+In general you can really apply a lot of the same rules around runtime complexity to space complexity.
+
+Great examples of this would be something like reversing a string.
+
+In our case for every additional character that we added into our input set we had one additional character
+
+that we needed to return in the output set of data.
+
+And so the amount of memory that we spent was linear because for every one additional character we needed
+
+one additional element in our string to be added.
+
+Another good example of this would be the steps algorithm.
+
+We also looked at.
+
+So in this case we had said that for each increment of these steps argument we had to do.
+
+We had to printout to a dish or some number of additional items in our resultset.
+
+So not only do we have to process more data or we had to iterate through some loop more times.
+
+Our resultset also had significantly more entries inside of it.
+
+For every record that was added in.
+
+And so this will be a great example of quadratic runtime for space complexity as well because you can
+
+see very clearly right here.
+
+For two we had to produce four items so four elements in memory for three we needed nine elements memory
+
+and for four we needed 16 elements in memory.
+
+Now the space complexity and runtime complexity are not always going to be identical in many cases they
+
+might be very different.
+
+However you know again we'll see some examples of different complexities over time I will say that space
+
+complexity is less frequently asked in an interview setting than time complexity.
+
+So if you're going to spend any time doing any studying or anything like that I really recommend pushing
+
+all your time towards studying up on time complexity of post as opposed to space.
+
+But honestly once you understand one really well usually you can pick up on the other pretty quickly
+
+as well.
+
+So just keep that in mind.
+
+OK.
+
+So this has been a lot of discussion around runtime complexity.
+
+A lot lot lot.
+
+So let's continue the next section we're going to start looking at some more algorithms that start to
+
+get into this world of runtime complexity.
+
+So let's continue in the next section and we'll start looking at some more complicated algorithms.
+
+So quick break and I'll see you in a minute.
+---------------------------------------------------------------------------------------------------------------------
+=====================================================================================================================
