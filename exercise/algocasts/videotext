@@ -7414,3 +7414,863 @@ Let's now continue with our next exercise in the next section.
 ------------------------------------------------------------------------------------------------------------------
 ==================================================================================================================
 
+
+Раздел 14:Enter the Matrix Spiral
+
+46. General Matrix Spirals
+
+Let's move on to our next problem inside my code editor I'll find the matrix directory and then open
+
+up the index geas file inside there and then of course we'll also very quickly start up our tests with
+
+just matrix test stuff.
+
+J.S. dash dash watch like so and we should see about four Tests pop up.
+
+Yeah here we go.
+
+So four tests running.
+
+Very good.
+
+All right.
+
+Let's look at these directions.
+
+The directions say write a function that accepts an integer n and returns and end by and spiral Matrix.
+
+Well those directions are not very helpful.
+
+So let's look at the examples right here instead.
+
+So the idea is that we're going to call the function and then we're going to return a two dimensional
+
+array or an array of arrays.
+
+So notice how there are two arrays inside of one larger array.
+
+Here's the outer array right here.
+
+And then we've got two arrays inside of it.
+
+The reason that we call this thing a spiral matrix is that we're going to start off from the number
+
+one and then going around clockwise in a spiral fashion.
+
+We're going to count up from 1.
+
+So we start off at 1.
+
+We go over to two down to three over to four with Matrix 2 right here it's a little bit hard to see
+
+the pattern.
+
+It's a little bit easier to see the pattern with Matrix 3 and Matrix 4.
+
+So let's look at this over here we start off at 1.
+
+We go over to two three down to four five over to six seven eight nine.
+
+And so you can kind of see the incrementing values here.
+
+They form a spiral of sorts.
+
+That kind of spiral from the outside into the center of the matrix and it's a little bit easier even
+
+with Matrix 4 down here to see that pattern.
+
+So we go one two three four five six seven eight nine 10 11 12 and then we spiral in to 13 14 15 16.
+
+So we go in this clockwise spiraling in fashion the last number that we're ever going to print out inside
+
+of here will be.
+
+And squared.
+
+So for example we have four here.
+
+So the last number that we will print out inside if you will be 16.
+
+Three times three is nine.
+
+So that's going to be the last number.
+
+And then two times two is four.
+
+So that would be the last number.
+
+Now let me tell you right now this is a very challenging problem.
+
+This is tough because there are a lot of different variables that are going to be flying around inside
+
+our solution.
+
+Nonetheless this is a problem that you can be expected to be asked inside of an interview setting.
+
+And I can tell you that from experience unfortunately because I have been asked this question right
+
+here and it's really tough to do on a white board.
+
+I got to tell you.
+
+So this is a great example where it's extremely important.
+
+Before you attempt to attempt to solution to get to to get out a sheet of paper or to you know draw
+
+a diagram on the white board or whatever it is and try to draw out exactly how you're going to try to
+
+tackle this.
+
+This is a problem where if you just start writing code you're going to have a very tough time and I'm
+
+pretty convinced that this is a nearly impossible problem to solve.
+
+If you just immediately start writing code without putting some thought ahead of time into how you're
+
+going to solve it.
+
+So let's take a quick break.
+
+We're going to come back in the next section and I'm going to give you a couple of notes on exactly
+
+how to solve this.
+
+So come back to the next section.
+
+Don't attempt a solution just yet.
+
+We'll look at a couple of different aspects of this problem and I'll give you some tips on exactly how
+
+to approach it.
+
+See you in just a minute.
+--------------------------------------------------------------------------------------------------------------------
+
+47. Spiral Solution
+
+In the last section we started looking at the spiral matrix problem.
+
+We're now going to continue by looking at some notes on a possible way to solve this.
+
+So let's take a look.
+
+So this is the general notation that we're going to use as we look at our solution.
+
+So the outer box here is meant to indicate the outer array and then each of these inner boxes indicate
+
+the sub array that are inside of it.
+
+So this would be one subarray right here with the values 1 2 3.
+
+Then the next subarray is right here.
+
+And the final one right here and then all three Subah rays are contained within this outer array.
+
+So then mind let's take a look at our diagram.
+
+All right.
+
+So this is a nasty thing right here but it is a nasty problem.
+
+So I'm going to give you a kind of cursory description on the algorithm here.
+
+I'm not going to try to walk in great detail through every step right here.
+
+But if you want to look at these notes right here remember you can always pause the video and take a
+
+glance at the diagram or all the Corson's diagrams or inside of the accompanying get repository which
+
+was linked at the start of this course.
+
+And so you can always go back there and take a look at these steps right here.
+
+I would love to walk through all these steps verbally with you.
+
+However if I start essentially reading these off it gets really confusing very quickly.
+
+So you know honestly it's probably best that you might sit down and take a look at the steps here on
+
+how we might solve this.
+
+This solution is 100 percent predicated on this idea of maintaining some counter variables that reflect
+
+what starting column we are working on and what end column we are working on along with the starting
+
+row and ending row.
+
+So the idea here is that we are going to have some integer values that keep track of the current index
+
+that we are trying to fill inside of our matrix.
+
+So we might start off with a start row equal to zero.
+
+And that means that when our algorithm first starts off we want to look at row 0 and start attempting
+
+to fill values inside of that row.
+
+Then the last row that we want to be concerned with would be wrote two down here.
+
+Notice that these are not necessarily hardcoded values.
+
+I'm assuming that we have an an equal to 3 right here.
+
+So if we had an equal to 2 or equals 4 or 5 6 whatever this and Roe value right here might change.
+
+And so you're probably going to have to do a little bit of math to calculate exactly what the end Roe
+
+should be depending on the value.
+
+And that is passed into the function the start column is going to be some counter of sorts that decides
+
+what value or what index we're currently trying to fill out for.
+
+On the left hand side that will start off as zero.
+
+And in the end column will start off as 2 as well.
+
+So the general idea here is that we're going to make a series of four loops.
+
+So here's one for loop right here.
+
+Here's one for loop right here.
+
+And then I did not show the other 2 for loops that you'll have to make on here inside of each of these
+
+four loops.
+
+You are going to iterate from some start column up to some end column and for every value or every index
+
+between Start column and column you will insert some value into the matrix So for example the very first
+
+lubra here will iterate from start column to and column.
+
+So from zero to two and then at every step throughout that loop you will attempt to insert some value
+
+on this first starting row right here after you have filled out these first row right here.
+
+Or in other words after this first loop has completed running you can then increment the start row value.
+
+So we could increment start row by 1 and it would say all right this is now the first row that we want
+
+to be concerned with.
+
+So essentially after you fill out the first row with one two three you don't worry about the first row
+
+anymore.
+
+You are now only concerned about this remaining part of the matrix.
+
+So now the start row right here would be equal to 1.
+
+You would be looking at this element right here.
+
+Then fill this one out fill this one out and then you would decrement the end row to over here.
+
+And so essentially these starting and ending counters that we're looking at right here are going to
+
+be changing over time to essentially set the bounds of what portion of the matrix you are trying to
+
+look at at any given time.
+
+These directions right here probably give a very good direction or a good idea to you of exactly how
+
+those bounds are going to work.
+
+So again do look at the steps right here.
+
+Now the last thing I want to mention to you is that I highly highly recommend that you create the results
+
+set from the very beginning.
+
+And when I say resultset I mean the empty array of arrays.
+
+So build that at the very start of the problem and do not attempt to start to insert arrays as you are
+
+iterating through this thing much easier to build out the empty arrays at the very start and then insert
+
+numbers into that.
+
+Okay.
+
+So I know that this is a very tough problem.
+
+It really really is very tough.
+
+But as soon as you see the solution I know it's going to make a lot of sense.
+
+So I encourage you to give this a shot.
+
+Do the best you can.
+
+All right.
+
+Do the best you can come back in the next section and we'll walk through the solution.
+
+So quick break and we'll take a look at this thing again in the next video.
+--------------------------------------------------------------------------------------------------------------------
+
+48. More on Spiral
+
+Hopefully you had some success with a solution if you didn't.
+
+If you struggle with the problem that's totally fine.
+
+It's really what I would expect to be honest.
+
+I'd be really surprised if many people got this problem correct on the first time through.
+
+This is one of the classic problems where the first time you do it it's really hard.
+
+But then we attempt the solution a second time.
+
+Life gets a lot easier just like every other interview problem there is.
+
+And that's why you're here you're here to practice the problem one time so that when you go and do it
+
+in an interview setting it's much easier.
+
+OK.
+
+So let's start going through our solution as we go through the solution.
+
+I'm going to be tabbing back and forth over this diagram quite a bit.
+
+I know that's really distracting in a video.
+
+I apologize for that but I want to use this diagram a lot to really show you exactly why we are writing
+
+the code that we are.
+
+So let's get started by doing Step one right here which is to create an empty array of arrays called
+
+results.
+
+That's step 1.
+
+So inside my function it creates an empty array.
+
+And then the number of sub arrays that are going to be pushed into this thing is dependent on the value.
+
+And so I want to have an number of Subway's inside of results.
+
+So we're going to have to iterate with the for loop from 0 up to N and for each step we're going to
+
+push in an empty substrate into results.
+
+It's all save for LeT I equal 0.
+
+I less than an A-plus plus plus.
+
+And then for each step we'll take the results array and we will push in an empty array.
+
+If we we're now to con. log out results we would see something like four.
+
+Let's assume that we have an end of two right here.
+
+We would see something like this.
+
+So for an end of two we would have two empty Subway's inside of one larger one.
+
+Now a key behavior or a key feature of arrays that is really important for our solution here is the
+
+fact that we can't assign values to indices inside of an array that have not been initialized.
+
+In other words you know let's look at a quick example of this.
+
+In other words if I declare an empty array right here so has no spaces inside of it no values nothing.
+
+I can freely assign some value to say Index 3 and if I now print out a.
+
+Notice how that value was assigned to index 3 right here.
+
+I did not have to push this value in or I did not have to in it and shift the value into the array.
+
+I can just freely assign any value to any index inside an array that I want and it's a very important
+
+thing to keep in mind.
+
+The solution here.
+
+OK so back over here.
+
+So our next step is going to be to create a counter variable.
+
+Starting at 1.
+
+So I will say let.
+
+Counter equals 1.
+
+So that's going to be the thing that actually keeps track of what number we are attempting to push into
+
+our results array right here.
+
+The next thing we're going to do and I did not specifically put this on the diagram right here.
+
+We are going to create a number of variables that keep track of the current column.
+
+The start column.
+
+The end column the start row in the end row that we are trying to consider at any given time.
+
+The start column and the start row will always be initialized to zero but the end column and the end
+
+row their values will depend on the value of and that is passed into our function.
+
+So to calculate the end column in the end row will take N and subtract 1 from it.
+
+So to calculate this matrix right here or to produce this one we would have been given an end of three.
+
+And so the last index that I want to say give me the last.
+
+Next I want to consider would be and minus one.
+
+So three minus one would be two.
+
+So with that in mind let's declare those 4 variables we'll say start to call them is going to start
+
+off at 0 the end column that we want to consider.
+
+During this first run through will be and minus one the start row will be zero.
+
+And the end row will be and minus one.
+
+It's now going to move on to the next step here which is to somehow make sure that we are going to execute
+
+all of this code right here.
+
+As long as this statement is true.
+
+So that's a classic case for a while loop.
+
+We're gonna use a while loop here.
+
+We're going to say while start column is less than or equal to column and blah blah blah we want to
+
+execute these code blocks right here.
+
+So let's write out that while loop will say while.
+
+Start column is less than or equal to and column and start row is less than or equal to and row execute
+
+some code inside of here.
+
+So just to make sure it's really clear at this point start column and column start row and row all these
+
+little counters things right here.
+
+They're going to change over time so these are not fixed values that we just assigned right here.
+
+We are going to change the value of start column start row and so on to indicate which row which column
+
+and so on.
+
+We are currently working on it.
+
+Any given time.
+
+Now that we've got our while loop put together we're going to start on our first for loop.
+
+The first for loop right here is always going to be responsible for assembling the top row of our solution.
+
+So this first row right here.
+
+After that we will define the next for loop the next for loop will always be responsible for defining
+
+this row on the right hand side.
+
+And then there's the two other four loops.
+
+I did not indicate on the diagram right here.
+
+One of them is going to be always responsible for assembling the values here on the bottom and then
+
+the last one we always responsible for assembling the left hand side of our solution and then we'll
+
+enter the for the while loop again at the very top and this first for loop will then be responsible
+
+for assembling the top block here.
+
+So essentially we've got these for four loops in each of them is responsible for assembling a different
+
+side and then each time we progressed through the while loop we're going to be constraining these start
+
+row and row start column and column to control what section of The Matrix.
+
+Each loop is attempting to create art.
+
+So let's get started with this first for loop right here.
+
+So for the first for loop I'm going to get my self comment here.
+
+I get to say this thing is responsible for the top row we are going to iterate from I equal to not zero
+
+but our start column.
+
+So we're going to iterate from our start column which is going to start off at zero right here.
+
+We are going to progress through this for loop as long as I is less than or equal to end column and
+
+for every step through we will increment by 1.
+
+Now inside of that for loop at every step along the way we are going to assign some value to the results
+
+section or the results array excuse me.
+
+So at our results start Roe at I we will assign the counter variable.
+
+So inside of your results at start Roe at II we will sign the counter and then immediately afterwards
+
+we will increment the counter and then after the for loop.
+
+And this is the really critical part right here.
+
+After we put the last line of code or this next line of code will take a second to kind of iterate or
+
+to kind of imagine this first for loop and what it's really doing for us.
+
+So after the first loop we will then increment the start row.
+
+So merely after the for loop we will increment start row start row plus plus like so OK so we've got
+
+one for loop put put together here.
+
+Let's look at this on the diagram and really picture what this thing's purpose is.
+
+So we are iterating from start column to end column.
+
+We then put something into our set and then we increment start row.
+
+So let's see what the result to that is.
+
+So we are going to increment from zero up to 2 at every step along the way.
+
+So from 0 1 to 2 we are going to look at our results set at the results set at the index 0 or essentially
+
+start row and at the particular step through the four that that we are at we will assign the counter
+
+variable.
+
+So we start off at index 0 for start row 0 for II which is right here.
+
+We assign the counter variable within increment by one which moves us over here.
+
+We assign the counter variable we increment by 1 which moves us over here and we assign 3 at that point.
+
+We have now iterated all the way from the start column to the end column.
+
+So we're all done with this first for loop right here.
+
+We have assembled the top row so we exit this first for a loop and then we execute this next line of
+
+code which is to increment the start row.
+
+So start row has served its purpose.
+
+We have assigned everything in this first row right here.
+
+So we are now going to increment start row by 1 which means this is now the first row that we are going
+
+to be concerned with inside of our solution.
+
+So now start row is going to be one.
+
+So now let's consider the next for loop that we are about to put together.
+
+We are now going to iterate over from start row to end row.
+
+So from 1 to 2 inside of there we're going to look at results I at and column.
+
+So now we have flipped our indices here and column.
+
+At this point inside this for loop and column is always going to be equal to 2.
+
+And we're going to have values of i ranging from 1 to 2.
+
+So essentially this for loop right here the next one we're going to write we are going to iterate from
+
+results at one at two.
+
+So results 1 2 and that would be this index right here.
+
+We will then increment I buy one and that will then move us on to results at two at two and for both
+
+those steps we will assign our counter variable.
+
+So let's go through that process right now.
+
+I know this is some pretty crazy stuff but you know this is the kind of thing that you've got to answer
+
+in the interview to get those very high paying jobs.
+
+All right.
+
+So this is going to be our right column.
+
+We're going to iterate from i equal to our start to Roe.
+
+So remember we are iterating from 1 to 2 now because we want to go from this spot to this spot.
+
+So we're going to start at our start Roe we're going to iterate as long as I'm less than or equal to
+
+end Roe and will increment by one each time.
+
+And then for every step along the way we will sign results at I at the end column equal to our counter
+
+variable and then we will increment our counter variable by one.
+
+All right.
+
+So again this is taking us from this spot right here to this spot right here.
+
+Now immediately after we achieve that after we get through that for loop we have now taken care of this
+
+entire column right here.
+
+So we no longer need to consider this column.
+
+So we're now going to detriment and Roe.
+
+So we're going to take and Roe we're going to shift it over one to right here.
+
+So now and column is going to be equal to 1.
+
+So now we need to repeat these 2 for loops right here for the other two sides specifically this bottom
+
+row and then the left column over here.
+
+Now again I did not put the for loop on here but I think you get the idea of what's going on.
+
+So for the end Roe we are going to want to iterate from the end column.
+
+So we're going from right to left.
+
+Now we're going from the end column down.
+
+So we are now decrementing we are decreasing here we are iterating from the end column down to the start
+
+column for every step along the way we are going to assign some results and then results right here.
+
+And then we will detriment our and Dreux.
+
+So Andrew will be subtracted by 1 and we would now be considering just this row right here.
+
+So let's give that a shot.
+
+All right.
+
+So this is now going to be our bottom row.
+
+And for this thing we're going to say from left I equal to and column.
+
+So we're starting off right here at our end column as long as I in this case.
+
+We are decrementing this case so we're going to flip a lot of these conditions we are recommending from
+
+I down to zero.
+
+So as long as I is greater than or equal to our start Roe are just not our start our start column.
+
+Typo.
+
+So from I.
+
+As long as it is greater than or equal to our start column of zero right here.
+
+So from this guy over to this guy and then every step along the way we are going to subtract 1 from
+
+my then inside of here we'll say results at and Roe.
+
+So that's where you're looking at this suburb right here sort and Roe at I are going to assign counter.
+
+And then we will counter plus plus.
+
+And then the really critical part right after the for loop right here and I just realized we made a
+
+mistake on the for loop right above.
+
+We'll fix that in just one second.
+
+So Meely after our for loop right here we need to make sure that we move our end Roe up.
+
+We have now taken care of everything inside this and Roe.
+
+So we're going to shift it up by one which means we are going to subtract 1 from and Roe.
+
+So I will say and Roe minus minus like so okay.
+
+Really important really important to be back in here for a second.
+
+I completely neglected to update our our coal encounter right here.
+
+So for that second loop for the second loop right here that we just put together we needed to detriment
+
+the and row really after it was at.
+
+Now we need to decorate the column that should be document and column.
+
+So the end column was over here.
+
+We need subtract one to get it to this column right here.
+
+So we are going to add column minus minus like so.
+
+All right.
+
+Last step here I promise I know this is brutal but very last step.
+
+So this is going to be our For loop for the start column.
+
+So this is going to be it's kind of boring on this three by three 1.
+
+It would have been a little more interesting if we had a four by four matrix to look at but we are now
+
+going to iterate from essentially right here up to here.
+
+So we're going to go from our end Roe down to our start Roe.
+
+So we will iterate from let by equal to you and Roe I greater than or equal to start Roe minus minus.
+
+And then for every step along the way we're going to do is to assign results.
+
+I would start calling because remember we want to assign at column zero right now.
+
+And we're going to sign the counter here and then increment the counter and then Amilly afterwards.
+
+We have now taking care of our start column right here.
+
+So we now need to move it in words over here.
+
+So I'm going to increment start column by 1 so start column.
+
+Plus plus like so OK who.
+
+That's nasty.
+
+But that is all.
+
+That's it.
+
+That's it right there.
+
+So after we finish that start column we will then go back up to the top so we will execute the while
+
+loop again.
+
+We will check to see.
+
+Let's check all of our bounds here.
+
+So we now have a start column of one and column of one.
+
+This should be and column one right here in the Start column one.
+
+So all of our columns are now one.
+
+So we're only looking at this right here.
+
+So we'll now check the while loop will say is Surt column less than or equal to and column.
+
+And yes it is they're both one and start row less than or equal to and Roe.
+
+And yes they are because they're both equal to one.
+
+So we're going to execute all of our four loops one more time and it's probably going to be this for
+
+loop right here that captures that very last placement of the number.
+
+So we'll start off with one here.
+
+One less than or equal to and column Yes it'll be this one right here will assign that very last number
+
+will not satisfy any of our other loops inside of here.
+
+And so will you will then exit our for loop or see me exit the while loop and then the very last thing
+
+we have to do is return our resultset.
+
+All right let's our test see how we're doing.
+
+So over here it looks like my tests are running which means I probably have a typo somewhere due to
+
+an infinite loop.
+
+So let's check our solution here really quickly I'm going to check against my notes just to make sure
+
+we've got the right thing.
+
+I start Ro and column and row and then start column plus plus.
+
+All right so we definitely have a typo somewhere here.
+
+What we need to restart the test that's what it is.
+
+So if your test stopped running is probably because they entered into an infinite loop.
+
+I mean a restart my tests by running just matrix tests J us dash dash watch.
+
+There we go.
+
+All right so that's the problem we've got an unexpected token here somewhere with the counter.
+
+Here it is right here.
+
+Fix that.
+
+And now the tests are passing.
+
+OK I know this has been a brutal section.
+
+I know this has been very brutal.
+
+If you are not able to follow through all the way.
+
+I really recommend you go and check out the get hub repository for this code and walk through the code
+
+and take a look at all the balance on these four loops.
+
+Honestly this problem it does make a lot of sense.
+
+As soon as you understand how we are defining the start column and column start row and row variables
+
+and then kind of constrain their solution window over time to spiral inwards.
+
+That's what this problem is all about.
+
+It's all about recognizing that you want to have some variables to keep track of the current range that
+
+you're trying to fill in on the matrix at any given time.
+
+Again I know the solution has been kind of brutal to be honest with you.
+
+I have recorded this solution four times now and I think that this one has been the first sign that
+
+actually came across at least somewhat clearly.
+
+So I think this is going to be it.
+
+This is the video you're probably going to be watching.
+
+I tried recording this three other times and it really just didn't quite work out.
+
+So hopefully this has made some sense.
+
+So at this point hopefully you've got some idea of how this solution is put together.
+
+I would really encourage you to maybe delete the solution entirely and try it again you know put the
+
+solution together on your own at least one time so you can feel at least somewhat confident.
+
+In an interview setting of communicating to an interviewer about what's going on here I'll get so a
+
+very tough problem.
+
+But we have seen it one time so you've got at least some idea of how to approach it.
+
+Let's now take a break.
+
+We're going to continue the next section and start working on our next problem.
+
+So see you in just a minute.
+--------------------------------------------------------------------------------------------------------------------
+====================================================================================================================
