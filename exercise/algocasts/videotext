@@ -9040,3 +9040,1241 @@ So let's continue in the next section and we'll start looking at some more compl
 So quick break and I'll see you in a minute.
 ---------------------------------------------------------------------------------------------------------------------
 =====================================================================================================================
+
+Раздел 16:Runtime Complexity in Practice - Fibonacci
+
+52. The Fibonacci Series
+
+Now that we have had an introduction to runtime complexity we'll begin working on another question that
+
+is great for profiling differences in runtime complexity between different solutions.
+
+So inside my code editor I'm going to find the folder and open up the index dot JSE file and then as
+
+usual We'll also start our tests.
+
+So at the console run just fib test us dash dash watch like some.
+
+And we should see about six or so test passing right now or see me six total right now.
+
+All right.
+
+Let's take a look at the problem we have to work on.
+
+So the goal of this function is to printout the nth entry where an is an argument to the function of
+
+the Fibonacci series the Fibonacci series is this ordered list of numbers that you see right here that
+
+Fibonacci series can be characterized by taking two numbers adding them together to produce the next
+
+century.
+
+So to look at this and diagram format we usually kind of take these first two numbers right here of
+
+zero and one for granted because there's no previous numbers for it that we can add together.
+
+So for this third element right here we would look at the previous two numbers zero and 1 we would add
+
+them together and that gives us one then for this element right here.
+
+We would add one plus one that gives us two for this one we have two plus one that gives us three 3
+
+five is three plus two.
+
+And so on.
+
+You get the idea.
+
+Now the Fibonacci series extends past 13 of course.
+
+So it goes on as far as you want but this is the general pattern that we need to be aware of some just
+
+showing the first couple of elements out of it.
+
+Our goal with this function right here is to make sure that we return the nth entry.
+
+So usually the way that we solve this is by generating the entire series all the way up to the nth entry
+
+and then we return that entry.
+
+So it's really tough to just say oh yeah I want to just generate this number right here.
+
+Really.
+
+Usually end up having to generate all the entries up to that number.
+
+And then you can return that one.
+
+OK.
+
+Now there are two solutions that we're going to look at for Fibonacci in the next section we're going
+
+to look at a solution that uses an iterative solution.
+
+And then after that we'll look at a solution that uses a recursive solution.
+
+So if at all possible if you've already seen this problem if you've done it before.
+
+Go ahead and give a shot at the iterative solution for the next section.
+
+If you've never done it before.
+
+Just give it your best shot and try any solution you can think of.
+
+So let's take a quick break right now.
+
+Give it your best try and I'll see you in just a minute.
+---------------------------------------------------------------------------------------------------------------------
+
+53. Fibonacci Series Iterative Solution
+
+Hopefully you had some luck putting together the Fibonacci series solution.
+
+In this video we're going to go through an iterative solution that uses a for loop to return the nth
+
+value from the Fibonacci series.
+
+So here's the general plan.
+
+We're going to create an array.
+
+We're going to assemble all of the numbers up to entry n.
+
+So let's assume it's supposed to be this entry right here that was given for N.
+
+So produce everything up to that element right there and then we'll return it.
+
+And that's pretty much it.
+
+So let's give this a shot inside of my fit function.
+
+I'm going to declare an array that is going to hold a series of numbers.
+
+I'm just going to call it result.
+
+Like so now the big trick behind this iterative solution that uses a for loop.
+
+This is the big trick.
+
+Again all these problems have a trick.
+
+The trick is to recognize that these first two numbers inside of here cannot really be effectively generated
+
+by a for loop or anything like that.
+
+Remember the algorithm that we're using here is to say look at the previous two numbers add them together.
+
+And that gives us in the element that we want to add to the series.
+
+So for this number and this number there is no previous two entries that we can add together.
+
+However you and I always know that there are going to be zero and one.
+
+So the best way of handling this is to just manually insert 0 and 1 into this result set.
+
+Now to produce this third element right here we can add together zero on one to produce 1 and then continue
+
+on throughout the rest of the series just like that.
+
+So we will use a for loop that is going to iterate from equal to 2.
+
+So we're going to start off at two because we want to produce this element first and then we're going
+
+to iterate all the way up to N.
+
+So right out for left eye equals two.
+
+I less than or equal that and I plus plus like so then inside of the for loop itself we need to pull
+
+out the previous two records in the result array.
+
+So the previous two records and then we will add them together and push that into the result set.
+
+So we'll say constitute a equals result and we can either to get the previous two records and here we
+
+can either look at the variable I subtract 1 and then subtract 2 or we could take result length minus
+
+1 so it can be either resultant length minus 1 to get the previous record or we could take I minus 1.
+
+Either way is totally fine.
+
+I think we'll go with I minus one just for fun here and then B will be result at I minus 2.
+
+So this is for Sanja loop runs now.
+
+I will be equal to 2.
+
+So a will be receiving the second element which is 1 and then B will be calculated by taking two minus
+
+two.
+
+That gives us zero.
+
+That's the first element in the result set which is also 0.
+
+We will then add these two numbers together.
+
+So A plus B.
+
+And then we will push that into the result array like so.
+
+OK.
+
+So this is going to generate our Fibonacci series all the way up to entry.
+
+And now the last thing we have to do is return entry and from our result set right here.
+
+So down below you can simply return result at an all right.
+
+So let's save this and see how we're doing.
+
+One other quick thing I want to mention by the way another thing we could do done here rather than saying
+
+resulted.
+
+And just to get the last entry we could have simply said result of length minus 1 to get the last record
+
+to leave to you.
+
+Again either way is totally fine.
+
+So let's see our terminal is doing and yeah it looks like we've got the correct values here.
+
+So all tests are passing great.
+
+So this is the iterative solution to this problem.
+
+Now I want to ask you right now do you have any guess as to what the runtime complexity of this is.
+
+So the runtime complexity we can either take you know a very cerebral cerebral thought here or we can
+
+use some short shortcuts.
+
+So if we were going to take the more cerebral kind of academic approach to this I would say well for
+
+every increase in n we have to calculate one additional number.
+
+So as an increases by one we have to do one more calculation and that's never going to change.
+
+So I would say this is linear run time.
+
+The more kind of short cut way that we might arrive at that is to say well we've got a simple for loop
+
+and it looks like we are always starting out at some fixed number always incrementing by one and we're
+
+always incrementing up to this fixed target.
+
+So another way could be to just say Well looks like we've got a for loop that iterates over this kind
+
+of close set one for one.
+
+So chances are it's linear run time.
+
+So it's going the two ways that I might approach approach that.
+
+Okay.
+
+So this looks good.
+
+Let's now take a break.
+
+We're going to come back in the next section and we're going to put together and it a cursive solution
+
+to this problem and that's where some of this runtime stuff the runtime complexity is going to start
+
+to get very interesting.
+
+So quick break and I'll see you in the next video.
+---------------------------------------------------------------------------------------------------------------------
+
+54. Fibonacci Series Recursive solution
+
+In the last video we put together an iterative solution for the Fibonacci problem.
+
+We're now going to continue by putting together an alternative solution that solves this by using recursion
+
+instead.
+
+Now of course as usual we will make a backup of our iterative solution here.
+
+So I'm going to copy our previous effort.
+
+I'm going to move down to the bottom of the file and paste it and then comment that thing at all then
+
+go back up to the original implementation of top and delete the contents of the function.
+
+OK.
+
+There we go.
+
+Now before we put together this recursive solution I want to tell you kind of a funny story that I think
+
+is great commentary on the state of coding interviews in general and this is something that we've been
+
+discussing all through the course so I have worked at a company in the past years ago where every interviewee
+
+that came in every engineer who was interviewed they would all come in and we would we would always
+
+ask them the same problem.
+
+We would ask them Hey Saul Fibonacci using recursion and I got to tell you there was two types of engineers.
+
+There was two types.
+
+There is one type who could solve it.
+
+They did a great job.
+
+You know they solved it using recursion and then the other type the other engineer they could not do
+
+it for the life of them.
+
+And you might be curious what the difference between those two engineers was and this is for my own
+
+practical experience I'm very much convinced of this.
+
+So what was the difference between the engineers who could solve it and couldn't solve it.
+
+Well at the end of the day there was one simple difference.
+
+The people who could solve Fibonacci using recursion had already seen the problem before.
+
+That's it.
+
+So this is the classic problem where if you see it one time you say OK.
+
+Yeah it looks reasonable.
+
+I can memorize that and then you say OK that's how assaulted not using recursion because it is a classic
+
+example of recursion.
+
+However if you've never seen it before it's so incredibly unlikely that you will come up with a solution
+
+to Fibonacci using recursion that I'm about to show you it's my opinion it's just really challenging.
+
+Extremely unlikely.
+
+I'm sure there are people out there who have came up with the solution independently but I am very much
+
+convinced that this is an example of a problem where you've either seen it or you haven't.
+
+So I'm very happy you're here watching this lecture because it means that you will see the solution
+
+and you'll be able to answer this question when it comes up in your own interview.
+
+By the way Fibonacci series is a incredibly common question to be asked.
+
+So this is definitely one to keep in your head.
+
+All right so let's do this because of what I told you.
+
+You know this is a problem where you've either seen it or you haven't.
+
+I'm just going to put the code up here for the solution and then we'll talk about the disk the solution
+
+and how it works.
+
+Like I said it's really challenging to come to this solution on your own.
+
+My personal opinion of course.
+
+So we're going to say if an is less than to return an and then Otherwise we want to return fib and minus
+
+one plus fib and minus two and that's it.
+
+That's the solution right there.
+
+So let's flip on over to our terminal I'm going to save this file a flip on over to the terminal and
+
+I'll verify.
+
+Yeah it looks like our tests are still passing here.
+
+So very good.
+
+Well kind of very good.
+
+So why does this work.
+
+You know there's a couple of different things to talk about with this Fibonacci solution right here.
+
+The first thing I want to do is tackle it from kind of the recursion side and understand how the recursion
+
+here works.
+
+After that I want to come back to a solution and talk about the differences between this one and the
+
+one we worked on before.
+
+From a time complexity standpoint.
+
+So understanding this recursive solution right here is really challenging unless you put it into diagram
+
+format which I've done.
+
+So let's go take a look at that diagram.
+
+Now before we do one thing I want to point out here is the only time in which we appear to actually
+
+return a number from Fibonacci.
+
+Right here is when and is less than 2.
+
+So when and is equal to zero or one that's the only time that we're going to return an actual discrete
+
+number.
+
+So with that in mind this is what I want you to be aware of right here when we call Fibonacci with zero.
+
+We get back zero when we call Fibonacci with one.
+
+We get back 1.
+
+Those are like very discrete numbers that we definitely get every other call to Fibonacci like if we
+
+call Fibonacci with 10 or five or six.
+
+Well it means that we start entering into this recursion and that's when we start having to think about
+
+OK how do all these function call stack up and eventually give me a result.
+
+So then mind let's take a look at a diagram that's going to help us kind of understand what's going
+
+on here.
+
+All right so at the very top we have an imaginary function call to Fibonacci with an input of five.
+
+So as you just saw you know let's take five right here and let's go back to our code and think about
+
+what would happen.
+
+So we called fib with five is five less than two.
+
+Well no of course it's not.
+
+So we call Fibonacci with four and five with three so that results in two function calls.
+
+And that's what I'm reflecting this diagram over here.
+
+Here's Fibonacci being called with for years Fibonacci being called with three.
+
+Now in the case of four.
+
+Let's walk through the case of four.
+
+So fib of four or an equal of four is for less than two.
+
+Well again no it's not.
+
+So we call Fibonacci with three and Fibonacci with two.
+
+And then the process repeats itself for the rest of this tree right here.
+
+So eventually we get down to the bottom of the tree and eventually we hit that case.
+
+And it's less than two.
+
+And we start to actually return some numbers.
+
+So that is these blue squares right here.
+
+All these blue squares.
+
+This is where we actually return some numbers.
+
+Now as you saw just a second ago right here.
+
+So whenever we call Fibonacci recursively we are adding the result of those two together.
+
+So at the end of the day you can kind of imagine that all these blue squares right here are eventually
+
+going to be added up and total together.
+
+So let's take all these different blue squares right here and take their sum.
+
+So specifically what calling Fibonacci with this particular number would result in.
+
+So when we call Fibonacci with one it returns 1 if we call Fibonacci with zero return zero.
+
+So we don't really care about Fibonacci with 0 because it returns zero.
+
+So I'm going to just kind of like gray those out.
+
+All we really care about here is calling Fibonacci with one.
+
+So when we call it with 5 it eventually results in Fibonacci being called with 1 1 2 3 4 5 times.
+
+So we can add together one two three four or five.
+
+OK.
+
+So Fibonacci of 5 should be five.
+
+Let's go back to our diagram right here.
+
+The sequence right here so element 0 1 2 3 4 5.
+
+So 5 is 5.
+
+That is definitely the correct answer.
+
+So that's how it works.
+
+Basically we keep on calling Fibonacci with smaller and smaller numbers until eventually we meet this
+
+base case right here and start to return some actual value.
+
+Now that's kind of you know easy to think of for the fifth five case let's look at just one more case
+
+here.
+
+When we call for the notchy with an input of six.
+
+So here's what the diagram looks like with six.
+
+And yes this took me a couple of minutes to make to make this diagram right here.
+
+But whatever.
+
+So we called Fibonacci with six.
+
+That of course results in a call to Fibonacci with five and four.
+
+And then we go down this tree and eventually we collect all these 1 terms and add them all together.
+
+So we get 1 2 3 4 5 6 7 8 8 is our total.
+
+Let's go look at our series again.
+
+We get 0 1 2 3 4 5 6.
+
+So calling Fibonacci with six should return the six element in the series which is 8 and that's exactly
+
+what we got from this result of adding these all together over here.
+
+So that's how the recursive solution works.
+
+Does that sound confusing.
+
+Well I very much should.
+
+I really think that it should.
+
+I can't imagine why an interviewer would ask this thinking that someone's just going to bust out Fibonacci
+
+on the fly with this recursive solution right here.
+
+You know honestly a lot of interview questions especially coding questions are not so much designed
+
+to test your ability to generate solutions.
+
+There are more testing just to say hey do you have the common knowledge that we expect someone interviewing
+
+with our with our company to have.
+
+In other words I'm kind of convinced that people are asked for the notchy here just to make sure that
+
+you know you have seen the problem Fibonacci before.
+
+Because if you haven't seen it maybe that's some commentary about your experience in the computer science
+
+field or you know something I don't know.
+
+That's the only reason I can personally really imagine that Fibonacci is asked in a recursive type of
+
+context.
+
+Anyways enough of my ranting here.
+
+You know obvious is a question that gets me a little bit upset.
+
+I have been asked this question in an interview and you know I did pass it solely because I memorize
+
+the solution not because I understood at all how the recursion was working and so I guess that's why
+
+I get frustrated the question because it really proves nothing about your interviewee.
+
+OK.
+
+Anyways enough of that.
+
+So I do want to have a good discussion about time complexity for this recursive solution right here
+
+because it's actually quite awful and you might be surprised to see how bad it is.
+
+So this whole time complexity discussion around Fibonacci I think perhaps that's why interviewers ask
+
+this question because it is a great problem to kind of profile your understanding of algorithm performance
+
+and time complexity and all that kind of good stuff.
+
+So let's get to the next video we're going to do a kind of deep dive on time complexity between these
+
+two solutions.
+
+And we'll talk about some possible solutions to improve the time complexity of a otherwise very slow
+
+algorithm.
+
+So quick break I'll see you in the next video.
+---------------------------------------------------------------------------------------------------------------------
+
+55. Memoi-....Mem-...Memoization!
+
+In the last section we put together a recursive solution to the Fibonacci function.
+
+And I got to reveal some of my baggage around recursion just kidding.
+
+Anyways in this video we're not going to continue by discussing some of the performance characteristics
+
+of this recursive solution right here compared to the previous iterative solution we put together.
+
+So really quick while we still have the recursive solution implemented I want to flip on over to our
+
+tests running in the terminal you might have noticed that for each test that we're running here.
+
+So here's one test is another issue is another.
+
+Sometimes we can see the amount of time that that test took to execute printed off to the right hand
+
+side.
+
+If the test takes less than one millisecond the time is not printed.
+
+So we run it again we might see that some of these tests randomly appear to take slightly longer than
+
+one millisecond.
+
+But most interestingly you'll notice that when we tried to calculate the Fibonacci value for 15 it ended
+
+up taking just over 1 second total.
+
+So that's kind of surprising because we've got one two three four.
+
+These all appear to have been computed rather quickly like right around one millisecond.
+
+But then by increasing up to 15 it took about a thousand times longer to compute really 1000 years one
+
+millisecond years 1000 milliseconds that's a thousand times longer.
+
+So what's going on here.
+
+Why are we seeing such a dramatic increase in time for such a small increase in the value that we're
+
+trying to compute.
+
+Well let's look back at our diagrams a little bit and try to figure out what's going on.
+
+So here's the diagram that we're looking at just a second ago of a call to the Fibonacci function with
+
+five as the argument.
+
+So when we called Fibonacci with five the Fibonacci function itself is being invoked many many times
+
+automatically.
+
+So each of these boxes right here represents one function call to Fibonacci during our with a recursive
+
+solutions let's count these out.
+
+We've got 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15.
+
+So we've got 15 calls to the Nazi function with 5.
+
+Let's now compare that to the Fed six function call over here.
+
+So notice how 5 5 is still right over here and we just said that that was 17 calls total or 15 whatever
+
+it was i already forget.
+
+So we can imagine this is 17 calls or whatever it was.
+
+And then when we also add in this additional 5 4 right here we have to call because we're now dealing
+
+with the basics.
+
+We now have an additional 1 2 3 4 5 6 7 8 9 10 calls so 17 calls for 55 and then 27 total for that 6.
+
+This is what we refer to as back over here on our diagram.
+
+Exponential run time.
+
+So for each additional element that we add into our collection or for each increment of the value N
+
+to our function we're experiencing a dramatic increase in the number of function calls that are required.
+
+Now in my notes right here I say very clearly.
+
+Oh yeah the processing power required doubles as we just saw.
+
+It does not exactly double.
+
+It actually slightly less than doubles.
+
+But the idea is still very similar here.
+
+For every additional element we're getting a dramatic increase in the number of function calls or essentially
+
+operations required to calculate our value that we're trying to determine.
+
+So our recursive solution that we're working with right here is what we would refer to as an exponential
+
+time solution.
+
+Remember like we said a moment ago when we were first discussing exponential time any exponential time
+
+algorithm you create is an automatic no no.
+
+We never ever want to accept an exponential time algorithm as a solution to an interview question.
+
+If you came up with this solution right here and then your interviewer said Gee how long will this take
+
+to run if you put in like five of 50.
+
+And you said oh I don't know but you know whatever we can probably just sit around and let it wait.
+
+Well Fibonacci 50 is going to take an extremely long time to be calculated.
+
+So be aware that any time we start seeing a exponential run time function it usually means that there's
+
+a different solution we can put together that might be much more efficient in nature.
+
+So in this particular case you know let's say that you were sitting with your interviewer and they said
+
+hey give me the recursive solution to Fibonacci.
+
+And you came up with this right here.
+
+They very likely will say to you.
+
+Hey what do you think the runtime of this would be.
+
+The answer that you want to give is what's definitely to be exponential because for every increase in
+
+N we are going to get a dramatic increase in the number of function calls that we get.
+
+So here's what's going to happen next.
+
+And we've discussed everything to that point.
+
+The next thing your interviewer is going to ask you is OK well is there any way we can improve this
+
+recursive solution here to not be exponential run time.
+
+Is there any way we can you know put in some additional fixes to make sure that it is not ex-special
+
+runtime and you might say oh well we could do the iterative solution which we already discussed was
+
+linear runtime and you know what maybe they'll let you get away with that.
+
+But if your interviewer says is there anything we can do here to improve the runtime of this algorithm
+
+they are looking for you to say something very particular.
+
+OK here's what they're looking for you to say they want you to say well you know I'm looking at all
+
+these different function calls because we know when we call like fibbers 6 we're calling Fibonacci all
+
+these different times.
+
+And when you start to look at this chart right here you start to realize that the function is being
+
+called many times with identical arguments.
+
+So for example here is 5:3 being called one time over here.
+
+5:3 also gets called right here and right here here is fib to fib gets called with two over here over
+
+here over here and over here.
+
+So clearly our Fibonacci function is being called multiple times with identical arguments.
+
+I've taken the liberty of kind of graying out a lot of boxes here.
+
+And I actually I just realized I missed one let me do this one too.
+
+So all of these greyed out boxes that you see or duplicate calls to the Fibonacci function with identical
+
+arguments.
+
+So if there is some way that we could avoid all these extra function calls then if we the Fibonacci
+
+was six we would really only have to worry about doing all the computation stuff for 5 5 4 3 2 1 and
+
+0 exactly one time and then all the other times you know maybe we could figure out some kind of clever
+
+solution there.
+
+So in other words or let me kind of cut to the chase here and say we are.
+
+Interviewer asks you if there is some way to improve the runtime of our solution.
+
+What they want to hear is this word right here.
+
+Now the bad news is that I can't pronounce this word.
+
+I'll be honest.
+
+It's like I can't even it's memoir Mentawai memorize memorization.
+
+You know what.
+
+Go look up the pronunciation on Google.
+
+Memoization What if for whatever reason I just can't do it anyways.
+
+This is a term for something that we can do in with a function call that essentially does this right
+
+here.
+
+So when we memorize a function there we go that's it.
+
+Memorize when we memorize a function we're going to record the arguments of each function call so we
+
+can record the arguments we're going to run the function and then we're going to store the result of
+
+that function call.
+
+So we've got some like little table in memory that says hey our function was called with this number
+
+and when it was and returned this result and then here's the key.
+
+If that function ever gets cold again with the exact same arguments rather than running the function
+
+again and doing the entire recursion process all that crazy stuff rather than duplicating all those
+
+results.
+
+Instead we're going to turn that result that we had computed previously.
+
+So what does that look like in practice.
+
+Well basically just like we saw in the diagram over here we're going to say OK whenever we try to calculate
+
+fibs 56 we're going to immediately make a call to fab five that's going to make a call to four.
+
+And so this is the first place where it's actually meaningful.
+
+OK so let's concentrate on this right here.
+
+So we're going to call Fibonacci with for you and I are going to write some code that is going to say
+
+oh it looks like our Fibonacci function is being called with an argument that has never been called
+
+with before which is for.
+
+We will then run the Fibonacci function with four.
+
+We will take the result from that and we will store it in some special location.
+
+And so you and I will know that if Fibonacci ever gets called with 4 again we have already run that
+
+situation we've already ran that scenario.
+
+We don't have to execute the function again.
+
+So if Fibonacci is ever called again with the number four we're not going to run the function itself.
+
+We're going to go off to that special place in memory and retrieve that pre-computed result.
+
+And so in practice here's Fibonacci four over here.
+
+After we do that kind of caching layer as soon as we go over here and see Fibonacci 4 over here we are
+
+going to say oh we don't have to do the recursive call here.
+
+We don't have to go through all these additional function calls.
+
+We've already ran Fibonacci with four and we already know what the value is or what that should be returning.
+
+And so let's just return that right away rather than spawning all of these additional function calls.
+
+So by doing this memoization process or by cashing all the results that come out of the function we
+
+can dramatically dramatically improve the run speed of this function.
+
+Now the one thing I want to be aware of here this is the very exact answer your interviewer is looking
+
+for.
+
+If they ask you how can we improve the runtime of this recursive solution right here.
+
+They're asking you for a wise solution.
+
+Now this is not something that's only applicable to Fibonacci.
+
+There are many other interview questions or algorithmic questions I should say that can be answered
+
+through this exact same memorization process.
+
+So this is a great little tool to have in your back pocket because I can almost guarantee you you will
+
+have an interview with someone who says hey this function looks really slow how can we speed it up.
+
+And one of your first tools you want to reach for in that case is this memoization thing I'll get.
+
+So enough talking about memorization.
+
+Let's take a quick break.
+
+We're going to come back in the next video and we're going to write some code to memorize this Fibonacci
+
+function right here.
+
+So I'll see you in just a minute.
+--------------------------------------------------------------------------------------------------------------------
+
+56. I Believe Its Memoization!
+
+In the last section we spoke about how we can use memoization to dramatically improve the performance
+
+of our recursive solution right here.
+
+Remember I can't say this enough.
+
+It is so incredibly likely.
+
+In an interview that an interviewer is going to ask you to write out some problem or solve something
+
+and then they are going to say to you how can we improve the performance of this thing.
+
+If they see that it is entirely likely not 100 percent in time but it's very likely that they are referring
+
+to memoization.
+
+So this is a rather important technique.
+
+So stay tuned and let's get through this thing.
+
+Let's first start off by looking at a diagram that's going to help us understand how we're going to
+
+set up memoization our Fibonacci function.
+
+So you and I are going to write a function that we are going to call memo lies.
+
+So we're going to write a brand new function.
+
+This is going to be a generic memoization function.
+
+When I say generic I mean that we can use this function that you and I are going to write not only for
+
+this Fibonacci thing but for any other function that requires memorization as well.
+
+So I'm going to show you a technique that you can just repeat in any interview setting and it's probably
+
+going to work just fine.
+
+OK.
+
+This memoization function is going to be a function.
+
+So this is a function right here.
+
+We're going to call it with a slow function like our slow version of Fibonacci.
+
+So we're going to take the slow version of Fibonacci.
+
+We're going to pass it into this memo wise function and then the memorized function is going to return
+
+a fast memorized version of for the notchy some of the words we're calling a function with a function
+
+that returns a function base.
+
+There's a lot of functions floating around here.
+
+That's all I mean to say.
+
+So let's put together some code to kind of set up this system right here.
+
+So I flip back over the first thing I'm going to do here is to rename our existing function to slow
+
+fib.
+
+So I want to make sure it's 100 percent clear that this is the slow version of our function.
+
+So I'm going to call it slow fib then right above it.
+
+We're going to declare our minimalize function.
+
+So this is the memo Lizer we're going to pass a function to it.
+
+It's going to return a new function that has dramatically speeded up.
+
+So whenever we call this thing we're going to pass a function into it.
+
+So we will receive that as an argument called F.M. short for function then we will return a new function
+
+right here.
+
+So this is going to be our dramatically faster one this is going to be the one right here that is supercharged
+
+and is much faster than the base version.
+
+Now to give you an example of how you would actually apply the singing process or in practice excuse
+
+me.
+
+So we've got a slow here right here and we've got minimalized right here.
+
+So an example of how we would use this thing in reality would be to do something like Konst fib equals
+
+Mentawai is slow fib like this.
+
+So we take our slow function we're going to pass it to memorize and then that's going to return a new
+
+function assign it to fib.
+
+And then we will export that minimalized version from this file.
+
+So now all you have to do is add some implementation to minimalized right here.
+
+So remember that the entire idea behind memoization is that we declare some storage area some place
+
+where we can record all the arguments that are used to call the function and the respective result from
+
+all those function calls.
+
+So right above our return statement right here.
+
+I'm going to declare a little object that is going to store all of our calls to the fast version of
+
+our function.
+
+I'm going to call it cache because that's essentially what it is.
+
+It's a record of all the previous calls to this function and their respective results.
+
+Next we're going to receive some arguments into the inner function right here.
+
+Now this is the part that's really hard for people to understand.
+
+OK so let's really focus on what's going on here.
+
+When we called them Semmelweis we return a function.
+
+So this anonymous function right here is fib right here.
+
+This is the same as this thing.
+
+So at some point time we're going to want to call fib with like 5 or whatever it might be right.
+
+So this anonymous function right here is going to receive the arguments that were actually intended
+
+to be sent to the slow fib function.
+
+So we do not necessarily know how many arguments will be passed to this function right here because
+
+we are making a generic version of memorize you and I know that yeah we're going to use it with Fibonacci
+
+right here which only ever gets one argument.
+
+But if you and I want to reuse this thing again in the future with some other function maybe it takes
+
+two three four however many different arguments we need to code this thing to assume that we might be
+
+receiving multiple arguments.
+
+So to do that we're going to use a little bit of yes 6 or E.S. 2015 code.
+
+We're going to say Dot dot dot X when we say dot dot dot ARGs that means I don't know how many how many
+
+arguments this function will be called with.
+
+Just take all the arguments and assign them as an array to this variable called ARX.
+
+So this is kind of some defensive coding right here we are saying I don't know how many arguments a
+
+singular receive all right now the next thing we're going to do is really check to see if this function
+
+has ever been called with this particular set of arguments before.
+
+So we're going to look at the cache object.
+
+We're going to look at the key args and if something exists there then we're going to immediately return
+
+that like so.
+
+So this is the actual caching part.
+
+This is the part where we say hey have you ever have we ever called this function with this particular
+
+set of arguments before and store the results in this cache object.
+
+If we have then just return that right now and don't do any other work and especially don't call the
+
+original function.
+
+So this is the actual caching mechanism in place right here.
+
+Now if we get past this if statement then it means that we've never called our function with that set
+
+of arguments before.
+
+So we need to make sure we call that function take the result and cache it inside of our cache object
+
+right here.
+
+So we're going to say Konst result.
+
+So this is going to be the result of calling our slow fib function.
+
+We're going to call the original slow food function which remember was this argument efen right here
+
+and then whenever we call a function with an array of arguments which this is right here we have to
+
+use the Apply helper.
+
+So this is a little bit of back to basics with javascript right here.
+
+Zarian apply can pass in.
+
+Yeah we're going to pass on this and Ark's like so if apply right here is a mystery to you.
+
+I really recommend you flip on over to the Indian Web site.
+
+Remember that's the Mozilla developers network Web site and read up on Apply a little bit because it
+
+is kind of integral into how we make sure we call Ark's here.
+
+Next we're going to take the result from calling our slow fill function and store it inside of our cash
+
+object.
+
+So we'll say at in the cash object at the key args store the result that we just created and then right
+
+afterwards we'll return the result.
+
+Okay.
+
+So I know this is some crazy code right here.
+
+This is bringing back flashes of that spiral matrix project we are problem we worked on earlier.
+
+But nonetheless this is a working very generic minimalized function right here that will work for many
+
+different functions that you'll create.
+
+Let's go check our test now and see what's happening.
+
+So in our test file when I run the tests you can now see that's the wrong set of us.
+
+There we go is the right set.
+
+So you can now see that we can correct the Fibonacci or calculate the Fibonacci value for 15 basically
+
+instantly.
+
+Now thanks to this memoization process.
+
+Now I really do think that it still might be a little bit confusing on exactly how this is working.
+
+So I'm going to do a quick review on how memorize works right now.
+
+If you've heard me talk enough about it in years thinking like steamin I get it.
+
+I understand memoization that's totally fine.
+
+Pozza video.
+
+Move on to the next section.
+
+Otherwise we're going to do a quick review.
+
+OK.
+
+So quick review.
+
+We had said that hey Colin's slow fib all the time recursively is extremely slow.
+
+We need some way to improve the performance.
+
+So we came up with the idea of saying before we actually call the slow fill function we are going to
+
+create a little data store or a little cache object the keys of that cache object will be the arguments
+
+that we were trying to call slow fib with and remember that are the arguments when I say arguments I'm
+
+talking about like some number here 0 1 2 3 4 5 whatever it is.
+
+So if we've never called Slow fib with a particular number and before then we will call slow fed then
+
+we'll take an and the result and store it in this cache object.
+
+And that's what we're doing with this statement right here.
+
+But if we have called for slow feed before with some of the given value n then we'll look into our Cache
+
+object we'll find that and then return it instead.
+
+So the whole idea here is that we are just avoiding calling the same function multiple times with one
+
+or something with the same set of arguments each time.
+
+All right.
+
+Now there's one other quick thing I want to mention here.
+
+Something it's not super super great.
+
+Notice how we renamed the function here to slow fed but inside that function we called fib.
+
+So we're not technically calling the function from within itself.
+
+You know we're calling this like kind of pseudo non-existent function.
+
+So a slightly better way of putting this together would have been to leave this thing being named as
+
+fib.
+
+And then to just reassign overfed right here.
+
+So this would have been a little bit better.
+
+So now we have a function named fib and it's really clear to everyone like hey this thing exists here
+
+is where it is.
+
+But then right after it we immediately memorized that function and reassign it back to the variable
+
+Philbrick here.
+
+And the reason this is important is that when we do this right here and make sure that when we actually
+
+execute the original function and attempt to call it recursively these fit calls right here are not
+
+a reference directly to this function anymore.
+
+It's now a reference to the men advised version of that function.
+
+And so we kind of avoided that discussion by changing the name of this thing to slow fib.
+
+I just wanted you to be aware that you know that.
+
+Technically what's going on here.
+
+You do have to make sure that when you recursively call the function you are calling the memorized version
+
+and not the original non memorized version.
+
+Let me give you just a quick example of that if we had been calling slow fib from inside this thing
+
+fed contains a reference to the memorized version.
+
+Slow food is always the slow version.
+
+And so even though we memorize this thing when we call it recursively it would be calling the slow version
+
+of fit which would entirely defeat the purpose of what we were trying to do.
+
+We would be calling the wrong version of the function.
+
+All right.
+
+So hopefully that wasn't too bad.
+
+Let's continue in the next section.
+
+And we're going to move on to our next big problem.
+---------------------------------------------------------------------------------------------------------------------
+=====================================================================================================================
