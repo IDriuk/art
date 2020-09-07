@@ -10278,3 +10278,496 @@ Let's continue in the next section.
 And we're going to move on to our next big problem.
 ---------------------------------------------------------------------------------------------------------------------
 =====================================================================================================================
+
+Раздел 17:The Queue
+
+57. What's a Data Structure?
+
+Now that we've spoken about runtime complexity and we've seen a good example of it with the Fibonacci
+
+function we're going to move on to the next big chunk of content in this course which is data structures
+
+data structures are all about runtime complexity and so all those discussions we had about identifying
+
+runtime complexity and all that kind of good stuff is now going to get super relevant in the next set
+
+of exercises.
+
+Now when we start thinking about data structures in general especially in the context of an interview
+
+there's two big important things I want you to remember.
+
+So here's what they are.
+
+First a data structure is some way of organizing information or data in your program with some optimal
+
+runtime complexity for adding editing or removing records.
+
+So in other words these different data structures that we're going to look at all have very well optimized
+
+ways of accessing or editing data.
+
+And so in the context of an interview usually a lot of these data structure questions are really themed
+
+around runtime complexity.
+
+If someone says to you.
+
+Hey write some function that does X Y Z.
+
+One of the first things that I want to get you to think of is what data structure can I use to solve
+
+this problem that has some optimal runtime complexity for what we're trying to solve and we're going
+
+to see many examples of this as soon as we start getting some background on these different data structures
+
+and seeing what each of them are good for.
+
+Now the second thing I want you to understand and this is something that's very confusing when you start
+
+working with some classic data structures in javascript.
+
+Right so this is something that will be a little weird javascript natively implements several very important
+
+very core data structures.
+
+Even so you're going to be asked about what I call your kind of inferior data structures.
+
+That's not the best term in the world.
+
+Let's look at a diagram that's going to help kind of illustrate what I mean by this.
+
+So here's diagram kind of like I don't know not quite a pie chart but the big blue circle is kind of
+
+demonstrating what a javascript array has the capability to do.
+
+So the javascript array has a capability to do a tremendous number of different things.
+
+Now down here in this tiny little white circle you know I'll make it like as small as I can possibly
+
+make it basically this tiny little circle of functionality right here is what a cue does.
+
+And so what I mean by this diagram right here is to say a javascript array does everything that a classic
+
+Q data structure does.
+
+Nonetheless you will still have interviewers who ask you to put together a queue from scratch.
+
+That's what I'm trying to get at here.
+
+So there are portions of javascript that take care of these really fancy data structures for you automatically.
+
+However you will still have interviewers ask you to build these tiny little basic things from scratch.
+
+Now in some cases especially in the QCA case of a Q or an array we're going to use a javascript array
+
+to represent a queue and that's the part that is kind of confusing when you start doing this interview
+
+stuff you're thinking like wait why am I making a queue when I could just use an array.
+
+But wait.
+
+I'm going to make a queue out of an array like that doesn't make any sense.
+
+So this is just one thing I want to kind of introduce you towards and get you thinking about as soon
+
+as we start working on queues and stacks in particular.
+
+Speaking of which the very first data structure that we're going to look at in the next section is a
+
+queue.
+
+So let's take a quick break.
+
+We're going to continue in the next video.
+
+We're going to start to discuss exactly what a Q is and how it works.
+-----------------------------------------------------------------------------------------------------------
+
+
+58. The Queue Data Structure
+
+The first data structure that we're going to take a look at because also one of the more straightforward
+
+ones.
+
+So we're going to get a nice gentle introduction to data structures here in this video.
+
+We're going to start to discuss Qs.
+
+So let's take a look at what a cue is a cue can be thought of as like a container of sorts where records
+
+or pieces of data enter on one end of this container and then exit on the other.
+
+You can really think of a cue as being very much like waiting in line to buy tickets from some ticketing
+
+counter like for a train or for tickets from the movie theater.
+
+In this example you can imagine that the line of people waiting to get to the ticket counter is very
+
+much like a queue because a person will enter into the line at the very end.
+
+Then they have to wait in the line until it's their turn to emerge from it and approach that ticket
+
+counter in a queue.
+
+There's no idea of skipping or cutting in line.
+
+So the order in which you get into this queue also dictates the order in which you come out.
+
+The process of adding a record into a queue is referred to as in queueing or adding a record and then
+
+taking something out from the other end is thought of as deep queuing or removing a record.
+
+You'll see these terms used interchangeably.
+
+Now I want to expand on what we spoke about just a second ago with maintaining order in a.
+
+So AQ follows what we refer to as a first in first out principle were abreviated F-I F.O..
+
+If you feel like it I don't know.
+
+So let's imagine the step by step.
+
+Let's start off.
+
+Out start out up here with nothing in the queue.
+
+So we've got two records right here outside the queue.
+
+And we want to add record eight into the queue.
+
+So here we just added a is now sitting in the cube by itself.
+
+And then in this next step we can insert B or add B into the queue.
+
+Now when we attempt to remove a record the first thing that is always going to come out will be record.
+
+So the first record that goes into the queue is also going to be the first one that comes out.
+
+And that's why we call it first in first out.
+
+Now here's the interesting part about QS that's very closely related to what we spoke about just a moment
+
+ago with Howard javascript natively implements a lot of these data structures.
+
+So in an interview setting if a interviewer says to you.
+
+Hey implement a Q for me.
+
+Or if you start working on an algorithm and you realize oh it would be really helpful this year remember
+
+that when we are working with javascript we really don't have such a thing as a rudimentary cue.
+
+We have javascript arrays which are super hyper functional in nature.
+
+They've got a ton of different methods attached to them.
+
+A ton of different ways of interacting with them whereas a queue has just this tiny little API attached
+
+to it.
+
+We really just have the ability to add records in and pull records out.
+
+On the other side.
+
+So again this is the part where in the last video I said that this gets a little bit weird in javascript
+
+when we want to implement a queue.
+
+Usually what we end up doing is taking an array and then restricting the methods that can be used to
+
+enter in to interact with that array.
+
+So if you really think about it a javascript array adding an item to the very front of an array it with
+
+javascript is done by using the unshipped method and then removing something from the end of an array
+
+is done by using the pop method.
+
+So a very common way of implementing a queue would be to do something like this right here.
+
+We might make a queue class like an E.S. 2015 class inside of that class.
+
+We will initialize an empty array.
+
+Now this array has all these different methods associated with it.
+
+It has all the capabilities in the world but to make sure that its really clear that we are producing
+
+a Q and so its something that should be interacting with only as a queue should be we will usually only
+
+expose the unshipped and pop methods outside of the class.
+
+So in other words whenever we make a cue with javascript we usually make an array but we do our best
+
+to hide access to all these methods that belong to the array.
+
+So your immediate question here might be Stephen why in the world would we do that.
+
+Why would we take an array and purposefully kind of handicap it here and remove some of the methods.
+
+Well there's two answers to that.
+
+On the one hand in an interview setting it's kind of obvious if your interviewer says make a cue.
+
+Well we're going to make a Q and we're going to do whatever they say.
+
+The other reason for kind of hiding the functionality of an array in more of a practical setting are
+
+like on a real project maybe imagine for a second you are working on some complicated problem and you
+
+want to make you want to solve the problem with an algorithm using a queue and you realize that if you
+
+use a queue it will be a fantastic algorithm like the best one in the world possible for solving this
+
+problem.
+
+But if you interact with that queue as though it were an array then all some of the performance of that
+
+goes downhill.
+
+So one possible reason to use a queue and try to obfuscate all the other methods that an array has would
+
+be to make sure that if some other engineer came and started looking at your algorithms sometime in
+
+the future they wouldn't go like oh this is an array I could just treat it like an array and reorder
+
+the elements inside of it or remove the first element out of it or whatever it might be.
+
+So in the real world if we want to create a new class.
+
+Yeah we will still use an array behind the scenes and limit access to the methods on it.
+
+And the idea there is that if we make an I.Q. It's because we very specifically want to use a cue and
+
+don't want to treat it like an array.
+
+So there's just one possible example.
+
+OK.
+
+So here's the idea behind the queue.
+
+We are going to make a key from scratch.
+
+We're going to make a cue and we should be able to you create a new one by calling something like this
+
+right here.
+
+We should be able to add a record to the cue by calling some Add method associated to it and then we
+
+should be able to remove records or dequeue records from it by calling some method called Q Don't remove.
+
+So I wanna make sure that in the next video when we start this exercise we'll you know we'll put this
+
+documentation into the actual document that we're going to be working on.
+
+But just to be clear this is essentially what we're going to try to create by making a cue.
+
+OK.
+
+So quick break and we will continue in the next video.
+-----------------------------------------------------------------------------------------------------------
+
+59. Implementing a Queue
+
+In the last section we got an introduction to cues.
+
+We're now going to continue by implementing a cue from scratch with javascript.
+
+After we do this we'll then take a look at some different questions that are related to cues.
+
+So let's get started inside of my q directory and my code editor.
+
+I'm going to open up the index database file and I'm going to make sure that I start up my tests as
+
+well.
+
+So over at the command line will do just Q test.
+
+J.S. watch like so and then we're going to have about four tests.
+
+So make sure you have four running.
+
+All right.
+
+So let's take a look at the index dot J.S. fight the description at the top pretty much mirrors everything
+
+we were just saying about cutes.
+
+It is a data structure that has some methods named add and remove if we add a record to the queue.
+
+The queue should store it until that element eventually gets removed.
+
+Now notice that we want to implement a Q as an E.S. 2015 class.
+
+So we should be able to run some code like this right here to actually interact with it.
+
+For example we need to call new queue to produce a queue.
+
+We should be able to call a queue.
+
+Add And then you don't remove.
+
+To get back the element that we just added.
+
+So for this first data structure that we're going to work on we're going to do this one together just
+
+to give you an idea of what a typical implementation in javascript of a very basic data structure like
+
+this would look like on future ones.
+
+Definitely to let you do it on your own but for this first one just to make sure we're on the same page
+
+we'll do it together.
+
+OK.
+
+So inside the queue class right here I mean give myself a little bit of space.
+
+Now the first thing that we need here is something to actually hold data inside of our queue like something
+
+to actually hold these records in order.
+
+And so this is what I was saying before about how and why we need to use an array from javascript.
+
+So here is our Q class.
+
+What we're making right now.
+
+We're going to create an array inside the class and the array is going to be the thing that actually
+
+does the storage of data and all that kind of good stuff.
+
+It's just up to us to implement these add and remove methods.
+
+And he said essentially we're really just going to make sure that they map up to that arrays and shift
+
+and pop methods.
+
+So if this seems like kind of cheating or something like that if it seems like why are we making a queue
+
+when we're really just working with an array here.
+
+Again this is just what we do.
+
+You know sometimes you want to have specifically something with a q API.
+
+And so this is really not totally outside the realm of possibility.
+
+This question really makes a lot more sense if you're working with some more low level languages where
+
+implementing a queue is kind of a necessity.
+
+Anyways let's get to this.
+
+So back inside my code editor we're going to first make sure that whenever we create a queue from scratch
+
+it's like use the new key word on it.
+
+We are going to initialize an array and assign it to the instance of the queue that is created.
+
+And so the only location inside of a class that we have to run some initialization code is in the constructor
+
+method.
+
+If you haven't worked with E.S. 2015 classes before all you really need to know is that whenever we
+
+create a new instance of a class if we define a function called a constructor inside of it that constructor
+
+will automatically be called when we create a new instance.
+
+So inside this constructor we're going to create a new array and assign it as a property to our queue
+
+instance.
+
+So I will say this dot data equals empty array like so now I'm totally making up the name data right
+
+here like this can be anything we want.
+
+It really doesn't matter.
+
+I'm just saying to store actual data.
+
+We will assign our raid to this data property.
+
+Next we're going to add our add method.
+
+So underneath our constructor method will add another method called ADD.
+
+Let's zoom in just a little bit by the way this add method will be called with some record or some piece
+
+of data that needs to be stored inside of our array so we can refer to that simply as no record.
+
+That's really fine.
+
+And then we are going to insert this new record into the underlying array that we are pretending is
+
+our actual queue.
+
+Remember the goal here is to make sure that we add this new piece of data in to the front the front
+
+of this data structure or this array right here.
+
+And so to add something into the start of an array in javascript we can make use of the unshipped method.
+
+So I'll say this dot data dot on shift will pass in the record like so as a very quick aside just to
+
+make sure you're on the same page here with on shift.
+
+If I have an array right here and I call on shift on it's on shift it adds that record to the very start
+
+of the array.
+
+So if I put in here like two three four.
+
+Notice how when I shift something it gets added into the start.
+
+And that's exactly the behavior that we want to have with the queue.
+
+All right so back over here the last thing we do now is implement the Remove method so remember remove
+
+should take whatever is on the opposite side.
+
+So the end of our queue and return it.
+
+So we'll implement remove to get the last record out of an array.
+
+We can use the pop method.
+
+So we'll say this data pop.
+
+And then as usual we will be really sure that we add in the return keyword because remove is supposed
+
+to not only remove that record from the end of the queue but you know obviously we probably want to
+
+return it as well so we can work with that record that we just removed.
+
+All right.
+
+So let's see how our tests are doing.
+
+And that's pretty much it for trespassing.
+
+So does it feel easy to work with javascript.
+
+Yes it does.
+
+You know to be honest here we are relying upon an array for the actual data structure.
+
+And that's really the array that is doing all the heavy lifting.
+
+If we were using a much lower level language making a cue like this would be obviously a little bit
+
+more challenging but with javascript it's pretty darn straightforward.
+
+OK so that's pretty much it for you.
+
+Again the biggest uses of a Q is always going to be in an interview setting.
+
+When your interviewer specifically says to you use a Q to do X Y Z.
+
+So let's look at a question or two that might involve a Q So I'll catch you in the next section.
+--------------------------------------------------------------------------------------------------------------
+==============================================================================================================
