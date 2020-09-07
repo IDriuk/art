@@ -10771,3 +10771,306 @@ When your interviewer specifically says to you use a Q to do X Y Z.
 So let's look at a question or two that might involve a Q So I'll catch you in the next section.
 --------------------------------------------------------------------------------------------------------------
 ==============================================================================================================
+
+Раздел 18:Underwater Queue Weaving
+
+60. What's a Weave?
+
+Now that we've got a better idea of how to use work let's try a little practice exercise with them.
+
+So inside of my We've directory I'm going to open up both the index file and the queued up G-S file.
+
+So this time around two separate files are then flip on over to my terminal and make sure I'm running
+
+my tests for this exercise.
+
+So we'll run just we've test on J s dash dash watch you know we've got about four tests going.
+
+All right let's see what's going on here.
+
+So this is the first exercise where we are going to be doing two separate things or working between
+
+two separate files.
+
+So the directions at the top of index start us tell you to first flip on over to that.
+
+Q Jay Yes file and follow the directions in there.
+
+So let's go look at that first.
+
+All right here's the key.
+
+Yes file.
+
+And here's the directions that it's telling us to do.
+
+So we're supposed to implement a peak method on this q class Q is supposed to return the last element.
+
+In other words the next one that is about to be removed from the cue without actually removing it.
+
+So that's the key here.
+
+It's like remove but we're not actually removing it.
+
+Peak is supposed to do is exactly what it says.
+
+It allows us to kind of peek at the next element that is about to come out of the cue.
+
+So that's the goal here.
+
+You will take care of this little task first and note that there are a test or two over here that has
+
+to do with peak.
+
+So if we go over here yes.
+
+So here's some tests around peak.
+
+So you can verify and make sure that it's working correctly.
+
+It goes flip back over to the index start geas file now.
+
+So that was Task 1.
+
+Now move on to task to the goal of test 2 is to implement a weave function.
+
+Weave is going to be called with two separate cues as arguments.
+
+And the purpose of the function is to combine them both into one brand new third cue and return it.
+
+This third Q should contain the contents alternating from the first two Qs.
+
+So we've as very aptly named We're going to take you to cues and weave their contents or alternate their
+
+contents together.
+
+Note that those two source cues might be of different lengths.
+
+So you need to make sure that you're not accidentally inserting undefined into that brand new cue that
+
+you are going to make.
+
+So you need to look at the elements that are coming out.
+
+Or maybe peek at the next element that's going to come out and make sure that actually exists before
+
+trying to insert it into that new cue.
+
+Now the last thing here do not try to abuse the fact that the q class is just wrapping an array so do
+
+not access the array directly that is sitting inside of these queue classes only interact with them
+
+using the Add Remove and peek functions.
+
+So if you scroll down a little bit there's a good example right here and then a little bit lower is
+
+the wave function.
+
+So we will be called with these two Qs right here so.
+
+Source one in source.
+
+And you have a require statement in here already for the q class so you can use this to create your
+
+own new Q..
+
+The third one and then combine source 1 in source 2 into the new Q..
+
+That you will create.
+
+Now one thing to be to keep in mind here.
+
+When you create a new queue or the third one that you're going to return from this function.
+
+Make sure you create the queue inside the function itself like so don't create create the queue outside
+
+of the function you want to make sure you create it inside it.
+
+Now just in case the directions are not entirely clear I'll give you a quick diagram here.
+
+So in this diagram we have source Q One and source Q to do.
+
+Keep in mind how Q's work.
+
+They usually flow diagrams from left to right.
+
+So the next element that's about to be ejected from source Q One right here would be you.
+
+So we would take this element stick it into result and then the other source Q to over here.
+
+Stick that in.
+
+Then we alternate back to one two three four.
+
+You get the idea and then just be really clear.
+
+Remember those two Qs might have different lengths assigned to them so if they do have different lengths
+
+we want to make sure that we don't accidentally try to remove elements from an empty queue and stick
+
+it into this new one.
+
+If we try to remove an empty element from this key right here we will end up with undefined inside of
+
+the third Q that we create and we definitely don't want that.
+
+So make sure you are not overpumping or over removing so to speak from one of these Qs.
+
+OK that's pretty much it.
+
+Go ahead and give it a shot.
+
+I'll catch you in the next section where we will go over the solution to his problem.
+-----------------------------------------------------------------------------------------------------------------
+
+61. How to Weave
+
+Hopefully you had some success in implementing both the weave and peak functions and this video we're
+
+going to go over the solution to both.
+
+We're going to first start off inside of our Q Jay s file and implement that peak function before we
+
+do.
+
+One quick thing I want to clarify.
+
+You'll notice this note down here while where I said do not access the array inside the queue that was
+
+specifically talking about Part 2 of this task for part 1.
+
+You definitely are able to and can and absolutely should access the array sitting inside the queue.
+
+So for the peek function we are going to work directly with that array.
+
+I do apologize if that was a little bit unclear.
+
+All right.
+
+So inside my weed directory I'm going to find the queue.
+
+Yes file.
+
+So inside of here where you have our class queue I want to add another method called Peke to this thing
+
+that is going to return the last element or essentially the next one that is supposed to be returned.
+
+All right.
+
+So down at the bottom I'll add a new method called peek.
+
+Now first we need to get access to the last element or the next element that is going to be returned
+
+from calling remove on this queue.
+
+So that's essentially the last element inside of our data array to get access to that last element.
+
+We can reference this data at this dot data length minus one like so and then we will return that from
+
+this method.
+
+All right let's check our test over in the terminal and see if we have our tests around peak working
+
+now.
+
+So rerun my tests and it looks like yup the two tests that were written around peak appear to be passing
+
+correctly.
+
+So I think that we're in a good spot.
+
+So now we can move on to the weave function back inside my code editor I'll change back to the index
+
+J.S. file and then I'm going to scroll down to the function.
+
+So I think that the first step here is pretty clear I think that we need to create a new queue that
+
+can store the combined result of source 1 and source 2.
+
+So say Konst Q is new.
+
+Q Next we need to make sure that we somehow iterate through all the different elements inside of source
+
+1 and source 2 without accessing the arrays inside them.
+
+And so that's where the peak function that we just defined on a queue is going to come into play.
+
+I think that we can probably somehow figure out how to iterate or how to run some chunk of code as long
+
+as either source one or source too has an element that is being returned from peak.
+
+Remember if there are no elements left inside of our data array in the queue then the peak function
+
+will probably return undefined.
+
+And so that's a key point that we need to keep in mind.
+
+So I think that to iterate through all the elements in both these queues right here we can probably
+
+use a while loop.
+
+So if we use a while loop we can say that as long as either source one or source two returns a undef
+
+a not undefined value.
+
+That's kind of unclear but a value that is not undefined from their peak methods then we should continue
+
+iterating with this while loop.
+
+So in practice essentially what we want to say is source one peak or source to dot peak like so.
+
+So as long as either one of these is returning a method then we're good to go.
+
+Next inside the while loop itself we're going to add some logic to first take an element out of source
+
+1 and add it to our queue and then take an element out of source to add it to our queue.
+
+The thing to keep in mind here is that we're not quite out of the weeds with making sure that we are
+
+not pushing undefined values into this third queue just yet.
+
+So remember we are saying or here in looking at whether or not we should continue our while loop.
+
+So it's entirely possible that source one could run out of elements but source 2 could still have elements
+
+inside of it and based on the conditions of our while loop right now we don't really have any idea which
+
+one still has elements inside of it that we want to continue to pull out.
+
+So in short we have to check that peak function again on both of these queues and make sure that they
+
+both still have elements inside them before we attempt to take something out and insert it into the
+
+third queue.
+
+So we're going to say if source 1 Don't peek.
+
+So if there's still an element inside there we'll say q add source 1 dot remove like so and then we're
+
+going to repeat the same process for source 2 as well.
+
+So if sourced to speak to dot add source to remove all rights that's looking pretty good.
+
+And don't forget I can't say it enough and all these questions you always want to make sure that you
+
+have some defined return value.
+
+So at the bottom of the function after doing all this combination we will finally return.
+
+Q Let's check our tests and see how we're doing.
+
+And we have for trespassing.
+
+Fantastic.
+
+So this is looking pretty good.
+
+I think we've got a great solution here.
+
+Let's continue in the next video where we're going to move on to our next data structure that is very
+
+closely related to Qs.
+
+So quick break and I'll see you in just a minute.
+----------------------------------------------------------------------------------------------------------
+==========================================================================================================
