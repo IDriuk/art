@@ -11074,3 +11074,260 @@ closely related to Qs.
 So quick break and I'll see you in just a minute.
 ----------------------------------------------------------------------------------------------------------
 ==========================================================================================================
+
+Раздел 19:Stack 'Em Up With Stacks
+
+62. Stack Data Structure
+
+We're now going to move on to our next big data structure the next big data structure that we're going
+
+to discuss our stacks.
+
+So in this section we're going to take a look at some diagrams around stacks.
+
+Understand what they are and then we'll get started on a written implementation of a stack.
+
+In general you can think of the stack as being extraordinarily similar to a queue.
+
+There's just a couple items here and there that are slightly different.
+
+So with the stack we are still dealing with an ordered list of records and you can imagine that those
+
+records are living inside of some container which is the actual stack.
+
+Adding a record to an existing stack is referred to as pushing.
+
+So we might say that we are pushing a new record onto a stack when it's time to remove a record or take
+
+it out of the stack.
+
+We would refer to that as popping or popping a record from the stack.
+
+And the big difference between the stack and the queue are the order in which items are added and removed.
+
+So with the queue we had that acronym foe or first in first out with the stack we deal with Thilo or
+
+first in last out.
+
+So look at this diagram format you can imagine here the big white box is our stack.
+
+So if we first push in record a to our stack so the zero here is saying we are going to push record
+
+eight into our stack.
+
+We would then have records inside the stack.
+
+If we then pushed in B B would be conceptually sitting on top of record.
+
+So then the first time that we popped the record or removed a record out of the stack it would always
+
+be B because the first in item is the last one out record day.
+
+Here was the first one in.
+
+And so it's going to be the last one out.
+
+Another way of thinking about it then might make a little bit more sense is to say the last record in
+
+the first record out so deal was the last one.
+
+And so it's the last one to come out.
+
+On the other side again you should really think of a stock as being very similar to A.
+
+We're just making a small change here as far as the ordering of records are being removed from this
+
+data structure.
+
+So in implementation this ends up being very much similar like the code we're going to write to implement
+
+a stack will look very very much the same.
+
+Before we flip on over to our code editor and start on our implementation I want to focus on the three
+
+methods that we're going to implement to create a stack.
+
+So just like we discussed adding a new record to the stack is referring to is referred to by saying
+
+that we are pushing a record.
+
+So we would make a push method on our data structure that would take a record and add it to our stack
+
+to pop method or seeming to pop a record.
+
+We would create a pop method and the idea there is that we are moving an item from the top of the stack.
+
+Now nuda said I put in here quotes for top because in code there really is no top or bottom to the stack.
+
+These are more kinds of conceptual items that we keep in mind.
+
+Finally we can actually implement a peak method which would return just the top record without actually
+
+removing it or popping it off the stack.
+
+So these are the three big methods that we want to think about.
+
+So without further ado because this data structure is so similar to queue I think that will kick off
+
+the implementation in this section no need to split out to a separate section in my code editor.
+
+I'm going to find the stack directory and open up the index js file and then of course I will also start
+
+my tests by running the command.
+
+Just stack slash test dot J us dash dash watch
+
+and we should see about four test passing here.
+
+Very good.
+
+OK.
+
+So the directions here pretty straightforward.
+
+We're going to write methods push pop and peek.
+
+Now keep in mind that we also need to have some type of record keeping structure inside this class.
+
+The stack class to actually hold on to in order our records.
+
+So remember in the javascript world whenever we implement some of these Bayda basic data structures
+
+we sometimes use an array to actually implement the underlying data structure that can contains our
+
+data.
+
+So I kind of expect that you're also going to end up implementing a constructor method on this class
+
+as well.
+
+And initializing an array and assigning it to something like this dot data.
+
+In general I really recommend you go back and look at the code from our CU example because it's going
+
+to be very very similar to that Q class.
+
+There will just be one or two little terms that end up changing.
+
+OK.
+
+So go ahead take a shot.
+
+I'll catch you in the next section and we'll start to look at some solutions.
+--------------------------------------------------------------------------------------------------------------
+
+63. Implementing a Stack
+
+Hopefully you had some success implementing the stack data structure in this section we're going to
+
+go through some javascript implementation of a stack.
+
+Now the thing to keep in mind here is that we're still going to be making use of an array to hold the
+
+actual data.
+
+And so we are essentially really just writing some accessor methods to kind of hook this stack class
+
+up to the underlying array.
+
+So with that in mind let's get to it.
+
+I need to get myself a little bit of space here.
+
+And then the first thing I'm going to do is to declare my constructor function because I need to initialize
+
+an array when class stack is instantiated.
+
+I will then use that internal array to manage all the data that gets added and removed from our stack.
+
+So I create my constructor and then inside of your I will initialize an array and assign it to this
+
+dot data like so.
+
+Remember there is absolutely nothing special about assigning this ray to this dot data.
+
+It could be this dot underlying container or this dot my stack or this dot my array whatever you want
+
+it to be.
+
+I'm just arbitrarily calling this thing this dot data.
+
+So that will give us the underlying array that holds our actual data.
+
+Next we're going to put together our push method so that we can push the record onto our stack.
+
+So I will create a new method called Push.
+
+It will accept a record as an argument and then we want to take this record and stick it into our array.
+
+Now of course the arrays have an underlying method or have a method on them called Push that does the
+
+exact same thing that we want to do.
+
+So the push method adds a record to the very last index of an array.
+
+So we'll simply say this data push like so now to make sure that we always get back the last record
+
+or the most recently inserted record whenever we pop from our stack.
+
+We can call the exact same named method on this array as well for our pop method.
+
+So we'll add pop in for this one simply say return this dot data pop.
+
+So if you're familiar with the push and pop methods on an array and I am really assuming that you are
+
+here.
+
+Yeah that's pretty much exactly what haystack is doing for us.
+
+Not a lot of complexity here when it comes to the javascript implementation.
+
+Nonetheless I do want you to kind of have an idea of how these things are put together in the javascript
+
+world and the very last method we have to implement is the peak method.
+
+So we'll add Teec.
+
+And our goal with peak is to return the last record inside of our array without actually removing it.
+
+So we can simply access this data at the last index.
+
+So this data length minus one.
+
+And then we want to make sure that we return that record.
+
+All right.
+
+So really not that bad just four methods four lines of code inside them total.
+
+Let's check our test out to see how they're doing.
+
+And yep we got for trespassing here.
+
+So again whenever we think of a cue in a stack essentially identical except for the order in which we
+
+are adding and removing records and heck I shouldn't even really say adding adding is the same.
+
+The only real difference here is the order in which they get removed when we take them out of our data
+
+structure.
+
+So the two of them are very similar.
+
+And to be honest there are not a tremendous number of interview questions that you might see around
+
+QS or stocks directly.
+
+Usually a lot of questions around user stacks are to say hey do X Y Z operation but you have to use
+
+a queue or do X Y Z operation and you have to use a stack.
+
+And so we'll see a very classic example of the type of interview question you will see with queues and
+
+stacks and the next section.
+
+So let's take a break and tackle that question.
+
+See you in just a minute.
+----------------------------------------------------------------------------------------------------------
+==========================================================================================================
