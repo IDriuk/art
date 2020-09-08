@@ -11331,3 +11331,685 @@ So let's take a break and tackle that question.
 See you in just a minute.
 ----------------------------------------------------------------------------------------------------------
 ==========================================================================================================
+
+Раздел 20:Two Become One
+
+64. Queue From Stack Question
+
+In the last section we got a brief view of exactly how a stack works.
+
+We're now going to combine stacks and Qs together and look at the bar none most common interview question
+
+that you're going to see around both of these data structures.
+
+So inside of my code editor I'm going to find the directory marked Q From S and then open up the index
+
+dodgiest file inside there.
+
+As usual we will also flip on over to our terminal and run just Q From ass slash test on J s dash dash
+
+watch to start up our test as well.
+
+And so over here we're going to expect to see about five tests total.
+
+OK let's look at our directions.
+
+So the first thing that you should understand is the that the name of the sexercise Q From S is short
+
+for q from stack.
+
+So the goal of this exercise is to implement a new data structure using two stacks.
+
+So you and I are going to create two separate stacks and we're going to use those to implement a queue.
+
+It's going to be kind of an interesting challenge because it's going to really make sure that you understand
+
+some of the differences behind a Q and A stack.
+
+And it also requires a little bit of problem solving skills.
+
+Now the first thing I want to tell you here is no cheating allowed.
+
+So we're not going to create an array inside the queue class.
+
+If you scroll down a little bit you'll see that I already provided you with an implementation for a
+
+stack.
+
+So this is the same stack that we just put together in the last video.
+
+So you have to create two of these things right here.
+
+Two stacks.
+
+You're going to create two stacks yourself and then you're going to use those to kind of fake the behavior
+
+of a cue.
+
+Let's look at some of the other directions here.
+
+This Q class that we're going to put together this kind of Sudoku or this fake you should add the methods
+
+or implement the methods add remove and peek.
+
+So essentially the three methods that we had added to a cue when we previously put one together.
+
+If you need a reminder on which of those do well of course go back to the cue exercise and take a look
+
+at each of them.
+
+Now there's an example right here.
+
+So just to make sure it's really clear we're going to create or the expectation is that we could use
+
+this class cue that we're going to make.
+
+We should still be able to call Q and Q and we should get a peak from it and remove records as well.
+
+But this time around for the actual storage of records we are not making an array.
+
+You are going to create two separate stacks and somehow manipulate those to imitate exactly how a cube
+
+behaves.
+
+So if I put this in Diagram format very simply this is what we're doing.
+
+Stack one stack to somehow manipulate these things to fit together to simulate a cue.
+
+Now this is a classic example of a question where once you solve at one time or once you see the solution
+
+one time you're going to remember the solution for all eternity.
+
+Another one is classic.
+
+You've either seen it or you haven't questions.
+
+So if you are completely stumped right now if you just can't even possibly imagine how you might approach
+
+this.
+
+Don't sweat it.
+
+At least give it a little shot.
+
+You know maybe put together a diagram and think about how you might do this otherwise.
+
+Continue with me in the next section and we'll take a look at the solution.
+
+So at this point feel free to tackle the solution here.
+
+I'll leave it all up to you and we will meet up.
+
+And the next video and start looking at how to solve it.
+
+So I'll see you in just a minute.
+---------------------------------------------------------------------------------------------------
+
+65. Creating a Queue From Stacks
+
+Hopefully you had some success putting our cue from Stack problem together.
+
+Now in tackling this problem you're going to very quickly realize that it's just another one of these
+
+problems where as soon as you see a solution you say Oh OK.
+
+Yeah makes sense.
+
+I'm ready to do this now.
+
+So rather than trying to be clever and very gracefully explaining the solution here we're going to take
+
+a look at a diagram that's going to very directly show you exactly how to address this problem.
+
+And then once you see that I think that a Leipold might click and you say OK that makes sense.
+
+So let's take a look at a couple of diagrams are going to help us understand exactly how to approach
+
+this.
+
+OK.
+
+So remember we are working with two stacks here.
+
+So I have labeled stack A and stack beat stack a stack B follows the route follows the rule of stacks.
+
+Right.
+
+Well of course that makes sense but the rule of a stack is that the first record in is the last record
+
+out.
+
+That's not the behavior we want to hear.
+
+We don't want stacks.
+
+We want to make a cue and the common characteristic of a cue is first in first out.
+
+So that's what we really want to do here.
+
+We can forget the terminology of stacks and cues.
+
+All we really want to do is think of how we can use these two things right here to make a first in first
+
+out principle.
+
+So let's figure this out.
+
+The first method we're going to discuss is at.
+
+So we're going to first figure out how to implement the add method.
+
+So for the add method whenever we add a record we're going to take that record and add it directly to
+
+stack.
+
+We're going to pretend like stack B does not even exist.
+
+So we're going to take this screen record here.
+
+Let's say we want to add it to our overall cue structure.
+
+So we will add it to stack.
+
+Right then we want to add in say record blue and we'll take blue and we'll add it in to stack.
+
+And then for red We'll add it in to stack.
+
+Now remember if we called Pop directly on stack AA the records that we got out would be the reverse
+
+of what we actually want.
+
+So we called Pop on stack.
+
+We would get back red.
+
+That is a first in last out methodology and that is again not what we want to solve this problem we
+
+want first in first out.
+
+So at this point if we called remove or pop or whatever on our kind of synthetic data structure here
+
+my expectation would be to get out green.
+
+So we need to figure out some way of getting green out of this thing.
+
+But remember with the stack we don't have any way of reaching directly to this item at the very bottom
+
+of the stack.
+
+We need to somehow figure out a way to get at this record green right here with only the ability to
+
+remove or add records from the very top of the stack.
+
+So let's look at a diagram to explain the Remove method.
+
+And we're going to figure out exactly how that's going to happen.
+
+So again let's assume that we added in green blue and red to stack.
+
+And now we want to somehow get access to stack to record green right here because if we were to remove
+
+from this thing we should be getting back green because we want to follow this first in first out methodology.
+
+So here's how we're going to do.
+
+This is like you know all this talking I'm doing it all comes down to this.
+
+Here's what we're going to do when we want to get our record out of here.
+
+Are you going to pop records out of stack.
+
+One at a time.
+
+For every record that we pop from Stack.
+
+We are going to push it into stack beat.
+
+So I will pop from a.
+
+That removes it.
+
+I will then take that record and push it into stack beat and so goes down here to the very bottom of
+
+stack B.
+
+I will then iterate through all the remaining records here and when I say iterate keep in mind that
+
+we can't iterate directly through AQ we have to look at or use our peak method to see if there are any
+
+records left that we can manipulate.
+
+So we will peek at the next record.
+
+We will see Yep something's there.
+
+It's blue.
+
+We will then pop it out.
+
+We will push it into stack B.
+
+We will then peek at Stack a again.
+
+We will pop it out.
+
+We will push it into stack B.
+
+We will then peek at Stack a.
+
+One last time.
+
+And when we peek this last time we realize oh ok.
+
+There's no other record here.
+
+Stack is now empty.
+
+So at that point we will then say are the record do we actually want here must be the next record that
+
+is going to come out of stock B.
+
+So all we have to do is pop from Stack B one time and there's the record that we want to actually return
+
+from our data start from our Q data structure.
+
+From this kind of synthetic remove method that we are creating.
+
+So essentially move everything from a Over to be pot from B one time and there is our record.
+
+Now before we just return this record right here there's one more thing we have to do.
+
+We need to make sure that we restore everything back into stock.
+
+To get ready for our next operation because who knows it might be a remove operation again in which
+
+case we will want to move everything over to stack B again.
+
+So before we return Green we will call peak unbe will say is there anything here.
+
+If there is we'll pop it out push it into a we'll call peak on B again if there's anything there we'll
+
+pop it out push it into a we'll call peak on B again we realize there's nothing else here.
+
+And so we're all done ready to now return from the Remove method.
+
+So that's pretty much it.
+
+That's the whole shebang.
+
+Now with that in mind I bet you can kind of guess how the peak method gets put together.
+
+So peak care we're doing essentially the exact same thing.
+
+The only difference is that this time when everything moves over to stack B We are not going to pop
+
+green out of there.
+
+We are only going to peek out of the stack to be so we can soome here.
+
+We'll go through it very quickly if we add in a blue or Sumi green blue red will then pop red over pop
+
+blue over pop green over.
+
+Stack a is now empty so there's nothing else for us here to do.
+
+That means we can color peak unbe.
+
+We can peek at that will peak the first record here.
+
+So that's green.
+
+And then once we've picked it we can then pop everything out of B one at a time and push it back over
+
+to a like so now if this sounds like it's an amazingly inefficient.
+
+The answer is yes of course it's very inefficient but it's an interview question is just made to help
+
+you understand or to show I should say that you understand how cues and stocks work.
+
+That's the whole idea here.
+
+Of course you're totally cracked.
+
+We would never implement this data structure in the real world.
+
+But as you've seen there are many types of inner problems that we end up having to do that have absolutely
+
+no real world implications whatsoever.
+
+So anyways that's a whole separate discussion.
+
+OK.
+
+I think that we've got a better idea of how to put the solution together.
+
+So let's take a quick break right now.
+
+We'll continue in the next section and start working through a written solution to this.
+
+Q From stack problem.
+
+So quick break and I'll see you in just a minute.
+-----------------------------------------------------------------------------------------------------------------
+
+66. More on Queue From Stack
+
+In the last section we spoke about our solution to it.
+
+Q From stack problem in this section we're now going to start to implement that solution.
+
+So inside my index file in the queue for a mass directory I'm going to scroll on down to the class queue.
+
+So this thing right here is where we want to add our functionality.
+
+All right.
+
+I'm going to give myself a little bit of space here.
+
+Now the first thing to recognize and this was something that I didn't really write out in the directions
+
+so this was something for you to kind of figure out on your own.
+
+The first thing to recognize was that we needed to create two stacks.
+
+When ever we create an instance of this Klasky right here.
+
+So inside of our constructor method you check your spelling because I just made a mistake myself so
+
+constructor right here we're going to create two stacks and assign them to this instance of the queue.
+
+So we'll say this first to represent our first stack will be a new stack and then this second will be
+
+new stack as well.
+
+So this right here might have been a little bit unclear.
+
+I kind of you know tested the waters here.
+
+Hopefully you found some some success understanding the had to do this as step one.
+
+So now whenever we create an instance of a cue we will automatically generate two stacks and assign
+
+it to this cue class.
+
+All right.
+
+Now the next thing we're going to do is implement our Add method as we saw just a moment ago looking
+
+at our diagram the add method is really straightforward.
+
+All we're going to do is take the record we're trying to add and we're going to push it into Star-K.
+
+So I'm going to define my add method.
+
+It's going to accept a record.
+
+Now this doesn't have to be called record you can call it record data whatever you want to call it.
+
+I'm just going to call it record.
+
+We're going to take that record right there and we're going to push it into our first stack.
+
+So we'll call this first push and we'll pass in our record like so.
+
+All right.
+
+So now if we created an instance of a Q and called add on it multiple times like let's imagine with
+
+multiple colors here we could add into it green blue and red.
+
+So now after adding those three records if we called remove on our cue structure my expectation would
+
+be that I would get back the record green right here.
+
+So let's now implement every move method.
+
+So this is where the bulk of logic is going to come into play.
+
+So here is remove.
+
+So we want to make sure that we iterate through all of the records inside of stack a for every record
+
+and saké we want to pop it out and push it into stack B.
+
+The next thing to recognize here is that whenever we say iterate through we really only can tell whether
+
+or not there are any remaining records inside of stack.
+
+Through the use of that peak method.
+
+So we're going to do is we're going to call the peak method and so long as it returns a record we will
+
+continue to iterate and continue to push records from a overed to beat.
+
+Now I don't know about you but the first thing that comes to mind when I describe what we're trying
+
+to do there is a WHILE loop.
+
+So we're going to set up a while loop and we're going to continue running that while loop.
+
+So long as this first peak which represents stack right here returns a truth value or returns basically
+
+a value.
+
+So inside of a remove method will say while while this first peak peak as long as this keeps returning
+
+a value right here as long as there's still something for us to operate on we will pop out a record.
+
+So we'll say constructed is this first pop and then we will push it into our second stack.
+
+So this second push and we'll add our record into it.
+
+Now when you look at these two lines of code right here I wrote it this way just to make sure that what
+
+we're doing here is very clear.
+
+But of course this can be easily combined down into one line.
+
+So rather than using this temporary variable of record I'm not going to say that I want to push in this
+
+first pop.
+
+So just take whatever we are popping out of there and immediately push it into the second stack and
+
+then we don't need this extra line of code right here anymore.
+
+So this will iterate through all the records inside of our first stack as long as there is something
+
+to pop out of there.
+
+We will continue to pop out and push every record in order into the second stack.
+
+Now just to make sure it's really clear when this loop right here comes to conclusion when it's all
+
+done.
+
+That means everything has been moved over.
+
+So every record has now been moved over to Sabby.
+
+So like we said before to now somehow get access to or somehow return the record that we really care
+
+about here.
+
+We have to pop out a stack B and that will give us record green.
+
+So right.
+
+I'm going to say Collins record.
+
+This is the record that we actually want to return right here will be this that second pot.
+
+Now remember take note here that we are not immediately returning.
+
+So we're not saying Return to start second pot because we don't want to return yet.
+
+We do want to see a reference to this record right.
+
+We want to save a record to save a reference to it.
+
+But before we return we want to make sure that we restore the state of our stacks here.
+
+So we want to first make sure we pop everything from Stack b back over to saké and that gets us ready
+
+for the next call to the Remove method.
+
+So in Meili underneath that assignment we will do the exact same loop that we did right here.
+
+But this time around we're going to be looking at the records inside of the second stack.
+
+And for every record in there we're going to pop it over to the first stack.
+
+So we'll say while this second notice second right here.
+
+Peek.
+
+So so long as there is a record there.
+
+I want to push that into the first stack and I want to take that from this second pop.
+
+So take every record out of the second stack.
+
+Or not.
+
+Not every record right here to Spickler just one record at a time.
+
+Pop it out and then add it to our first stack.
+
+So this will return us back to the original state.
+
+We'll put everything back into stock.
+
+Once that's all done.
+
+Now we are ready to return a record.
+
+Now we want to return the record variable right here.
+
+So we will return record like so.
+
+OK.
+
+So here's our move method.
+
+That's it for the implementation.
+
+Let's check out our test really quickly.
+
+Well it looks like we still have some we have some passing tests but it looks like our peak method is
+
+still failing the test because we have not yet implemented it.
+
+So just to be clear yeah.
+
+Is a separate method.
+
+We've only added add and remove Now the peak method itself is going to be nearly identical to what we
+
+just did here for a move.
+
+Remember we just discussed that in the last section look at the diagram for peak.
+
+So we're going to put everything over to be again but this time once everything has been moved over
+
+to B we're going to peek at the devil will give us a reference to this record right here and we will
+
+return that reference.
+
+So we're not going to pop this time from the we're just going to peek B after we peek at B We will then
+
+again restore everything back over to stock.
+
+Like so.
+
+All right let's give this a shot.
+
+So we'll define our peak method will say while there are still records in the first stack we need to
+
+take that record.
+
+So this first pop and I want to put that into this second push.
+
+So we've got this second push.
+
+And then inside of a set of parentheses we are calling that thing with this first pop that immediately
+
+beneath it.
+
+This is where we're going to get a reference to the top record inside of second.
+
+So to get a reference to it we're just going to speak from him or we're not going to pop this time we'll
+
+say Konst record equals this second dot peak right here.
+
+This gives us a reference to that green record.
+
+And then finally we'll take everything out of that second stack and move it all back over to the first
+
+stack again.
+
+So while this second peak by the way make sure that you've got parentheses after both the calls right
+
+here.
+
+You don't want to just be calling this second peak without the Prince.
+
+Make sure you got the prince there.
+
+So while we still have records inside of the second stack We'll take every record out there one at a
+
+time and push it into first.
+
+So this first push this second dot pop and then finally at the very bottom will return the reference
+
+to the second record.
+
+So return record like so.
+
+All right let's check our test now and it looks like everything is passing.
+
+All right.
+
+So not that bad.
+
+You know the big challenge here.
+
+Like I said How about just seen the problem one time.
+
+I think that as long as you kind of understand that first part of OK we're going to put everything into
+
+stack a.
+
+And then whenever we want to remove a record we need to pop it all in a stack B and then pop the top
+
+of stack.
+
+B one time that's challenge number one then challenge number two is figuring out how to iterate or kind
+
+of process through all the records in the stack and that's done by using a while loop along with the
+
+peak method right here.
+
+So hopefully this wasn't too bad.
+
+Again this is probably one of the most common interview questions you're going to see with stacks and
+
+cues.
+
+And like I said before.
+
+Yeah.
+
+No practical application but that's the life of interview questions.
+
+So hopefully this was a enjoyable experience.
+
+Let's now continue in the next section.
+
+We're going to start to move on to our next big data structure and this one's going to be a pretty big
+
+doozy.
+
+So let's move on and get started right away.
+----------------------------------------------------------------------------------------------------------
+==========================================================================================================
