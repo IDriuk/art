@@ -12013,3 +12013,4267 @@ doozy.
 So let's move on and get started right away.
 ----------------------------------------------------------------------------------------------------------
 ==========================================================================================================
+
+Раздел 21:Linked Lists
+
+67. What's a Linked List?
+
+In this video we are going to move on to our next big data structure which is a linked list.
+
+If you are going to make a collection of all the different topics frequently seen in engineering interviews
+
+Honestly I would expect to see linked lists at the top of that collection.
+
+It's a subject that is seen very frequently in engineering interviews.
+
+So with that in mind where he's spending a pretty good amount of time in this course to understand linked
+
+lists and exactly how they work we're going to first start off with a practical definition of what they
+
+are.
+
+Then we'll put together our own custom implementation and then we'll finally tackle a handful of common
+
+interview questions that involve link lists.
+
+So without further ado let's take a look at a handful of diagrams that will help us understand exactly
+
+what linked lists are.
+
+So a linked list is an ordered collection of data.
+
+The collection contains a number of different nodes and so on the screen right here you can see four
+
+separate nodes each node contains some amount of data along with a reference to the next node.
+
+When we put a handful of these nodes together we refer to it as a linked list because it quite literally
+
+is a list of linked nodes will also very frequently refer to this as a chain or a chain of nodes that
+
+are strung together.
+
+The list of nodes that form this chain has an order that is always maintained.
+
+So in other words the order of nodes in a linked list won't suddenly or randomly change unless we specifically
+
+want to change it.
+
+Of course in every linked lists there are always two special nodes.
+
+Now I'm going to move the diagram forward.
+
+We're going to look at some terminology that is commonly involved with the linked list.
+
+So the two special nodes that you'll always see are the head node which is always the very first note
+
+of a linked list and the tail node which is always the very last node the tail node can always be identified
+
+by the fact that it does not have a reference to any other node also knows that every single node that
+
+we're showing here has two discrete parts of it.
+
+It has this kind of data bucket assigned to it.
+
+The data that can be contained in the node can be absolutely anything we want.
+
+So it can be a string as is shown here.
+
+It can be a number an array an object any type of valid javascript value can be contained within one
+
+of these nodes.
+
+The other part of a node is a reference to the next node along the chain.
+
+And so with all this discussion of references you might be wondering exactly what I mean by a reference
+
+in the javascript world.
+
+So without going any further let's flip over to a code notepad very quickly and we're going to put together
+
+a quick implementation of a very small linked list and that will give us a better idea of how these
+
+things work.
+
+So over my code editor and this is very quick.
+
+You don't have to write this code out because we're going to write a few lines of code.
+
+We're going to create two separate nodes of a linked list and then join them together.
+
+So I'm going to create a new variable called Node 1 and assign it an object with a property data that
+
+has value 1 2 3 0 then create a second node they'll refer to as Node 2 this thing will also have a property
+
+called data that will have a value for 5 6.
+
+So I have now created two separate nodes here.
+
+Node 1 and Node 2 they are not linked together in any type of linked list at all to to link them together.
+
+I have to explicitly form a reference between the two of them.
+
+And so I can do that by writing something like Node 1 dot next equals Node 2.
+
+So now if I wanted to figure out what the first node of the chain was it would definitely be Node 1
+
+because node one contains a reference to Node 2.
+
+And so if we look at the diagram over here let's flip over to right here we kind of have a structure
+
+like this where Node 1 is on the left hand side and it has a reference to Node 2 on the right hand side.
+
+Notice that Node 2 does not have a reference to any other node so it must be the tail node of our linked
+
+list.
+
+I want you to also notice the fact that I assigned the data for both of our nodes to a property called
+
+quite literally simply data.
+
+Now there is nothing special about the data property right.
+
+Theres nothing special about the fact I called it data in both the nodes right here.
+
+I could have just as easily called it information or record or banana you know whatever you want to
+
+call it but by convention we usually call it data the reference to the next node was stored on the property
+
+next.
+
+And so just like data the next property here the name of it is completely arbitrary.
+
+We could have called it next node or chain next store chain ref for next ref whatever you want to call
+
+it.
+
+But again by convention we usually call it next.
+
+So by convention we usually make sure that every node has exactly two properties the data property and
+
+the next property when we put together our own custom and 27 of the linked list we're going to make
+
+sure that our nodes have both exactly properties named data and next OK.
+
+Now the last thing I want to mention here about this very quick linked list example is that this is
+
+a very straightforward and simple implementation of the linked list.
+
+This really is linked list right here.
+
+Notice how there's no arcane or special code that I had to write to form a linked list.
+
+No as long as you have some separate pieces of data and then you form some type of connection between
+
+them you can refer to that as being a linked list.
+
+This meets all the rules of a linked list.
+
+All right.
+
+I think that's enough on linked lists for now.
+
+So in the next video we're going to jump immediately into working on our own javascript implementation
+
+of the linked list that might seem like we're getting into it very quickly.
+
+But trust me the easiest way to understand a linked list is to attempt to implement one on your own.
+
+So with that in mind let's continue in the next video.
+--------------------------------------------------------------------------------------------------------------
+
+68. Exercise Setup
+
+In the last section we started talking about some of the theory around linked lists in this section
+
+we're going to immediately start diving into our own custom implementation of one.
+
+So inside my code editor I'm going to find my linked list directory.
+
+Now up to this point we've attacked every single question in every folder of this directory or of our
+
+project in the same fashion.
+
+We've always open up the index site js file and then started tests running for tests.
+
+Yes but this particular assignment right here in this particular problem is going to be quite large.
+
+So it is structured a little bit differently from some of the other problems that we have worked on.
+
+Let's first open up the index G-S file inside of here.
+
+You're going to see some very brief directions and notice that it essentially says see the directions
+
+document.
+
+So also inside that linked list folder you'll notice a female document called directions.
+
+Each team out.
+
+Let's open up this document right here inside of our browser and see what exactly is inside of it.
+
+So there's a couple of different ways you can open up that Ishmail documents.
+
+I'm going to open up my file explorer.
+
+I'm going to find the linked list directory here it is and then I'll just double click the directions
+
+HMO file to open it up.
+
+OK.
+
+So this is a document that contains all the different methods that we are going to implement on two
+
+different classes.
+
+The first class is the Node class.
+
+This is going to be a javascript class that is meant to kind of simulate the behavior of a node in a
+
+linked list.
+
+The second class we're going to work on is going to be the linked list class and this is going to act
+
+as a linked list would.
+
+Now the node is going to have the class is going to have very little functionality associated with it.
+
+In general the vast majority of code that we are going to write will be all revolving around the linked
+
+list.
+
+Notice how that beneath either head or here we have a table that describes some of the different things
+
+that we need to work on.
+
+Now the order of functions that are listed in here is the order in which we are going to implement them
+
+throughout this example.
+
+So we're first going to start off with the constructor function and then a function called insert first
+
+and then size get first and so on.
+
+Going all down this list every single function that's listed tells you the arguments that you should
+
+assume that function will be called with the different type of data.
+
+The function should return then some directions about that function and what it's supposed to do.
+
+And then finally on the right hand side there's a quick code snippet illustrating exactly what that
+
+function is supposed to achieve.
+
+We're going to come back to this document in just a little bit.
+
+But before we do there's one other quick thing I want to show you that is very special about this particular
+
+exercise that we're going to work on.
+
+So back inside the linked list directory we're going to find the test.
+
+J.S. file up to this point.
+
+We have mostly ignored our test files but for this one the behavior of the thing is just a little bit
+
+different.
+
+So inside the test file you can scroll through this and you're going to see that there are many many
+
+tests associate with this linked list.
+
+So rather than running all these tests at once I have specifically disabled all but to be executed by
+
+default.
+
+So only these first two Tests right here are going to run by default as we work through the list of
+
+functions in the document that we are just looking at.
+
+We're going to come into this test file and start to enable some of the different tests we can enable
+
+a test by finding the word describe.
+
+So yours describe right here and then immediately after it you're going to see Dot skin.
+
+So this starts right here.
+
+I bet you can guess what it does.
+
+Skip means don't run this test.
+
+So if I wanted to enable the tests for testing a node I can highlight skip right here and then simply
+
+delete it.
+
+So I should see just describe and then open parentheses Syleena I'm now going to save this test file.
+
+So do make sure you delete that dot skip right there for the first describe and then we'll start the
+
+tests up inside of our terminal server at the terminal just like we did previously we will run just
+
+linked list slash test dot genius dash dash watch now when we run this we're going to see a bunch of
+
+output here specifically saying that we are skipping many tests.
+
+And so this is exactly why I set up the test file to skip a whole bunch of tests by default because
+
+if we ran all 23 of those tests you would just see all those failure messages.
+
+It would be really tough to figure out exactly why anything was failing.
+
+So instead we're going to work on one specific function at a time.
+
+And in general we will enable one group of tests at a time get those tests to pass and then move on
+
+to the next set.
+
+So right now we just enabled a test around testing a node instance and you can see that right now that
+
+test is failing.
+
+So we need to go and write some code to make it pass.
+
+OK.
+
+So that's a little bit of an overview of some of the setup that we had to go through for this linked
+
+list exercise.
+
+Let's take a break right now.
+
+We're going to continue in the next section and we're going to start to tackle the first part of this
+
+implementation which is to build out that node class.
+
+So quick break and we'll start that up in the next video.
+---------------------------------------------------------------------------------------------------------------------
+
+
+69. Node Implementation
+
+In the last video we took a look at some of the different materials that are going to be used for this
+
+exercise.
+
+We're now going to get started writing some code to implement our node class API.
+
+Now the node API is going to have just one function associated with it which is the constructor function.
+
+Remember that a node in a linked list essentially just contains some amount of data and a reference
+
+to the next node along the chain.
+
+And so it really has essentially no functionality tied to it.
+
+It's just a little bit little container that contains some amount of data.
+
+To that end let's take a look at some of the documentation here because there is one thing about it
+
+that is a little confusing.
+
+So notice how the arguments to the constructor function are supposed to be some data that the node should
+
+contain and store.
+
+And the second argument which is an optional argument is a reference to another node.
+
+Now here's the thing that's confusing about this.
+
+This second argument right here is supposed to be a reference to the next node along the chain.
+
+Now that might not sound like the weirdest thing but let's put this into diagram format and then I think
+
+you'll understand what's going on.
+
+So we're going to take a look at a diagram that simulates this code example.
+
+Over here on the right so see the code example right here we're going to look at a diagram to follow
+
+exactly what that does.
+
+So first three lines right here.
+
+Sets up something called Node 1 or.
+
+And what we call the node constructor and we pass in some data to store of high.
+
+So the no that constructor inside the node class runs and then assigns to its data property the string
+
+high and then to the next property which is supposed to contain a reference to the next node along the
+
+chain it contains no there is no other node that is pointing to here.
+
+So no other node is currently associated with this chain.
+
+Then immediately after that we declare a second node the second node takes in the string there as the
+
+first argument and then as a second argument it takes in Node 1.
+
+So notice Node 1 right there that says just and it should be node one like so when the constructor runs
+
+with Node 1.
+
+Its going to set up Node 2 and on Node 2 and one is going to be set up as the next property.
+
+And so after all this code right here runs we would imagine that this right here is Node 2.
+
+So going to drag Node 2 over here and its going to end up looking like this.
+
+So the reason this kind of focus on this argument right here is that this second argument sets up the
+
+next node along the chain which is a little bit counterintuitive you might think that its supposed to
+
+set up the node like before it but no it sets up the next node along the chain.
+
+So essentially just take this one right here or this note that were passing in and assign it to the
+
+next property of the node that we are creating.
+
+That's pretty much it.
+
+OK so with that in mind let's flip on over to our code editor now for this one exercise and maybe the
+
+next one or two just to get started on a strong foot.
+
+We're going to do these together and then we will all kind of cut you loose for some of the kind of
+
+later ones.
+
+But for these first few It's really important that we start off on the same footing because the tests
+
+that we are putting together are the tests that are running over this example are expecting some very
+
+specific property names and whatnot.
+
+So I just want to make sure that these first couple exercises or the first couple of functions are put
+
+together very precisely.
+
+All right.
+
+So in the note class we are going to define our constructor function.
+
+Remember this is going to be executed any time we create a new instance of a node.
+
+So we're going to use it to do some initialization of a note.
+
+The note will be called with two properties data and the next node along the chain.
+
+Remember like we just said like we just looked at on the diagram.
+
+This is supposed to be the next node.
+
+The one that comes after the one that we are creating.
+
+So we're going to take that data right there and we are going to assign it to the data property of our
+
+node.
+
+So we'll save this data equals data.
+
+One thing I want to reiterate we just looked at this and the code example just a moment ago but just
+
+to reiterate there's nothing special about calling this data right here.
+
+It's just convention that we usually store any data associated to a node on the data property.
+
+Next we are going to assign the next property of this node.
+
+So we'll say this dot next is next like so.
+
+OK.
+
+So there's one last thing we need to be aware of here and that is the case in which someone does not
+
+pass in a next node and that actually just happened in the code snippet that we're just looking at.
+
+So it is totally fine to create a new node that does not have a node after it's and notice that we did
+
+not pass in a second argument here.
+
+Now again by convention this is entirely a convention thing for the last node on a chain.
+
+We usually set the next to refer to know if there there's no other nodes in the chain.
+
+And we do know rather than undefined in general whenever you see the property undefined it usually has
+
+the connotation of meaning hey this property has never not been set.
+
+Like no developer no engineer has set this property.
+
+But the null value kind of has the connotation of this property has been set and it has been specifically
+
+set to be undefined.
+
+So remember Nolan undefined and Javascript are extremely similar but no kind of has the connotation
+
+of we specifically set this to be nothing at all.
+
+So in the case that someone creates a new node but does not pass in a next node we're going to default
+
+the value of next to be null like so.
+
+So if anyone makes a note but does not pass in a next one to link on we're going to just default to
+
+it and say it should be null.
+
+And so this next will end up being No.
+
+All right so that's our first constructor right here.
+
+That's our first little piece of a linked list.
+
+Let's check out our test really quickly.
+
+If we flip back over here you'll see that the test that was failing is now passing.
+
+So if we scroll up a little bit it will say our test for a node it has the properties data and next
+
+which is great.
+
+OK.
+
+So that is the setup for a node.
+
+Let's take a break right here in the next section we're going to continue by working on the implementation
+
+of our linked list.
+
+And that's where things are going to start to get really interesting.
+
+So quick break and we'll pick it up in the next section.
+------------------------------------------------------------------------------------------------------------------
+
+70. Linked List's Constructor
+
+In the last section we put together our node class with its constructor.
+
+Again traditionally a node is a pretty straightforward implementation and it's really this linked list
+
+class.
+
+It's going to have a whole bunch of functionality associated with it.
+
+I'm going to flip back over to my directions each team I'll file.
+
+So we have now put together the Node class API successfully which means we're now going to move on to
+
+the linked list class API.
+
+We'll first start off with the constructor function at the top which we'll use to initialize our linked
+
+list.
+
+So its constructor function is specifically made to initialize the linked list.
+
+Notice the directions right here.
+
+The duction specifically say that we should create the linked list with no head node associated with
+
+it.
+
+So when we call new linked list there should be no nodes associate with it just a completely empty linked
+
+list should be returned the linked list should have one property which is going to be called head.
+
+And that's going to be a reference to the first node of the linked list and by default heads should
+
+be null.
+
+So if we create the list right here and then immediately log out let's dot head no should be returned.
+
+Now the thing that's kind of interesting I think for a lot of beginners when they are starting to look
+
+at this linked list implementation is that when we create the linked list it has only a reference to
+
+the head.
+
+So let's look at a diagram of that and get a better idea of what's going on.
+
+So this is the linked list class that you and I are going to be working with the linked list class is
+
+going to have a bunch of methods associated with it that make working with the linked list very easy.
+
+So methods to say insert a new node or remove a node or search for a node or whatever it might be the
+
+linked list class is going to have exactly one property assigned to it.
+
+So it will have a bunch of functions but there's going to be exactly one property assigned to it and
+
+that will be the head property.
+
+The said property will have a reference to the first node of the linked list.
+
+So in truth the linked list class has no idea about say how many notes belong to the linked list or
+
+what data exists in the linked list.
+
+The linked list class only knows about the first node right here and if it wants to answer any questions
+
+about the linked list itself or the actual data then it needs to crawl over the linked list and say
+
+count up the number of nodes if it wants to know that information.
+
+So the linked list has very little hard information associated with it.
+
+All it really knows is the first note and it's going to be up to you and me when we put together all
+
+these handy methods for working with the linked list to write some code to access first this head node
+
+and then crawl through the linked list and work through it in some meaningful fashion.
+
+So that's where all the difficulty with this linked list is going to come from.
+
+You and I are going to have to write code to access just the head and then work with all the other elements
+
+inside there.
+
+OK.
+
+So with that in mind let's put together our constructor now that we have a better idea of exactly what
+
+the purpose of the linked list class is.
+
+So over it in my code editor I'm going to find my linked list class or give myself a little bit of space
+
+and we're going to define the constructor which I really just can't spell apparently.
+
+So constructor looks good.
+
+Now thinking back to the document right here it says specifically we need to initialize a head property
+
+and by default heads should be null.
+
+So the constructors can be really straightforward.
+
+We're simply going to say this dopehead equals nil as you'll see in practice very shortly a real usage
+
+of the linked list would be to do something like say Konst list because new linked list.
+
+And then we might create a new node and associate it with this list so we could say less dot head equals
+
+new node and maybe the data we want to store in this note is something like 10.
+
+So now our linked list has a head node associated with it.
+
+And now this head right here could have additional nodes linked onto it which we could associate by
+
+making new nodes.
+
+OK so that's pretty much it for our constructor.
+
+Really pretty straightforward.
+
+So let's take a break right here.
+
+I am going to clean up the code right here so let's clean that up.
+
+We're going to pause right now.
+
+By the way there are no more tests that are soci with the construct direct here.
+
+There will be tests for the next method we implement.
+
+So let's break right now.
+
+We'll continue in the next video and start working on one of the more interesting methods around our
+
+linked list.
+
+So I'll see you in just a minute.
+-----------------------------------------------------------------------------------------------------------------------
+
+71. Linked Lists's InsertFirst
+
+Now that we've got our linked list or put together we're going to start thinking about the first method
+
+that we're going to assign to the linked list class before we look at any documentation.
+
+Let's make sure that we enable the test for the method that we are about to write.
+
+So inside my linked list folder I'll find the test not G-S file.
+
+I'm going to scroll down a little bit to the second to describe block which says describe skip and then
+
+we're looking for the words insert first.
+
+So I'm going to highlight the dot skipped part right here.
+
+So here Scott.
+
+And I'm going to delete it.
+
+So it should be simply describe insert first Alden's save the file and then I'm going to flip on over
+
+to the terminal and I'm going to verify that I have one test failing right now and it should be something
+
+about insert first blah blah blah blah blah call I'll now close out my test file.
+
+We will be reopening it in just a bit.
+
+But we don't need it right now.
+
+So let's now go back over to our browser and find our directions.
+
+Each HTML document that's going to give us a little guide on what this insert first method is supposed
+
+to be.
+
+So again the method name that we're going to implement right now is insert first insert first takes
+
+some amount of data as it's only argument.
+
+Remember that data in the context of a linked list can be any type we want.
+
+So it can be a number a string an array an object anything that we want to store in a linked list.
+
+The purpose of insert first is to create a brand new node out of that argument data.
+
+So we're going to create a node out of data right here and then we're going to assign the resulting
+
+node to the head property of our linked list.
+
+So as we saw in the last section when we create a new linked list it starts off completely empty so
+
+we can use this insert first method to sort of initialize the links list and get some initial node inside
+
+of it.
+
+Now the other thing I want to mention here is that this is supposed to be an insert method not an overwrite
+
+method.
+
+So if it turns out that the linked list already has a node associate with the head property we should
+
+not be overwriting that node so we don't want to delete anything here.
+
+We want to add an additional element to it.
+
+So let's take a look at that in diagram form just to make sure it's really clear what's going on.
+
+So I'm going to fix up this diagram a little bit.
+
+So we're going to imagine that you and I create a linked list and it looks like this right here.
+
+So it has one note and nothing else after it.
+
+Then let's imagine that we take the linked list and we call insert first on it and pass in the number
+
+4 5 6.
+
+When we do so we should first create a brand new node.
+
+So let's imagine we create a new node by calling the new node constructor and pass in our piece of data
+
+which is 4 5 6.
+
+We should then break reference between the head and the existing node so we can basically break that
+
+reference.
+
+We will take the new node that we just created we will assign it to the head property of our linked
+
+list and then the most critical step is we need to make sure that we now repaired the reference between
+
+this new node and the old one.
+
+So that's what we're doing here.
+
+We're creating a new node and sticking it at the front of our list.
+
+So now we have two nodes in total.
+
+Again insert first is an insert method.
+
+We are adding something.
+
+We are not overwriting any nodes here.
+
+Now before we think that this might be a really tough challenge.
+
+Let me just remind you about the node constructor that we just put together.
+
+So our existing node constructor right here takes as a first argument some piece of data and then as
+
+a second argument we can pass in some existing node which will be assigned to the next property of the
+
+one that we are creating.
+
+So think about the operation that we just did here with insert.
+
+First we said that we wanted to create a brand new node which was the 4 5 6 right here.
+
+And we wanted its next property to look at the existing node in this chain and then we wanted to update
+
+the head reference.
+
+So that first part everything up to updating the head reference was kind of taken care of already by
+
+our node constructor.
+
+And so I mean to suggest here is that maybe there's not a whole bunch of code that we need to write
+
+to write this insert first method.
+
+OK I would like you to give a shot on this one by yourself.
+
+Remember we just enabled some tests so you can put together the method inside of our linked list class
+
+right here and then you can double check if that tests over in the terminal to make sure that everything
+
+is working the way we expect.
+
+If you get confused or if linked list still seem pretty intimidating.
+
+And honestly I totally expect that they are right now.
+
+Always remember you can just get directly over to the solution in the next video and we will walk through
+
+this together.
+
+So quick break give it a shot and we'll go over the solution in the next video.
+---------------------------------------------------------------------------------------------------------
+
+72. Solving Insert First
+
+Hopefully you had some success putting the insert first method together in this section we're going
+
+to go over this solution together.
+
+So I think that we did a pretty good explanation in the last video.
+
+So we'll just jump directly into the solution here.
+
+So in my linked list class I'm going to add another method to it called insert first the insert first
+
+method is going to be called with some data that we want to store inside of our linked list.
+
+And remember I know that specifically because of the directions laid out by the directions file so the
+
+directions file for insert first specifically said the argument to this function was going to be some
+
+data.
+
+Again remember we're not calling insert first with a note.
+
+We are calling it with some data and then it's up to you and me to create a new node.
+
+So back inside of our insert First we will accept an argument of data and then we'll use it to create
+
+a new node.
+
+So of say Konst node equals new node and we definitely want to pass in our data.
+
+Now remember that when we insert a new first node 2 are linked list.
+
+We do not want to overwrite any existing knows that might be there.
+
+So to make sure that we do not accidentally overwrite any note to make sure that we just kind of stuff
+
+this one as being first in the chain.
+
+We can take any existing node that might already exist at this head and pass it as the second argument
+
+to the new node constructor.
+
+So I'll say this dot head right here OK.
+
+So again this part right here is probably rather confusing just might.
+
+I mean in my opinion I think it's confusing.
+
+So I want to do a quick review on why we were able to pass in this head right here.
+
+So up in our constructor for the node remember we had said that it takes a second argument if we pass
+
+in the second argument it will be assigned to the note that we are creating its next property.
+
+So let's go and look at that and diagram form out one more time.
+
+I apologize if it seems like we are repeating here but this is a pretty crucial little step.
+
+So we can imagine that maybe our linked list already has one node right here and we don't want to lose
+
+this existing node.
+
+So we are going to create a new note by calling our no constructor as a first argument will pass in
+
+the data that was passed into our insert first function.
+
+And then as the second argument the argument that gets assigned to this brand new nodes next property
+
+we will pass in the existing node.
+
+So we're going to pass in the existing node as the second argument to the constructor when we do so
+
+it will set up a relationship like this right here.
+
+So the code that we just wrote this right here when we said Konst node equals new node impasse in this
+
+knothead it sets up exactly this relationship right here.
+
+Now the only problem is that this dark head is still looking at the old node.
+
+And remember one thing I also want to point out there is that if no other node exists right here when
+
+we call insert first that's still OK.
+
+Like we can create our new node and the new nodes next value will point at No.
+
+Which is totally fine.
+
+So after we insert the new node we have to repair the head reference.
+
+So the linked list class should no longer be looking at the old node.
+
+It should now be looking at the new one.
+
+So to make sure that works back inside of our insert first function we will update the this data head
+
+reference.
+
+So now this head will be the new node.
+
+Like so now this line right here can be simplified into one line.
+
+Note how we are creating the new node and assigning the value to the variable node.
+
+So that's a totally unnecessary temporary variable right there.
+
+So I'm going to condense this down to one line of code.
+
+We're going to create the new node and then a scient directly to this head and then we can remove that
+
+variable reference and that's all we need right there.
+
+So I'm going save this.
+
+Let's check out our tests in the terminal and see how we're doing.
+
+So the tests are definitely passing.
+
+But again this is kind of a crucial method and I really want to make sure that it's really clear exactly
+
+what's going on here.
+
+So it's one last step and before we do this let me say very quickly if you get what's going on here
+
+and you want to move on to the next video that's fine.
+
+Just skip the rest of this video.
+
+Otherwise stick around and I'm going to do a quick demo with our node class right here in the linked
+
+list class.
+
+OK.
+
+So please right now skip if you're done and you understand what's going on.
+
+Otherwise stick around.
+
+So I'm going to copy both the classes that we just wrote and I'm going to bring them on over to my little
+
+editor over here.
+
+So here is my note in my lengthy list I'm now going to create one node.
+
+So we'll call us 1 node 1 and this will be a new node with the data 5.
+
+I'll then create a linked list implementation or some you linked list instance.
+
+So I'll say conc link is says call it Konst list is New linked list and on the list I'll call insert
+
+first and I'll pass in.
+
+Let's say five if I now print out list you'll see that it has had data of 5 and next to no.
+
+So another way of setting up the list let's see that before we insert the first right here I initialize
+
+the list with this new node one that we had already created.
+
+So maybe I called List dot head equals Node 1.
+
+So that just initialized list with this node 1 assigned to the head.
+
+So this time when we call insert first we now want to make sure that we do not accidentally overwrite
+
+any data.
+
+And you and I just realized I used a value of five in both locations here.
+
+So how about on insert First we call it with 15.
+
+So now if we look at the result you'll see that the head of our list.
+
+So we are printing out list right here.
+
+Here's list here's the print out.
+
+So the head reference points at our node with data of 15 and then its next property points at the node
+
+with a value of 5.
+
+So clearly we had a node associated with the head and when we inserted this new record it took that
+
+old head.
+
+It took the old Node 1 and kind of hijacked it or nested it within itself or created a reference to
+
+it and then the value 15 replaced the old node as the value of head inside the list.
+
+This is one of the things where I can probably talk about it all day.
+
+But you got to play around with the code a little bit or look at some diagrams to really get it.
+
+It's a very visual thing I think but hopefully at this point this insert method is starting to make
+
+a little bit of sense.
+
+So let's now continue on the next section and start working on our next method.
+
+I'll see you there.
+---------------------------------------------------------------------------------------------------------------
+
+73. Sizing a List
+
+In the last section we took care of our insert first method and now it's time to move on to the next
+
+one which is the size method.
+
+So this size method is going be pretty interesting because it's going to be our first opportunity to
+
+figure out exactly how we can iterate or walk through a linked list.
+
+So the goal of these size method is to return the number of nodes that are contained in the linked list
+
+that could sample over here is pretty illuminating.
+
+So we can create a new list we can insert 3 records into it at which point time the linked list has
+
+three nodes long.
+
+So if we then call list size it should return the number three.
+
+So let's give this a shot inside my code editor.
+
+We'll first find our test not just file.
+
+I will scroll down to the next describe block.
+
+So around line 31 or so I want to find the described block for size.
+
+And again will take out the DOT script there and then save the file.
+
+Don't forget to save it.
+
+So if I go back to the terminal I should now see one test failing.
+
+Great.
+
+So let's go back over to our linked list class.
+
+So inside of here it's going to be up to you to create a method called science and then to somehow iterate
+
+through our list of nodes and count the number that exist.
+
+Now on this exercise I'm going to very deliberately leave the directions really vague so I'm not going
+
+to tell you anything else I want you to try to give this one a shot using your own knowledge.
+
+Now this is a very challenging exercise I'm really dropping you off the deep end.
+
+So if you feel like you have no idea where to get started that's totally fine.
+
+But I'd like you to at least put in two or three minutes of thought on exactly how you might crawl through
+
+the linked list and count the number of nodes in it.
+
+The one thing I want to remind you about is remember our linked list class instance only ever is allowed
+
+to have a reference to the head node.
+
+So to put the other the size method you're not going to add any code to say insert first to try to keep
+
+a reference to every node that gets added.
+
+So don't try modifying any of the code that's already here.
+
+Or any of the existing methods I should say.
+
+All you want to do is add in this new method called sys and attempt to use that to count up the number
+
+of nodes.
+
+So like I said leaving the directions very vague here I want you to spend just two minutes thinking
+
+about how you might approach this.
+
+And if you get some idea well go ahead and give it a shot.
+
+Otherwise catch in the next section and we'll go through the solution together.
+--------------------------------------------------------------------------------------------------------------
+
+
+74. Solve for Size
+
+In the last section I throw you into the deep end with the size method.
+
+So we're going to write a method that returns the number of nodes in the linked list.
+
+Let's give it a shot.
+
+I mean flip back over to my implementation and I'm going to really add the new size method.
+
+All right.
+
+So this is a rather tricky one.
+
+This is one that's kind of hard for me to show you exactly how it works with diagrams.
+
+So we're going to really just write out the code and we'll talk about how it works.
+
+Now some of the methodology that we're going to use in this method right here to iterate through our
+
+list is going to be used in almost every other method that we write for our linked list.
+
+So we're going to put this thing together this one time and we're going to definitely be doing something
+
+very similar in many other methods.
+
+So if this implementation initially seems a little bit weird Don't sweat it you're going to see the
+
+same thing like six more times to be honest.
+
+So we're going to write out the code and then talk about exactly how it works.
+
+We're going to first initialize a counter variable as the number zero.
+
+So this is going to be the number or the variable that totals up the number of nodes inside of our linked
+
+list.
+
+Next we're going to get a reference directly to the head node of our linked list and we're going to
+
+assign it to a local variable called node.
+
+So say let node equals this dot head.
+
+All right.
+
+Now here's the magic here's the neat part.
+
+We were we are going to say while node and then counter plus plus.
+
+And then finally here's the real magic node equals node dot next.
+
+All right.
+
+So this process right here is something we're going to be using several times throughout the remainder
+
+of our linked list.
+
+So we first get a reference to the first node inside of our link list and then we enter the while loop.
+
+So in this very first evaluation of the while loop like when we first enter into it if the Leafs list
+
+does not have a head node assigned to it then the while loop is going to check to see if node is a truth
+
+your falsie value.
+
+If this start head doesn't exist.
+
+So if there's not a node there right now.
+
+Well then the while loop is going to fail the check right here.
+
+And so it's not going to run any code inside of it.
+
+If a node does exist so if there is a head node then the while loop will enter the body because node
+
+will be a truthy value because it exists inside the body of the While loop.
+
+We will then immediately increment our counter variable because you know we just found one node.
+
+We know that at least one node exists.
+
+And then here's the magic part and the next line of code we're going to look at the current node.
+
+So this is the first one.
+
+Like the head node we will look at its next property and remember the next property will be either another
+
+node or the value null.
+
+And if it's null.
+
+That means that there are no other nodes for us to evaluate.
+
+We will then take either the next node or the value null and assign it to the variable.
+
+Note that we go back up to the While loop check right here and we say is node a truthy value.
+
+In other words is it a actual node where does the falsie value.
+
+Is it the value null.
+
+And so based on that check we either reenter the loop or we exit the loop entirely in that same process
+
+goes on over and over and over again.
+
+So very quickly if we look at this in Diagram format when we enter that for loop or the very first time
+
+we enter it the variable node will be equal to this first know that we have right here what increment
+
+the counter to say yes we have at least one note and then the value of the variable node will be assigned
+
+to this things.
+
+Next property which would be this node right here.
+
+And so the Waialua goes one more time after that we will update the value at the node.
+
+Very well to be this things next property which is now null and then the while loop says no no is a
+
+false value.
+
+We're done here.
+
+And so we stop running the while loop.
+
+So that's the trick.
+
+This is how we are going to iterate through our linked list many times throughout many different methods
+
+inside of this class.
+
+Now one last thing here don't forget whenever we get some variable that we're supposed to return here
+
+make sure we always return it.
+
+So after the while loop I will specifically say return counter like so.
+
+So let's check our tests and see how we're doing.
+
+And yet it looks like our new test is passing.
+
+So I should now have 5 passing tests and just to confirm.
+
+Yeah.
+
+Here we go.
+
+So size successfully returns the number of items in the linked list.
+
+Cool.
+
+So in many of the challenges that come up in a little bit here on any other method where we are trying
+
+to iterate through our list remember this while loop right here because every other method is going
+
+to probably end up using something just like this.
+
+So with that in mind let's take a break and continue in the next video and start working on our next
+
+function.
+---------------------------------------------------------------------------------------------------------------
+
+75. Get Over Here, GetFirst!
+
+The next function that we're going to work on is a rather straightforward one.
+
+So we're not going to do a lot of introduction here and we'll do the solution very quickly.
+
+So we want to implement get first.
+
+We're supposed to return a note.
+
+And specifically we want to return the first note of the linked list and just as a quick reminder remember
+
+that head property has a reference to the first note going to list.
+
+So I think you might be able to pretty quickly imagine how this for this get first method might be put
+
+together.
+
+Now before I cut you loose to put together the solution remember to change on over to the test file
+
+we want to now scroll down to the next describe block and we want to remove the dot skip on the Get
+
+First describe.
+
+So you will remove the dot skip and then save the file.
+
+OK.
+
+So go ahead and give a shot on this method.
+
+Get first right here and I'll catch you in the next video.
+------------------------------------------------------------------------------------------------------------------------
+
+76. Building GetFirst
+
+Hopefully you had some success with the first method.
+
+We're going to go over a solution very quickly.
+
+In this video like I said in the last video recall that the linked list has a head property assigned
+
+to it that is always supposed to be pointing at the first note of our linked list.
+
+So when you see something that says oh yeah I returned the first note the linked list.
+
+We are essentially saying just return this dot net.
+
+So let's put together the code for that as the next method inside of our class.
+
+I will add in get first and we want to return this dot.
+
+Because this dotted head is always going to be pointing at the very first method.
+
+Or C the very first node in our linked list.
+
+So I will save this.
+
+Let's check our terminal.
+
+And yeah we're now up to six test passing.
+
+So those are pretty quick one.
+
+Let's take a break can come back in the next section.
+
+And we're going to work on one that's a little bit more challenging which is the get last method.
+
+So I'll see you in just a minute.
+---------------------------------------------------------------------------------------------------------
+
+77. Find Your Tail with GetLast
+
+In the last section we did a very quick solution to get first.
+
+We're now going to move on to our next method which is called good last.
+
+So the goal of this method is to return the very last node of our linked list and you can see a great
+
+code sample over here on the right hand side.
+
+So if we insert first A and then b remember that we would end up with B being the first node A would
+
+be the second node.
+
+And so if we called Get lost it should return the node with data.
+
+And the thing keep in mind here is that we want to specifically to return the entire node not just the
+
+data property the node we want to return the entire thing.
+
+So the solution to this I want to remind you on exactly how size over here worked.
+
+Remember how this thing worked.
+
+Remember we got a reference to this dot head.
+
+And then while the value of the variable node was truthy we continued iterating through our linked list.
+
+So you can use this technique right here in a very similar fashion to find and return the last node.
+
+Now two things I want to point out here before I cut you loose.
+
+The first thing to recall is that we can always figure out if a node is the last one.
+
+If it is has a next property with the value.
+
+So when a node has the value nil for next that means it is the last one.
+
+The other thing I want to point out regarding this method is that you might need to remember to take
+
+into account the situation in which a linked list has no nodes whatsoever.
+
+So the tests are written to check for this case right here.
+
+So make sure that you do handle the case in which there is no nodes associated with the linked list.
+
+All right so I'm going to cut you loose.
+
+Go ahead and give it a shot.
+
+And I will catch you in the next solution where we will go over a solution together.
+------------------------------------------------------------------------------------------------------------------
+
+78. GetLast Implementation
+
+Hopefully you have some success in putting the last method together.
+
+Now one thing that I neglected to say was to make sure that you include the get last tests by deleting
+
+the data skip for that function.
+
+So here's get lost inside of my test out jazz file it's around line 53 or so.
+
+So remember to remove the dot skip on here.
+
+My apologies.
+
+I will definitely try to remember to remove the duck skip in the future so we should be able to verify
+
+that we now have one test failing.
+
+Ok so let's think about a solution here.
+
+Back inside of my index dodgiest file I'm still inside of the linked list class and I'm down towards
+
+the bottom.
+
+You've definitely got a pretty good number of functions in here and we will definitely get many more
+
+before we're done.
+
+So inside of here we're going to define the last method and then recall our goal here is to return the
+
+very last node in our linked list and I had also said that we need to specifically watch out for the
+
+case in which our linked list has no nodes associate with it yet.
+
+So I think that will handle that case right away will handle the case in which we have no nodes.
+
+So to do so we can put together a very simple if statement will say if there is no head element then
+
+just return no right away.
+
+So if there's no node Hey let's get out of here we're done here nothing else.
+
+Otherwise we want to continue inside of the method and do a little bit of work so to iterate through
+
+our linked list and get to the last node.
+
+We're going to use the same iteration technique that we used before on the site's method up here.
+
+So we're going to get a reference to the current node and then we will iterate through the node and
+
+as long as there is one will continue with the While loop.
+
+As soon as we find the very last note and remember we can identify that by the fact that it will have
+
+a null property.
+
+That means we've found the final note and we should return it.
+
+So down inside of get last we'll get the reference to the node by saying Let node equals this dot head.
+
+And then while node exists we'll update 2 node equals node next.
+
+And right before that we will check to see if node next exists.
+
+So if no does not.
+
+Next excuse me a node dot next does not exist.
+
+So if that's not all that means that we must be at the very end right now in which case we should return
+
+the current node like so.
+
+So again we start off with our first note.
+
+We've already checked to see if that one is not defined.
+
+We then enter the for loop because the first time around node will always be defined.
+
+We then look at this nodes next property if it is not defined then we immediately return the current
+
+node.
+
+Otherwise we update the node variable to the next one in our chain and then go through the while loop
+
+again.
+
+So let's check our tests and see how we're doing over here we got 7 test passing.
+
+Awesome.
+
+So this was another one that's going to use this same iteration style to look through a linked list.
+
+Let's now continue in the next section and we'll move on to our next method.
+----------------------------------------------------------------------------------------------------------------
+
+
+79. Clear that List
+
+The next method that we're going to work on in our list is the clear method.
+
+So clear is intended to completely empty out our linked list of any notes.
+
+So essentially we don't want to see any notes whatsoever after calling the clear method.
+
+Now if you think that you need to somehow call like a delete key word or anything like that.
+
+Think of exactly how the linked list knows about the existence of any nodes here.
+
+The linked list only knows that any nodes exist through that head property.
+
+So if we somehow kind of like zero out this had property or something like that then as far as the linked
+
+list is concerned there is no linked list.
+
+There are no nodes.
+
+So this is a problem that is probably much simpler than you might think.
+
+It ends up being a pretty short solution.
+
+So if you think that you need to write a lot of code for this one maybe Think it over a little bit first.
+
+Now before I cut you loose let's again make sure that we get our test running.
+
+So in my test.
+
+J.S. file I will scroll down to line 63 or so and I will remove the dots skip on the clear describe.
+
+So let's save this and quickly verify that we are back to one test failing.
+
+Cool.
+
+Salix good.
+
+All right.
+
+So give this a shot and we'll go over a solution in the next section.
+---------------------------------------------------------------------------------------------------------------
+
+80. Clear Solution
+
+Now that you've had some time to work on the clear method let's start going over the solution together.
+
+Remember the key here is to recognize that if we want a linked list to think that all the different
+
+nodes are now empty or destroyed or wherever you want to call it all we really have to do is reassign
+
+this head property to something else.
+
+So inside my code editor I'm going to add a new method called Clear and then in order to clear out the
+
+linked list or to empty out the list of notes here all we really have to do is a sign that had property.
+
+So I'll say this dopehead equals nil.
+
+And now as far as this linked list class is concerned there are no notes as far as linctus class is
+
+concerned.
+
+We cleared out the entire list.
+
+They're gone.
+
+We now have no reference to the list of nodes anymore.
+
+Now in theory maybe that list of nodes is still floating around memory or something like that.
+
+But hey what do we care.
+
+The linked list doesn't think that there's anything left anymore.
+
+So let's check out our tests and yeah we're good.
+
+We're passing here now just to prove it to you.
+
+Not prove it to you per se but I want you to look at the tests that I wrote for the clear method here.
+
+So here is described clear inside of our tests at J.S. file and inside of here.
+
+Take a look at the implementation of this test.
+
+So we insert an element insert insert we insert four elements total right here and then we verify that
+
+there are four nodes inside of it.
+
+We then called Clear and after that as far as the linked list is concerned there are no nodes calling
+
+size returns zero.
+
+So there must be no nodes associate with this linked list.
+
+All right so this one was maybe a little bit deceptively easy.
+
+Well let's now continue in the next section where we're going to tackle one of the slightly harder methods.
+
+So quick break and I'll see you in a minute.
+------------------------------------------------------------------------------------------------------------------
+
+81. Where's My Head, RemoveFirst?
+
+We've now taken care of our clear method and it's now time to move on to remove first remove first we
+
+want to remove only the first node of the linked list.
+
+In practice to really think that our linked list class has kind of removed that first node or has somehow
+
+deleted it or how everyone referred to it.
+
+All we really have to do is reassign the lists head property to now look at the second node inside of
+
+our linked list.
+
+So this is another one that might be a little bit on the easier side as far as implementation goes.
+
+So try not to overthink this one too much.
+
+Now just to be really clear here let's take a look at diagram very quickly.
+
+So if we called remove first on this linked list right here what we really want to do is make sure that
+
+head now points at the second note.
+
+So note that the first node is still going to point to the second one here.
+
+But as far as our linked list is concerned this first node is completely invisible.
+
+We don't have any reference to it.
+
+So as far as you and I know it's been deleted and it doesn't exist anymore.
+
+Again you definitely don't want to overthink this problem.
+
+All right.
+
+Before I forget let's check out our test file and remember to delete the dust skip on remove first.
+
+Oh yeah.
+
+This test comment right here reminds me of something I want you to also consider the case in which we
+
+call remove first on a linked list that has no nodes whatsoever.
+
+So just keep that case in mind as well.
+
+All right.
+
+Give it a shot and we'll go over a solution in the next video.
+-----------------------------------------------------------------------------------------------------------
+
+82. Building RemoveFirst
+
+Let's take care of our remove first method.
+
+So again our goal here is really to make sure that the head reference will be pointing out the second
+
+node rather than the first one.
+
+So I'll flip on over to my code editor.
+
+Let's find our linked list class.
+
+Again I'm down here at the bottom right underneath our clear method and we'll define our remove first
+
+method.
+
+So the first thing we're going to do is make sure that there is in fact a head node.
+
+So we're going to check to see if there is or is not a head node.
+
+So if this dot head.
+
+So if there is not a node here just go ahead and return we're done nothing else for us to do because
+
+the linked list must be completely empty.
+
+If nothing is assigned to the head now if we get past this if statement then it means it's time for
+
+us to try to remove the first node to remove the first node.
+
+We will very literally just update this dot head to look at the second node and we can get access to
+
+the second node by referencing this dot head dot next.
+
+So remember this hardhead returns a note and a node has a next property that points at the next node
+
+in the chain.
+
+Now there is something very interesting about this solution right here.
+
+And once you think about it for just a little bit imagine the case that we call that removed first method
+
+when there is only one node.
+
+Well everything is going to work the way we expect.
+
+Think about it if there's only one node then the first node must be pointing at the value null.
+
+So when we run this line of code right here when we say get a reference to this start head next which
+
+would be essentially null we'd be saying essentially this start head equals nil.
+
+And that really is what we want to do here.
+
+We're saying Remove the first element and if we remove the first element Well that means that our linked
+
+list is now empty.
+
+And so a head should be pointing at No.
+
+So this solution will work out just fine even if there's only one node in our linked list.
+
+Let's check our tests and see how we're doing.
+
+First I would make sure I saved my file and then we'll check our tests cost.
+
+So we got another test passing.
+
+All right let's move on to the next one.
+
+Let's check the name of the next one.
+
+Next one is remove last.
+
+OK so remove last is going to be one of the more challenging ones I really mean at this time.
+
+So this will be one of the more challenging methods.
+
+So let's take a quick break and tackle this one in the next video.
+--------------------------------------------------------------------------------------------------------------
+
+83. Bye-Bye Tail with RemoveLast
+
+In the last section we tackled the remove first method.
+
+Now it's time to move on to remove last remove last is going to remove the last node of the chain or
+
+the last node of the linked list.
+
+So I think that you probably have a pretty good idea of the purpose of this thing.
+
+But before I cut you loose I want to give you a quick tip or two just to make sure it's really clear
+
+exactly what is supposed to happen.
+
+So I have taken the chain that we had before here and I've expanded it and marked it with green blue
+
+and red.
+
+Just to make each node A little bit more visible.
+
+So if we called the remove last method on this linked list class right here I would expect that this
+
+red node right here would just go away like so.
+
+So that's the expectation that's what I want to have happen.
+
+Now I want to give you a quick tip or two on one possible way of approaching this.
+
+Now I'm not saying that this is the only way to do it.
+
+And if you think of another way to approach this problem that's great but I want to give you a tip on
+
+how to approach this.
+
+So one possible way of doing this is to introduce two temporary variables that you're going to declare
+
+inside of this remove last function and we will refer to both these as previous and node.
+
+So these are two temporary variables.
+
+So one way to approach this problem is to say that previous is going to start off looking at the very
+
+first node of our chain and then node will look at the second like so now we're going to iterate through
+
+our linked list.
+
+And for every step through the linked list we're going to move these references forward one node to
+
+the right as soon as we find a node right here that has a next value of NULL then that must mean that
+
+we are at the end of our chain and we should remove the node at node and remember that to remove a node
+
+we need to somehow go to the previous link on a chain and set that links next property to nil.
+
+So that's the purpose of previous is to make sure that we have the reference to the previous node because
+
+otherwise we don't easily have a reference to it.
+
+So let's walk through this step by step and see exactly what would happen.
+
+So we first start off with previous looking at the first note of our chain and the node looking at the
+
+second we check to see if node has a defined node on the next property.
+
+And in this case yes it does.
+
+So we then update the references of both previous So we have advanced this one to the next node right
+
+here and we update the node variable to the next node.
+
+Now we check again to see if node has a defined next property.
+
+And in this case it has a value of NULL.
+
+So that means that node must be pointing at the last node in our chain.
+
+So in order to remove that very last node we have to look back to the previous variable or the previous
+
+node right here and we're going to set this things next property to nil.
+
+So no longer will we be looking at that node right there.
+
+We'll now be looking at Noal which means as far as you and I are concerned from a limitless perspective
+
+the node is some of the linked list is now one node shorter.
+
+All right.
+
+Now let's not forget we need to enable our Tessier.
+
+So back inside my code editor open up my test just file and I'm going to find the described block for
+
+the remove last method and it's online 100 or so.
+
+So we will remove the dots get on this thing.
+
+Now one last thing here.
+
+I know the couple of one last things I've been mentioning here but one last thing I really mean at this
+
+time I do want you to keep in mind that if you use the methodology that I just showed you there's going
+
+to be a couple of edge cases that you need to be aware of.
+
+So for example imagine that we were going to use that algorithm I just described where we initialized
+
+first this previous variable and this node variable.
+
+Well what exactly would happen if our linked list started off with a length of one like so.
+
+So you might need to take that in consideration.
+
+And then I also recommend you take in consideration the case that the linked list is completely empty
+
+as well.
+
+So you need to make sure that you handle both those cases eloquently or at least in some fashion and
+
+ensure that your code doesn't crash.
+
+If you tried to remove the last node on an empty list so the test that we have here are specifically
+
+going to test those cases so you can see in the first test checks to see the remove last method when
+
+it is attempting to remove the last node when the list is empty and the expectation here is that calling
+
+removed last should not throw in there.
+
+Then there's another test that checks to see that the method works correctly when the list has a length
+
+of 1 when the list has a length of 2.
+
+And then when the list has a length of three down here so do make sure you handle those edge cases correctly.
+
+All right go ahead and give us shot in the next video will go through a solution together.
+
+So I'll catch you in just a minute.
+---------------------------------------------------------------------------------------------------------------------
+
+84. RemoveLast Implementation
+
+Hopefully you had some success with the remove last method in this video we're going to go over one
+
+possible solution.
+
+So I'm inside my index file.
+
+I'm at my remove first method.
+
+And underneath this thing we will define the new method remove last like so.
+
+All right.
+
+So the first thing we're going to do here is to think about some of the edge cases that we have to deal
+
+with with the given solution.
+
+I laid out in last video so I want to first think about what we should be doing if the list is completely
+
+empty.
+
+So if the list is empty I don't want to attempt to get a reference to the first node or the second one.
+
+I don't want to try to iterate through anything nothing like that.
+
+So as the very first operation going to do I went to check to see if there is not a head node.
+
+So there's not a bad node.
+
+That must mean that our list is empty and I should just immediately return without attempting to do
+
+anything at all.
+
+So let's save this and if we flip on over toward test now you'll see immediately that one of the tests
+
+is now passing.
+
+So here is remove last.
+
+And our goal was to make sure that if the list is empty we shouldn't crash and essentially nothing should
+
+happen at all.
+
+So with that simple statement we've satisfied one check right here.
+
+Now the next thing we're going to do is consider the case in which the list has a length of 1.
+
+So there's only one node.
+
+If there's only one node back over here.
+
+So there's only one node then I don't really need to start up my algorithm at all.
+
+I don't need to get a reference to the second node.
+
+I don't need to try to iterate through anything here.
+
+All I really want to do in that case is remove the last node which in this case would also be the first
+
+one.
+
+So in that case I would want to delete the only know that we have.
+
+And remember we can delete that node by setting this knothead equal to nil and then we would want to
+
+immediately return from the function.
+
+So to check to see if we have a length of one we could call the size method that we had previously defined.
+
+But another easy way of doing it that doesn't rely upon that method would be to look at the head node.
+
+So there is not a node at this dot head dot next.
+
+So this right here this dot dot next would be a reference to our second node.
+
+And then we're saying if there is not some value defined there so there's not some second node there.
+
+That means that we have a list of length 1 and we should remove the head and then immediately return
+
+from this function and not attempt to do anything else.
+
+So I would say this dot head equals nil.
+
+And then we will immediately return.
+
+Now let's check our tests and back over here.
+
+We now have our second test passing.
+
+Very good.
+
+So now we're going to start to write the actual algorithm that we care about.
+
+So this is the algorithm where we are going to set up these two variables right here.
+
+Previous is going to refer to the very first no just start node will refer to the second one.
+
+And then we will iterate through our linked list and for each iteration step we will point these two
+
+temporary variables at the next node along the chain.
+
+And then as soon as we find a node that has a max value of NULL.
+
+That means that we need to remove that current node.
+
+So let's give this a shot.
+
+Well first start off by getting a reference to the first node and the second one.
+
+So say let previous equals this dot head and let node equals this head.
+
+Next now as long as Noad next exists.
+
+So remember that means that there is some next value after note right here there's some additional element
+
+that we need to iterate through.
+
+Then we'll update the value of previous to be the current node and then node will be set to node next.
+
+Now I just kind of went through that very quickly so let's look back at the diagram and explain exactly
+
+what this while loop right here is doing.
+
+So again we initialize previous node.
+
+We've said that like three or four times now at this point we know that very well.
+
+So back over here we checked to see if node dot next is defined.
+
+So is node dot next defined.
+
+Well in this case yes it is right here.
+
+So that means we are going to enter the body of the While loop.
+
+The first thing we do is to update the value of previous to node.
+
+So when that body of the for loop or some of the while loop runs the first time or that first line of
+
+code we all take previous And we will tell it to look at the same node that that node is.
+
+And then we update the reference node to look at the next node.
+
+So now node is going to be looking at the next node.
+
+We then re-entered the for loop or X. We keep saying for loop mean to say while loops so we re-enter
+
+the while loop and we check to see if node next exists.
+
+So in this case no dot next does not exist which means we have hit the end of our chain.
+
+And so we need to make sure that we now delete this last note.
+
+So like we said several times to delete that last node we can go back to the previous node and update
+
+its next property to simply point at null rather than its current value.
+
+So after the while loop will say previous next equals nil.
+
+So we don't really have any if statement here or anything that specifically says hey look we're at the
+
+end of the chain.
+
+We are using this while loop right here to just keep on iterating through and through and through the
+
+linked list until there is no longer a next node.
+
+And as soon as this situation right here or this expression writes evaluates to a false value or is
+
+null that means we are at the end of the list and we can just very easily say previous start next is
+
+not to remove that last element.
+
+All right let's check our test now and see how we're doing.
+
+So back in the terminal all of our tests are now passing.
+
+Awesome.
+
+OK.
+
+So this has been our remove last method.
+
+Let's now continue into the next video where we're going to do one more very very similar method.
+
+Oops maybe not.
+
+Insert last so we need to insert a node at the last or the end of the chain.
+
+So let's take care of that one in the next video.
+----------------------------------------------------------------------------------------------------------------
+
+85. A New Tail to Tell with InsertLast
+
+Time to move on to art.
+
+Insert last method.
+
+Now I know that a lot of these methods probably seem very similar to each other but believe me this
+
+is some very good practice around linked lists and making sure that you really understand how to work
+
+with one.
+
+So I know this might seem like all that repetitive but this is some very good practice and I'm very
+
+happy that you're going through it with me.
+
+So let's talk about insert last right here insert last will be called with some data argument we need
+
+to take this data argument create a new node stick data into that node and then insert that at the very
+
+end of our chain.
+
+Hmm.
+
+Let's give you an interesting one.
+
+So let's put this in Diagram format and think about exactly what we need to do.
+
+So to get let's say this new node that we'll call orange right here into the very last entry inside
+
+of our chain.
+
+But we really have to do is get a reference to the current last node and then we will set the current
+
+last node next property to look at this new orange one that we would create.
+
+So in order to insert something at the very end of our linked list we need to make sure that we can
+
+get a reference to the last element.
+
+Now you might be thinking OK let's write another for loop into that same process again.
+
+But in this case I want to remind you that one of the methods that we already put together inside of
+
+our linked list class if we scroll up a little bit we can find it.
+
+So up up up up here we go.
+
+So we already wrote a method called Get last that will return the very last node in our current linked
+
+list.
+
+So when you are in an interview setting if you see some way to reduce some amount of code you've already
+
+authored I highly encourage you to do so.
+
+So this would be a perfect location where in an interview you could either say All right let's iterate
+
+through our linked list and find less node or you could also simply say well let's call the get last
+
+method that we already put together and we will take the last node and add some existing or some additional
+
+node onto it.
+
+So for our solution we're simply going to call get lost we will get the last note on the chain.
+
+We will create our new node which will be this orange one right here and then we'll make sure that the
+
+old last note points to the new one that we've just created.
+
+And that's pretty much going to be it.
+
+Now there is one other thing I want to point out here for this solution.
+
+Don't forget that we need to handle the case in which our linked list is completely empty as well.
+
+So if we call insert last on an empty linked list we need to make sure that we essentially do the right
+
+thing.
+
+So in this case there is no last note here we would need to make sure that we create a node and have
+
+our head property right here.
+
+Point out to you know that we create.
+
+So make sure that you handle both those different cases.
+
+All right let's flip on over to our code editor and not forget to go to our tests.
+
+Just file around line 138 or so I can make sure that I remove the dot Skipp for insert last right here.
+
+All right and let's save that test file.
+
+So we should now see the insert last test failing.
+
+All right.
+
+So go ahead and give us a shot of catch up with you in the next video and we will go over a solution
+
+to the insert last method.
+--------------------------------------------------------------------------------------------------------------------
+
+86. Adding InsertLast
+In the last section we spoke about adding on the insert last method.
+
+So we're going to create insert last by reusing the get last function to get a reference to the last
+
+note on our chain.
+
+We will then create a new node and attach it on.
+
+We need to also make sure that we handle the case in which our linked list is empty and there is no
+
+last node for us to retrieve.
+
+All right.
+
+So let's get this shot of flip on over to my code editor at the very bottom of our current linked list
+
+class all out on insert last I remember that insert last is going to be called with some data argument
+
+that we are supposed to insert into a new node.
+
+So let's first start off by getting a reference to the last node in our current linked list.
+
+So say conc last equals this dot get last.
+
+So that word tree if the current last node in our list.
+
+Now this is the point at which we need to put in some type of check to see if we have any node at all.
+
+So last right here can be either a defined node or it could be the value null.
+
+If we do not have any nodes inside of our change at all.
+
+So we will distinguish between these two cases by saying if last exists then do something otherwise
+
+do something else and I'm going to add a comment in here just to remind myself if we enter this statement
+
+or this section of the if statement then this means that there are some existing nodes in our chain.
+
+Otherwise if we enter the else case that means the chain is empty.
+
+OK.
+
+Now inside of this first statement we will create our new node and pass in our data to it.
+
+So say new node.
+
+And here's the data.
+
+So this will return our node and we want to make sure that we set the previous node on the chain its
+
+next property to point out to know that we just created.
+
+So we can do this all in one line will say simply last dot next equals new node
+
+then the other thing we need to do is handle the else case right here.
+
+So in the case of the chain is empty there is no last node we have node next property on the last note
+
+update.
+
+So instead whenever we call insert last that means that we probably want to create the node and then
+
+set it to the link list head property because we are inserting the very first note of our chain.
+
+Even though the method is called insert last.
+
+So in this case we would call new node paths in our data but then rather than updating some last node
+
+or anything like that will update this head like so.
+
+All right let's check our tests and see how we're doing.
+
+And yep looks good.
+
+Adds to the end of our list.
+
+Cool.
+
+All right.
+
+So that's pretty much it for some of the easier methods that we're going to work on.
+
+So some of the later ones are we are going to work on now are variations of some of the methods that
+
+we've already put together so you can see that we're going to put together methods like get at which
+
+is supposed to return the node at a specific index remove at and insert at.
+
+So these are all going to be methods that modify or retrieve some data at any possible element or any
+
+possible index along our linked list.
+
+So all these methods right here are going to be kind of variations on what we've already done.
+
+But they're going to really test your knowledge and make sure that you can really understand what is
+
+going along with a linked list.
+
+So let's take a break and start on our get at function in the next video.
+
+------------------------------------------------------------------------------------------------------------
+
+87. Pick Em Out with GetAt
+
+In this video we're going to start tackling our get at method.
+
+So I think you have probably a reasonable idea of what we're trying to do here.
+
+We want to iterate through our linked list and find some element at a given index which we provided
+
+to us as an argument to get at function.
+
+So this right here is going to be the mentors.
+
+Scuse me the index we were trying to retrieve.
+
+Now one very important thing to keep in mind here is that link lists are zero indexed just like arrays.
+
+So the very first element in our linked list would have an index of zero.
+
+So if we said get at with zero being passed into the function that means give me the first node in the
+
+chain after calling get at we would want to make sure that we return the entire node.
+
+So not just the data inside the node but give us the entire node at that particular index.
+
+So in this video I can give you kind of an outline of one possible way of doing this.
+
+Again this is not the only way of tackling this problem.
+
+But this is one possible way that's going to work all the time.
+
+All right.
+
+So here's our linked list.
+
+We're going to imagine that we want to retrieve the node at index 2.
+
+So this would be index 0 index 1 and index 2.
+
+So if we got an argument of 2 into our function that means give me the red node.
+
+Essentially that's what we're trying to find right here.
+
+So as one possible solution here's what we're going to do.
+
+We can start off by creating a node temporary variable or temporary variable called node that will start
+
+off looking at the first node in our chain.
+
+We will then create a counter variable called Zero.
+
+We will set up a while loop and will say if the index that we want is equal to counter then we must
+
+have reached the node we care about and take the current node and return it from the function.
+
+Otherwise advance through to the next node while also incrementing the counter variable.
+
+So this would now be set to 1 because we're now looking at the node at index 1.
+
+We check to see if counter is equal to index.
+
+They still are not.
+
+So we will advance the counter and advance the node that we are pointing at.
+
+Now in this case index and counter are equal to each other which means that we probably want to return
+
+the current node.
+
+So that is again one possible way of handling this.
+
+But if you can think of some other way.
+
+Hey feel free to go for it before we cut you loose.
+
+Remember that we need to enable our tests inside the test not J.S. file.
+
+So inside the test not just file a law around like 150 or so of find the described block for get apt
+
+and we'll delete the skip on there.
+
+And now back inside our terminal we should see the failing test for the good at method right here.
+
+OK.
+
+So go ahead and give this a shot.
+
+All catch up with you in the next video.
+
+And we're going to go through a solution to this together.
+--------------------------------------------------------------------------------------------------------------------
+
+88. GetAt Solution
+In this video we're going to go through the solution to the get method together.
+
+Now before we start writing any code here there's one or two extra cases I want to tell you about.
+
+I specifically didn't mention these in the last video just to give you the chance to think about them
+
+on your own.
+
+So there are two edge cases that we need to kind of be aware of here.
+
+The first edge case would be the case in which we have no nodes at all.
+
+So maybe we have an empty linked list but maybe some developer calls get at on our linked list.
+
+We need to make sure that we don't accidentally crash here or do anything like that.
+
+So again we can do a simple check to see if we have at least one node and if we do then we could just
+
+go ahead and immediately.
+
+Assuming if we have at least one node we can iterate through.
+
+Otherwise if we don't have the head node then that means we should probably immediately return something
+
+like NULL to say no we can't find that index or can't find that element.
+
+Now the other thing I want to mention here is a possible edge case is if this method is called with
+
+some index that is outside of the realm of our linked list length.
+
+So someone called get at with an index of 12.
+
+Well clearly our linked list is not that long.
+
+So maybe we should handle that case as well.
+
+Now for handling that case we could either call the get size method or just excuse me the size method
+
+before we start doing any iteration and check to see if the size is greater than our index here.
+
+But recall whenever we call size that is going to iterate through our full list of nodes.
+
+So if we call size at the very start and then decide OK they are asking for a valid index we would then
+
+iterate through a list again to find the appropriate node in which case for essentially iterating through
+
+our entire linked list twice which is obviously not the most efficient thing in the world.
+
+So we'll talk about another way of handling the case in which someone asked for an index that's out
+
+of bounds.
+
+Without doing that initial look up of this size.
+
+OK.
+
+So back inside my index dodgiest file at the very bottom of our class we will add on get at member this
+
+we called with some specific index and then just look like we've done on several other methods.
+
+The first thing we'll do is check to see if there is a head node.
+
+So if there is not a head node then just immediately return NULL because we have nothing to iterate
+
+through no more work for us to do.
+
+We're done.
+
+Now if we succeed in this check right here then we will start up our main algorithm.
+
+So remember our algorithm is going to take a node temporary variable that's going to start off looking
+
+at the first note and 8 counter temporary variable.
+
+We're then going to iterate through our list one note at a time and for every step we'll check to see
+
+if counter is equal to index.
+
+If they are not equal then we will advance node on to the next node in the chain and we will also increment
+
+the counter variable.
+
+So I'll set up my counter variable at 0 and my node variable to look at the first node in our chain
+
+which is just knothead.
+
+Next we'll put together our while loop.
+
+So as long as there is a node present as long as node is defined here then there is something for us
+
+to do.
+
+So inside the while loop We'll check to see if counter is equal to the index that we are trying to retrieve.
+
+So if these two numbers right here are equal that means we have found the node at the given index.
+
+We're trying to find.
+
+So if this if statement is entered right here we will immediately return node.
+
+Now if we don't meet this statement right here that means that we have not yet reached the index that
+
+we care about.
+
+And in that case we will want to advance our note along and also increment the counter.
+
+So we'll say counter plus plus.
+
+And then to move along our node reference we'll say the new node is going to be equal to node next.
+
+So remember if no next if we're at the end of the chain and no debt next is null then we will sign no.
+
+2 No.
+
+Right here on the next iteration of the while loop We'll look at the value.
+
+No that's falsie.
+
+And so the while loop will exit right away.
+
+All right.
+
+Now the last thing we need to think about is the case in which we tried to ask for an index that is
+
+out of bounds.
+
+So if we reach the end of our linked list like let's say we go over to this node and we were asking
+
+for index 12 then we would increment or count again we would try to move node onto node next and there
+
+would now be looking at the value.
+
+Which is presumably over here.
+
+So if that happens if we tried to look at a note of Noal before we get this statement right here then
+
+we would just exit the while loop entirely.
+
+And so we exit the while loop.
+
+That means that we were unable to find the correct node.
+
+So if we exit the while loop we can simply say return NULL because hey we couldn't find it.
+
+You asked for an index that we did not retrieve while running the while loop right here.
+
+All right now there's one more thing I want to point out here a little bit of code consolidation that
+
+we can do.
+
+So notice how the check to see whether or not we enter this while loop is to look at the node variable
+
+and node is initialized at this dot head.
+
+So if this knothead is equal to NULL.
+
+We will never enter the while loop and we will immediately return knoll instead.
+
+And that's essentially exactly what this statement up here was already doing.
+
+So in this particular case the statement is actually completely unnecessary because if this head is
+
+not defined node will be a false value.
+
+We will not enter the while loop and we will instead immediately return NULL.
+
+So in this particular case we can safely delete the if statement at the top.
+
+All right.
+
+That looks good.
+
+I'm going to save this file.
+
+And let's see how our tests are doing.
+
+And yet it looks like it is working correctly.
+
+OK.
+
+So that is our solution for the get at method.
+
+Let's move on to our next method.
+
+Remove that which is going to be another fun one in the next video.
+
+So quick break and I'll see you in a minute.
+-------------------------------------------------------------------------------------------------------------
+
+89. Remove Anything with RemoveAt
+
+In this section we're going to take a look at the Remove method so that you could guess what this thing
+
+is supposed to do.
+
+We're going to call remove that with some index of the particular node that we want to remove.
+
+And our job is to simply remove that note.
+
+So the first thing to do is to recognize exactly what it would mean to remove a node in the middle of
+
+some given chain.
+
+So in this diagram over here let's say that given this chain we want to remove the element at index
+
+1.
+
+Again recall that the first element inside of a linked list will always have an index of 0.
+
+So this is 0.
+
+This right here would be the element at index 1.
+
+So our goal would be to remove this element to remove that element.
+
+All we really have to do is find the previous node in the chain and update its next reference to now.
+
+Skip over that one.
+
+So we would end up with something that looks a little bit like this.
+
+Now in theory that node might still exist in memory you know might still be there but as far as our
+
+linked list is concerned it doesn't exist anymore because if we were to iterate through our linked list
+
+now we would go from green directly over to Red and completely skip over blue.
+
+Now this problem remove at is going to be loops remove at is going to be a little bit more challenging
+
+because we need to consider many different edge cases.
+
+At this point in time throughout all the methods we've put together we've kind of assumed that a developer
+
+using our linked list class might accidentally make some type of mistake like they might try to insert
+
+a element at an index above what our current index is.
+
+Or they might try to remove the first node in a linked list that is completely empty.
+
+And I want to continue that same kind of logic with this remove add method as well.
+
+So I want to make sure that our linked list is not going to crash if we call remove that.
+
+When say there are no elements inside the linked list or if we say that we want to remove the element
+
+index one but there's only a single element in the linked list.
+
+I want to make sure that we do not crash.
+
+In this case as well.
+
+And if we try to remove the element index 10 when there's only three elements in here I want to make
+
+sure that we also don't crash.
+
+In this case too.
+
+So there's several edge cases that we need to be thinking about now let's check out our test file really
+
+quickly.
+
+So inside the test not just file or find the described block for remove that which is that line 1 67
+
+or so.
+
+And as usual remove the dot skip on their so I notice that there are tests on here to catch many different
+
+edge cases so it doesn't crash if we call remove that on an empty list remove that doesn't crash.
+
+If we pass an index that is out of bounds of the linked list and then it should be able to delete the
+
+first node.
+
+It should be able to delete some middle node and then finally it should also be able to delete the last
+
+node on the linked list.
+
+All these different cases are absolute edge cases.
+
+These are different scenarios that you have to think about with your given solution.
+
+So this really is one that might be a little bit more tricky than it seems at first glance.
+
+Now if you want you can stick around for another moment and I'll give you one possible solution or not
+
+a solution.
+
+I'll give you kind of guidance towards one possible solution.
+
+So here's one way of solving it.
+
+Let's say that we want to remove the node at index 1 our previous remove method that we put together
+
+the one remove last you'll recall we had a pointer to the first node and then the second node.
+
+And then we kind of advanced those along until we found some node that had a reference of no for its
+
+next value.
+
+And you might be thinking that we can use that same type of approach where we have two of these little
+
+pointers pointing out node one in Node 2 and then we advance them along until we find the given index.
+
+Now there's just one little issue with that solution.
+
+And the issue is that it doesn't really handle edge cases very eloquently like it doesn't really handle
+
+the case in which we want to delete the first element very well without you writing a very discrete
+
+if statement to handle that case.
+
+So you could definitely take two references like a reference to some previous element and then some
+
+current element and iterate through the chain.
+
+You can definitely do that.
+
+You just need to be aware that you're going to have to write a lot of code to handle to handle those
+
+cases nightly.
+
+Nicely excuse me.
+
+So here's one possible solution.
+
+One possible solution is to reuse the get at method that we just put together.
+
+So remember we just did get at two seconds ago and that retrieves the element at some particular index.
+
+Now rather than calling get at with the index that we're trying to retrieve we could call get at and
+
+try to retrieve the element right before the given index.
+
+So let's say that we're trying to remove the element at index 1.
+
+We could call it get at with an argument of 0 and that would give us a reference to green right here.
+
+Then we could update the next property on this thing to look over to read like so.
+
+So again just like we spoke about previously reusing methods in an interview setting is the best thing
+
+in the world because it shows that you know about code reuse and you can effectively reuse your code.
+
+And it also allows you to come to solutions that are dramatically more straightforward than other complicated
+
+ones might be.
+
+Now one thing I want to throw out there is that even with this situation right here there are some corner
+
+cases that you have to check because there still will be some corner cases and I'll let you figure those
+
+out and kind of investigate what those might be.
+
+OK.
+
+So go ahead and give it a shot.
+
+Personally I really recommend you try re using the Get at method but it's always up to you if you can
+
+think of a better solution then certainly go for it.
+
+So with that in mind let's take a quick break and talk about a solution in the next video.
+-------------------------------------------------------------------------------------------------------------
+
+90. RemoveAt Solution
+
+In this section we're going to talk about one possible solution to the Remove method before we start
+
+writing any code.
+
+I want to identify two very easy to find edge cases that we're going to need to handle.
+
+So the first edge case I want to think about is the case in which we have no nodes in our chain at all.
+
+So we have no nodes.
+
+Then we should immediately return.
+
+And remember we can check to see whether or not we have any nodes by looking at the this property.
+
+Now the second solution or the second edge case that I want to talk about here is the case in which
+
+we are trying to delete the first node.
+
+So the possible solution I laid out at the end of the last video was to reuse that get at method so
+
+we can reuse get at to try to find the node at the index less one less than the one that we're trying
+
+to remove.
+
+So in this case we had said oh yeah let's try to remove the element at index 1.
+
+So even this one right here.
+
+So we could have used get at to find the node right before it.
+
+So what happens however.
+
+Here's the edge case what happens if we are trying to remove the node at index 0.
+
+In this case there is no previous node.
+
+So there's nothing over here.
+
+So we need to make sure that we handle the case in which we are trying to delete the very first element
+
+as well.
+
+So those are two corner cases I can immediately think of.
+
+There is one more corner case but it's only going to kind of become obvious later on through our solution.
+
+So we'll come back to this diagram in just a little bit and talk about what that third corner cases.
+
+All right so back inside my index file I'm going to add on my remove at method which is going to get
+
+called with some argument index.
+
+So this is going to mean the index of the element that we want to get rid of.
+
+So the first thing we'll do is check to see if our list is empty.
+
+So we'll say if there is no head element then just immediately return.
+
+Let's checked our test and see how we're doing over here.
+
+So looks like move out is now passing the first test here which is to not crash on an empty list.
+
+You'll notice that there is another method here that says make sure that you don't crash on an index
+
+out of bounds and it looks like we are passing that one as well but it's only saying it doesn't crash.
+
+Right now we're not really doing anything at all so that test might be passing kind of erroneously at
+
+this point.
+
+Now the next case that will take care of is the case in which we are trying to remove the head element.
+
+So if index is equal to zero if we're trying to remove the very first element the element at index of
+
+0 then we don't want to try to use any fancy algorithm here or anything like that.
+
+We're going to repair that chain or we're going to update the chain very manually.
+
+In this case.
+
+So we'll say this dot head will be this dot head dot next.
+
+So in other words rather than pointing at this first element right here point at the second one in the
+
+chain and that effectively removes the first element.
+
+And remember this will work.
+
+Even if the list only has one element inside of it if there is only one element here the next value
+
+would have been null.
+
+So if we point head at an old that still works the way we expect it to because if we remove the only
+
+elements well then our list is empty and heads should be pointing at all.
+
+All right.
+
+So if we meet this if statement right here we need to also make sure that we meet the return from the
+
+function as well because we don't want to execute any other logic.
+
+And here's where things start to get a little bit more interesting.
+
+So here's where we're going to reuse our get at method.
+
+We're going to you reuse get at to attempt to find the previous node or the one right before the one
+
+that we are trying to remove.
+
+So if we are trying to move the index at one I want to get the element at index 0.
+
+So we'll say conc previous Is this dot get at index minus 1 so noticed the very clear choice of variables
+
+here.
+
+We're saying this is going to be called previous Just to make sure that it's very clear to any reader
+
+that we are finding the previous or the node occurring right before the one that we're trying to remove.
+
+One thing I would really encourage you not to do is to call this something like note because then the
+
+meaning is kind of lost and we have to ask the question OK is this the node we're trying to delete.
+
+Or is this the node right before the one we're trying to delete.
+
+And there's really no ambiguity there.
+
+If we call it previous or something similar to it.
+
+All right so now here's where we start to run into some other corner cases.
+
+The first thing I want to do is to kind of put together the direct solution and then we'll worry about
+
+the corner case we'll see the corner case or the case start to fail on our tests in just a moment but
+
+let's first try to get our stuff working.
+
+So if we found the previous node.
+
+So if we found this one right here we need to make sure that we update the next property to look into
+
+the future.
+
+So I want to make sure that previous dot next looks at previous dot next which will be this one next
+
+which would be this one.
+
+So that's going to be a little bit weird looking.
+
+We're going to say previews start next.
+
+So the next node we should be looking at is the current next dot next.
+
+So this is a confusing line of code just one more time let's look at the diagram very quickly.
+
+So at present when we first run that line of code previous start next is looking at blue.
+
+The one that we want to look at will be previous dot next dot next.
+
+So that's previous dot next dot next.
+
+And we're going to assign that to previous start next.
+
+So that's what's going to leapfrog blue right here.
+
+And make sure that we point directly at red.
+
+All right let's see this and see exactly what happens because I'm not entirely sure that we're going
+
+to get the correct result in all cases.
+
+So if I flip back over here is remove at.
+
+And you can very quickly see that remove at is crashing on an index that is out of bounds.
+
+So here's the third corner case.
+
+This is the case in which we accidentally call remove out on an index that is greater than the total
+
+number of nodes that we have inside of our linked list.
+
+So this to be the case for example in which we try to call remove out with an index of 12 when we only
+
+have three elements here.
+
+So this is going to be a solution or something that we can probably figure out a solution to pretty
+
+easily.
+
+Remember that the get method is wired up to return null.
+
+If we try to find some element that doesn't actually exist inside of our linked list so we can exploit
+
+that to put in a little bit of check of a check to make sure that we are actually retrieving a valid
+
+previous element right here.
+
+So right before we tried to update previous next will say if previous does not exist then just return.
+
+So this right here would handle the case in which we'd just attempted to ask for an index that was out
+
+of the bounds of our linked list.
+
+So let's see how our tests are doing now.
+
+Well it looks like that test is still failing.
+
+So what situation could this be failing it.
+
+Well this is a very very court case.
+
+But let's look back at our diagram and try to think about One More corner case in which this might fail.
+
+OK.
+
+So back to the diagram right here.
+
+Let's imagine that are linked list has three notes.
+
+Exactly as it does right here.
+
+And then let's say maybe we tried to call remove that with an index of three.
+
+So what would happen here.
+
+Remember index zero index 1 index to index three is not.
+
+There's nothing here when we called good at with index minus one that would retrieve the previous element
+
+which would be red.
+
+So in this case when we called Get at it did successfully return an element something does exist here.
+
+However the next element in the chain is null.
+
+So when we tried to call previous next this returns null and when we then call it next on that with
+
+this extra dot next on here we are trying to read the property dot next of undefined and that's where
+
+the error is coming from.
+
+So this is a super edge case in which we are trying to remove the index at the one or the index.
+
+Essentially one larger than the total size of our linked list right here.
+
+So a huge edge case just to be aware of.
+
+So to catch this situation we can add on another statement or another condition to our IF statement
+
+right here to make sure that we have a valid previous node to work on.
+
+So will say if previous was not found or if previous does not have a next note.
+
+So if we were not able to retrieve the note at the given index or if that node is actually the last
+
+one then hey you know what we need to return.
+
+We can't possibly remove the node at the provided index.
+
+So let's save this and now see how we're doing.
+
+So back over at the Turnell Yup looks like we got all test passing.
+
+OK.
+
+So this was you know a method where at first glance it seemed very similar to some of the other ones
+
+that we wrote.
+
+But when you really start to think about it there are several edge cases that we had to consider.
+
+So we did come to a solution which is fantastic.
+
+Now there's just one more method that we're going to work on.
+
+That is kind of a repeat of all the ones that we've already done.
+
+So let's tackle that one in the next section.
+
+It's going to be insert that.
+
+So we'll tackle that in the next section and they'll move on to two additional possible steps here that
+
+are a little bit more advanced.
+
+So quick break and I'll see you in just a moment.
+
+------------------------------------------------------------------------------------------------------------
+
+91. Insert Anywhere with InsertAt
+All right this is going to be the last of these simple manipulation methods that we're going to put
+
+together.
+
+So we're going to work on the insert at method insert at will be called with some amount of data and
+
+then an integer index of where this new node should be inserted.
+
+So we want to create a new node and insert it at the provided index.
+
+Now important edge case here.
+
+If the index is out of bounds then we'll want to add the node to the end of our list.
+
+So just a little edge case there.
+
+OK.
+
+I bet you can kind of imagine how this might work.
+
+Let's imagine that we have some list with three elements and we now want to add in a fourth one just
+
+to be clear when we call insert at we're going to be only providing the data field.
+
+So really just this part right here.
+
+But we're going to kind of imagine that we immediately create a new node out of that data inside of
+
+the insert meant insert at method.
+
+Now we want to insert this new node right here at index 2.
+
+So we've got index zero index 1 and index 2.
+
+Now when we call Insert out we are not overwriting anything.
+
+We are simply inserting a record.
+
+So the goal here would be to make sure that this new node gets located at index 2.
+
+That means that the current node that has that index too needs to be shoved on over to the right hand
+
+side like so we should then insert this new node
+
+and then repair all the connections.
+
+So the previous element or the previous node should now point to the new one that we just added and
+
+the new node should point at the previous element that was that index too.
+
+All right.
+
+So let's talk about how we might approach this.
+
+Now there are a couple of edge cases here again we need to remember that the case in which we try to
+
+insert a node in a list that is completely empty.
+
+So let's not forget about that one.
+
+The next case that we might want to consider is the case in which the provided index is completely out
+
+of bounds.
+
+So something like You know we try to call out inducts with 12 if the index is completely out of bounds.
+
+Then we should probably add on the index to the very end of the linked list.
+
+All right so those two edge cases in mind here's one possible way just a general rule of thumb of solving
+
+this we can again use that get at method to get a reference to the previous node in a chain.
+
+So let's say that again we're trying to insert something at index 2.
+
+Like right here we could use the get at method to get a reference to the previous node.
+
+So this one right here.
+
+We will then create the new node we'll make sure that the previous one points to the new one and that
+
+the new one points to the old one.
+
+So really it's not the worst thing in the world.
+
+I bet you can probably figure this one out.
+
+All right before I cut you loose Let's also take a look at some of the tests that we have around this
+
+particular method.
+
+So one side of the test.
+
+J.S. file here.
+
+I'm looking at around lying to 20 or so and we're looking at the insert at block.
+
+So again we're going to take care of the skip here.
+
+And I want to very quickly read through some of the edge cases that will be tested.
+
+So here's one possible edge case.
+
+Insert a new node with data at the index 0 when the list is empty.
+
+So that's one possible edge case.
+
+Another case would be when we tried to insert a new node at index 0.
+
+When the list has elements inside of it.
+
+So that's going to the edge case as well.
+
+And then here's a very typical use case the case in which we tried to insert some data or insert some
+
+new node at some middle index.
+
+And I think there might be one more here.
+
+Yes.
+
+So inserts a new node at the last index.
+
+So this may or may not be in edge cases.
+
+Well I'll let you kind of figure that out.
+
+All right so this is the last big one before you start working on two extra methods that are kind of
+
+like extra credit so to speak.
+
+So give it your best shot and we'll go over the solution to this in the next video.
+---------------------------------------------------------------------------------------------------------------------
+
+92. InsertAt Solution
+
+In this video we're going to go over the solution to the insert app method.
+
+I'm inside my index file.
+
+I'm going to give myself a little bit of space here and then will add the insert at method so it will
+
+take arguments data and index and then inside of here we're going to do a little bit of work.
+
+So the first thing I want to do is check the case in which our linked list is currently totally empty.
+
+So this has been a very common theme throughout many of these methods.
+
+I want to make sure that if our list has no elements inside of it then we should create a new element
+
+and point our head property at that new element so inside of insert that will say if this dot head does
+
+not exist.
+
+So note the exclamation right here then this dot head will be a new node with the data that was passed
+
+into our function and then very importantly will want to make sure that we immediately return.
+
+So let's say this and see how our tests are doing back over at the command line.
+
+Here is insert that it looks like we've got a number of different tests here.
+
+So this is now passing our first one where we are trying to insert some data at index 0 when the list
+
+is empty.
+
+So those are pretty easy one.
+
+Next we're going to take care of inserting a new node with data at the zero index when the list does
+
+have some elements.
+
+So just like the previous one when we used get at on our remove at method or Sumi room remove at method
+
+that we just put together a moment ago.
+
+You'll recall that there was an edge case if we tried to insert something at index 0.
+
+If we tried to get the previous element before index 0 Well there's nothing there.
+
+And so if we try using a similar get at index minus one scheme again we'll need to make sure that we
+
+handle the case that we're trying to get at the element of index zero.
+
+So essentially right after this statement will say if the index are trying to insert out is zero then
+
+we're going to take care of this one manually.
+
+So we'll say that the new head.
+
+So this dopehead is going to be a new node with data and then remember the node construct right here
+
+takes a second element or a second argument.
+
+The second argument will be used as the next reference inside the node that is created.
+
+So if we pass in here the current head then we will make a new node that has a next property of the
+
+current head.
+
+And so if we put that into diagram format over here it will look a little something like this we would
+
+call new node to form up this orange thing right here.
+
+We pass in the current head which links it up on the next property.
+
+And the last thing we have to do is to make sure that we update the head of the linked class to look
+
+at this new node that we just created.
+
+And so back over here that's why we assign it to this knothead support index of 0.
+
+Pretty straightforward solution now again will want to make sure that if we caught this case right here
+
+as edge case of index 0 we want to make sure that we immediately return from this as well.
+
+All right now it's on to our last big case the case in which we are at some middle element or no who
+
+knows whatever it might be.
+
+So in this case we're going to want to try to find the previous element or the one right before the
+
+one that we're trying to add for our new node.
+
+So let's imagine that we have index of two here.
+
+That would mean that we want to kind of displace read.
+
+So we're going to try to you call get at with index minus 1 to find the previous node.
+
+So we will say conc previous Is this dot get at index minus 1.
+
+So this will give us the previous note.
+
+We will then create our new node.
+
+And just like we did previously.
+
+Or just like we saw in that previous corner case over here.
+
+When we create this new node we will pass in the current node after previous.
+
+So right now we just have a reference to previous The Current.
+
+Next will be read over here right.
+
+So we're going to create orange right here.
+
+And when we create orange we will pass in red as the second argument to it.
+
+And so that will automatically make sure that orange gets hooked up as that red gets hooked up as orange
+
+is next property.
+
+Now blue over here is still looking at red.
+
+So we've now got two nodes that will be looking out red but we'll fix up that in just a moment.
+
+So back inside my code editor will say conc node.
+
+So it's going to be the new know that we're going to make will be new node it will contain the data
+
+that was passed into our function and then the next node will be previous next.
+
+So again previous right here would have been blue.
+
+Previous is current next property is looking at red and we want orange to paint it red as well.
+
+And so we pass in red as the second argument to form this connection and then the last thing we need
+
+to do is to make sure that previous now looks at the orange node.
+
+And so it's form that connection we can say Previous Next is node like so.
+
+All right let's see how our tests are doing.
+
+OK.
+
+Well it looks like we've got almost everything passing but there's still this one test right here that
+
+is failing.
+
+So the case in which we are trying to insert a new node when the index is out of bounds.
+
+So we saw this previously.
+
+Remember this would be the case in which we tried to call add or insert out excuse me with an index
+
+of something like 12.
+
+So if we called get at with 12 the value nil would be returned.
+
+So let's kind of diagram that out and think about what might happen in that case.
+
+So I'm going to undo a couple of elements here.
+
+Let's move this one back over and I'll bring on a text Sahlmann over here to represent null.
+
+So if we have good index of 12 when we call get at we're going to get no returns.
+
+And so the previous variable will be referencing no.
+
+Now all of our code is going to work.
+
+Nothing's going to crash.
+
+We're going to create our new node and its next property we'll be looking at.
+
+No.
+
+So we can kind of imagine that we are in this type of situation right here.
+
+But the problem is that red is not looking at Orange remember that the directions by the way had said
+
+specifically that if the index was out of bounds that node had to be added to the end of the list.
+
+And that's the case that we're handling right now.
+
+So Orangery point putting it all which is OK that's what we expect it is now going to be the last node
+
+of our list but we need to make sure that red somehow gets updated to point at Orange over here.
+
+So realistically we really need a reference to read.
+
+That's what we really need right now.
+
+So one way of handling this would be when we try to get this started get an index minus one.
+
+We can say if this returns a falsie value right here then instead we want to consider the previous node
+
+to be the last node of our chain.
+
+So let's write that out for a second here watch that we're going to say or this dot get.
+
+Last like so.
+
+So if this function call right here returns a falsie value then we will go into this or case and we
+
+will instead run this line of code right here which is to say Go and get the last node in our chain
+
+so get lost will be assigned to previous.
+
+We will create our new node and the new nodes next property will be previous start next which had been
+
+known as well and then previous done.
+
+Next will be now updated to node.
+
+And so this line right here will make sure that red is now pointing over to orange.
+
+So let's save this file and see how our tests are doing now and we're passing everything.
+
+Awesome.
+
+OK.
+
+This has been one of the harder ones especially thinking about some of the different corner cases here.
+
+So let's now move onto the next video we're going to talk about one little extra topic that I just want
+
+to throw out there is something it's kind of interesting about our linked list implementation.
+
+And then immediately after that we'll talk about this for each and for of loop implementations for our
+
+linked list.
+
+So a quick break and we'll come back in the next video.
+------------------------------------------------------------------------------------------------------------------
+
+
+93. Code Reuse in Linked Lists
+
+Before we move on to the next piece of our linked list implementation there is one kind of interesting
+
+thing that I wanted to point out here that might be relevant in an interview setting.
+
+Let's imagine for a second that your interviewer went through all the same task that we just went through
+
+where they said OK let's build a linked list.
+
+And they said let's make insert first get first get last.
+
+All these kind of good methods.
+
+And then maybe at the very end they said hey let's implement good at remove and insert that.
+
+Well there's kind of a very interesting relationship between get at and get last and get first.
+
+So if is get at it allows us to get some element at a given index and then we have get first which is
+
+always going to return the element at the very first index or the first Delman side of our linked list
+
+and get laughs which will always return the element at the very end of our list.
+
+So when we really think about it writing get first and get last as separate separate implementations
+
+might not have been the best idea in the world.
+
+Here's why.
+
+Rather than writing all these separate insert first insert last remove first remove first last get first
+
+and get last.
+
+We could have just written insert at remove at and get at.
+
+And then provided some appropriate arguments to each of those to manipulate some given index.
+
+So in other words we could have just written these three methods alone and nothing else and that would
+
+have achieved the same effect as writing all of these other ones.
+
+So if you're sitting in an interview and your interviewer says OK let's make a linked list and maybe
+
+you should write a method that retrieves the first element.
+
+Maybe that would be a good time to ask them and say hey are we going to be doing any retrieval of any
+
+other elements because if we are maybe I shouldn't write an insert first method maybe I should instead
+
+write an insert at method that was going to go such an incredibly long distance in an interview setting
+
+to have that kind of forward looking thinking to me to tell your interviewer Hey maybe here's a better
+
+way to put together this solution.
+
+Oh man.
+
+Personally if I was interviewing you that would blow me out of the park.
+
+So is this just an example of something I want to throw out there where if you're in an interview setting
+
+it is totally appropriate to suggest something like Hey I'm rather than writing these very specific
+
+functions.
+
+Maybe we should try to write something a little bit more generic.
+
+Now just to give you a good idea of how this would be put together in practice.
+
+So I've taken our class linked lists and I just condensed all the functions here.
+
+I'm going to uncondemned some so I'm going to unfold it all.
+
+That did not work the way I expected it will do is to talk to you instead.
+
+There we go.
+
+So one possible way of doing this would be to say rather than calling insert first rate here we could
+
+have called this dot insert Act passed in data and then hardcoded a index of zero because index zero
+
+is always going to be the first element.
+
+So let's say this and see if our test will pass.
+
+So save the file and going down here.
+
+Yup.
+
+Tests are still passing and then we can very well continue on through our implementation here.
+
+So in some cases maybe it's a little overkill like in the case of get first right here but hey why not.
+
+So maybe this would be return this dot get at with index of 0.
+
+Looks like we're still passing Get last would be not this long implementation.
+
+I'm not going to beat this one let's say this code commented out instead.
+
+And this might be return this dot get at this dot size minus 1 and that would still be passing.
+
+I think you get the idea here.
+
+So we could very easily go through all these more specific functions and replace them with the much
+
+more generic at functions that we had put together previously.
+
+So again this is just something I want to throw out there as something to keep in mind when you are
+
+in an interview setting.
+
+OK so then mind let's continue the next section where we're where we are going to talk about two additional
+
+topics about linked lists and then we'll move on to some specific interview questions that feature linked
+
+lists.
+
+So quick break and I'll see you in just a minute.
+-----------------------------------------------------------------------------------------------------------------
+
+94. List Traversal Through ForEach
+
+Up to this point in time we've taken a look at a lot of different methods that help us kind of manipulate
+
+single elements or delete or remove elements but always one element at a time in our linked list in
+
+this section we're going to start working on a for each function.
+
+This will allow us to pass in our own custom iterator function that will then be applied to every node
+
+inside of our linked list.
+
+So perhaps the best example of this would be to look at their code example over here on the far right
+
+hand side.
+
+So if we make a list and then we insert 1 2 3 4 in order we should then be able to call list for each
+
+pass in our own custom function right here.
+
+Then in the body of the function we should see this thing getting called four times.
+
+So my inner function right here is me for called four times one for each node in our linked list the
+
+node should be passed in as an argument along with the index of the given node.
+
+So if we iterate through every node on the chain and add 10 to every data field then after running this
+
+line of code right here if we pulled out the first element we should get back a node with data of 11
+
+specifically the number 11 not the string here.
+
+I know those quotes are a little misleading.
+
+Now it's specifically B 11 because we looked at this number one right here and we added 10 to it.
+
+Every other node in the chain should have 10 added to it as well so would be 11 12 13 14.
+
+I just gave you an example of what that very first node would look like.
+
+OK.
+
+So this is a example where I would really like you to give a shot at it on your own.
+
+I can give you a hint or two.
+
+Essentially you're going to be iterating through our linked list and then for every node in the list
+
+you will call the provided function.
+
+So this will be a function that is provided as an argument for each let's not forget to enable our test
+
+as well.
+
+So over in the test file or scroll on down to a line to 75 or so and we'll make sure to take out the
+
+dots skip.
+
+And so you can see in here it's essentially running the same tests that we just saw inside of the example
+
+field.
+
+So we're going to insert one two three four iterate through it.
+
+Add 10 to every element and then just make sure that the totals are the data field of every one of those
+
+numbers was updated correctly.
+
+So go ahead and give this a shot and we'll talk about a solution in the next video.
+----------------------------------------------------------------------------------------------------------------
+
+95. Note on Generators
+----------------------------------------------------------------------------------------------------------------
+
+96. Brushup on Generators
+
+I'm here on the official documentation for battle we use battle to translate ESX or yes 20:15 code to
+
+compatible S-5 code so that we can run in today's modern browsers Babel has a lot of documentation on
+
+their useful stuff like say destructuring default rest and spread God Letten Collins.
+
+Of course that old standby.
+
+And we start getting into some more interesting stuff that you don't see quite as often on tutorials
+
+about as 20:15 stuff like say iterators and then today's topic which is generators though generators
+
+are definitely something that kind of mysteriously gets skipped out on on a lot of yes 2015 tutorials
+
+for some reason like it a lot of people don't talk about it too much.
+
+I can give you a very good reason why it's because generators are pretty tough to get wrap your head
+
+around.
+
+Even if you read the official documentation here it says generator's simplify iterator authoring using
+
+function start and yield.
+
+OK.
+
+And that's not quite really explaining what's going on with him or even what's going on with this example
+
+right here.
+
+So let's spend a little bit of time to X explore generators and specifically I want to explore generators
+
+around the topic of writing iterators or giving us the ability to iterate through a collection of data.
+
+So let's talk a little bit about generators.
+
+I flip over to a little tool here that I authored to walk through generators.
+
+It kind of works like a REPL but with a little bit of a twist.
+
+So usually with a rebel or a javascript REPL you enter some code on the left hand side and then executes
+
+it and spits out like the Singler result or some similar result on the right hand side.
+
+So this replow of sorts has a little bit of a twist to it.
+
+If I define a function called say increment
+
+and from here I return 1 plus number.
+
+I can now call increment say 10 and I can put multiple calls on here.
+
+You can see that every time I call increment I get a result over on the right hand side.
+
+But now here's the interesting part.
+
+If I start changing the value all the other results stick around and only the number that I change is
+
+going to update on the right hand side.
+
+So I've put in 4000 here in 30 here 9 9 9 there and negative 5 4 4 9 9 whatever at the very top.
+
+And you can see I get the instant update on the right hand side.
+
+And then if I change the return value from 1 to say 1000 all in numbers update on the right hand side
+
+as well.
+
+So basically any statement on the left hand side that returns some printable value will be reflected
+
+on the right hand side as well.
+
+So we're going to using this tool a little bit to walk through generators.
+
+Let's go and get back on topic though defining a generator.
+
+The syntax is a little bit weird definitely dissimilar from any every other bit of syntax ever seen
+
+in javascript before.
+
+So to find a generator we write the function keyword and then a star for some crazy reason here and
+
+then a name for the function the the.
+
+Here it can go either to the left or the function name or to the right of the function keyword.
+
+I've seen a lot of differing opinions on which side it should go on.
+
+So at this point in time go with whatever floats your boat.
+
+Now let's add a little bit of content in here and then talk about what's going on with this generator
+
+and say Konst results equals one plus one.
+
+So we're gonna have just very simple example here.
+
+And this is where things get really weird and say yield result.
+
+So now this is looking pretty strange.
+
+You know first off we've got the star which marks this as a generator.
+
+The sun really said what a generator is of course and we've also got this yield keyword in here as well.
+
+We're going to go ahead and without any real description of what's going on.
+
+Let's see what happens when I say execute this functionality and say Konst generator is numbers I'm
+
+going to execute numbers right here.
+
+So whenever I run numbers it returns a generator object.
+
+By convention you can call this thing generator.
+
+Jan list of numbers again.
+
+I haven't really seen a lot of good convention on what to call this return value.
+
+So the first thing you might be thinking here is not thing.
+
+OK well we're running the function numbers.
+
+Well we are executing one plus one.
+
+And then I don't know something with yields and we're adding 20 to it so I guess maybe the result we
+
+should get here is 22.
+
+So let's see what generator is.
+
+So when I print out generator I get empty object over here.
+
+So I had expectation that we had out of number as a result but looks like we get an object back.
+
+That's definitely strange.
+
+It so we can use this return generator object to manipulate or walk through segments of the coding here.
+
+So I would call generator Dighton next Nelson and we get back a interesting Valley value of two with
+
+a another property of Duyne false.
+
+So this is an object right here that generator doesn't access returning.
+
+So here's what generators are doing.
+
+Here's like you know the big summary of the big buildup when we define a generator we call the generator
+
+and call.
+
+Next on the return value.
+
+We call darte next the code inside the generator is going to execute until a yield statement is found.
+
+That's like the interesting part.
+
+A yield statement is found execution of that function is pots.
+
+So let's take a look at a diagram here and see if that can help us figure out what's going on.
+
+So we've got this function called numbers right here it's the generator when we call Konst Jan equals
+
+numbers so we get some result being assigned to Gen returns a generator object.
+
+So this generator object has the ability to step through the function with the next method.
+
+So we called Gen generator next.
+
+And it caused us to kind of step through the generator called generator value multiple times.
+
+And so the first time we called Next like generator does next it's going to execute everything in the
+
+green code so everything all the way up to the first time that we find a yield state.
+
+Every place a yield statement if we place a value directly off of it after it that value will be returned
+
+from the first call to generator next.
+
+And so that's what we saw here we call generator.
+
+Next we called yield that paused execution and the return was the result was just result.
+
+And that's why we saw a value of two here because we had results one plus one.
+
+And then we yielded results.
+
+Now here's where things start to get really interesting and definitely a little bit less predictable.
+
+I can now call generator dot next a second time to resume by function here.
+
+Resume execution of my generator.
+
+So if I call a generator next again you'll see I end up with no.
+
+And so that's kind of strange why do I have no mole here.
+
+Well try passing a number here and just see what happens.
+
+So I get a pass in 10 and you'll see that now value gets incremented to 30 right here.
+
+So here's the really hard to par really hard part to understand about generators is the part that's
+
+really hard.
+
+The first time I called next generator executes all the way up to the yield statement and then it automatically
+
+returns whatever was yielded.
+
+In this case result the next time I call generator again next if I pass that value that value will be
+
+inserted in place of the yield statement.
+
+So when I make the second call right here this generator doesn't X with 10.
+
+You can kind of imagine that this highlighted portion right you're suddenly magically becomes the value
+
+10.
+
+And so we then return 20 plus 10.
+
+And the result is 30 over here.
+
+OK so that's in practice what generator's do we call next it will run all the way until we have a yield
+
+statement.
+
+We can call next again and then we'll pass the value back into the generator and continue the execution.
+
+So you obviously know nothing at all right.
+
+Well that sounds not very useful at all.
+
+Well let's look at a little bit more complicated examples and then talk a little bit more about what's
+
+going on.
+
+So I'm going to delete all the code that we have right now and I to create another generator called
+
+list outside of here.
+
+I'm going to put a bunch of old statements and it's a yield one to
+
+three four five.
+
+That's got to change the numbers.
+
+So we're going to count up 1 through 5 3 4 5.
+
+Now again I can call a tossed generator list if high yield.
+
+Excuse me if I.
+
+Next.
+
+First I get one.
+
+Because that's the value or what gets yielded by the first yield statement.
+
+I can call a generator next to second time.
+
+That's going to go back into the generator on this line of code and it's going to execute again until
+
+the next yield statement is found.
+
+And the next yield statement returns 2.
+
+And so I get a value of two and I can say generator.
+
+Next again get three and repeat the process so on and so on until I finally get five.
+
+And then at the very end if I have no more yield statements and no return statement either if I call
+
+next again I get done.
+
+True.
+
+Return.
+
+You'll notice that because I did not have an explicit return inside of here I don't get a value on the
+
+very last time.
+
+Very last time I call it.
+
+Now I can keep calling generator.
+
+Next again and again it's just going to keep returning an object that says Done true.
+
+So perhaps that's not I know it's not the worst thing in the world if we keep calling next more frequently
+
+than we need to.
+
+So the idea here is that we can have multiple yield statements inside of a single generator.
+
+So why would we ever want to do this and how does this all kind of tie back to the topic of iterating
+
+or iterating over a collection of data.
+
+Well take a look at it see how things can get really interesting.
+
+I'm going to create a new variable and I call it the same numbers and I'm going to create a for loop.
+
+So I need to save for LET.
+
+Value of generator.
+
+So here's the generator.
+
+And we created a generator which is the return object from calling the generator function.
+
+And now we're going to say let value of generator and for every value that gets spit out of the generator
+
+I'll say numbers not push value.
+
+And then finally after the loop is all done we'll print out numbers.
+
+So you see I get the value 1 2 3 4 5 for numbers right here.
+
+And so this is where generators start to get a little bit more interesting a little bit more useful.
+
+We can iterate over a generator function.
+
+And for every yield statement that we have in here my FOR loop will execute one time.
+
+So I've got five yield statements.
+
+I end up running the body of my FOR loop five times each time the value variable in here is equal to
+
+whatever got yielded out of my generator.
+
+OK.
+
+So you might be seeing this now and thinking OK well all right looks like we can do some amount of iteration
+
+but am I ever going to write like yield 1 2 3 4 5.
+
+Am I ever going to just like you know spit out a billion yield statements.
+
+How is that useful at all.
+
+Why don't I just make an array.
+
+Good question.
+
+Let's expand this example a little bit and see what happens.
+
+I'm going to keep her on the list right now and I'm going to make a separate list which I'm going to
+
+call more numbers and change the name of the first generator just numbers as well.
+
+OK.
+
+So now we've got two generator functions.
+
+And the second one I'm going to yield three yield for Yield 5 and I think that'll do for now.
+
+And then up here inside of the first generator I'm going to change this to 6 and 7 I'm going to make
+
+something that's going to really throw everything into a twist.
+
+I only say yields are more numbers like so than that I'm going to call it.
+
+So again we see this asterisk here now without seeing what's really going to happen here.
+
+What's going on.
+
+I'm now going to create my generator
+
+and then I'll say
+
+make my four loop again my 4 of.
+
+So let values and get some new lines here.
+
+There we go.
+
+So for
+
+less value and this can just be a straight here.
+
+So what value of generator.
+
+And then again I'll say values not push value and they will print out values.
+
+And so now when I print out values you see that we have 1 2 3 4 5 6 7.
+
+So this is just another little feature.
+
+Interesting one that's going to help us with some more iteration if we create two generators we can
+
+nest.
+
+Generators are kind of delegate behavior here.
+
+So we went from yield 1 to and then we said yields star and yields star specifically means.
+
+Hey I'm about to pass you another generator.
+
+The next time that someone calls next on this go into that generator and execute it until we hit a yield
+
+statement.
+
+And so the result is we call numbers first time we call.
+
+Next we get one then two and then we hit the yield the delegates to more numbers so we go into more
+
+numbers.
+
+We get three four five or number says no more yields.
+
+So execution goes back out to six and seven and we get the result 1 3 7.
+
+OK.
+
+So this is still really hard to see where this would ever be useful at all.
+
+Still doesn't feel very useful.
+
+So let's go to a real somewhat practical example still give me pretty theory based but obviously something
+
+needs something in show you can show your friends.
+
+I'm going to use six classes to create a tree class.
+
+And so this will be like a typical computer science tree where we've got a head and then many children
+
+beneath it and create a constructor by default a value of NULL.
+
+And then I can also pass an array of children as well.
+
+I went back.
+
+So then inside of the constructor set the start value equal to value children equal to children.
+
+And then we're going to something very strange very interesting in here.
+
+You to create a generator that is a method on the tree or I should say property on the tree class and
+
+now inside of here I'm going to yield just this stock value.
+
+So let's create a tree this create a tree structure and see what happens in say conc tree equals new
+
+tree.
+
+And the head of the tree will have a value of 1 and then it will give it some children as well.
+
+So the head of the tree will have first a child with a value to the child to have its own child.
+
+The value of four
+
+and then finally will also have a node on the tree with a value of three.
+
+So essentially what we got is where the head has one and has children of two and three and the node
+
+of two has a child of four years.
+
+We got some tree structure going on here.
+
+So I want to write a function that's going to iterate over this tree when it rained over the tree and
+
+collect all the values of the tree into a single array.
+
+And I want to do it in a depth first search fashion.
+
+So I want to go all the way down as deep as I possibly can and then start walking through the trees.
+
+So essentially the result I would expect to see here would be an array of 1 2 4 3.
+
+That's what I expect to see here.
+
+So here's how we're going to tackle this.
+
+I have a generator that right now just yields the value of the head of the tree or you know whichever
+
+node we're operating on here.
+
+So I can call a tree print values next like so and I get back the value of one that's come from the
+
+head on a tree.
+
+I want to iterate through the entire tree I want to go to every node in the tree and step through it.
+
+So here's Oregon to say for let child of this children yield star children dot print values.
+
+OK.
+
+Now we got a little bit of recursive behavior here.
+
+If I call print values if I call this generator on a single node in the tree I will first yield that
+
+nodes value the next time I call next on it I will enter my for loop here.
+
+As we just saw we can delegate to each other generators and so forth.
+
+Each child of this top node of the head node will walk through its children and call print values.
+
+On that note as well.
+
+So this is the big grand finale that everything gets pretty interesting at the very bottom.
+
+Again I'm going to create an empty array of const values and then we'll make a for of loop for value
+
+of tree print values.
+
+Notice I'm just passing in the generator here directly.
+
+I'll save values not post value and at the very end we'll pass out values.
+
+Looks like I got a little bit of a syntax error all the way down here.
+
+The bottom looks like a children's undefined.
+
+My mistake it should be this dot.
+
+Excuse me is just child not children just child like so.
+
+OK so you can see here that we get the result of one two three four.
+
+So again we created a tree.
+
+The very top of the head of the tree was a node a value one that had children of two and three.
+
+And in the note of two also had a child of four.
+
+We called the heads generator of print values and then we iterated over it.
+
+That means that we are now walking into print values and we execute until we hit the first yield statement.
+
+So at the first yield statement we enter the body of the for loop we push on that value to the values
+
+array and then we walk back in to the generator.
+
+We then start iterating over the heads children and for each child of the head we're going to delegate
+
+to that child's print values function.
+
+And so this is going to recurse through all the different nodes and eventually we walk over every node
+
+in the tree.
+
+So there is some practical use if you call walking through a tree.
+
+Practical for generators.
+
+We'll spend a little time in the future to look at some other more practical uses of generators because
+
+even walking through a tree perhaps would be a little easier with some very basic recursions So we'll
+
+try to walk through a couple of more realistic examples in the future as well.
+
+If he's if you've enjoyed this video I encourage you to go to rally coding dot com.
+
+Or you can learn more about the javascript ecosystem.
+
+I have one video released per week and I look forward to sharing a little bit of knowledge with you.
+------------------------------------------------------------------------------------------------------------
+
+
+97. Linked Lists with Iterators
+
+In this video we're going to start to talk about how to get our linked list to work with a four of loop.
+
+Now if you are not familiar with generators or iterators I encourage you to go back to the previous
+
+text lecture where I posted a link to a youtube video I created to help you understand exactly what
+
+generators and iterators are.
+
+Once you watch that video come back here and we'll talk about how to set this thing up.
+
+In the previous video we spoke about the for each helper which we could use to iterate through every
+
+node on the list.
+
+We could then modify or log or do every wanted to every given node.
+
+When we set up the four of helper right here we're essentially doing the exact same thing.
+
+So we're still saying something up that will allow us to iterate through every node in the linked list
+
+but this time around we're going to do that iteration using just a slightly different syntax.
+
+So we're going to enable ourselves to use a form of helper on our linked list whereas previously we
+
+were using the for each function.
+
+So nearly identical functionality here just slightly different syntax that's all.
+
+Now looking at the code sample for the for loop we should be able to insert some number of items into
+
+our linked list and then iterate through each of those nodes by writing a form of loop that iterates
+
+over the list and then every element that we are receiving inside the loop will be one distinct node
+
+and notice this is the entire node that we are getting access to.
+
+It's not just the data property or anything like that.
+
+It is the entire node.
+
+So our goal is going to be to set up a generator function with our form of loop or a linked list to
+
+enable us to use the for loop.
+
+So let's get to it.
+
+Enough talking.
+
+Now this exercise we're going to do together because it is one that's pretty darn complicated and it's
+
+something that I'm just kind of throwing out here in case you were kind of interested in where you might
+
+use a generator in the practical sense.
+
+So I'm inside of my index file.
+
+Here's the for each function and.
+
+Underneath it.
+
+We're going to add on a iterator function.
+
+So we're going gonna say Star and then square braces symbol dot iterator then we'll close out the square
+
+bracket here and add on our parentheses.
+
+So this defines a generator function with the key of symbol dot iterator then sign it here will take
+
+the head node.
+
+So let's head equals this dot head.
+
+Or you let node.
+
+He calls this dot head.
+
+And then we will iterate through our linked list with a while loop.
+
+So we'll say while node and then node equals node next.
+
+And then for every step along the node we will yield the current node.
+
+So yield right here along with a star in the iterator and all this stuff is really only going to make
+
+sense if you watch that previous video or if you have some previous experience with generators in Javascript.
+
+So again I do encourage you to check that stuff out.
+
+So now that we've added this block right here we can now use a for loop to work with our linked list.
+
+Let's flip on over toward testate James file down here around line to ninety five or so.
+
+You'll notice that I already removed the dot Skipp so make sure you remove that.
+
+And it's just the describe with four of loops in this test we can take a quick look at what's going
+
+on here.
+
+We create a new list we insert 4 items and then we use a for loop to iterate through the linked list.
+
+And for every node we add 10 to the data property and then afterwards the test make sure that the numbers
+
+were incremented properly.
+
+Let's look on over to our terminal where we can see the for loop is definitely working here.
+
+So again this was just kind of a quick aside that I thought it would be fun to throw in here just so
+
+you can see a practical example of a generator function along with the iterator as well.
+
+So that's pretty much it for our linked list implementation.
+
+We've gone through linked lists pretty much every possible way I could think of as far as working with
+
+them inserting removing elements all that kind of good stuff.
+
+But at this point we only really know kind of how a linked list works.
+
+We don't really have any idea of where to use it or what type of interview questions we could expect
+
+to see.
+
+So we're going to take a break right now.
+
+When we come back in the next video we're going to start to tackle some different problems that can
+
+be solved very easily by using a linked list and some problems that are going to really challenge your
+
+understanding of linked lists and how they work.
+
+So quick break and we'll start tackling some additional problems in the next video.
+
+=======================================================================================================================
