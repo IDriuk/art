@@ -16277,3 +16277,1075 @@ understanding of linked lists and how they work.
 So quick break and we'll start tackling some additional problems in the next video.
 
 =======================================================================================================================
+
+Раздел 22:Find the Midpoint
+
+98. Midpoint of a Linked List
+
+Now that we've seen the ins and outs of linked lists it's time to tackle a couple of interview questions
+
+that you can really expect to see about them.
+
+So in this video we're going to kick off our first question around linked lists and we're also going
+
+to take a look at a problem solving strategy for solving many different types of linked list questions.
+
+So the second half of this video I'm going to show you a very strong problem solving technique to use
+
+with linked lists.
+
+So if you start to skip any content in this video please at least watch the second half.
+
+So you can see that problem solving strategy in action because I can give you a quick explanation of
+
+how it works in this video.
+
+All right.
+
+So inside my code editor I'm going to find the midpoint folder and then I'll open up the index top jazz
+
+file inside of here.
+
+So this is the first question we're going to tackle.
+
+Notice that we're back to working with these functions like we were during the first half the course.
+
+So we're not working with the linked list class anymore.
+
+We got through that thing.
+
+We're now going to go back to some function type questions.
+
+So this midpoint function is going to be called with a linked list.
+
+So a linked list will be provided as an argument to this midpoint function the linked list that's going
+
+to be passed to this thing uses the same implementation as the one that we just put together a second
+
+ago.
+
+So inside the midpoint directory you'll find the linked list dot js file.
+
+And so here is the node implementation and the linked list implementation.
+
+They are identical to what we just put together.
+
+So just to be clear on that.
+
+So here's the directions of midpoint.
+
+Our goal is to return the middle node of the linked list so the node at the very center of that might
+
+sound like it's really easy.
+
+But there are some requirements here.
+
+So specifically we are not allowed to use any type of counter variable and we are not allowed to retrieve
+
+the size of the list.
+
+So don't be thinking that you can call linked list size get the total size divide that by 2 and then
+
+retrieve the center element.
+
+That's not the goal here.
+
+The goal here is to somehow find the middle node of the linked list without knowing its size.
+
+All right.
+
+So we don't know the size.
+
+We have no idea what the size is.
+
+Don't try to access the size.
+
+Let's take a look at this question in Diagram format.
+
+Just to make sure it's really clear.
+
+So we have five elements on the screen here for this linked list.
+
+So the center element or the midpoint or the middle element whatever you want to call it would be red.
+
+It's at the very center of the template.
+
+So I think that's pretty clear.
+
+Now one part that might be a little bit unclear is the second sentence of the directions.
+
+So if there are an even number of elements we want to return the note at the end of the first half of
+
+the list.
+
+So in this example right here there are five elements.
+
+So this is an odd numbered list.
+
+So the very middle element is really obvious.
+
+That's the one right here at the center.
+
+However if we have an even number of elements then things are a little bit more ambiguous.
+
+So here's 6.
+
+And at this point there's really not necessarily a very clearly defined center node here.
+
+Right if we look at the very center we're kind of right here in this gap.
+
+So the directions are saying the directions over here what this end of the first half of list is saying
+
+is take the first half the list and then take the last node in that half and that would be considered
+
+to be the middle element.
+
+If the list has an even number of elements in it.
+
+So if there is an even number you essentially go to the middle and then one less than that is supposed
+
+to be the midpoint.
+
+So hopefully that's clear as well.
+
+OK.
+
+So that's kind of an overview of the question.
+
+We're now going to talk a little bit about the very general problem solving strategy that we're going
+
+to apply to this problem and many other types of linked list related questions.
+
+So we're going to talk about the strategy now.
+
+This is a really important discussion because again you're going to be using this strategy in many different
+
+linked list questions.
+
+This can be used for a lot of different questions around linked lists.
+
+So let's get to it.
+
+I'm going to pull up two little pieces of the diagram right here.
+
+All right.
+
+So let's walk through this.
+
+So here's how we're going to solve this particular question.
+
+We're going to talk about how we're going to solve the midpoint question.
+
+And I think you're going to very quickly see how this strategy can be used on other problems and we
+
+will take a look at some other problems that are going to use this strategy.
+
+So you'll have more than one opportunity to practice it.
+
+So here's what we're going to do to find the center node.
+
+We're going to create two temporary variables.
+
+One is going to be called slow and the other is going to be called fast.
+
+We're going to take all these variables and point them at the first node in our linked list.
+
+And when I say point at I mean just we're going to assign the first node to both these variables right
+
+here.
+
+So essentially we'll say slow equals the first node and fast equals the first node.
+
+That's all after we do that initial assignment we will then start to iterate through our linked list.
+
+So we're going to iterate through every note here.
+
+But here's the interesting part for every step of iteration like every step of a while loop.
+
+That's probably what we're going to use here for every step the while loop we are going to advance this
+
+slow variable forward by one element and then we will advance the fast variable right here forward by
+
+two elements or two notes.
+
+So after the first step through the while loop the two variables will be updated to look at these two
+
+specific nodes right here.
+
+So slow is very aptly named.
+
+We're always going to advance slow by one node at a time.
+
+But fast is going to be getting advanced by two nodes at a time.
+
+Now here's the real trick.
+
+As soon as we advance fast to the next node we will then check to see if the node after one after the
+
+one that it's now pointing at is defined.
+
+And if the node after that is defined so essentially after we advance fast forward we're going to check
+
+to see if the next two nodes exist.
+
+If they do exist that means that everything is good.
+
+And we need to still continue iterating through the list.
+
+But if either of these next ones do not exist then that means fast must be at the end of the linked
+
+list and that we can then consider slow to be at the midpoint.
+
+So let's continue this through and see how this really works in action.
+
+So at this point we're going to say okay the fast mode right here.
+
+Does this have two nodes after it.
+
+Well yes and yes they are.
+
+OK that's great.
+
+So we're now going to advance both of our pointers.
+
+So it's going to move forward by one element.
+
+So it's now plenty at red and fast is going to move forward by two elements.
+
+So one two now we're going to ask the same question again.
+
+Look at the node that fast is pointing at.
+
+So purple right here are both the next and the element after that defined and the words are the next
+
+to nodes defined.
+
+Well in this case no they are not defined and so that means that we must be at the end of the list.
+
+So slow is now pointing at the midpoint because it's moving half as quickly as fast is.
+
+So as soon as fast sees the end that means OK we're at the very end.
+
+Slow has been moving half as fast so it must be at the midpoint.
+
+So that is the general problem solving strategy that we're going to use for a lot of different questions.
+
+We're going to create these two separate variables.
+
+Then we will iterate through our linked list one will move forward at a slow pace of one node per loop
+
+and the other will move forward at a faster pace of two elements per loop and then we can make some
+
+comparison between the two of them and kind of derive some neat information about the linked list from
+
+that.
+
+Now an immediate question you might have might be well what exactly happens if there is an even number
+
+of nodes in the loop like why is you know what exactly happens when there is an even number.
+
+I don't know.
+
+This is something that for me seemed a little bit mysterious.
+
+So just for completion sake I want to go through another iteration of this flow.
+
+But with an even number of nodes and you'll see that whether there are an even or odd number.
+
+This strategy still always works out.
+
+So we're going to start off our loop again both slow and faster go into point at Green.
+
+We're now going to advance slow up by one.
+
+And fast is going to move forward by two.
+
+So one two now we ask does fast node have both elements in front of it defined in this case.
+
+Yes.
+
+So we're going to continue to iterate on so slow is going to move forward one and fast moves forward
+
+one too.
+
+Now we ask are both two elements in front of fast defined.
+
+So we look at one.
+
+Yes it is.
+
+But then after that no nothing else over here is defined.
+
+And that means that we must be at the end of the list so slow must be pointing at the midpoint.
+
+And in this case yup it definitely is.
+
+Remember we had said that if there is an even number of nodes then we go to the midpoint.
+
+You know that kind of gap right here and take that node right before it.
+
+So even if there is an even number of nodes here we still end up getting the correct answer.
+
+OK.
+
+So hopefully that makes a little bit of sense.
+
+I know that seeing it in Diagram format and hearing it with words is really not the same as writing
+
+it out with code.
+
+So I encourage you to take a shot at the solution and then we'll go through a solution to the real problem
+
+together in the next video.
+
+So quick break give me your best shot and we'll hook back up together in the next video.
+
+And one thing I forgot very quickly Don't forget to start your test up with just midpoint test not J.S.
+
+dash dash watch like so.
+
+So don't forget to check your tests.
+
+All right.
+
+So take a shot and I'll see you in just a minute.
+
+----------------------------------------------------------------------------------------------------------------------
+
+99. Midpoint Solution
+
+Hopefully you had some success putting the midpoint function together in this section we're going to
+
+go over a solution remember that we just went over a kind of verbal description of what's going to go
+
+on with our solution in the last video.
+
+So if you skipped the last video I encourage you to go back and watch the discussion about using two
+
+variables to keep track of iteration through the linked list.
+
+So that's exactly what we're going to do here to solve this question.
+
+So here's my midpoint function.
+
+I'm going to open it up and then we're going to define our two variables.
+
+Slow and fast and they're both going to start out looking at the first element in our linked list.
+
+So let's say let's slow is list dot get first.
+
+And just to be clear if you did list dot head here to get the first element that's totally fine no difference
+
+whatsoever.
+
+Absolutely fine.
+
+And then let fast equals less dot get first.
+
+Now when I spoke about exactly how we're going to approach this by saying OK are the next two elements
+
+defined.
+
+Well that's really the case that we're going to use for our while loop to iterate through the list.
+
+So we're going to write a while loop.
+
+And so long as the fast node has a node infirm it defined in a node in front of that defined then we're
+
+going to continue to iterate.
+
+So we will say while the fast node has one defined after it and there is something defined after that
+
+it's all say fast dot next dot next.
+
+So this checks the next node and this one checks the node after that as long as those two situations
+
+are satisfied then we want to continue advancing through our linked list.
+
+So we'll move slow forward by one by saying advanced slow to slow down next.
+
+So slow down next right here would be the next element.
+
+So here is slow.
+
+If it's pointing out red then the next element in the chain would be the current slow value next which
+
+would pass us on to the orange node.
+
+And then for fast we're going to do something very similar will say jump forward by two.
+
+So say fast.
+
+Next Next like so now as soon as fast does not have a node in front of it or a node after that the while
+
+loop will exit and so will then know that slow must be pointing at the midpoint.
+
+And so we will simply return slow after the while loop runs and that's pretty much it.
+
+So kind of a you know deceptively straightforward problem.
+
+This is just another one of all these problems you've been doing.
+
+I know I've said this so often but you know you've either seen these problems before or you haven't.
+
+And so if you've seen this before and you understand the SO in the fast this is like you know what six
+
+seven lines of code.
+
+This is pretty easy.
+
+This is pretty straightforward once you've seen the solution.
+
+But coming up with this in an interview setting is extremely challenging.
+
+And so this is why practicing ahead of time really pays off for interviews.
+
+All right so save this file and see how our tests are doing.
+
+And the up everything is passing.
+
+So that's pretty much it.
+
+Not that bad right.
+
+Like I said we can use this strategy of having two pointers to solve a wide variety of different linked
+
+list questions.
+
+So let's continue the next section where we're going to look at a another linked list related question
+
+that can be solved with this same type of approach.
+
+So a quick break and I'll see you in a minute.
+
+==================================================================================================================
+
+
+Раздел 23:Circular Lists?
+
+100. Detecting Linked Lists Loops
+
+In this video we're going to take a look at another very common interview question that you'll see very
+
+frequently around linked lists.
+
+This is another question that's going to utilize that kind of two reference system to come to a pretty
+
+straightforward solution.
+
+So let's take a look at this one because again very common to see in an interview setting inside my
+
+code editor I'll find the circular directory.
+
+I'll open up the index file and then before I forget let's also store up our tests at the command line.
+
+So inside my exercises directory I will run just circular test not j s dash dash watch like so and then
+
+we should see about four tests right now.
+
+So yours for Total Recall.
+
+All right let's take a look at this thing.
+
+So circular says given a linked list.
+
+Return true if the list is circular and false.
+
+If it is not so clearly the key word here to understand is the word circular.
+
+So let's talk about what a circular linked list is.
+
+Remember that up to this point in time we've always said that a linked list has a head which is the
+
+very first note of the linked list and the tail and the tail node can be identified because it points
+
+to a value of NULL which means that's the end of the list in a circular linked list.
+
+We do not have a tail node with a circular linked list.
+
+We would have a tail node or a kind of a last node so to speak or what we might imagine to be a last
+
+node that maybe accidentally points out an earlier node within the linked list.
+
+And so this is a diagram of a circular linked list right here circular linked lists are a huge problem
+
+because as you recall from all of our linked list problems we've been working on.
+
+We wrote a ton of four loops that all assumes that they would eventually find a node with a next value
+
+of NULL.
+
+So if there's no element in our linked list that has a next value of NULL then we would end up with
+
+a ton of infinite loops.
+
+So all those lock while loops that we wrote they would all be infinite in nature with a structure like
+
+this because we would iterate from green to blue to red to orange to purple back to red orange purple
+
+red orange purple red orange purple.
+
+Again and again and they're never going to find a value of NULL.
+
+So our job is to write a function that's going to detect this situation right here.
+
+Now the first thing I want to say is that you might be thinking OK well let's iterate through the linked
+
+list and then we will have a counter variable.
+
+And maybe as soon as that variable gets up to like 10000 we'll say oh this is too long.
+
+It must be an infinite list or something like that.
+
+Well unfortunately that's not going to fly in an interview setting.
+
+Right.
+
+We need to say very like a 100 percent confidence we need to be able to say yes this is a linked list
+
+that is circular or no it's not and we can't just assume that if the list is really long then it must
+
+be infinite.
+
+That would not be a good approach.
+
+The other thing that you might immediately think of is that well maybe we could iterate through the
+
+linked list and for every node we could add some property to it something like I don't know a dot visited
+
+flag or something like that to every node and then we can iterate through it and if we ever see a node
+
+with that dot visited property that means we've already been there one time.
+
+Again that's a solution that would probably work.
+
+But you know in general with any data structures like this you never want to be adding additional properties
+
+to a node that's really just not a good approach and something that I really recommend you not do in
+
+an interview setting.
+
+So those are two like simple solutions that people come up with.
+
+Let's talk about what might be seen as the real answer.
+
+You know again this is another one of those problems where you've either seen the solution or you haven't.
+
+And luckily you're here so you get to see the solution.
+
+So again we're going to use two separate pointers and we're going to use them to iterate through our
+
+linked list at different speeds.
+
+So we're going to initialize slow to look at the first node and we're going to initialize fast to look
+
+at the next node.
+
+Now here's how we're going to do.
+
+Again we're going to say if the next two nodes after fast are defined then we're going to enter into
+
+a for loop inside the for loop.
+
+We're going to move fast forward by two notes so fast for now be looking at read.
+
+We will then move slow forward by One-Note so slow is now looking at blue after moving these two notes
+
+forward are these two pointers forward we're then going to do a check we're going to say are slow and
+
+fast looking at the same note in our linked list.
+
+So we're going to do a strict triple equals comparison between the two.
+
+We're going to say are these two variables right here pointing at exactly the same object.
+
+If they are well OK that's can be kind of interesting and we'll talk about what that would mean in just
+
+a second.
+
+Otherwise we're going to continue iterating through the list.
+
+So the next step we will check to see if the next two nodes are defined for fast.
+
+They are.
+
+So we're going to move fast forward by two.
+
+So one two and then we're going to move slow forward by one.
+
+Now again we're going to ask ourselves OK are these two looking at the exact same node and again.
+
+No they are not.
+
+So we're going to iterate again.
+
+We're going to move fast forward again by two notes.
+
+So we go to red.
+
+That's the circular part.
+
+And then we move on to orange.
+
+So here we are pointing at orange.
+
+Now let me get a better arrow here so it doesn't look so crazy.
+
+There we go.
+
+So fast is looking at orange.
+
+And then we're going to move red forward by one as well.
+
+So now slow and fast are both pointing at orange.
+
+We checked to see if slow and fast are pointing at the same note.
+
+In this case they are and because they're pointing at the same node that means that we must have a circular
+
+length list.
+
+So in other words we iterate slow forward by one fast by two at every step of the way we checked to
+
+see if they're looking at the same node if they are within that means we must have a circular list.
+
+If they're not then we continue iterating and we repeat this process until either slow and fast are
+
+looking at the same note or the case in which fast is looking at a value value of NULL again because
+
+remember if purple note right here let's look at an example of that.
+
+So if the purple node was correctly pointing off to knoll you know presumably somewhere over here off
+
+to the right.
+
+Well then when fast was looking at orange or whatever the heck it was looking at right here we would
+
+have we would say OK fast r is the next node knoll or the one after that and all.
+
+And in this case yes it is to forward is no.
+
+So that means that there is an end to the linked list.
+
+And so we would return false.
+
+In that case.
+
+So that's pretty much how the solution works.
+
+Again we make the two separate variables and we advanced them both forward one at one time the other
+
+at two at a time and then we compare the value between the two of them at every step along the way.
+
+So this is going to be another problem where there's really not a lot of code to it.
+
+It's just another one where if you know the solution you can solve it pretty briefly otherwise you're
+
+going to be kind of flailing around for a little bit.
+
+So I encourage you to give this a shot.
+
+We'll continue in the next video and we're going to look at a solution together.
+------------------------------------------------------------------------------------------------------------------------
+
+101. Loop Solution
+
+In this video we're going to take a look at the solution to this circular problem.
+
+So inside of the index file of the circular directory Here's the circular function.
+
+Let's open this up and get started.
+
+So remember the idea here is that we're going to create two separate variables and they're both going
+
+to start off by looking at the first element in our linked list.
+
+So the head of the linked list so we'll say let's slow is list stop get first and let fast is list get
+
+first as well.
+
+Again you could have just as easily said list head either one.
+
+Totally fine.
+
+Now we're going to set up our while loop.
+
+Remember we want to iterate through our while loop so long as the next value of Fast and the one after
+
+that are not equal to nil.
+
+Just like we did on the previous problem if fast.
+
+Next a fast dot next dot next are ever equal to null.
+
+That means that this linked list does have an end to it.
+
+And so it is not circular.
+
+So we're going to say while fast next and fast starting next dot next are defined then we want to continue
+
+iterating through our loop.
+
+If this situation is never true.
+
+So if we ever reach a point where one of these returns a false value that means we've hit the end of
+
+the while loop and we will exit it.
+
+So if we ever exit it that means that we must absolutely positively not have a circular linked list.
+
+And so we will immediately return false.
+
+Ok so now inside of here we're going to put a little bit of logic down.
+
+So we'll say fast dot net or excuse me we're going to advance.
+
+I was copying down the line again.
+
+We're going to take our slow variable and move it forward by 1.
+
+So we'll say slow equals slow dot next and then we're going to move our fast variable forward by 2.
+
+So say fast equals fast.
+
+Next next.
+
+Now here's the moment of truth we're now going to look at the nodes that slow and fast are pointing
+
+at.
+
+And we're going to compare them together.
+
+We're going to say if they're the same variable then return true.
+
+We must have a circular linked list.
+
+So if slow is the same object in memory like the exact same object as fast then return true.
+
+One thing I want to point out here is the fact that we did not do something like slow dot data so we're
+
+not comparing the data in these in the linked list nodes because the linked list could very easily have
+
+multiple nodes with the same data inside them.
+
+So what we really want to do here is say is it the identical node.
+
+And in javascript we can compare to see if a reference to an object is identical to another one by using
+
+the equal sign right here.
+
+So this literally says is slow.
+
+Looking at a node that is identical and like the exact same instance in memory as fast.
+
+So if they are well then great we must have a circular length list.
+
+Return true.
+
+OK let's save this file and then we're going to run our tests now.
+
+I accidentally saved the file while we were writing that solution.
+
+And unfortunately I realized just a second ago when I hit save I saved it while we still had a case
+
+for that test where it was an infinite loop.
+
+So you can see that I'm stuck at running right here.
+
+So I'm going to close down that test runner and I get it started back up with just circular test.
+
+Yes.
+
+Just watch
+
+and we'll run our tests again.
+
+And great.
+
+So for trespassing.
+
+So that's pretty much the solution.
+
+Again this is just another one of those problems.
+
+I know I've said this so many times now.
+
+But just another one of the problems where you've either seen the solution or you haven't.
+
+So just remember all these lifeless things you think.
+
+Can I use two separate nodes and walk to the linked list to come to a solution.
+
+Because if you can what is usually going to be something that's pretty straightforward.
+
+OK.
+
+So let's pause right here and continue on to our next challenge in the next video.
+
+==========================================================================================================
+
+Раздел 24:Step Back From the Tail
+
+102. From Last Question
+
+In this video we're going to take a look at one last linked list question to really drive home the idea
+
+of this kind of dual pointer's strategy for solving many different linked list questions inside my code
+
+editor.
+
+I'm going to find the from last folder and inside there.
+
+Open up the index to J.S. file and then of course before I forget because I usually do we'll flip on
+
+over to our terminal and start our tests up with just from last test.
+
+J.S. dash dash watch like so and then we should see about two test passing OK let's take a look at our
+
+directions.
+
+So over in our index file Here's the directions at the top so we're going to be given a linked list
+
+and integer n..
+
+Our goal is to return the element that is an space's from the last node in the list.
+
+One requirement is that we should not attempt to use the size method of the linked list.
+
+So this requirement is here because obviously we could probably think of a very direct solution to maybe
+
+get the length of the length of the linked list or the number of nodes inside of it.
+
+We could then subtract and from that and then call get at on that number.
+
+So there'd be a very straightforward and easy solution.
+
+And obviously with interview questions we're usually trying to find some challenge in a task.
+
+So we're not going to take the easy way out here by just using the size method.
+
+And in fact we're going to try to come up with a solution that does not involve directly counting out
+
+the number of elements in the linked list at all.
+
+So I don't really want to worry about the number of elements in the linked list.
+
+We're going to try to think of some other way to get the nth element from the end.
+
+Now the other thing the directions say here is that we should always assume that and will be less than
+
+the length of the list.
+
+So in other words if we have a linked list of 10 items we don't have to worry about being asked for
+
+the element like 20000 from the last element.
+
+In other words don't worry about overflow here and will always be less than the length of the list.
+
+All right let's take a look at a diagram that's going to help to kind of clarify these directions and
+
+also lay out one possible solution to the problem.
+
+So here's our diagram.
+
+We're going to assume that maybe we get called our function within an equal to 3.
+
+So the first thing to do here is to identify which element we should be returning.
+
+And I'm not talking about with code or anything like that.
+
+I'm talking about you and me looking at the diagram.
+
+Which element should we return.
+
+So if any is equal to 3 we want to return the element that is three spaces from the last.
+
+So here is the last element right here.
+
+We're going to return 1 to 3.
+
+So this is the third element from the final in de-list to give you a more clear example of what this
+
+and right here really means.
+
+Imagine if an equals zero.
+
+And then we said I want the element that is zero spaces from the last element in the list.
+
+So zero spaces from the last element would be the last element.
+
+That's great.
+
+If we then incremented that to one.
+
+Obviously that must mean the next element of purple to it would be orange and 3.
+
+Again obviously that would be red.
+
+So Ed equals three means give me red right here.
+
+OK.
+
+So let's talk about how we can solve this by using this slow and fast strategy.
+
+Now this time around.
+
+Slow and fast is a little bit of a misnomer.
+
+In other words one pointer isn't necessarily going to be moving through the linked list faster than
+
+the other but it's still going to be ahead in the list.
+
+I think as soon as we start talking about the solution it'll make a little bit of sense.
+
+So we're going to start off by taking both of our pointers and we're going to set them both equal to
+
+the first node in the list.
+
+As usual Now step two we're going to take an equals three right here.
+
+So and equals three.
+
+We're going to use that and we're going to say that we're going to advance the fast pointer three spaces
+
+through our linked list.
+
+So in one step like this is going to be kind of a two part solution in step one.
+
+We're going to advance fast forward by three so we're going to say one two and three.
+
+So now fast is pointing at orange in that step.
+
+We didn't touch slow at all.
+
+So we're going to initialize slow and then we're not going to touch it during this first phase after
+
+we complete.
+
+Moving Fast forward by three spaces we're then going to enter the second phase of the solution in the
+
+second phase we're going to advance slow and fast together one at a time.
+
+So both slow and fast will be getting advanced by one index.
+
+This is in direct opposition to how we treated fast previously.
+
+Remember we had previously been moving fast forward two elements at a time.
+
+So this time fast will move forward one element at a time.
+
+So we're going to move forward and move forward.
+
+We're then going to ask ourselves is fast pointing at the last element of our linked list.
+
+In this case no it's not.
+
+So are we going to then move both pointers forward one more time.
+
+So we'll move forward one and we will move forward.
+
+One we're going to again ask if fast is looking at the last element and this time.
+
+Yes it is.
+
+This is the last moment and we can tell that because the next property is pointing at No.
+
+As soon as fast is pointing at the last element then that means that slow must be n elements behind
+
+it.
+
+So slow is now pointing at our answer which is red.
+
+So in practice this is not the worst solution in the world.
+
+Just another one of these things were you got to see the solution in kind of diagram format or just
+
+be told what it is.
+
+And as soon as you have a good idea well it gets a little bit easier to code together.
+
+So let's take a break right here.
+
+I would like you to give a shot at the solution and we'll join back up in just a couple of moments and
+
+put the solution together in code so give it a shot and we'll catch you in a minute.
+------------------------------------------------------------------------------------------------------------------
+
+103. From Last Solution
+
+In this video we're going to talk about the solution for the from last problem.
+
+So let's get started right away.
+
+Inside of that from last function I'm going to first create two variables and point them both at the
+
+first element in our linked list.
+
+So I'll say let's slow is listed first and let fast is list dot get first.
+
+Next we are going to advance fast through the linked list and we're going to advance a forward and times.
+
+Now for this part you can either put together a for loop or because we've been using a lot of wild loops
+
+I'm going to use a while loop here so you can use either but I mean use a while loop.
+
+So I will say while and is greater than zero fast is going to be fast dot next.
+
+So this step right here is what's going to actually advance the fast pointer through our linked list
+
+and then immediately after doing that we'll subtract one from 10.
+
+So this will move fast and elements forward
+
+sets.
+
+Phase one we've now gotten fast forward in the linked list.
+
+Now it's time to advance both these pointers forward by one at a time until fast eventually hits the
+
+last node or the tail node.
+
+So we'll say while fast dot next.
+
+So while there's still some next node to visit we're going to advance slow forward by 1 so slow is slow
+
+next and fast is fast.
+
+Next.
+
+And then as soon as fast next no longer exists in the words the instant we hit the end of our chain
+
+that means that slow must be an elements behind.
+
+And so we can immediately return slow with no further work required.
+
+Let's save this and see how our tests are doing.
+
+So back at the Turnell to test passing.
+
+All right.
+
+Not that bad.
+
+So just another one of these problems where the solution is pretty succinct and not a lot of code is
+
+required and it's pretty easy to reason through.
+
+But definitely one that's kind of hard to come up on the fly in an interview.
+
+OK.
+
+So that's been three examples now where we've looked at this common solution or this common strategy
+
+for solving linked list questions.
+
+As you can see this slow and faster kind of this dual point or set up is incredibly useful for a wide
+
+variety of different questions.
+
+So any time you get asked a question about length lists you want to immediately start reaching for this
+
+tool in your toolbox.
+
+Let's take a break now and we'll continue the next video and start looking at our next problem.
+======================================================================================================================
