@@ -17349,3 +17349,1386 @@ tool in your toolbox.
 
 Let's take a break now and we'll continue the next video and start looking at our next problem.
 ======================================================================================================================
+
+Раздел 25:Building a Tree
+
+104. Trees Overview
+
+In this section we're going to move on to our next big data structure.
+
+And this next one is something that I'm kind of excited about I guess is the best word for it because
+
+this next topic is something that is actually kind of useful to know about for front and in back in
+
+development.
+
+So we're going to be talking about trees and you will not believe how often trees come up in software
+
+engineering.
+
+So it's something that you'll see very frequently even with business type you know boring applications
+
+you will see uses of trees.
+
+And I personally have worked at several jobs where I had to use a tree to achieve some given task it
+
+was just the best thing to use.
+
+So in this video in the next couple of videos we're going to get a better idea of what trees are we're
+
+going to learn about some of the different parts of a tree like what they're called and whatnot.
+
+And we'll also get a good idea of what we might sometimes use them for.
+
+Now I want to be really clear right now there are several different types of trees out there.
+
+We're going to first start off by looking at the most basic type of tree and then we'll start to specialize
+
+and look at some of the different types of trees that exist.
+
+So first the most basic one and they'll start to talk about some of their more specialized uses.
+
+So anyways let's get to it.
+
+Let's look at a diagram.
+
+So here is a diagram of a tree.
+
+We're going to see many diagrams that look exactly like this right here.
+
+And I just wanted to show you the structure of it one time without any words or extra arrows around
+
+it.
+
+So let's first start off by trying to label some of the different parts of this tree.
+
+Firstly every box that you see on here can be referred to as a node just like when we were working on
+
+Linked Lists previously a little bit ago a individual node.
+
+So like node 20 appear at the top holds some amount of data.
+
+So just like with the linked list and then it will also hold a reference to all of its children.
+
+A child is any node that is directly underneath a given node.
+
+So in this diagram right here we would say that elements 0 40 and negative 15 are all children of node
+
+20 appear at the top.
+
+Likewise all nodes 0 40 and 15 can refer to no 20 as being their parent.
+
+So we often say that we have a parent child relationship between different nodes on a tree.
+
+Now looking at this little no diagram right here you will notice that it looks awfully similar to a
+
+linked list.
+
+So we've got some amount of data that we might want to maintain at some individual node.
+
+Now this data can be absolutely anything in this diagram I reflected as being numbers but it could be
+
+a string an array an object whatever we need it to be.
+
+And there's many different situations where in a practical use of a tree we would stick different values
+
+in there.
+
+Let's move on.
+
+OK.
+
+Like we just said 20 would be the parent of 0 40 and negative 15 and 0 for the negative 15 could refer
+
+to 20 as their parent.
+
+We also refer to the relationship between nodes at a given level as being siblings.
+
+So in this example nodes 12 and negative 2 can be referred to as siblings.
+
+Negative two and one would also be siblings.
+
+Now one in negative to notice how one has a parent of zero and negative 2 has a period of negative 15.
+
+They are at the same level but we wouldn't necessarily refer to them as being siblings because they
+
+do not share a single common parent one has a parent of zero and negative two has a parent of negative
+
+15 now when you start to see questions about tree data structures one of the most common things that
+
+you're going to be asked or probably the most common operation that you're going to have to learn how
+
+to do is tree traversal.
+
+So whenever you hear the word tree traversal we are talking about iterating through all the different
+
+elements within a tree which is essentially what we just spent all that time with around linked lists
+
+like everything about linked lists was really about iterating through every element in it in some fashion.
+
+And so with trees it's very much a similar thing.
+
+We really care about our ability to iterate through all the different elements within a tree.
+
+Now there are two big ways that we're going to learn about how to iterate through a tree.
+
+And I say two big ways.
+
+I'm talking about the order in which elements we iterate through the tree because when you look at this
+
+you know you can't necessarily neatly point out some distinct order in which you would start to list
+
+all these elements out.
+
+If I told you to count through all the elements here or you just read them aloud I think half the people
+
+watching this video would say OK 20 0 14 15 and then maybe the other half would say something like 20
+
+0 12 negative to 41.
+
+In other words there's not really a distinct order of elements here that you and I could necessarily
+
+agree on to visits in the street.
+
+So we start talking about tree traversal.
+
+There are two distinct ways in which we order the elements and iterate through those elements.
+
+So it's very briefly talk about both those ways because we are going to iterate this and we're going
+
+to spend.
+
+I mean we're going to implement this arena spend a lot of time on tree traversal So right now it can
+
+do a quick taste.
+
+The first one is breadth first traversal.
+
+So with breadth first traversal we iterate at each level of the tree from left to right.
+
+So we would start at the very top or the root of the tree we would visit this node.
+
+We would then go down to the next node and we would start at here.
+
+So we'd start at this level and then we would work our way from left to right.
+
+So we would go 0 40 negative 15.
+
+We would then go down to the next level and we would go from left to right again 12 negative to 1 negative
+
+2.
+
+Now notice that even though 12 negative 2 and 1 do not have a common parent with negative 2 that doesn't
+
+matter we're still going from left to right here.
+
+So we go 12 negative to 1 negative 2.
+
+In other words start at the top level go from left to right go to the next level go from left to right.
+
+Again this is breadth first traversal and we will learn how to implement this type of traversal very
+
+shortly.
+
+Now the next one we're going to talk about is much more challenging for me to show you in Diagram format.
+
+This is really something that's easier to kind of like point out and show you the order but it's one
+
+of those things where you have to understand it yourself or come to terms with that on yourself.
+
+So I'll do my best to describe it but we'll see how it goes.
+
+So with depth first traversal we start at the very top of the tree and then we go down the very left
+
+hand side as far as we can go.
+
+And then as soon as we hit the bottom we go back up to the closest parent and then go back down again.
+
+Now it's words that doesn't really make a lot of sense so let's try to look through the diagram here.
+
+So with depth first traversal we would start at 20.
+
+We would then go down to zero and then negative 12.
+
+So we went from the very top to the very bottom.
+
+We expand the depth of the tree so to speak.
+
+After hitting 12 we then go back up to zero and then we go down to negative 2.
+
+So we're still trying to get down to the bottom of the tree as fast as we can.
+
+We then go back up to zero and then down to 1 after we visited all the children of zero.
+
+We then go back up we see that 40 has been visited so we go down to 40.
+
+We then go back up to 20 and then go to negative 15 and then down to negative 2.
+
+So if I were to write out the order of numbers here it would look a little bit something like this on
+
+the right hand side.
+
+But in general you can kind of imagine if I had a marker and I can draw a shape that goes like all the
+
+way down and then back up and down and then back up and down and then go all the way back up and down
+
+back up and down.
+
+So essentially with depth first traversal we try to get to the bottom of the tree as quickly as possible.
+
+OK.
+
+So again that's the two approaches to traversal we are going to implement them both.
+
+So even if my very short kind of terse descriptions right now aren't clear.
+
+That's totally OK because we are going to really really learn in great detail how to implement both
+
+these.
+
+So let's take a quick break right now.
+
+We're going to continue in the next video.
+
+We're going to start writing some code around trees so I'll see you in just a minute.
+-------------------------------------------------------------------------------------------------------------------
+
+105. Node Implementation
+
+In this video we're going to start working on our own implementation of a tree data structure inside
+
+my code editor of find the tree directory and then open up the index G-S file inside of there.
+
+And then of course before we forget let's also start our tests up.
+
+So a run just three test J us dash dash watch.
+
+Now when we see the test start to run here you'll notice that some number of the tests are being skipped.
+
+So just like before when we were working on linked lists some number of our tests are being purposely
+
+skipped right now so that you can focus on just this first block of tests right here that are all about
+
+testing a node.
+
+So let's now open up our index file again.
+
+So here we are.
+
+And we'll take a quick glance at some of the directions.
+
+So we've got three steps and we're going to start on obviously start step one at the very top.
+
+So our goal is to create a node class or a class that represents an individual node within our tree.
+
+The constructor function of this class should accept a data property and also create a empty array for
+
+storing children.
+
+Remember a node carries references to all the child nodes underneath it and we usually make use of an
+
+array to store all those references.
+
+Also notice that we are supposed to implement these add and remove methods as well and we'll talk about
+
+exactly what they are going to do in just a moment.
+
+But right now let's just focus on the constructor function.
+
+Now for the Node class this first implementation right here we're going to implement this together.
+
+So rather than have you do your own implementation of it we're going to take care of this one together
+
+just because it's a little bit more challenging and it's kind of esoteric or theoretical how this stuff
+
+puts gets put together but as soon as we put together the node you will then go and give a shot at implementing
+
+the tree on your own.
+
+So just the node we're going to take care of this together and then on it for the tree you'll give that
+
+one a shot on your arm.
+
+So let's get start with the node.
+
+We're going to define our constructor function inside of here.
+
+So constructor and if you look carefully at the directions the constructor says that it should accept
+
+an argument that gets assigned to the data property.
+
+So this would be the argument that represents the data that we want to store at this particular node.
+
+And this can be any type of data string and number array object whatever it is.
+
+So we will accept that as an argument called data and then we will assign it to this data like so now
+
+the next thing we have to do is to initialize an empty array for storing children.
+
+And we're going to assign that to the children property.
+
+So this children equals empty Uren.
+
+All right.
+
+So that wasn't that bad.
+
+Let's keep going.
+
+We're going to continue by talking a little bit about this ad method that we're supposed to put together.
+
+Let's take a look at a quick diagram that can help us understand exactly what it's supposed to be.
+
+So here's a diagram of a two node tree.
+
+So just two notes we've got one parent node which is on the left and then one child node which is on
+
+the right.
+
+Notice how the parent has some data of one to three and a child has some data of 7 8 9 and the parent
+
+has a reference to the child node inside of its children array.
+
+So children are right here contains this node and that's how we kind of implement the hierarchy of our
+
+tree structure.
+
+So the goal of this ad function that we are supposed to implement.
+
+So we're supposed to add this add function.
+
+It will be called with some amount of data.
+
+And then inside that function we're supposed to create a new node and add it to the current nodes children
+
+array.
+
+So you can kind of imagine that if we take this node right here and we called the add method on it and
+
+passed in some string of numbers like say four five six or something like that we should then create
+
+a new node and add that node to this ones children array.
+
+So the final structure would look a little something like this
+
+so we would study the parent node inside of its children an array it would have both the New know that
+
+we just created and the old one.
+
+So when we started thinking about how we were supposed to store this node in the children array really
+
+don't overcomplicate it all we're doing here is creating a new node and then pushing it into the children
+
+array.
+
+That's all that's going on here.
+
+There's nothing more fancy than that.
+
+It's just creating no new node and store it within the children array.
+
+So let's give a shot at the implementation of this ad method.
+
+So back inside my index dot js file I'm going to insert an add method that will be called with some
+
+amount of data.
+
+And then inside of here we'll create a new node saying new node.
+
+We're going to create it with this data.
+
+Then we will take that newly created node and push it into the current nodes children array.
+
+So this children push the know that we just created.
+
+Now much like a lot of the stuff that we saw back on linked lists we are creating this temporary variable
+
+here of node which is a 100 percent not necessary so we can condense this down to just one single statement
+
+by saying this dot children push equals new node with data like so.
+
+And that's it that's all that is required for our Add method.
+
+Let's save this and see how our tests are doing.
+
+So back over here it looks like we now have three test passing and we still have one test failing which
+
+is the test around removing children.
+
+So obviously we saw a little bit of work to do there.
+
+However I do want to just come back to our node class.
+
+One second I want to do one quick review because this is you know the first case of implementation here.
+
+So we initialized our data variable we created an empty array of children.
+
+So every single node has this children array.
+
+So every child can have some number of children.
+
+We can tell which nodes are a child of a given node by just looking at the children array.
+
+So looking back at our diagram over here we would have created some new node and then added two children
+
+or two new nodes to this things.
+
+Children array.
+
+All right let's take a pause right here.
+
+We'll continue in the next video where we're going to start to implement the Remove method on a note
+
+as well.
+
+So quick break and I'll see you in just a moment.
+
+-------------------------------------------------------------------------------------------------------------------
+
+106. More on Nodes
+
+In the last section we started on our note implementation.
+
+We put together the constructor and the add method.
+
+We're now going to move on to the Remove method of a note.
+
+So the goal of the Remove method is take a look at the diagram here.
+
+We're going to call remove which is a method on a node.
+
+So maybe we will call the Remove method on this node right here when we call it.
+
+We're supposed to pass in some data.
+
+So given some data we're going to look at each child element of the current node.
+
+So if we call or move on this right here we're going to look at this node and this one as soon as we
+
+find a node.
+
+When these children once with some data equal to the data that was passed in to remove we're going to
+
+remove that node entirely.
+
+So if we call the Remove method on this node right here and pass in some data of maybe four or five
+
+six we should look at this node right here.
+
+We should see that 4 5 6 is equal to the 4 5 6 that we passed into the Remove method.
+
+And so we will delete that node will then look at the next one will see that it has 7 8 9 that is not
+
+equal to 4 5 6.
+
+And so this one can stay around.
+
+So the add and remove methods are pretty straightforward.
+
+Right we're looking at a single individual node here and trying to manipulate its children the add and
+
+remove methods belong to every node.
+
+So we could have just as easily called add onto this node right here or on to this node.
+
+And essentially you get the idea that's how we can build out our tree structure.
+
+So let's give a shot at this remove method.
+
+Now give me a little more tricky because we're going to have to iterate through a list of records and
+
+somehow remove some elements in it.
+
+So I'm going to define my remove method.
+
+It's going to be called with some amount of data and then inside of here you're going to look through
+
+every child of the current node.
+
+And as soon as we find one that has data equal to this data argument right here we need to somehow remove
+
+it from the array.
+
+So this is going to be a classic case of we're using our array filter helper is going to be very useful.
+
+Now if you don't recall how the filter helper works let's do a very quick example.
+
+Over in code error here.
+
+So we get say Konst A-R our equals 1 to 3 and then if we called our our filter and then we can pass
+
+in a function with it.
+
+So maybe something like element like so and then we need to do some type of boolean checking here or
+
+some type of logic for any element that we really turn true for that element will be maintained in the
+
+output.
+
+Otherwise if you return false then the element will be removed from the array.
+
+So if we did something like return elements equal to 1 then you can see that every element that does
+
+not satisfy this check right here is removed from the array.
+
+Now one thing that's really important to note here is that when we call filter on an array it does not
+
+modify the original array.
+
+So if we call a filter and then print out array it still has 1 2 and 3.
+
+When ever we start to cull filter right here this returns a brand new array.
+
+So we would have to do something like a r r equals and at that point we would have to update this to
+
+be let instead.
+
+So we are reassigning the A R R variable here with the newly filtered array and that's exactly what
+
+we're going to do for our children array.
+
+We're going to filter on children.
+
+We're going to look at every node value and then we're going to reassign the children property.
+
+OK.
+
+So over here remove we'll call this dot children dot filter and for every node in that array will do
+
+some type of check.
+
+So say return no data that is not equal to data.
+
+Just two equals.
+
+So notice in this case we used not equal to because with the filter if we return true that means we
+
+want to keep the element if we return false.
+
+That means we want to remove it.
+
+So I want to return true for every element that is not equal to this data argument if it is truthy.
+
+Then there's I mean if it is falsie you know if we have something that does not or does not equal data
+
+right here well that means that we want to remove it.
+
+All right.
+
+So again this does not modify the underlying children array.
+
+So after doing this filter called we will assign the result to destock children like so.
+
+All right let's check out our tests.
+
+It looks like everything is passing now.
+
+And before we move on I want to show you the test file that we were just working on because it's going
+
+to give you a little bit more context on exactly how we can assemble a tree out of this node class right
+
+here.
+
+So instead of my tree folder I can open up the test file.
+
+Then inside of here I'll scroll on down to the node can add children test right here.
+
+So in this example you can see that we are creating a new node with some data.
+
+A We then add on some element b so n now has one child and that child is a node with data b.
+
+We can then make an assertion about the number of children that and has or we can access that child
+
+directly by looking at the children array and getting the first element out of it and then we can say
+
+look at the children that that element has.
+
+So this would be the children of node be right here and this test is just asserting to make sure that
+
+no baby doesn't end up with any children because we didn't actually add any in this case.
+
+All right.
+
+So that's our node implementation.
+
+We're now going to take a quick break and when we come back we're going to start working on the tree
+
+class right here.
+
+The tree class is where things start to get really interesting.
+
+So this is where we're going to actually start to traverse our tree in some fashion and try to make
+
+use of the actual structure.
+
+So let's do a quick break.
+
+We'll come back to the next video and start to tackle the tree class.
+-----------------------------------------------------------------------------------------------------------
+
+107. Tree Implementation
+
+We've now finished step one and it's time to move on to Step Two where we're going to try eight create
+
+our tree class.
+
+Now before we start doing any implementation here I want to open up the test file inside of my tree
+
+directory.
+
+We're going to scroll down a little bit and enable the next set of tests in here.
+
+So around like 32 or so we should find the skip statement for the tree.
+
+So I'm going to delete dot skip save the file.
+
+And now back to my terminal I should see an additional three tests that are failing.
+
+OK.
+
+So we definitely got the tests running.
+
+Let's go back to our index start G-S file and read up on the next step here.
+
+So step number two says create the tree class inside the tree constructor we should initialize a root
+
+property to No.
+
+So let's take a look at a diagram to kind of explain what the purpose of the tree class is supposed
+
+to be here.
+
+So here's the tree class.
+
+We're going to assign a root property to it.
+
+This root property is going to contain a reference to the absolute head of our tree or the root of our
+
+tree.
+
+This is essentially doing the same type of setup that we did over with our linked list as well.
+
+So you will recall with our linked lists we have the linked list class that had a red head reference
+
+that pointed out the very first node on our linked list.
+
+So we're doing exactly the same thing here.
+
+We've got the tree class and it's going to point to the root node.
+
+Now also part of the tree class are going to be our two traverse methods which remember are going to
+
+be the methods to iterate through every node on the tree either in a depth first search fashion or a
+
+breath first search fashion.
+
+So we'll first start off with implementing the tree class and it will start worrying about the two traverse
+
+methods that we're going to put together.
+
+So back in my code editor I'm going to scroll on down to the tree class right here.
+
+Now the implementation this is going to be rather straightforward.
+
+So we're going to call We're going to define the constructor function and we're going to initialize
+
+the this root property to be null.
+
+So when we first create a tree it's going to start off with an empty root property and that's it.
+
+Nothing else in here to do.
+
+So an example of using the tree class in the wild might be to do something like say conc node would
+
+be a new node with some amount of data.
+
+Then to create a tree and then we would manually update the root property of the tree like so.
+
+So now the tree thinks that its root node is the node we just created.
+
+All right and I am going to clean up this code right here.
+
+Now one thing that you'll notice about this tree implementation is that we did not add on.
+
+And we're not saying that we're going to add on any type of insert or remove methods to this thing like
+
+we had done previously with the linked list.
+
+The reason for that is that with the linked list the linked list class was really in charge of all the
+
+elements inside the linked list.
+
+Yes the linked list had references to each subsequent element where each node had references to each
+
+subsequent element.
+
+But if we called add or remove on that thing on the linked list it was more or less kind of obvious
+
+how we wanted to operate on the linked list.
+
+But in the case of a tree whenever we start to want to add or remove elements from it we have to very
+
+precisely specify which node we want to be adding or removing elements from.
+
+And so in the context of a tree usually we associate manipulating the tree in some fashion like these.
+
+Add and Remove methods with an actual note because it doesn't quite you know it's kind of hard to envision
+
+how we might call add or move on a tree like if we call add which node are we trying to add this new
+
+node to.
+
+Right.
+
+It doesn't quite make as much sense.
+
+And so that's why we took this different approach this time around with add and remove.
+
+OK.
+
+We got our constructor put together.
+
+Now we're going to start working on our two traverse methods.
+
+The breadth first search and the depth first search these are going to take some amount of time to set
+
+up and explain.
+
+So let's take a pause right now.
+
+We'll come back in the next video and have a lot of time to set up and give you a good description of
+
+exactly how you can put these methods together.
+
+So quick break and I'll see you in just a second.
+----------------------------------------------------------------------------------------------------------------
+
+
+108. Traverse By Breadth
+
+Now we have got some initial implementation of our tree class we're going to move on to implementing
+
+the traverse and the breadth first and traverse in a depth first fashion throughout the tree.
+
+Now notice the directions here.
+
+They say that for both of these traversal methods we should be accepting a function as an argument that
+
+gets called with each element in the tree.
+
+So let's take a look at the diagram that's going to clarify this second step right here and exactly
+
+what's supposed to happen.
+
+So given some tree on the left hand side if we call the Traverse dot the function we should be able
+
+to pass in a function and that inner function right there will then be called with every node within
+
+the tree.
+
+So for example if we ran this function right here on this tree we would take every node and increment
+
+its data property by 10.
+
+So 20 would become 30 0 would become 10 40 would become 50 and so on.
+
+You get the idea.
+
+So make sure that when you start to work on these two traverse functions right here make sure you accept
+
+a function that gets called with every node in the tree.
+
+Now the next thing I want to do is give you a quick reminder on the differences between a breadth first
+
+and a depth first traversal of our tree.
+
+So with a breadth first traversal.
+
+And that's going to be the first one that we're going to work on by the way.
+
+We start off by iterating at each level of our tree.
+
+So we start off at the very top.
+
+We then iterate through all the items directly underneath that and then all the children directly underneath
+
+that from left to right.
+
+Remember that with a depth first traversal.
+
+We start off at the very root and then we try to hit the bottom of the tree as quickly as possible.
+
+So we go from 20 to 0 to 12 then back up to negative to then back down to get to 1 and then down to
+
+40 negative 15 and negative 2.
+
+Now some very early question that you might have might be.
+
+Stephen why do we really care about the order in which we visit nodes in a tree.
+
+What's the difference what.
+
+Who cares which way we go.
+
+Well I want to give you very quickly a practical example of why we would care about the order in which
+
+we visit nodes in a tree.
+
+So let's take a look at 8 organization chart.
+
+So here's an org chart as it's referred to an org chart shows all the different positions at a given
+
+company in order of their hierarchy.
+
+So at the very top of this tree we have the CEO who is the boss of everyone then the CEO might have
+
+three people who report to them.
+
+A CTO was the chief technical officer a Chief Marketing Officer and a chief operating officer.
+
+And then each of those people have other employees who report to them.
+
+So as you can see it's essentially a hierarchy of all the different positions in a company.
+
+Now let's imagine that you work at this company and maybe your boss comes to you and says Hey given
+
+this tree right here I want you to print out all the employees or all the positions in our company in
+
+order of their position.
+
+So you would be expected to print out a list of the CEO and then the CTO then the CMO the CEO.
+
+Oh and then go down to the V.P. of engineering V.P. of infrastructure and so on.
+
+You get the idea.
+
+So that would be an example of a breath first traversal of our tree.
+
+We want to start at the very top with the most important person and then go down through order of just
+
+slightly decreasing importance from there.
+
+Now just so you know this actually is a common interview question.
+
+You might be asked Hey given a tree of positions print out every position in order of importance or
+
+a kind of hierarchy in the organization there's also a very common very common variation on this problem.
+
+But essentially the same thing would be given a hierarchy of military positions.
+
+So maybe at the very top as a general and then underneath them are some colonels and some lieutenants
+
+or captains underneath there.
+
+And given that military ranking or that military hierarchy print out the position of every person in
+
+relative order.
+
+So that's why we might care about a breath first traversal through our tree.
+
+OK so last thing before I cut you loose.
+
+Remember this is a problem that you're going to work on by yourself.
+
+I want to give you one possible way of solving this problem or it's kind of a general algorithm that
+
+you can use.
+
+So let's talk about how we might solve or put together the breadth traversal.
+
+So here's the algorithm algorithm.
+
+This is the general way of doing it.
+
+And of course this is not the only way.
+
+So definitely not the only way it's just one possible way.
+
+I do find this to be the easiest to approach and the easiest to remember however.
+
+So I do recommend you give this one a shot.
+
+So with the breadth first traversal through our tree the general idea is that we create an empty array
+
+and then we immediately take the root node from our tree and we stick that into the array at the very
+
+start.
+
+We then start iterating through this array and we say while the array has some elements in it and that's
+
+a key word.
+
+By the way to keep in mind while while there's still some element in our array take out the very last
+
+element so take it out or simply not the very last moment but the very first element to take out the
+
+very first which in this case is 20 retrieve.
+
+All of this nodes children and stick all those children into the array.
+
+So in that case we would say look at all the children of 20 and that would be these three nodes right
+
+here.
+
+So we would take these three nodes and we would stick them all into the array like so.
+
+We then would call our function that is provided to the Traverse method with this note.
+
+So remember that step right there is talking about this inner function that gets passed as an argument
+
+to the Traverse method.
+
+So at some point in time we do have to call that function.
+
+So that would be the time which we call it.
+
+So we call that function with our no 20 right here.
+
+And then we essentially throw that Nodaway because we've already processed it then we again say look
+
+at our array and if there are still elements inside of it then go through another iteration pull out
+
+the first element take any of its children and stick it in to the end of the array.
+
+So we would then take all of zeros children which are these right here and we would stick them all to
+
+the end of the array.
+
+We then call our past function or that it Rayder function with this note and then we'd throw it away
+
+we'd then say if the phrase still has any elements inside of it pull out the first element take its
+
+children stick it into the end of the array then call the iterator function with that.
+
+And I think you get the idea.
+
+We then take out the next one take this one's children stick them into the end of the array.
+
+So now be way over here.
+
+Call the iterator function with this node and then throw it away.
+
+So you get the idea that's how we would approach this with a breath first search.
+
+Now as I was walking through that algorithm you may have noticed that the order in which we end up processing
+
+these nodes starts at the very top and then goes to the next level we would go through 0 40 negative
+
+15 and then we would go to the next level and go through there.
+
+And so that is a classic breadth first traversal through our tree.
+
+OK.
+
+So that again is just one possible way of doing it.
+
+In general this solution if you condense it down to as few lines of code as possible will be not that
+
+many lines of code.
+
+So if you feel like you have to write dozens and dozens of lines of code to iterate through a tree.
+
+Well you know maybe come back here and take a look at this possible solution by using an array again
+
+because this is a solution that generally doesn't require you know that much code.
+
+Now before I let you loose one last thing I want to do just to kind of set you on the right path down
+
+side of our tree class right here.
+
+I just want to set up the Traverse breadth first function with you.
+
+So we should be setting up traverse breadth first and this will be called with some function and this
+
+function right here is what we want to call every node in the tree with.
+
+OK.
+
+So go ahead and give this a shot.
+
+Again you're doing only the Traverse breadth first algorithm right here.
+
+So give it a shot.
+
+We'll come back together in the next video and we'll start on a solution.
+
+So I'll see you in just a minute.
+------------------------------------------------------------------------------------------------------------
+
+109. Solving for Breadth-First Traversal
+
+In this section we're going to look at the solution to the Traverse breadth first algorithm.
+
+So remember we just spoke about the way in which we would approach this.
+
+So we're going to create some array.
+
+We're going to manually stick the first element into that array and then we're going to set up a while
+
+loop to say as long as this array has some element in it take out the first element take all of its
+
+children and stick those all into the array like so.
+
+So let's give this thing a shot over inside my tree class I'll find the Traverse breadth first method
+
+will then take the very top node or the root node out of our tree and we'll stick it into a brand new
+
+array.
+
+So we can do all that inside with just one line of code.
+
+So we'll say Konst or is this root like so.
+
+So that will give us some element with our root node within our array right here and now we can start
+
+to iterate over this array.
+
+So I going to set up a while loop and say while the array has something in it.
+
+So in other words as long as array length is a truth value.
+
+So as soon as our array is empty as soon as it has a length of zero that means there's nothing else
+
+for us to do.
+
+We're all done then inside of here.
+
+We're going to take the first element out of the array.
+
+So we're going to literally remove it from the right.
+
+We're not just getting a reference to it.
+
+We're going to take it out so that the array over time will be decreased in size.
+
+So we'll say conc node will be array.
+
+Or a r r dot shift.
+
+Remember the shift method right here is a base array method that is included on all javascript arrays.
+
+The shift method will take out the first element of the array.
+
+So this does kind of require some knowledge of the shift method right here.
+
+Then we're going to immediately take all of this nodes children and push them into our array.
+
+So we'll say.
+
+Push and I want to take all the children from node right here and add them or something not Q But a
+
+r r r r push.
+
+And we want to add in all the children from the node.
+
+Now the important thing to keep in mind is that we cannot say simply node children because no doubt
+
+children is an array.
+
+So if we push an array into an array we would then have a nested array.
+
+It would look something like you know this right here which is not what we want.
+
+We don't want to have nested arrays.
+
+We want to make sure we take all the nodes out of the children array and then add them into a r.
+
+So there's two possible ways of doing this.
+
+The first possible way would be to write a for loop where we would iterate through no dot children.
+
+So that might look something like 4 let node of node children are seemy we should be some like child
+
+and we could say A-R don't push child.
+
+So that would be one possible solution to take every child out of no doubt children and add them to
+
+the array.
+
+Another possible solution that has very few lines of code would be to use the E.S. 2015 spread operator
+
+so we can say simply dot dot dot no dot children and this has the exact same function as the for loop
+
+that we just saw.
+
+So in other words take every element out of this array right here and push them into array.
+
+So the spread operator specifically right here is going to make sure that we are not attempting to push
+
+in the entire like array structure.
+
+We're saying take all the elements out of there and push them one by one into array so you can use either
+
+the for loop or the dot dot dot operator right here.
+
+Personally I prefer the dot dot dot because obviously it's far less code.
+
+Get that will take all of node's children and add them into our array so that they are waiting to be
+
+processed.
+
+So after our first loop through there let's kind of trace through the first loop just one more time.
+
+So we start off with just note 20 which is the root node.
+
+We then take that thing out we take all of twenty's children which are going to be zero 40 and negative
+
+15 oops too many copy pasted and we push those all in to the array one at a time.
+
+So again remember these should not be in their own little separate array.
+
+They are all individual elements within the array we had created.
+
+So now we can take no twenty right here and pass it in to our iterator function which was provided as
+
+an argument to traverse breadth first.
+
+So a call then with the current node that we're looking at and that's pretty much it.
+
+Believe it or not it's like I said not very many lines of code here for this solution so let's save
+
+this file and see how our tests are doing.
+
+Back over at the terminal I've got six test passing now and if I scroll up a little bit it looks like
+
+the test for breadth first traversal is passing cool.
+
+So that's pretty much it.
+
+Let's take a break right now.
+
+We'll continue in the next section and we'll start talking about our approach for a depth first traversal.
+
+So a quick break we'll tackle that in the next video.
+----------------------------------------------------------------------------------------------------------------
+
+110. Depth First Traversal
+
+In the last section we put together our breadth first traversal.
+
+We're now going to move on to talking about how we would approach the depth first traversal.
+
+So first let's do just one quick reminder.
+
+I know we've looked at this diagram several times now.
+
+So we would start off at the very top we would go down the left hand side to the bottom as quickly as
+
+possible and then we would loop back up and down up and down up and down up and down.
+
+Now I've got some really good news for you especially if the solution we just went over made some sense.
+
+So the good news is that to traverse through a tree in a depth first order is remarkably similar.
+
+As far as the code goes to how we approach the breadth first.
+
+So that's why I showed you that particular method by using an array is because to do either the breadth
+
+first or the depth first are nearly identical.
+
+So let's talk about how we would iterate through a tree in a depth first fashion.
+
+All right OK.
+
+So again we've got our array over here and every step of this thing is going to be remarkably similar
+
+except for one little difference.
+
+So let's talk about what that is.
+
+So we're going to start off again by making an array and immediately taking the root node and sticking
+
+that into an array will then enter a wire loop and again so long as this array has some number of elements
+
+inside of it will take out the first element and then we'll take this elements children.
+
+So again that will be zero 40 and negative 15 and we will stick those all into the array.
+
+We'll pass this node to our iterator function and that will essentially throw it away.
+
+Next we take out the next node.
+
+So here's the next node.
+
+Now we take this things children which are 12 negative 2 and 1.
+
+And now here's the difference here is exactly how depth first is different than breadth first remember
+
+with breadth first.
+
+We took these children right here and we added them on to the end of the array.
+
+We just saw two seconds ago.
+
+Remember we called Push right here push adds elements to the end of the array.
+
+But with a depth first search rather than adding these children to the end we are going to add them
+
+to the start.
+
+So they're are going to be added on to the very start of the array like so.
+
+So remember we're still operating on zero right here.
+
+So we'll call our iterator function with 0 and then we throw that note away.
+
+We then take out the first element from our array which in this case would be 12.
+
+And so you can very quickly see the pattern that we have here.
+
+We go from the roots down to the left side down the left side.
+
+We say does this thing have any children.
+
+In this case no it does not.
+
+So we pass it to our iterator function and then throw it away.
+
+We then take out the first note again.
+
+That's negative too.
+
+This has no children.
+
+We pass it to the iterator throw it away.
+
+We take out one.
+
+This has no children.
+
+We pass into the iterator function tore it away 40 take it out patented rater throw it away.
+
+15.
+
+This one does have a child as negative too.
+
+So we will put that into our array at the very start.
+
+In this case it's empty so it doesn't make a big difference but still we put at the very start of the
+
+array.
+
+We pass this to the iterator function or away negative 2 out iterator function.
+
+Throw it away.
+
+So that's pretty much it.
+
+The only difference between breadth first and depth first when we are using this array to hold elements
+
+is whether or not we are adding elements or adding children to the start or the end of the array.
+
+So in general that's something that is pretty darn straightforward and easy to remember even if this
+
+is your first time looking at it maybe it looks a little bit intimidating.
+
+But believe me I am really confident you can remember the difference here.
+
+Remember if you're ever in an interview setting all you really have to do is remember OK I need to make
+
+some type of array and then iterate through children.
+
+And if you draw this out in diagram form I'm really confident that you could pretty quickly come up
+
+with the solution either with the breadth first or depth first solutions.
+
+OK.
+
+So that's how we're going to solve the depth first traversal.
+
+So back inside our index file let's add on the method traverse depth first it's called with some function.
+
+And again I'm going to let you take a shot at this one.
+
+So remember this solution is going to look remarkably similar to what we just did right here.
+
+There's just going to be that one key difference which is exactly where we add the children into our
+
+array.
+
+So go ahead and give it a shot and I'll meet up with you in the next video.
+-----------------------------------------------------------------------------------------------------------------
+
+111. Solving for Depth-First Traversal
+
+In this video we're going to look at the solution to the depth first traversal problem.
+
+Remember this is going to be very similar to the breath first.
+
+Like I just mentioned.
+
+So let's just dive right in and bang this thing out.
+
+So the first step is going to be to create an array that contains only the root node.
+
+So this dot right we will then iterate over this array and as long as there is still some element in
+
+it we will continue to iterate.
+
+So perfect to use for that would be a while loop.
+
+So say while array still has some length while it still has some element in it we want to continue to
+
+iterate.
+
+We'll first start off by taking in the first element of the array.
+
+So remember we can take out the first element by calling shift.
+
+We will then take that nodes children and add it on to the front of the array.
+
+Now again you can do this either by a for loop to iterate through each element or you can use those
+
+dot dot dot operator.
+
+So we're going to say array and then to add elements to the front of this thing we call on shift.
+
+So again on shift is a builtin array method.
+
+This is one that you don't see use terribly often but do be aware of it.
+
+Unshipped will take an element and add it onto the front of the array so we'll then say dot dot dot
+
+no dot children.
+
+So take every element in this children array and add them all into array.
+
+Then we need to make sure that we call our argument function with know that we're currently considering.
+
+So we'll say F-in node like so.
+
+And that's pretty much it.
+
+So we can save this file right here.
+
+Let's check our tests out.
+
+And now we have everything passing.
+
+So both the breadth first traversal and the depth first traversal code.
+
+OK.
+
+So again that's breadth first and depth first traversal absolute core elements for every single tree
+
+problem you're going to see.
+
+So no matter what problem you're working on chances are you're going to need to know how to remember
+
+exactly how to traverse through a tree and a breath first or a depth first fashion.
+
+Now many questions you're going to end up getting around trees are going to generally require you to
+
+make a decision on whether you want to iterate through it in a breath first or depth first fashion.
+
+So let's take a break right here.
+
+We're going to continue in the next video.
+
+I'm going to start looking at a couple of different problems that require you to either traverse through
+
+a tree and a breadth first or a depth first fashion.
+
+So let's start to tackle those in the next video.
+--------------------------------------------------------------------------------------------------------
+========================================================================================================
