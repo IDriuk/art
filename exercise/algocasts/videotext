@@ -18732,3 +18732,1233 @@ a tree and a breadth first or a depth first fashion.
 So let's start to tackle those in the next video.
 --------------------------------------------------------------------------------------------------------
 ========================================================================================================
+
+Раздел 26:Tree Width with Level Width
+
+
+112. Level Width Declaration
+
+
+In this video we're going to take a look at a question that's going to require you to really understand
+
+how breadth first traversal works.
+
+So inside my code editor I'm going to find the level with folder and then open up the index file and
+
+then as usual will also flip on over to our terminal will do just level with test not just dash dash
+
+watch.
+
+Now I think we have about three tests or so.
+
+OK.
+
+Three tests Yeah.
+
+All right let's go back over and read the directions here.
+
+The directions say given the root node of a tree we want to return an array where each element is the
+
+width of the tree at a given level.
+
+While these directions aren't the most helpful thing in the world so let's take a look at the code example
+
+here.
+
+So here's the sample tree.
+
+This would be a tree that you and I are given.
+
+Notice how it has that element up top three children underneath that.
+
+And then two of those children have one element as children.
+
+So the example here for this given example we would return an array of 1 3 2.
+
+So let's talk about exactly where this race is coming from.
+
+Notice how the first level of the tree.
+
+So the very first level the root level has exactly one node in it.
+
+So the first element in our answer array would be one because it has a width of one at the first level.
+
+We would then move down to the next level level to level two has three notes one two three.
+
+And so in our answer array we would place three at index 2 and then moving on to level 3.
+
+So here's the third level.
+
+There are two nodes here.
+
+And so the next index in our array would contain two again each of these values are dis are telling
+
+us the width of the tree or the number of nodes at a particular level.
+
+And then the index of each value is telling us the level that we are describing.
+
+So Level 1 Level 2 level 3 corresponds to index 1 index to index three in the array.
+
+So hopefully that makes sense.
+
+All right.
+
+Hopefully that is not the worst thing in the world.
+
+So let's now talk about two particular things.
+
+I first want to throw out one kind of caution note here one thing that you just need to be aware of
+
+and we'll talk about.
+
+One possible way of solving this.
+
+So the first kind of caution note I want to share with you here is notes that the directions say given
+
+the root node of a tree.
+
+So we are working with a node here and in fact if you look at the project directory for level with you'll
+
+see the node J.S. file inside of here.
+
+And so this is an individual node that we're working with.
+
+We're not working with the tree class anymore.
+
+We're not accessing the tree class.
+
+There is no tree class.
+
+All we are working with is the Node class.
+
+And this note as values data and children just like it did previously.
+
+So that's what root is root is a node.
+
+Just keep that in mind.
+
+Now as far as the solution goes the instant in any tree related question the instant you see the word
+
+with Anytime you see with you immediately want you start thinking about a breath first traversal of
+
+our tree.
+
+And that's exactly what we're going to do to solve this question.
+
+So let's kind of think about how we can use breadth first traversal to get the width of each level here.
+
+Now I'm going to give you one possible solution to this problem.
+
+This is just one possible solution.
+
+There could be more.
+
+You know give it your own shot if you want to try to come up with your own solution or if you have a
+
+thought on how to address this I'm going to show you one possible way of doing this.
+
+So for our solution here we're going to maintain two separate arrays and one is going to be called counters
+
+counters will be the array that holds the actual width of our tree at each level.
+
+So counter's right here would be the array that we eventually want to return from our array or it's
+
+me from our function then we're also going to have the array and this rhetoric here is going to serve
+
+the purpose of that kind of buffer or that kind of queue that we're going to use to iterate through
+
+our tree in a breadth first fashion just in the same way as we did a moment ago.
+
+Now when we start to implement this question you might be thinking OK we're going to reuse that exact
+
+same traverse breadth first function that we did previously but that's not quite the case here.
+
+Instead we are going to iterate through our tree in a fashion very similar to breadth first traversal
+
+but we're going to rewrite all that iteration logic and we're going to add a couple of steps here and
+
+there.
+
+So any type of tree problem that you run into in an interview very frequently you're not going to be
+
+using some pre-built traversal function instead you're going to have to write a function that will traverse
+
+through the tree and do some work during that traversal.
+
+And that's exactly what's going to happen here.
+
+So we're going to write some code to traverse through the tree and at some points in time we're going
+
+to do some extra little bit of work.
+
+All right.
+
+So let's give this a shot.
+
+So the first thing we're going to do before we start doing any iteration is to create this starter array
+
+right here just like we did previously.
+
+It's going to contain the root node.
+
+And then we're also going to insert some random token in here some number string.
+
+It could be Noal whatever you want it to be just some kind of pointer or kind of note to ourselves.
+
+And so in my case I'm going to use a string of s.
+
+So this is going to be not a node.
+
+Remember 20 is going to be a node.
+
+This is going to be simply a character they'll call s and this can be absolutely anything could be de-value
+
+know it could be a straight number that's not know it could be a string totally up to you.
+
+You'll see what its purpose in just a second.
+
+So before we start any while loop or anything like that we're going to create our base array and put
+
+the first node.
+
+And this kind of stopper variable in there we will also initialize the counter's variable or give you
+
+the counter's array and give it a starting index or a starting value of zero.
+
+So the first element encounters will be zero.
+
+OK.
+
+Now we're going to enter into our loop and we will come and discuss and walk to a loop and think about
+
+what's going to happen inside of it.
+
+So inside of our loop we're going to take out the value 20.
+
+So the very first node just like we did previously.
+
+We will then take any elements or any children that 20 has and we will add them to our array at the
+
+very end just like we did before.
+
+I'm going to move things over just a little bit myself a little bit of space.
+
+OK after adding 20 or all the children of 20 into our array we're going to increment the first counter
+
+right here by 1.
+
+So that's going to say OK.
+
+The very first level of our tree.
+
+We had one element.
+
+So we were one element wide.
+
+So we've processed 20.
+
+We've done everything we need to do 20.
+
+So we'll throw it out to the sides here.
+
+Next we will pop out the next value from the array.
+
+And this time we're going to get this kind of stopper value and that's why I called it s right here.
+
+It's kind of like a stock or kind of like an end of line character.
+
+So we're going to say that any time we see this end of line value right here that must mean that we've
+
+hit the end of some level in our tree and we need to now start to assume that we are processing values
+
+on the next level.
+
+So any time we see the value s right here we're going to do two things.
+
+We're going to take the value s and put it back at the very end of our array because anytime we see
+
+s as the next value in here that means we are have we have processed an entire level.
+
+We just processed everything on this level right here.
+
+So we have taken all the children from the elements in this row right here and we inserted it into the
+
+array.
+
+And so everything after the last note that is currently in the array must be the formation of the next
+
+level.
+
+So in this case we have zero for the negative 15.
+
+That is everything out of this level right here.
+
+So there's nothing else to be processed.
+
+So we will stick s at the end to signify that is the end of this current level.
+
+So step one just to reiterate as soon as we saw that we had s we would take s and stick it back onto
+
+the end of our array and then the other thing that we're going to do is add on a zero to the end of
+
+our counter's array.
+
+The purpose of adding on the zero right here is again to signify that we are now moving on to the next
+
+level of our counter of our tree.
+
+And so we're going to start attributing all the notes that we see from now on to this new last counter
+
+in here.
+
+So we then re-entered our while loop we take out zero.
+
+We see that it is a regular node we checked to see if zero has any children and it does.
+
+So we're going to take all those children and then stick them onto the end of the array over here after
+
+X
+
+after taking all of its children and inserting them into the array will then go up to our counters array
+
+will find the very last value in there and we will increment it by one and then we'll throw that thing
+
+away.
+
+Next we take out 40 40 has no children.
+
+So we will just increment our current counter or the last value inside of counters by one and we'll
+
+throw the note away.
+
+We take out negative 15.
+
+We add its children to our array.
+
+So we would take this negative two right here and add it onto the array.
+
+We would then increment our counter variable by 1.
+
+So we're now up to 3 and then we throw 15 away.
+
+Now we move on to the next value.
+
+Again we find æsir.
+
+And so anytime we find s We're going to throw s to the end of our array and then we create a new entry
+
+in our counters array and initialize it to zero.
+
+We re-enter the while loop.
+
+We take out the 12 right here.
+
+12 has no children so we increment counters.
+
+We throw 12 away.
+
+We take out negative 2 and has no children.
+
+So it increment counters we take out one.
+
+It has no children.
+
+So we increment counters.
+
+And I think Sirius is going we take out negative 2 and we increment counters.
+
+So it's now to 4.
+
+Now at the very last step of our for loop or smell or Waialua here and this is something it's really
+
+critical we need to consider the very last condition here.
+
+So he said that every single time that we see the value s we take out s and we added into the end of
+
+our array.
+
+However if that is always the rule 100 percent of the time then we would very quickly enter into an
+
+infinite loop because we've said that every single time we take out as we add it to the end of the array.
+
+And remember when we did our breath first traversal algorithm we said as long as there is an element
+
+in our array we should continue iterating through it.
+
+And so that would just very directly lead to an infinite loop.
+
+We keep on taking this out and putting it back and taking it out putting it back in.
+
+So for our breath first algorithm this time around maybe we don't want to be only considering the array's
+
+length right here.
+
+Maybe we want to make sure that as long as there is more than one element in the array we should continue
+
+iterating.
+
+Because think about it any time there's only one element the last element should always be yes.
+
+So there's only one element.
+
+Well that means that we actually don't really have anything else to iterate through.
+
+Now the one thing I'll caution you against is only checking to see if the first element is X here and
+
+then using that to decide whether or not we can should continue iterating.
+
+So if we only check to see if x is the first element and then decide to say OK X is the first element
+
+stop.
+
+Well we would never touch the case in which there is some value after it.
+
+So in short if you see that there's only a length of one in array then chances are only S is in there
+
+and we should probably stop iterating Now as soon as we finish iterating through the array.
+
+We then have our counters array right here which has been maintaining the width of our tree.
+
+And so notice the final arguments are the final values we get in here.
+
+The first level right here has a value of 1.
+
+So that's definitely the width.
+
+Then we have one to three elements at the next level.
+
+We have three right there and we have one two three four elements at the next level.
+
+So we have four there as well.
+
+So that's pretty much it.
+
+That is one possible solution.
+
+One possible way of approaching this problem.
+
+So if you can think of another way of tackling this they certainly go for it.
+
+But this is just a way that I think builds very nicely on the breadth first traversal algorithm that
+
+we were just looking at.
+
+So let's take a break right here.
+
+I would really encourage you to give this problem a shot.
+
+You know try it out on your own.
+
+Make sure that you can really come up with the solution.
+
+And in the next video we'll go over the solution together.
+
+So give it a shot and I'll see you in just a minute.
+
+----------------------------------------------------------------------------------------------------------------------
+
+113. Measuring Level Width
+
+In this video we're going to tackle the solution to the level with problem.
+
+So remember this is going to have a lot of code that looks very similar to a breadth first traversal
+
+but at certain locations we're going to decide to do some extra amount of work.
+
+And this is a very common thing to do in all type of tree problems.
+
+Very frequently you will be implementing a depth first or breadth first traversal but you will add in
+
+some extra code to execute at some given steps along the way.
+
+So let's get to it now.
+
+We went through a very long solution in the last video so we're going to kind of you know go pretty
+
+quickly here rather than reiterate a lot of all the different steps here.
+
+But I might refer back to the diagram once or twice.
+
+So step one and I will show this in the diagram.
+
+Step one will be to create a counter's array that's going to hold the width of our tree at each level
+
+and we're going to initialize the first value in there as 0.
+
+And then we're also going to create this array that's going to hold kind of the buffer or all the working
+
+elements or the queue that we are waiting to process in our tree.
+
+And we're going to make sure that we initialize it with values from the first node of the tree or the
+
+root node of the tree.
+
+And whatever our stopper value here is remember the stopper value here.
+
+It doesn't have to be asked I just totally made that up.
+
+It could also be null.
+
+It can be undefined absolutely whatever it just needs to be some value that we can recognize as symbolizing
+
+that we hit the end of a row.
+
+Now the string S is totally OK because remember 20 Here is a note.
+
+So 20 is actually on the data property of the node.
+
+So even if we had some node that contains the character s we would be totally fine because this is the
+
+characteris.
+
+This is a node that contains data of apps.
+
+All right.
+
+So then let's get to it.
+
+We'll say Konst array will be our root node.
+
+And again I'm going to use the character as here just to stay consistent.
+
+And then we will also initialize that counter's array which is going to hold the widths along our tree.
+
+Now you could have just as easily call this thing with.
+
+Maybe that would have been all bit more clear as to what its purposes but you know the word withs is
+
+really easy to misspell.
+
+I think I kind of like counter's nice and simple.
+
+So now we're going to iterate through our array right here.
+
+But as soon as we write the bounds here member we had previously said as long as there is still an element
+
+in array we want to continue iterating But when we get down to the very very very last cases after we
+
+have processed everything the last element in the array will be s.
+
+And in that case we don't want to take the thing out and then put it right back in.
+
+We want to say if S is the only thing left in here then.
+
+Get me out of here.
+
+I don't want to do anything else.
+
+So we're going to say while a re adult length is greater than 1.
+
+So as long as there's more than one thing in here that means that there must be some more amount of
+
+work for us to do.
+
+Now inside the while loop will pull off the next working element with shift and then there's two considerations
+
+that we want to make here are two different conditions that we want to process.
+
+The first will be the case in which we pull out the value S..
+
+So if we pull out as we want to increment or assume we want we want to add a new index to our counter
+
+or a new element to our counters variable because as means we've hit a new row and then we also want
+
+to add s back to the very end of our array.
+
+So if we know that we're now looking at is the character s if that is our stopper character then take
+
+our counter's variable and push on a new element of zero.
+
+In other words counter's needs to be informed that we are now going to start processing another row
+
+and then the other thing we need to do is array.
+
+Push.
+
+Yes.
+
+So put that thing back at the end of the array.
+
+Now the other case that we need to handle is the case in which node is an actual node like you know
+
+the no 20 right here.
+
+So if we are working with an actual node then we want to make sure that we take all of its children
+
+and stick them into the end of our array.
+
+And because we have visited a legitimate node here we want to make sure that we also increment the last
+
+value in our counter's index so if we are not working with the character s if we are working with the
+
+character Noad or at least to me an actual note here that we want to push all of that things children
+
+no children into our array.
+
+And then we also want to make sure that we increment the last value inside of counters.
+
+So say counters at counters dot length minus 1 plus plus like so so find the very last elements inside
+
+of counters increment it by one.
+
+Remember that the last element Encounter's represents the current level of our tree that we are working
+
+on at this point.
+
+All right.
+
+Just one last step here after the while loop.
+
+So after we have processed everything we need to make sure that we never forget to return the thing
+
+that we actually care about which is the counter's array.
+
+So let's save this and check our tests see how we're doing and we're pasan.
+
+So that's pretty much it.
+
+Again I've said it twice now I'll say it one more time.
+
+When ever we start working on problems related to trees we are usually going to have to end up implementing
+
+either a depth first or breadth first traversal manually.
+
+So very rarely will we be able to really do any type of very generic iterator function here.
+
+I think you probably could have this problem but very frequently we'll have to do some extra stuff.
+
+Stop skimming extra stuff along the way.
+
+So this is just one postes way of solving this but is one that is very easy to remember because we're
+
+building on that very straightforward a rather simplistic way of iterating through our tree in a breath
+
+first fashion.
+
+So let's now continue into the next video and start working on our next problem.
+------------------------------------------------------------------------------------------------------------------
+==================================================================================================================
+
+Раздел 27:My Best Friend, Binary Search
+Trees
+
+114. What's a Binary Search Tree?
+
+
+In the last couple of videos we've been looking at generic trees and up to this point.
+
+We said that every single node in the tree can have an unlimited number of children underneath it.
+
+So for example the root node in this tree has three children.
+
+And then this node right here of value zero can have three children underneath that we've also said
+
+several times that we can stick absolutely any data that we want to into any node of our tree.
+
+We're now going to start to look at a another type of tree that is going to more closely validate or
+
+place more stringent requirements on not only the number of children that can have but also the value
+
+that a child can have as well.
+
+So let's take a look at this new type of tree.
+
+So it's going to be called a binary search tree with a binary search tree.
+
+Every node can have at most two children.
+
+We usually refer to these two children by their position relative to the parent.
+
+So for example for the root node we have one node to the left and one node to the right.
+
+We would thus called a node on the left the left node and the one over here the right node makes sense
+
+right.
+
+Not that bad.
+
+Now not only do we restrict the number of children that a binary search tree node can have but we also
+
+start to restrict or start to validate the value of every node in the structure.
+
+In this particular case right here you can very quickly notice that every single value to the left of
+
+a parent node seems to have a value less than the parent.
+
+So for example the root node in this case has a value of 10 and then the value to the left has a value
+
+of zero.
+
+The same is true of this node as well.
+
+So to the left we have negative 1 which is less than zero.
+
+And to the right we have a value of 5 which is greater than zero.
+
+And then even down here with say 20 we have 20 in the parent the left node has a value of 17 which is
+
+less than 20 and the right note has a value of ninety nine which is greater than 20.
+
+So we can really come up with a diagram that looks like this for any given node in our structure.
+
+So this represents a node right here rather than referring to the children of a node as a big array
+
+called children because we only have at most two child nodes.
+
+We usually assign them to properties called Left and Right which corresponds to the left node and the
+
+right note of course.
+
+We also place these validation requirements on the values inside of those left and right notes as well.
+
+So the value of this parent node this current note that we're looking at right here must be greater
+
+than the value of the left nodes value.
+
+And then the value for the right node must be less than or some greater than the current node with binary
+
+search trees.
+
+You'll frequently call the value or the data stored within the node.
+
+Other types of terms than what we've been using as well.
+
+So you'll sometimes see this the data stored within the node itself.
+
+You'll frequently see it referred to as a key you might see or referred to as a value but for the purposes
+
+of this course we're going to continue to call it data just to stay consistent.
+
+Now one of the big challenges around binary search trees are one of the questions that you can probably
+
+be expected to most frequently have to answer in an interview setting is exactly how to add new nodes
+
+into an existing binary search tree.
+
+So let's say for example we have the given tree right here and then we call add on the root node all
+
+the way up top and we want to add in a new value of negative 20.
+
+It would then be up to you and me to write some code to figure out exactly how to take this new value
+
+of negative 20 right here and somehow added into an appropriate location within the tree.
+
+So the general algorithm for this is pretty straightforward at least from a verbal perspective like
+
+talking through it.
+
+So to add in the value of negative 20 we would start off at the root node and we would say is negative
+
+20 less than 10 Yes it is.
+
+So we're going to go to the left hand side we then say is negative 20 less than zero again.
+
+Yes it is.
+
+So move to left outside and then we say is negative 20 less than negative 1.
+
+And again yes it is.
+
+So we would allocate negative 20 right here.
+
+Now the last thing that I want to mention about binary search trees is the actual naming of the tree
+
+as well.
+
+So we are going to be talking about binary search trees.
+
+Now specifically the term search in there that places the requirement on the values to the left and
+
+right of the parent node.
+
+We can just as easily and this is a thing in the computer science world as well.
+
+So this is another completely valid data structure.
+
+We could also have simply a binary tree a binary tree is a normal tree that just has two nodes underneath
+
+each parent.
+
+So with a binary tree we no longer have the requirement of making sure that the values on the left are
+
+less than the parent value and that the values on the right are greater than the parent value.
+
+So for example if we replaced five right here with like 9 9 9 we would no longer have a valid binary
+
+search tree but we would have a valid binary tree because every node in here has at most two children.
+
+So that's just one thing to keep in mind.
+
+Now in an interview setting.
+
+One thing that you'll want to do very frugally whenever you think you're being asked about binary search
+
+trees is to really try to get an answer to the question very quickly whether or not you are working
+
+with a binary search tree very commonly.
+
+Your interviewer might expect you to kind of deduce whether or not you're working with a binary search
+
+tree or not and also some types of algorithms will behave slightly differently whether you have a binary
+
+search tree or just a normal binary tree.
+
+One other common interview question that we might see as well is to be asked to validate a binary search
+
+tree.
+
+So maybe you are given a tree that looks like this right here and you have to run some code on it and
+
+validate whether or not it is well-formed in this particular case where every node has two children
+
+and every node to the left of its parent is less than the value of the parent and every node to the
+
+right is greater than the value the parent in this case.
+
+Yes we have a valid binary search tree but if you were given a tree that looks like this where there
+
+was some value out of place you would then be expected to somehow find this mistake right here and say
+
+no it looks like this is not a valid binary search tree.
+
+OK.
+
+So that's a little bit on binary search trees.
+
+Again it all comes really down to understanding how to insert new nodes into a tree.
+
+So we're going to continue the next video where we're going to start working on our own implementation
+
+of a binary search tree and it's really going to focus on our ability to add in new data or new records
+
+to it.
+
+So a quick break and we'll continue that in the next video.
+----------------------------------------------------------------------------------------------------------------
+
+115. Binary Search Tree Implementation
+
+In this section we're going to take a look at implementing our own binary search tree.
+
+Now putting together your own binary search tree is not the most challenging thing in the world after
+
+we have just looked at doing a lot of trailer related stuff.
+
+So we're going to get through this pretty quickly.
+
+Let's get started inside of my BSD directory which stands for binary search tree.
+
+I will open up the index file and then of course will also start up our tests with just BSEE test.
+
+J Yes.
+
+Dash dash watch you know we should have just two tests at this point.
+
+One is already passing.
+
+So we have to get the other one to work correctly.
+
+So let's take a look at our index dodgiest file.
+
+So our goal here is to put together this node class.
+
+There's two sets of directions.
+
+So step one is going to be to set up the node constructor.
+
+Notice that the constructor should initialize values data left and right so left and right will be references
+
+to child nodes and data will of course handle some data that is provided as an argument to the constructor.
+
+So let's put this one together right now because it's going to be rather straightforward.
+
+So inside the node class will set up the constructor.
+
+It will take in some amount of data and then we will sign that to this dot data.
+
+We're also going to initialize the left and the right values as well and explicitly set them to nil.
+
+So this dot left is null and this Starbright is null as well.
+
+And so these two lines right here are going to make it really clear to you and me or other future developers
+
+that this particular node does not have any children to look at.
+
+We can start looking at step 2.
+
+So for step 2 we want to implement the insert method on this node class as well.
+
+So we're not going to make a separate binary search tree class or anything like that.
+
+We're going to implement insert on this particular note.
+
+So this should accept an argument data and then it should somehow insert a new node at the appropriate
+
+location in our binary search tree.
+
+So remember when we take in this argument data we have to first create that node.
+
+So we do have to make a node there and then we have to create or zoomie assign that node at the appropriate
+
+location.
+
+Now there is one or two tips I want to give you here.
+
+This is a problem I would like you to kind of give a shot at without a lot of input from me because
+
+we have been looking at a decent amount of tree stuff already but I will tell you that the previous
+
+method that we took made use of where we had been iterating through with a queue of sorts and we use
+
+that while loop when we were doing our depth first and our breadth first searches those while they can
+
+be used in this particular case.
+
+There's actually a different way of doing insertion that is used much more frequently with binary search
+
+trees and that is recursion.
+
+So one way that we could possibly put this together let's say that we are again trying to add in a value
+
+of negative 20 we can call insert on the root node up here and inside that root node we can look at
+
+the value of the current node.
+
+So like this dot data and then we can look at the value of the data that is coming into the function.
+
+If the incoming value is less than the current data value so less than 10 then we should somehow figure
+
+out how to kind of pass this node off to the one or this new value off to the node on the left hand
+
+side.
+
+Then inside of there we should do the same comparison.
+
+And if it's less then we should pass it off to the left hand side and then for this last node right
+
+here we should probably have some type of check to recognize that there is no further left hand node
+
+available here.
+
+And so we should probably create a new node and then assign it to the left property.
+
+So in short I recommend that you try giving a recursion.
+
+Recursion a a shot here and in general I think that there's probably going to be four cases that you're
+
+going to worry about the first case or the first two cases will be the case in which the current node
+
+has a node already signed to the left and the right and the other two cases will be the case in which
+
+you have reached the bottom of the tree and you now need to insert this new value somewhere.
+
+So for those two cases you're going to check to see if the left node or the right note is not defined
+
+and then assign the value at the correct location.
+
+So again I want you to kind of take this one on by yourself a little bit give it a shot and we'll join
+
+back up in the next video and go through a solution.
+
+So I'll see you in just a minute.
+-------------------------------------------------------------------------------------------------------------
+
+116. BST Insertion
+
+In this video we're going to walk through the solution to the insert method of the Node class.
+
+Well first get started by setting up the method itself.
+
+So I expect to call insert with some amount of data to insert into our tree.
+
+Now we're going to use a recursive solution here.
+
+So we're going to start off at the root node and then if we are not able to insert some new data at
+
+the root node we'll then start to recurse through different nodes in the tree.
+
+So again for example on the value negative 20 right here if we passed that to 10 then we need to decide
+
+one of four things.
+
+There's one of four things that's going to be true.
+
+First if negative 20 is less than 10 and it is we need to see if there is a value already assigned or
+
+node already assigned to the left property here.
+
+If there is then we should take the negative 20 and pass it off to that node.
+
+Otherwise we should create a new node and assign it to the left value.
+
+So let's take care of that check to start back inside of my code editor.
+
+We're going to say if the incoming data value is less then this data and there is already something
+
+assigned out to left property then I don't want to do anything else with this.
+
+I want to delegate the insertion of this new piece of data off to the lefthander code.
+
+Know that already exists to the left hand side on my tree.
+
+So to do so we'll call this doc left.
+
+Remember this is a reference to the node that is on the left hand side.
+
+So it is an instance of the Node class so to recur to recurse through this to make sure that we tell
+
+this left node to take care of inserting this piece of data we'll call insert on that and pass in our
+
+data.
+
+Next we'll handle the other case the case in which this data is greater than data.
+
+But we do not yet have a left node.
+
+So if data is less then this data then we want to create a new node and assign it to the current nodes
+
+left property.
+
+So that will handle the case in which we eventually recurse down to this negative one down here for
+
+negative 1.
+
+We will notice that the left hand side has no value assigned to it.
+
+So that node will fail the left check right here and in that case we'll want to create a new node and
+
+assign it to the dot left so else if data is less than this the data is less than this data then we
+
+will say this.
+
+Left is a new node that's going to contain data like so.
+
+OK.
+
+So that essentially handles the left hand side and we're now going to repeat the exact same thing for
+
+the right hand side of our tree as well.
+
+So on the right hand side let's say that we're working with the value of negative to 120 over here we
+
+want to look at the right hand side of every node.
+
+And along the right hand side we want to see if a node already exists there.
+
+If it does we'll pass this new value off to the insert method.
+
+On that note.
+
+Otherwise we will create a new node and assign it to the right property.
+
+So back inside the insert method we're still going to chain on some else if statements here.
+
+So we're now going to check to see if data is greater than this data and if there's already a right
+
+hand node assigned.
+
+So if there's already something there then we're going to delegate the insertion of this new piece of
+
+data off to that right hand note.
+
+So we'll say this right.
+
+Insert data and then the final case we need to worry about here will say.
+
+Else if data is greater than this dot data.
+
+So this will handle the case in which there is not no node available in the right hand side.
+
+So in this case we'll assign to this start write a new node that contains data like so.
+
+All right let's check our test out and see how we're doing.
+
+So back at the test runner it looks like we are able to insert nodes correctly.
+
+So that's pretty much it for inserting nodes onto a binary search tree.
+
+Again this is probably one of the core questions that you might end up seeing around binary search trees
+
+but there are a couple of other common questions that you might see as well.
+
+So let's continue in the next section and we'll take a look at one or two other common questions you
+
+can expect around binary search trees.
+
+So I'll see you in just a minute.
+-------------------------------------------------------------------------------------------------------------
+
+117. Do You Contain This?
+
+Now that we have the ability to insert a new record into our binary search tree we're going to move
+
+on to our next method which is going to be the contains method you can think of contains as essentially
+
+being a search through our tree.
+
+So we are going to accept some data argument and then we're going to find a node in the tree with the
+
+same value and we're going to return the entire node if we don't find a node in the tree with the same
+
+value then we're supposed to return nil.
+
+So let's take a look at a diagram that's going to help clarify this question so we can imagine that
+
+we have a tree like this right here and maybe we want to find a node with value 3 so that would be this
+
+node right here.
+
+Just a couple of sections ago we did take a look at some different ways of traversing through a tree.
+
+So you will recall that we looked at a breadth first traversal and a depth first traversal before we
+
+start thinking that we're going to want to use one of those methods to get to the tree.
+
+I want to remind you about a very special property of binary search trees.
+
+Remember we've got the root node at the top and we've said several times that every single value in
+
+our tree to the left should be less than this node value up here and everything to the right will be
+
+greater than this value up here.
+
+So when we start thinking about a depth first or a breadth first traversal those two methods of iteration
+
+kind of go out the window and here's why.
+
+If we're looking for the value 3 right here then we know for a fact that our node should be somewhere
+
+to the left of our root node up here.
+
+So we should never ever attempt to go down the right hand side of our entire tree.
+
+So it's a binary search tree although we can still kind of theoretically traverse through the tree with
+
+breadth first or depth first search.
+
+Usually we're going to end up doing a comparison at every node in the tree and we're going to say is
+
+the node value that we're looking for less than the current one.
+
+Yes it is.
+
+OK go to the left and then we will repeat that question until we eventually line up at the node we're
+
+looking for.
+
+So essentially we're going to say is 10 less than three.
+
+No it's not 10 is greater than 3 so we're going to move to left five is greater than three.
+
+So we're going to move to the left.
+
+0 is less than three.
+
+So move to the right and then at this node right here we'll ask if three is equal to three.
+
+And of course it is.
+
+So we would return this node right here.
+
+So I would like you to give a shot at this question.
+
+Go ahead and give it a shot.
+
+Do the best you can.
+
+I highly recommend you try a recursive approach to this question.
+
+So go ahead and give it a shot.
+
+We'll come back in the next video and we'll walk through the implementation together.
+-----------------------------------------------------------------------------------------------------------
+
+118. Solving Contains
+
+In class video we spoke very briefly about the contains method of the note class.
+
+So are we going to recurse through our tree and every single node we're going to decide whether the
+
+value we are looking for is less than or Great less than her or greater than the current note we're
+
+looking at.
+
+And then depending on the answer to that question were either going to recurse down to left or the right
+
+hand side of our tree.
+
+So let's go back over to our node class.
+
+I mean just scrolling down to the bottom and I'm going to add on a contains method and then we're going
+
+to expect this contains method will be called with some data argument.
+
+So the first thing we're going to do for a given node is check to see if the node has data equal to
+
+this data argument.
+
+So I'll say if this data is equal to data then return this and we're specifically returning this year
+
+because remember we want to return the entire node.
+
+Now assuming that the current no does not contain the current value will start to recurse through our
+
+tree.
+
+So we'll say if this time data.
+
+So if the current node has a value less than the data argument that would be a case in which we want
+
+to move to the right hand side of our tree.
+
+But we also need to consider the case that we might not have a node to the right hand side.
+
+So after making this comparison right here we'll also verify that there is a node on the right hand
+
+side of this current node and we can do that by simply saying this doc writes If that is the case.
+
+So if we need to progress down to the right hand side then we can recurse down by saying this dot right
+
+dot contains data and that will note we'll repeat the same exact process.
+
+Now remember with recursion we do have to make sure that we return any recursive function call because
+
+if this function call right here ends up returning a value then the overall function call needs to return
+
+it as well.
+
+So put a return statement right for it.
+
+This will handle recursion down to the right hand side will next do the same exact thing but for the
+
+left hand side.
+
+So we can say Elle's if this data is greater than data that would be the case in which we need to move
+
+to the left and there is a node to the left then return this dot left.
+
+It contains data.
+
+Again we're going to recurse down to the left hand side.
+
+If this function call ends up returning a value we'll make sure that we return it back from the overall
+
+function call.
+
+The last thing we need to think about here is the case in which some data argument does not exist inside
+
+of our tree.
+
+In that case we would miss this statement right here.
+
+We would possibly miss this if statement.
+
+And so if everything fails then at the very end we're going to end up returning NULL.
+
+Let's save this and check our test to see how we're doing.
+
+So flip back over and we've now got those two additional tests for checking contains working great.
+
+Let's continue in the next video and work on our next exercise.
+
+=========================================================================================================
