@@ -19962,3 +19962,695 @@ So flip back over and we've now got those two additional tests for checking cont
 Let's continue in the next video and work on our next exercise.
 
 =========================================================================================================
+
+Раздел 28:Validating a Binary Search Tree
+
+119. How to Validate a Binary Search Tree
+
+In this video we're going to take a look at one of the most common interview questions that you can
+
+probably be expected to see asked about binary search trees.
+
+Now unfortunately this is also a pretty challenging problem.
+
+So in this video I'm going to lay out a couple of general pointers.
+
+And then you should give the problem a shot.
+
+And we'll take a look at the solution as usual.
+
+But on this one if you don't come up with any progression pretty quickly.
+
+Don't sweat it.
+
+Just take a look at the solution.
+
+Again this is a rather challenging one but it is a problem that you should definitely know how to do.
+
+All right.
+
+So inside of my project directory or my code editor I'm going to find the validate directory and then
+
+I'll open up the index file inside there and then as usual we'll also flip on over to the terminal and
+
+run just validate but dash dash watch like the how we should see two tests running right now yet to
+
+total.
+
+All right.
+
+So let's look at the directions here and see what's going on.
+
+So we're going to given a single node out of a binary search tree.
+
+Presumably this is going to be the root node.
+
+Our job is to validate the binary search tree.
+
+In other words we want to make sure that every nodes Left-Hand child has a value that is less than the
+
+parent and every righthand child is greater than the parent.
+
+Now at first glance this might look like a rather easy question and it might look very similar to the
+
+insert method that we were just working on.
+
+You might be thinking OK well you know we can just recurse through the binary search tree and we'll
+
+check every value against something else Saturno make sure that every child is on the left hand side
+
+is less than the current nodes value.
+
+Make sure every child on the right hand side is less than the current knows value and that's pretty
+
+much it.
+
+Well unfortunately it's going to be a little bit more challenging than that.
+
+And let me show you why.
+
+So when we were just working on our insert question we saw that we could look at each individual node
+
+and we can do a simple comparison to say Ghaemi we're trying to insert 15 here we'll start off at 10
+
+15 is greater than 10.
+
+So we would move to the right 15 is greater than 12 so we moved to the right.
+
+Fifteen is less than 20.
+
+So move to the left and then 15 is less than 17 so we again move to the left and for the insert question
+
+you know that wasn't the worst thing in the world.
+
+We were able to simply iterate through and only ever consider that current node like just this note
+
+and we didn't have to worry about anything else but remember the point of this question is to validate
+
+a binary search tree.
+
+So we kind of have to assume that there might be something very wrong with the search tree that we are
+
+being passed.
+
+So let me give you an example of how a binary search tree might be very wrong.
+
+Maybe we would take this 15 and maybe for some crazy reason it would end up over here on the right hand
+
+side of negative 1 now this kind of poses a problem.
+
+And here's why.
+
+When we were putting together insert We were only ever looking at this one current note and we said
+
+OK is this value greater than or less than the current note.
+
+In this case you and I could look at this and say OK 15 is greater than negative 1 so hey 15 is on the
+
+right hand side.
+
+It's you know in the correct location.
+
+However it's not actually in the correct location.
+
+When we consider the overall structure of the tree.
+
+So it's on the right hand side of negative one.
+
+You know definitely in the right spot here but it's not in the correct location.
+
+Looking at the whole tree.
+
+Remember one of the properties of binary search trees.
+
+We have the root node up here at the very top and we said many times that the child elements to the
+
+root node anything on the left should be less than anything on the right should be greater then.
+
+But by extension that same exact rule also applies to the left and right children as well.
+
+So notice how children of 10 anything on the right hand side should always be greater than the root
+
+node.
+
+So everything on the right hand side is greater than the root note.
+
+And in theory everything on the left hand side should be less than the root node.
+
+However in this case we have 15 which is greater than 10.
+
+So 15 is violating the rules of a binary search tree not only because of the root node appear at the
+
+top but also because of the zero right here 15 is to the left of the zero.
+
+See if we go we traveled from zero to the left hand side.
+
+That means that it's on the incorrect side relative to both 0 and 10.
+
+So that's the real issue here.
+
+We are picking up this net this 15 value on the completely wrong side of the binary search tree.
+
+And the reason that's kind of a pain is that it means that our simple method that we just use for insert
+
+where we just look at the current node and then say OK is this less than or equal to the current one
+
+doesn't really carry well over to this whole kind of validate thing.
+
+So that's a big challenge.
+
+You know that's why this one is hard.
+
+We have to consider not only the immediate parent node but essentially everything above that as well.
+
+All right let's take a pause right here and then we'll talk about one possible solution to this and
+
+I'll capital is to work on the problem on your own a little bit.
+
+So quick break and then we'll talk about solution in the next video.
+
+----------------------------------------------------------------------------------------------------------------
+
+120. More on Validation
+
+In this section we're going to talk about one possible solution to the validate binary search tree function.
+
+Now this is a rather challenging function.
+
+So in this video I'll give you a quick overview then I'll give you a break to put together a possible
+
+solution and then we'll go over the solution together in the following video.
+
+So let's give this a shot.
+
+We're going to talk through one possible way of doing this by using recursion.
+
+Now as usual this is not the only way of solving this problem but it's one that is relatively easy to
+
+keep in your head and remember.
+
+All right.
+
+So let's talk about it.
+
+We're going to start off at the very top note up here.
+
+We're going to recurse through our entire tree structure.
+
+But as we recurse through we're going to be carrying along some additional function arguments.
+
+So every time that we recurse and we call the validate function on a given note again we're going to
+
+pass along these min and max values and we'll talk about what they are as we start to walk through this
+
+thing.
+
+So we start off at the root note there's really not a lot to do with the root node nothing at all.
+
+Where you can always assume that the root node can be any value it wants to be.
+
+It's only the value the nodes underneath it that determine whether or not we have a valid binary search
+
+tree so we are going to assume that we move from the root node down to the left hand side.
+
+Now remember any node to the left of this root node must be less than the root nodes value.
+
+So as soon as we move to the left that means that the maximum value that you and I can ever expect to
+
+see from this point on is always going to be the parent nodes value of 10.
+
+So we are going to make this additional function argument that we're going to pass along when we recurse
+
+through our tree.
+
+We're going to give it a value of 10 because everything from this point on should always be less than
+
+10 so we then end up at node 0 right here.
+
+We compared the value of this node to our maximum value and we make sure that zero is less than the
+
+max.
+
+And in this case it is.
+
+So we're good to go.
+
+We're then going to progress back down left again.
+
+So we're going to go to the left hand node when we move to the left.
+
+We are now setting a new maximum value because remember everything to the left of this node must be
+
+less than zero.
+
+So now our max as we move down to this node right here will be updated to zero if we ever find a value
+
+that is greater than zero.
+
+That means that something is really wrong.
+
+So we now move down to this node negative one right here.
+
+We look at the children of negative 1.
+
+Now it doesn't have a left hand side.
+
+So we don't need to worry about that.
+
+But we do need to worry about the right hand side.
+
+So we move down to the right hand side when we do so remember any time we move to the right we are saying
+
+that every child of this node right here must be greater than negative 1.
+
+So when we make that move down we're going to update this in value to now the negative one.
+
+So everything to the right hand side must always be greater than negative one.
+
+In other words we now have a minimum of negative one.
+
+So we get to 15 right here.
+
+And when we get to 15 something interesting happens at this point we have very clearly said that any
+
+number at this node right here must be greater than negative 1 but less than zero.
+
+So we compare these two minima the minimum and maximum right here to evaluate 15.
+
+Clearly doesn't match up.
+
+It is greater than both these numbers right here.
+
+So it violates the maximum bound.
+
+And so that means that we do not have a valid binary search tree.
+
+OK so that's the general strategy here.
+
+But obviously the implementation is not the easiest thing in the world.
+
+So when I give you this verbal description maybe being told oh yeah we've got this idea of a minimum
+
+and maximum and we carry it down.
+
+Maybe that makes a lot of sense or a little bit of sense I guess but when you actually think about how
+
+to convert this into code well life gets a little bit more challenging.
+
+So at this point I would like you to give a shot at this problem.
+
+Do the best you can.
+
+You know put some thought into it.
+
+Do the best you can.
+
+If you don't have any success totally fine.
+
+Again this is a rather challenging problem.
+
+So if you don't have any success that's fine.
+
+Continue on to the next video and we'll take a look at the written solution together.
+
+So I'll see you there.
+------------------------------------------------------------------------------------------------------------------
+
+121. Solution to Validation
+
+In this section we're going to go over the written solution to the validate function.
+
+Like I said at the end of the last video this is a rather challenging problem especially because it
+
+makes the use of recursion but we'll go through it nice and slow and hopefully make sense of every step
+
+along the way.
+
+So I give myself a little bit of space here and we'll get started.
+
+So as we had said whenever we are calling the validate function we are going to use this function right
+
+here to recurse through every node of our tree.
+
+So this validate function is going to end up being called many times as we attempt to validate the tree.
+
+Now as we recurse through and we call validate over and over and over again we want to somehow pass
+
+some information to each subsequent call along the tree.
+
+So like we had said during the first step going from the root node right here down to the left hand
+
+side we want to make sure that the next node or the zero node right here understands that the maximum
+
+value that it should see should be 10 remember.
+
+So when we go from 10 right here down to zero.
+
+The absolute greatest value that we should expect to see from any node in this set right here should
+
+be 10.
+
+So in order to communicate these minimum and maximum to each recursive or subsequent function call to
+
+validate we're going to add on to additional arguments to the function.
+
+We're going to add on an argument to reflect the minimum from this point on.
+
+And the maximum values from this point on.
+
+So there's minimax are going to be these two variables right here.
+
+Now it's really important to recognize that min and max can potentially change at any given stage during
+
+recursion.
+
+So any time we move to the left we're going to expect to see the max value to update in any time we
+
+move to the right.
+
+We're going to expect to see the minimum value update.
+
+Now the next thing we need to keep in mind as we start thinking about this argument list right here
+
+is what happens the very first time we start to recurse through our structure.
+
+So in other words as soon as we start going from the root node down to the left hand side we have said
+
+several times at this point that we'll update the value of Max.
+
+However we haven't said anything about the value of men.
+
+Any time we move to the left we don't get an update at all.
+
+So I think that maybe we should default the values of min and max and make sure they have some reasonable
+
+defaults so that we can look at those values and understand whether or not we have updated them yet
+
+because in the case that we move from 10 down to left right here it actually is kind of important to
+
+make sure that we understand like you and I we understand that we have not yet set a minimum value for
+
+anything on this side the tree yet when we start looking at zero.
+
+So in order to make sure that's clear we're going to default the value of men to null and Max to nil.
+
+So now we move from here to here.
+
+We will have a max set but men will be set to nil.
+
+And so we will know you and I will know that we should not attempt to apply any type of minimum value
+
+to zero yet.
+
+OK.
+
+So that's step one.
+
+Hopefully that's not too bad.
+
+Now step number two we're going to immediately start to inspect the value at the current node that we
+
+are iterating over and compare its value to the min and max arguments that are being passed in.
+
+Now we've not yet added any logic to actually specify what these values should be.
+
+We're going to do that in a little bit but I think you can agree with me that at some point in time
+
+we need to do the actual comparison of the current notes value to men.
+
+And Max you know that needs we need to do a comparison at some point.
+
+And so that's what we're going to do right now.
+
+So will first handle the case in which we move to the left hand side of a given node and remember whenever
+
+we moved to the left we are really concerned about the max value.
+
+So if Max is not equal to no.
+
+So this would handle the case in which we have not yet set a max bound and no data is greater than Max.
+
+So if we have a max value and for some reason the current node is out of bounds of that value then something
+
+is definitely wrong with our tree and we should probably immediately return false and then we're going
+
+to do the exact same thing with the min value as well.
+
+So we're going to say if men is not know and if the current nodes data value is for some reason less
+
+than the absolute floor that we should expect to see here then we need to also return false like self
+
+Okay.
+
+So at this point with just this code right here we at least have something to call and compare the current
+
+node's value that's good but we do not have anything yet to actually initialize or set not initialize
+
+x.
+
+Excuse me but anything to set the minimum and maximum values and then we also do not yet have anything
+
+to actually recurse through our structure so to actually do the recursion we're going to add on to more
+
+if statements.
+
+So in each of these statements we're going to consider a movement to the left hand side and the movement
+
+to the right hand side.
+
+So let's do going to the left first.
+
+So if there is a node to the left of the current node says Give me a check to see if there's anything
+
+there to see if it's not null.
+
+So if there's something there and in this next part is the part that's going to really kind of head
+
+tough to wrap your head around but just bear with me if calling validate with the node on the left and
+
+some minimum value and then a maximum value of the current nodes data if this right here returns false.
+
+So if this right here returns false we are going to flip it with the exclamation and that will turn
+
+into a true value.
+
+So in other words if there's a node on the left and calling validate with the node on the left with
+
+these new bounds right here returns false then something really went wrong.
+
+And again we need to return false.
+
+All right let's do the counter.
+
+Or the opposite side of this where we handle the right hand side and then we'll be able to kind of talk
+
+about what exactly this is doing right here.
+
+So we're going to also write out the right hand side we'll say if no don't write.
+
+And if the opposite of validate So if calling validate reader results in some false value.
+
+No dot right no dot data.
+
+And Max.
+
+And then inside of here again we'll put return false and then the last thing I want to do and we'll
+
+talk about the entire solution if everything if all these if statements all line up OK then we will
+
+return true instead.
+
+OK.
+
+So let's talk about what's going on here.
+
+So hopefully you're with me on these if statements right here.
+
+Right.
+
+These aren't the worst thing in the world.
+
+And where things start to really go out the window is on these to validate function calls.
+
+So the first thing that I think is pretty obvious is that the validate function calls right here and
+
+right here inside these if statements are what caused the actual recursion to occur.
+
+That part makes sense.
+
+Now let's talk about what's going to happen if we run through this tree right here with those recursive
+
+function calls.
+
+And specifically let's just start off at the very top and walk through this code.
+
+So I think that the best way to do this is maybe something like this.
+
+I don't know let's try it yeah this will work.
+
+OK.
+
+So we're going to call validate with the root node of 10 up here.
+
+So we come into our function with the node we do not yet have a minimum or maximum set because minimum
+
+and maximum are currently set to No.
+
+We skipped both these if statements like I said previously for the top node for the root node.
+
+There's really no validation to really the root node can have any value in really just going to accept
+
+it as being OK.
+
+So for the root node nothing really happens.
+
+It's these two statements where things start to get a little bit interesting.
+
+So we're going to first say OK is there a note to the left hand side of the root node.
+
+And the answer is yes we have no there with the value of zero.
+
+So we then call validate with the node on the left with a minimum of no.
+
+So remember mine is still no right now but it gets a maximum of node data.
+
+So we call validate with the left node a minimum of NULL and a max of 10.
+
+So let's now go down into node zero with those arguments.
+
+So we now have node for zero minhas still no.
+
+But Max is 10.
+
+So at this point Max is no longer null.
+
+So we say is no data greater than max or greater than 10 for node and 0 right here.
+
+No that's not true.
+
+So we do not try to enter the return false case.
+
+Is still equal the all.
+
+So we skipped past that statement and then we come down to these two statements again.
+
+Now just for the sake of kind of getting through this diagram let's assume that this is the entire binary
+
+search tree right here.
+
+And so let's assume that 0 has no left or right properties defined so left right here the left check
+
+fails.
+
+We don't enter that statement.
+
+The right check fails and we don't enter that statement.
+
+And so we were turned true remember that when we return true.
+
+That was for the initial validate function call right here.
+
+So when we were still in node 0 we called validate passing in node 0.
+
+So when we called validate that call resulted in true.
+
+So we flipped true to false and we did not satisfy the if statement for node 0 or no 10 at the top.
+
+We then go down for the original node 10 we're still we're back into that function call it No 10 and
+
+we start looking at the right hand node we again call validate with no dot right.
+
+So we pass in 12.
+
+We now set a minimum of 10 and the maximum is still null.
+
+Remember the max is no because we had only set the max when we progress down the left hand side the
+
+treat when we progressed on the right hand side initially.
+
+We have not yet set a maximum value.
+
+So we go down to the right hand side over here.
+
+So let's go back up to the top.
+
+We now have a node for 12.
+
+Our minimum is 10 and our max is no max is null so we don't care about that.
+
+I mean is not.
+
+No.
+
+So we make sure that 12 is some me the current nodes value is.
+
+Gee whiz Oh man I'm getting myself mixed up here.
+
+OK my mistake.
+
+We set out and we set a minimum of 10 and we checked to see if the current node's value is less than
+
+men.
+
+Yes that is correct.
+
+So we checked to see if 12 is less than 10.
+
+It is not.
+
+So we do not enter the statement.
+
+Yes there we go.
+
+So then we go back down here the no 12 does not have any left or right nodes.
+
+So we go to return true.
+
+Remember that now kicks us back up to the original no 10 we say true an opposite of true because we
+
+are the exclamation that turns into false.
+
+So we do not enter the statement and eventually we finally hit the return TRUE statement at the bottom.
+
+All right.
+
+I know that discussion that descriptive what goes on is kind of nasty but hopefully this makes at least
+
+a little bit of sense.
+
+So the real key here is that every step along the way we update the maximum value if we are trying to
+
+move to the left and we update the minimum value.
+
+If we are trying to move to the right and then we progress through the tree and if any node ever starts
+
+to return a value of false we then enter into this false case right here and then that kind of cascade
+
+is back up and we eventually return false from the entire stack of recursive function calls.
+
+Now lesing I want to do is check out our test.
+
+It looks like they are passing here.
+
+So I think you can agree with me that this is a nasty little bit of recursion and it's one of the things
+
+that is kind of an maybe not kind of but very challenging to come up with on your own.
+
+But as soon as you see the solution it's kind of like yeah ok I guess I can take that.
+
+So hopefully in the interview setting you can at least tried to you know discuss or talk your way through
+
+what is supposed to happen here and then eventually get a solution up on the board.
+
+So this is definitely a tougher one.
+
+But like I said it is probably one of the more challenging problems that you can expect to see especially
+
+around binary search trees which are only occasionally asked in interviews or at least from what I've
+
+seen and what I've collected in a lot of research on com questions.
+
+So we at least have a better idea of what's going on with this solution right here.
+
+So let's take a break and move on to our next question in the next section.
+=================================================================================================================
