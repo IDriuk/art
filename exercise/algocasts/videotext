@@ -21522,3 +21522,1619 @@ So I think thats a long enough lecture on this.
 Let's take a break here and continue in the next video.
 
 --------------------------------------------------------------------------------------------------------
+========================================================================================================
+
+Раздел 31:Sorting With BubbleSort
+
+126. Sorting Algorithm Overview
+
+In this sequence of videos we're going to start looking at a couple of different sorting algorithms.
+
+When we think about sorting in the real world we think about maybe ordering numbers or ordering strings
+
+alphabetically or think about ordering people in a line maybe by height or by age or something.
+
+But in an interview setting whenever we start talking about sorting we're usually talking about taking
+
+an array of numbers and sorting them from least to greatest.
+
+So that's really the type of question that you should expect to see around sorting.
+
+In an interview setting take an array of numbers and sort them from lowest to greatest.
+
+Before we start talking about the particular three algorithms that we're going to be looking at to handle
+
+sorting there is one quick note I want to throw in here and that's for me personally and for every engineer
+
+that I have ever met in my life and spoken to about interviews I do not know a single person who has
+
+ever been asked a question about sorting algorithms.
+
+In an interview setting.
+
+Let me clarify that.
+
+I've never met a person who was asked to implement a sorting algorithm.
+
+I know people who have been asked to describe sorting algorithms or to mention pros and cons of different
+
+algorithms but I've not met a person who has gone up to a white board and had to implement a sorting
+
+algorithm.
+
+Now I'm not saying that they don't exist.
+
+Maybe you're watching this video and you're thinking.
+
+Stephen I definitely was asked about how to implement bubble sort or something.
+
+I'm not saying it doesn't get asked.
+
+I'm just saying I think it is a question that gets asked less frequently than others.
+
+So if you're preparing for an interview and you're doing a last minute review of a lot of different
+
+topics.
+
+Personally I recommend putting sorting last.
+
+That's just my recommendation.
+
+With that in mind let's take a look at three different algorithms that we're going to be talking about.
+
+So we're going to be discussing in implementing bubble sort selection sort and merge sort.
+
+There are many other types of sorting algorithms out there.
+
+Many different types but these are three of the most common and simplest to implement that you're going
+
+to see bubble sort and selection sort share a common characteristic in their worst case runtime.
+
+So at the very worst case for running this bubble sort or selection sort algorithm it's going to take
+
+n squared at the worst case to sort some number of records remember what that really means in terms
+
+of runtime complexity.
+
+That means that for every additional element that we add to our collection to sort it's going to take
+
+significantly more time than the time added for that previous element that was added.
+
+So for every additional element we are doing significantly more work.
+
+So that makes both bubble sort and selection's sort very poor algorithms to make use of on large data
+
+sets.
+
+But if you're working with a smaller data set and you know that it's always going to be small there's
+
+absolutely nothing wrong with using bubble sort in selection sort.
+
+So for example if you are writing a front end application and you know that at most you will only ever
+
+be loading up 100 records of data.
+
+Yeah with 100 records either these are absolutely appropriate to use.
+
+However as soon as you start working with larger collections of data or collections or you don't really
+
+know what the size will be that's when you're going to start looking at some fancier algorithms with
+
+some better run times.
+
+And so for more merge sort we have a worst case runtime of an log and recall that we refer to that as
+
+being every single element that we add to our collection.
+
+We'll take slightly more time to process than the element that we have previously added.
+
+So it's not growing as quickly or as rapidly as this and squared runtime but it does grow quite rapidly
+
+nonetheless.
+
+Also recall that in general as soon as we start thinking about sorting any algorithm or seeing any type
+
+of sorting algorithm we usually assume a worst case runtime of an LA again.
+
+So for example if you are stuck kind of thinking about some solution to some type of problem that is
+
+totally unrelated from sorting but maybe at some step you say oh you know what this problem would be
+
+easier if we knew that our data was sorted if that type of situation comes up then you can assume that
+
+to sort your data.
+
+It would take and log in.
+
+That would be the runtime complexity because in general we can probably find an algorithm that will
+
+sort our records at and log and I put a difficulty column on here for absolutely no good reason.
+
+You know I just thought you might be curious.
+
+We're looking at three different ones.
+
+I view both sort as being really easy to put together selection's sort is a little bit more challenging
+
+and merge sort is definitely getting to medium difficulty and there's plenty of other sorting algorithms
+
+that really span difficulty and get much more challenging to put together.
+
+All right so that's a quick overview on sorting.
+
+We're going to take a break right now.
+
+We'll come back in the next section.
+
+And we're going to talk about bubble sort and it's start it's implementation.
+
+So see you in just a minute.
+----------------------------------------------------------------------------------------------------------
+
+127. BubbleSort Implementation
+
+In the last video we started discussing a couple of different sorting algorithms in this video.
+
+We're going to start the implementation of bubble sort which is one of the easier methods of sorting
+
+an array with javascript inside my code editor.
+
+Let's open up our sorting directory and open up the index file inside there in this file.
+
+You'll notice a couple of different empty functions.
+
+And so in each of these functions we're going to implement a different sorting algorithm.
+
+The idea here is that we were being given an argument a r r which is short for array of course.
+
+So this is going to be an array of numbers and it's going to be up to us to somehow sort this array
+
+and then eventually return it.
+
+So I would expect after implementing all of our sorting algorithm stuff.
+
+So if we're going to implement those sort.
+
+And then after we do that we're going to return the sorted array at the bottom.
+
+So don't forget the return statement.
+
+Let's also not forget to start up our tests.
+
+So over at the terminal I'll start my tests up with just sorting test not.
+
+Dash dash watch.
+
+All right we've got three test failing one for each algorithm that we're going to implement.
+
+So let's take a look at the diagram that's going to help us understand exactly how bubble sort works.
+
+On the right hand side I've got some pseudo code for the algorithm and then on the left hand side I've
+
+got an imaginary list of numbers right here.
+
+We're going to walk through this sorting algorithm and for every step through we're going to modify
+
+this list of numbers right here to make it a little bit more obvious exactly how the sorting works.
+
+Notice how the first two statements here the first two pieces of our bubble sort algorithm are two nested
+
+for loops.
+
+These nested for loops are iterating over the same set of records.
+
+And I remember one of the earlier rules that we had mentioned around time complexity or the worst case
+
+time complexity is that any time that you see nested loops iterating over the same collection of data
+
+that's an automatic red flag that we might have in squared runs on complexity and like we just mentioned
+
+but will sort out its worst case is squared complexity.
+
+So we can see that here in action.
+
+All right let's walk through this thing.
+
+We're going to start off first with an outer for loop that is going to iterate over our whole collection
+
+of records.
+
+So everything from I all the way up to the array length.
+
+So this outer for loop essentially goes from 0 1 2 3 4 5.
+
+Then for every step along the way we're going to iterate from J equals 0 to array length minus I.
+
+So for every step of the outer for loop the inner loop is going to have a shrinking window of elements
+
+that we're going to step through.
+
+So the very first time that this for loop runs right here is the first time through the outer loop we're
+
+going to iterate over all these items from the inner for loop.
+
+Then the second time the inner for loop is only going to iterate through this set and then the next
+
+time only through this set and so on.
+
+If I had to give you a one sentence description of bubble sort I would tell you that its purpose is
+
+to find the largest element in the array and drag it over to the far right hand side.
+
+And so that's exactly why we get this shrinking window the first time that we run through our array
+
+with bold sort.
+
+We're going to find the largest record in the array which in this case is 97.
+
+And we're going to move it all the way over to the right hand side as quickly as possible.
+
+And so that's why you end up with this shrinking window when we move the largest element all the way
+
+over to the right.
+
+We know that the element at the very end has now been sorted into the correct location so we no longer
+
+need to look at this element right here.
+
+We only need to consider the window elements before it.
+
+So let's take a look at exactly how bubbles sort makes that happen.
+
+So we're going in right from the first element to array length minus psi at every step along the way
+
+we're going to look at the current element that we're looking at.
+
+So the Jei iterator right here we're going to imagine starts off at zero.
+
+We're going to ask the question if the Mac next element in the array is greater or less if the next
+
+element is less than the current one that we're going to swap these two.
+
+So in this case the current element is greater than the next one so we're going to swap 10 and negative
+
+30.
+
+So notice how the larger value here naturally starts to get dragged on over to the right then Jay increments
+
+by 1.
+
+And we now ask if the element at index 1 is greater than the element to the right.
+
+In this case no it's not.
+
+It's less than 10 is less than 97.
+
+So we do absolutely nothing J moves forward again.
+
+So Jay would now be equal to two.
+
+And we move on to our element 97.
+
+We again ask if the ailment at J is greater than the next one.
+
+In this case yes it is.
+
+So are we going to swap 0 and 97
+
+J moves forward again and we compare 97 with five again.
+
+97 is really large.
+
+And so we swapped them again.
+
+And so now 97 is at the very end of our array.
+
+So now that it's at 97 is now that 97 is at the very end of our array and it is the largest number we
+
+can assume that 97 is that it's properly sorted location because we just went through found the greatest
+
+number and moved it all the way to the end.
+
+So now this inner loop is going to terminate we'll go back out to the outer loop I increments to 1 we
+
+then start out the inner loop again.
+
+And now we're going to only iterate from zero to a lay array length minus 1.
+
+And so essentially we no longer are going to be considering this element at all.
+
+Now all the inner loop logic is going to run again.
+
+And in this case the 10 is going to be dragged all the way over to the right hand side.
+
+And so we end up with something like this.
+
+Now right at this point in time the array is sorted.
+
+But we do not have any logic inside of our four loops right here to actually say hey we're sorted so
+
+don't do any more work.
+
+Even if the array gets sorted early the four loops are always going to run all the way to continuation
+
+with the default way that bubble sort is implemented.
+
+Now that's not necessarily the biggest thing or the biggest deal in the world.
+
+Remember bubble sort is a less efficient algorithm if we wanted to.
+
+We certainly could put in some type of check to look and see if the of the array was completely sorted.
+
+But for the usual implementation of bubble sort we don't really worry about something like that.
+
+All right.
+
+So that's the general idea behind both sort at this point I would like you to take a shot at the implementation
+
+of bubble sorts.
+
+So all these sorting algorithms are going to go over are pretty challenging in nature.
+
+So I recommend you give it a little bit of a try but if it's too challenging Don't sweat it.
+
+Just check out the solution and make sure you understand how the solution works.
+
+So with that in mind let's take a break right now and continue with a solution in the next video.
+--------------------------------------------------------------------------------------------------------------------
+
+128. BubbleSort Solution
+
+In this video we're going to go over the implementation of the bubble sort algorithm inside my code
+
+editor at the index not just file and I've got the bubble sort function right here.
+
+So remember our array argument right here we're assuming is an array of numbers and we need to sort
+
+them from the least number all the way up to the greatest.
+
+Let's get started with our bubble sort.
+
+It's the first thing we're going to do is write a for loop to iterate from the first element of the
+
+array all the way to the last.
+
+So we'll say for.
+
+Let equals zero.
+
+By less than a r length plus plus one thing that you will immediately notice here is that we are not
+
+making use of any fancy for of syntax with four of.
+
+We don't get easy access to the index of individual elements.
+
+The four of LWB is really for taking some type of operation on each individual element itself.
+
+And we don't really care about the elements so much as we do the index indices or at least we care about
+
+them equally in this case.
+
+So we're going to use a classic for loop so that we can easily get access to both the index and element
+
+at every position in the array.
+
+Here is our four outer for loop where we are going to iterate over the entire collection of records
+
+will immediately write an inner for loop and that inner for loop is going to be the one that attempts
+
+to start from zero and iterate all the way up to the last record and then over time we're going to restrict
+
+that window.
+
+So for the inner for loop save for let J Well 0 J less than.
+
+And then notice I'm going to use some parentheses here because we're going to do a little calculation.
+
+So we want to restrict the window we're going to say A-R our length minus I.
+
+And then really important noticer We're also going to add on a minus one here.
+
+So when we first run the loop A-R our length is going to be subject by zero.
+
+And so we would be iterating from 0 all the way up to the length of the array.
+
+Remember the array length is always offset by one from the index.
+
+Because our arrays are indexed by zero so the minus one right here is to handle that case to make sure
+
+that we don't accidentally iterate out of bounds after we place our boolean statement here for a terminator
+
+expression we place one last semi-colon and increment J by 1 every time.
+
+So that's the real challenge right there is setting up the two for loops now that were inside the 2
+
+4 loops we can put down a little bit of logic to look at the current element and the element next in
+
+the array will say if the elements at the current index is greater than the next one.
+
+So A-R at J plus 1.
+
+Then we want to swap these two values to do so we'll use a temporary variable.
+
+I like to use a temporary variable called not temp or anything like that.
+
+I like to call it Lesar because I'm going to assume that lesser points at the lesser of the two values.
+
+And so it just helps me personally keep these two numbers track in my mind.
+
+So the lesser value in this case will be the number at J plus 1.
+
+So a r r at J plus 1.
+
+We'll then say that the new value of j plus 1 is going to be a r r at J.
+
+So that's the greater number.
+
+The one that we're currently looking at and then we'll take the lesser value and assign it to the current
+
+index of J.
+
+So will be lesser like so and of course at the bottom of the function.
+
+Let's not forget our return statement.
+
+So we'll return a r r like so.
+
+All right so that's pretty much it for a solution.
+
+Let's take a look at our terminal and see how our tests are doing.
+
+We've got one test passing and we scroll up we can see that is clearly the test from the bubble sort.
+
+S. All right so that looks pretty good.
+
+So this is our first taste of a sorting algorithm in the next video we're going to take a look at.
+
+Our next one which is going to be selection sort.
+
+Now as time goes on the sorting algorithms are going to get a little bit more challenging.
+
+So the next algorithm we're going to still have we're going to a quick overview of it and how it works
+
+and then I'll cut you loose so you can work on it a little bit.
+
+But by the time we eventually move on to merge sort we're probably going to end up doing that one together
+
+because it is significantly more challenging than these other two.
+
+So let's take a break right here.
+
+Come back in the next video and start working on our selection sort.
+
+========================================================================================================
+
+Раздел 32:Sort By Selection
+
+129. How SelectionSort Works
+
+In the last video we started work on our bubble sort algorithm.
+
+We're now going to continue on to selection's sort I think that selection sort is a little bit easier
+
+to understand conceptually but the code we have to write to implement it might be just a tad bit more
+
+challenging.
+
+With that in mind let's take a look at a diagram to help us understand how it's supposed to work.
+
+I like to refer to selection sort as the prove me wrong sorting algorithm and I know that sounds weird
+
+but you'll see why in just a second.
+
+So we've got the pseudo code on the right.
+
+We've got some temporary variables on the left and then here is the array that we're trying to sort.
+
+So let's run through this thing step by step.
+
+We're again going to iterate through every element in the array starting off at equal zero.
+
+So let's assume a pure ice starts off as zero then at the next step.
+
+This is where things start to get interesting.
+
+We are going to assume that the element at index I.
+
+So that would be tend to start is the lowest value in the array.
+
+So we are going to assume we assign eye to the variable index of men.
+
+So here's this index of contemporary variable right here.
+
+We're going to assign zero to it.
+
+So the key word here is assume.
+
+And so this is where how I just said a moment ago I like to call it that.
+
+Prove me wrong algorithm.
+
+Step 1 right here is to assume that the current element at II is a lowest in the array and proving you
+
+wrong.
+
+Show me if there is some other value in the array with a lower value.
+
+So that is the purpose of this inner for loop right here.
+
+Prove me wrong.
+
+Show me if there is another element in the array with a lower value.
+
+So we're going to iterate from I plus one to the end of the array.
+
+So essentially these four elements right here.
+
+And for every one of those elements we're going to check to see if there if it has a value less than
+
+the index at the current element or some more than the current element that we are looking at which
+
+is 10 over here.
+
+So we're going to start off at zero.
+
+Are we going to say is this value right here less than the one that we're currently looking at.
+
+I and the answer is yes.
+
+So are we going to update the value of index of men to now be one.
+
+The one right here says the value at index of 1 has a has a value less than the current element that
+
+we are iterating over.
+
+I we will then move on to the next element.
+
+97 is not less than 10.
+
+So we don't do anything and move on to the next one and we see negative 30 negative 30 as even less
+
+than the previous minimum value that we had found.
+
+So we're now going to update index of men to be 0 1 2 3.
+
+So now index of men will be three.
+
+To say that the element at index 3 is less than the one at equals zero.
+
+We then finish up that loop.
+
+We say No.
+
+5 doesn't really matter here.
+
+And then at the very last step here we say if the index of the current element.
+
+So that's at zero right here.
+
+Is our value 10 and the index of the lowest element that's the one that index of men right here is pointing
+
+at is not the same than swapping.
+
+And so essentially what this line right here is saying is if I an index of men are not the same value
+
+then swap these two indices or swap the elements at these two indices.
+
+And so we would swap 30 and negative 10.
+
+Like so that stops the first iteration through our entire array and then we move on to Eiht equals 1.
+
+So let's do one more loop here.
+
+So now it equals 1.
+
+We've moved on to zero index of men is going to be reset to I which is 1.
+
+Because remember we are assuming that the element at least in the array.
+
+And then again we say prove me wrong.
+
+So this is our for loop to attempt to prove ourselves wrong at this time.
+
+J.
+
+Is now going to be at I plus 1.
+
+So in this case I'll start off at 2 and we're going to iterate all the way to the end of the array.
+
+So we're going to start off at 97.
+
+We're going to say is this less than zero.
+
+No now is 10 less than zero.
+
+No.
+
+Is 5 less than zero.
+
+No.
+
+And so then we get back down to our statement and we say is I a different value than index of men.
+
+No they're the same in this case so no swap is required.
+
+And we then move on to the next element.
+
+So we repeat that process over and over and over again.
+
+So the next time through we would swap 97 groups 97 and 5 then the next step we would look at 10 in
+
+97.
+
+There's no swap to be done.
+
+And then we move on to 97 and there's no more work.
+
+And so we end up with a sorted array.
+
+So that's pretty much it.
+
+That is selection sort.
+
+Again I like to call it the proving a wrong algorithm because the entire purpose of this inner for loop
+
+is to somehow invalidate our assumption right here is to tell us no you couldn't assume that that was
+
+not a good assumption you have to swap the two elements.
+
+So that's how I like to remember.
+
+OK let's take a break right here.
+
+I want you to give a shot at implementing this thing using this type of pseudo code right here.
+
+Let's continue in the next section where we're going to put together a solution to this together.
+
+So see you in just a minute.
+-------------------------------------------------------------------------------------------------------------
+
+130. Selection Sort Solution
+
+In this field we're going to take a shot at our selection sort algorithm.
+
+So let's get started.
+
+We're going to refer back to this diagram once or twice just to make sure we're going down the right
+
+path.
+
+So the first thing we want to do here is set up an outer for loop and iterate through the entire array.
+
+So we'll set up our FOR loop for LET.
+
+I will zero I less than array length plus plus.
+
+Now the next step is to assume that the element at index II is the lowest valued thing in the array.
+
+So in other words we're going to assign eye to a temporary variable that we're going to call index of
+
+men which is short for index of a minimum element in the array.
+
+So we'll say a left index of men equals I.
+
+So this is our assumption.
+
+I think this is the lowest value in the rape.
+
+Prove me wrong.
+
+The next thing we have to do is set up our FOR loop where we are going to attempt to validate that assumption.
+
+So iterate from the next element all the way to the end of the array.
+
+And if we see an element with a lesser value record it's indexed in the variable index of men.
+
+So now we're going to iterate for let J equals plus 1 j less than array length J plus plus.
+
+So in the rest of the array trying to find something with a value less than index of men.
+
+So if whatever is an index of J is for some reason less than array index of men that means we must have
+
+found an element with a lesser value.
+
+So update index of men to look at the index j.
+
+Now because at J There is an element with a lesser value.
+
+So we'll say index of men equals J.
+
+Now we're going to move on to the last step outside of this for loop where we're going to say if index
+
+of the current element or in other words if I and index of men are not the same then we need to swap
+
+the two elements.
+
+So underneath that inner for loop will say if index of men is not the same value as I.
+
+So if these two indices are not the same then we need to say to swap the two values again we'll use
+
+the pattern of using a temporary variable called Leser.
+
+So let Lesar equals array at index of men.
+
+So the index of men is going to point to the absolute lowest value right now.
+
+And that's why we're scient to this lesser variable and we'll do the swap.
+
+So say array at index of men will be array at.
+
+And array at.
+
+I will be Leser like so that does the actual swap logic.
+
+Now let's not forget outside of the outer for loop we'll make sure that we return our array like so.
+
+So not up.
+
+If we put together a function to encapsulate the swopping logic right here.
+
+If we somehow turn this thing into just swap array at index of men and II or whatever we want to do
+
+that would turn this into a very brief little solution right here.
+
+So not a lot of lines of code like I said I think that actually understanding it this algorithm is not
+
+the worst thing in the world but I think that the implementation is just a little bit more challenging
+
+than the bubble sort algorithm but still not the worst thing.
+
+So again I know I said it several times but I do like to call this the prove me wrong algorithm because
+
+we are essentially making this assumption right here.
+
+And then we're saying try to validate that assumption.
+
+See if that really is the index with the lowest value in the array.
+
+If it's not no problem we'll fix it and we'll swap the two and then move on to the next element.
+
+So that selection sort.
+
+We're now going to move on to our last sorting algorithm which is merge sort and this one is definitely
+
+pretty challenging mostly only because it requires recursion to make use of.
+
+So let's take a break.
+
+We'll come back in the next video and we'll start looking at the merge sort algorithm.
+--------------------------------------------------------------------------------------------------------
+========================================================================================================
+
+Раздел 33:Ack, MergeSort!
+
+131. MergeSort Overview
+
+In this video we're going to start looking at the merge sort algorithm towards the bottom of our index
+
+file.
+
+You'll notice that we have two separate functions one called merge sort and the other called merge the
+
+merge sort algorithm is usually solved with a recursive solution and that recursive solution uses two
+
+separate functions each of which has a different purpose within the context of the algorithm.
+
+I'm going to be really honest with you.
+
+My personal belief is that understanding what goes on inside of the merge sort function is rather challenging
+
+to understand.
+
+It's kind of hard to figure out what's going on because this is where all the recursion takes place.
+
+And I think that recursion is just naturally something is a little bit more challenging to understand
+
+the merge function doesn't contain any recursive code.
+
+So it's all iterative code we take into arguments we do a little bit of work on them and then we return
+
+some result.
+
+So the merge function right here is pretty easy to wrap your head around merge sort is going to be a
+
+little bit more challenging with that in mind.
+
+We are first going to take a look at the merge function.
+
+We're going to make sure that its purpose is crystal clear and once we have a really good idea of what
+
+merge does we'll then go back and start talking about the first function merge sort.
+
+So we are going to cover as much of the easy stuff as possible up front and then we'll come back and
+
+discuss the hard part.
+
+So that in mind let's take a look at a diagram that's going to explain the purpose of the merge function.
+
+Oh one last thing before I flip on over.
+
+Notice how the merge function here has two separate arguments left and right.
+
+That's going to be important in just a moment.
+
+So here's our diagram again.
+
+On the right hand side we have some pseudo code and on the left hand side we've got some stuff that
+
+we're going to take a look at the merge function and I've labeled it here as merger.
+
+Same thing so merge function merger whatever you want to call it will be called.
+
+With those two arguments that we will refer to as left and right left and right are two separate sorted
+
+arrays of values.
+
+So right here we might see an example of the argument left and an example of the argument.
+
+Right.
+
+Like I said these are sorted arrays.
+
+So notice that the ordering of values within each of these goes from the lowest value to the greatest.
+
+So we have negative 30 22 and 0 97.
+
+The general purpose of the merger function or the merge function the one that we were just looking at
+
+this one right here is to take two separate sorted arrays and merge them together into one sorted array.
+
+So in this example were going to imagine that inside of our function we will create a empty array called
+
+results.
+
+So we are going to have to write some code to take these two sorted arrays and merge them together in
+
+some fashion and put all the resulting values in this results array.
+
+So let's discuss the pseudo code right here and get a good idea of exactly how it works.
+
+So Step 1 again is to create that results array that is going to be an empty array that contains no
+
+initial values.
+
+Will then enter into the while loop a while loop is going to run.
+
+So long as there are still elements in both arrays as soon as one of these arrays right here either
+
+the left or right or the right rate has no values left then we're going to stop already the ration and
+
+we're not going to do anything else with our while loop inside the while loop itself.
+
+We're going to compare the first value of either array right here.
+
+So the very first value we're going to decide which array has a first value that is lesser.
+
+In this case we're going to compare negative 30 and 0.
+
+And we very quickly realize that the value negative 30 is less than zero.
+
+So we're going to take that negative 30.
+
+We are going to shift the element from our left to right.
+
+Remember that shift method is just like the pop method but shift takes the first element out of an array
+
+and it completely removes it.
+
+So we're going to shift out to negative 30 and we're going to push that oops we're going to push that
+
+into our results array right there.
+
+Then we do nothing else inside the while loop and we go back up to the header and check our condition
+
+again.
+
+So we're going to say are there still elements left in both the race.
+
+Yup.
+
+Looks like there is.
+
+So we are again going to do the same comparison.
+
+We're going to say which right now has the lowest first value inside of it this time around the right
+
+one does.
+
+So we're comparing 22 with 0 0 definitely is the minimum value here.
+
+So we're going to shift that out and put it into our results array.
+
+We then go to the While loop again.
+
+They still both have elements inside left and right.
+
+We compare the first element inside of both the race in this case it's 22.
+
+Then we go back up to the top.
+
+Now the left array has no elements left inside of it.
+
+There's nothing left inside of the left array.
+
+So we're no longer going to try to iterate through the while loop.
+
+We exit the while loop and we go down to the bottom here.
+
+Now notice that the are right array still has one value left inside of it 97.
+
+So to make sure that we take care of any kind of dangling values that might be left in either array
+
+we're going to take everything inside of both race that is still remaining and we're going to stuff
+
+it into the results array.
+
+So I'm going to take everything that's left here and I'm going to just throw it all directly into results
+
+like so.
+
+Now if you look at the results array This is clearly an array of sorted values.
+
+Negative 30 0 22 97.
+
+So in closing the merge functions purpose is to take two sorted arrays and merge them together into
+
+one sorted array.
+
+So that's a key part of pretty much half of what's going on with the merge sort algorithm.
+
+Now at this point I think we've got a reasonable idea of what that merge function is trying to do.
+
+So let's take a pause right here.
+
+We're going to continue the next video and we're going to write out the implementation of the merge
+
+function and then after that we'll start discussing what the purpose of the merge sort function is.
+
+So quick break and we'll tackle merge in the next video.
+----------------------------------------------------------------------------------------------------
+
+132. The Merge Function
+
+In this video we're going to work on our implementation of the merge function before you start writing
+
+any code here.
+
+Let's make sure that we start up our tests inside of our sort directory again.
+
+So say just sorting test what J.
+
+Dash dash watch and I'll just assume those are going to start up correctly.
+
+All right.
+
+So back over here we're going to work on our merge function.
+
+We just went over the algorithm that we're going to use inside the thing in the last video.
+
+We're going to put this together and then we'll start talking about the purpose of merge sort.
+
+I'm going to be flipping back and forth to my browser a little bit so that we can take a look at some
+
+of the pseudo code here.
+
+I apologize I know that's always distracting but I do want to point back to this diagram a little bit.
+
+The first thing that we need to do is create an empty array that we're going to call results.
+
+So this is going to be what is going to hold our final sorted values back in my code editor of find
+
+the merge function and we're going to create our results function like so.
+
+Next we're going to write our while loop Our while loop is going to run.
+
+So long as there are any elements left in both left and right.
+
+So place a while loop and to make sure this thing runs so long as there is anything left in both of
+
+these we can do.
+
+Left dot length and right dot length.
+
+Now as soon as one of these arrays goes to length of 0 then it's going to fail this Boullion and check
+
+right here and we'll exit the while loop.
+
+Then inside the while loop itself we need to do a comparison between the first element in both of the
+
+arrays.
+
+So the very first element this is going to be is pretty straightforward.
+
+We'll do an if statement and we'll look at the first left value.
+
+So the value at index 0 and then we'll look at the right at index 0.
+
+So if the value on the left hand side is less than the one on the right that means that we want to take
+
+this first value out of left and add it to our results array.
+
+So we can say results daat push and then we will shift the first value out of the left array left shift
+
+that will take the first element out.
+
+It's going to forcibly remove it from that array and it's going to add it to results.
+
+This handles the case in which the first element on the left hand side is greater than the one on the
+
+right hand side.
+
+We need to also add the case in which the opposite is true.
+
+So the case in which the right hand side is less then left.
+
+We don't have to write a separate statement for this one.
+
+We can just do in else because essentially either this is going to be less or right is going to be less
+
+one or the other.
+
+There's only two cases here inside the L's case.
+
+We'll add on results.
+
+Push right dot shift like so
+
+now that's pretty much it for the while loop.
+
+We're are we are going to shift elements out of either left or right until one of these two arrays is
+
+empty.
+
+And as soon as it is empty then we're going to fail this boolean check right here in the while loop
+
+will fail to run before we just return the results array down here at the bottom.
+
+We need to remember the case in which left or right might still have a value left inside of it.
+
+So we need to make sure that we empty out both those arrays into results.
+
+In other words we want to take everything out of left and right at the very bottom here and make sure
+
+it gets appended onto the end of results and we just saw that a moment ago when we looked at the case
+
+where we had emptied out the 22 remember from the left hand side we put 22 into our results array.
+
+We were no longer satisfying the requirement of our While statement.
+
+And when so we needed to make sure that we emptied out the right hand side and threw everything inside
+
+of it into results to do so.
+
+We're going to use a little bit of yes 20:15 syntax.
+
+So at first glance this line right here at the bottom is going to look a little bit confusing but we'll
+
+talk about it immediately.
+
+So let's first write it out.
+
+We're going to say return.
+
+We're going to create a new array and we'll say dot dot dot results dot dot dot left and dot dot dot
+
+right like so.
+
+This is going to create a new empty array.
+
+It's going to take all the values inside of results and add those to that array.
+
+And then after that it'll take everything inside of left and add them to that array.
+
+And then everything inside of right and add all that to the array as well.
+
+This is the same exact thing as calling concat or the concat can consume the concatenate function multiple
+
+times to essentially just join everything that's remaining inside of left or right and added into the
+
+results array.
+
+Now you might be kind of curious why we said Dot dot dot left and then dot dot dot right.
+
+It looks like I'm kind of making assumptions here about which array is going to end up coming first.
+
+So you might be wondering well why do we put left and then right.
+
+Why didn't we do right and then left.
+
+Well the answer is that it doesn't matter.
+
+Remember by the time that the while loop stops running either the left array or the right array is going
+
+to be completely empty.
+
+So we can imagine the two cases.
+
+Let's imagine them right now.
+
+Let's say there's one case in which left has nothing left inside of it.
+
+And then a case where right has still a couple of things in here like maybe that.
+
+So in this case left has nothing left inside of it.
+
+It's completely empty.
+
+So we can freely assume that all the values left inside of the right hand array must all be greater
+
+than everything that was already added to the result set.
+
+We can very easily look at the opposite case as well.
+
+So if there is still something left inside the left array and the right hand one was empty it doesn't
+
+matter what order we add these into the result set.
+
+Because one of the two arrays is going to be completely empty.
+
+All right.
+
+So that's our merge function implementation.
+
+Let's take a look at our tests.
+
+We should see at least one test out of our two for merge sort.
+
+Now passing.
+
+So here's merge sort and it looks like a merge function is properly joining together two sorted arrays
+
+but still does nothing at all with the merge sort function.
+
+So that's pretty much it for merge right here.
+
+Now at this point my hope is that you understand this function in it by itself.
+
+I know that we don't really have any context on how it's getting called or what it's supposed to do
+
+but hopefully you understand that the merge function can take two sorted arrays and join them together
+
+into some correct order.
+
+So with that in mind let's take a break now.
+
+We're going to come back and we're going to talk about exactly how the merge merge function is called
+
+from the merge sort function.
+
+A quick break and I'll see you in just a minute.
+-----------------------------------------------------------------------------------------------------------------
+
+133. More on MergeSort
+
+We now have a function that can take two sorted arrays and join them together into one sorted array.
+
+Now that merge is complete we're going to go back to the merge sort function and we need to figure out
+
+exactly what this thing does.
+
+Clearly we can kind of use our intuition here.
+
+The merge sort function must take this input array split it into two and then eventually call the merge
+
+function.
+
+So it definitely makes sense.
+
+But let's take a look at a diagram that's going to help us understand the full story here.
+
+All right nasty looking diagram This diagram shows an entire run through of the merge sort algorithm.
+
+You can see that the diagram is essentially split into two halves.
+
+The first half is going to be where the merge sort function comes into play.
+
+So that's a function that we have not yet written.
+
+The bottom half is everything at the merge function does.
+
+So this is everything that is done by the merge function that we just wrote.
+
+Let's now zoom in a little bit.
+
+We're going to take a look at the different steps inside of here.
+
+The merge sort functions purpose is to take some input array and divide it up into as small a chunk
+
+as possible.
+
+So my question to you immediately is what is the smallest chunk size that we can turn an array into.
+
+The answer is one at best we can subdivide an array into one single element.
+
+We can't divide an element or in an array any further than that.
+
+So the smaller we can divide an array into is one element.
+
+So let's take a look at what exactly happens.
+
+We pass in a full array to the merge sort function.
+
+It is then going to divide that array into two separate and equal halves.
+
+We will then recursively call merge sort again on both of those Hafs.
+
+So for example 97 0 over here will get called or passed into a recursive call to merge sort again merge
+
+sort.
+
+Well then take that array and again split it into two halves.
+
+So in 97 and 0 97 in Zurich here these are still arrays so we're never working with individual elements.
+
+We are always working with an array.
+
+We then recursively call merge sort again with 97 and separately with zero.
+
+In that case the merge sort function would see that these two arrays both individually have a length
+
+of one and so they no longer can be subdivided any more.
+
+So the merge sort function is going to stop trying to divide disarray and this array.
+
+Now I'm talking about these two arrays together but recall when we divide 97 and zero into two separate
+
+arrays the result of each get their own recursive call to merge sort.
+
+So really 97 gets passed on its own in its own single array into the merge sort function now as soon
+
+as the merge sort function sees that these two separate arrays right here can no longer be subdivided
+
+anymore.
+
+It realizes that it is now time to start calling demerge function.
+
+And it's going to start to try to merge these two separate arrays together.
+
+Remember we had said that the merge function only works on sorted arrays.
+
+But if we have only one element in either array.
+
+Well technically it is sorted.
+
+There is only one element in both these arrays but they are sorted because there is only one value.
+
+So we're going to pass in 97 as the left array to the merge function are going to pass in 0 as the right
+
+array to the merge function.
+
+Now we just put together the merge function remember if the merge function is given two sorted arrays.
+
+It will spit out one sorted overall array.
+
+So the merge function will join together 97 and zero into an output of 0 in 97.
+
+Now the same exact process has been happening on the right hand side as well so 22 and negative 30 which
+
+was the first split that we did got passed recursively to merge sort 20 to a negative 30 got split into
+
+two separate substrates and then each of these were recursively passed to merge sort again merge sort
+
+realize that it can no longer subdivide these two separate arrays anymore so decided to pass them off
+
+to the merge function.
+
+So the merge function sees 22 as the left argument and negative 30 as the right argument.
+
+And it joins them together into a single result's array.
+
+Then these two sorted arrays are then passed back into the merge function again.
+
+So the merge function then joins together 0 in 97 and negative 30 and 22.
+
+And as we've seen because we just wrote this function.
+
+If we pass in two sorted arrays to merge it will successfully merge them together into one single array.
+
+So I think that the general algorithm here is kind of not the worst thing in the world to understand.
+
+Essentially we are splitting up an array into as small an element or a smaller chunk as possible which
+
+is an array of length 1 and then it's going to recursively start to join pairs back together.
+
+We have a function that is rock solid for joining arrays back together.
+
+So as long as we can recursively call that function at every step along the way we know that at the
+
+end of the day we'll eventually end up with a sorted array.
+
+I think that the real challenge here is just understanding exactly how the recursion really works.
+
+I can point this diagram right here and I can say oh yeah you know here is how everything works.
+
+But when you start to take this diagram and imagine how you can recursively call all these different
+
+functions over and over again that's where life starts to get really challenging.
+
+So let's take a pause right now.
+
+We're going to come back to the next video and we're going to start to put together our solution to
+
+them merge sort function.
+
+So we'll see you in just a minute.
+----------------------------------------------------------------------------------------------------------------
+
+134. I Don't Like Recursion, But Let's Do This Anyways
+
+In this video we're going to work on our implementation to the merge sort function.
+
+Our goal for merge sort right here is to recursively subdivide this input array.
+
+So we're going to split this thing into two and then we're going to take both the halfs and pass them
+
+back to merge sort.
+
+So let's write out the code for that first and make sure that we've got a good idea on exactly how it
+
+works.
+
+So inside of here we're going to first check to see if the array has one element inside of it because
+
+remember if the array only has one element that means that we can not subdivide this array anymore.
+
+So we'll say if array length is equal to 1 then just immediately return the array.
+
+So there's no other work we can possibly do here.
+
+The thing is as small as it possibly can be.
+
+And then underneath this is where we'll start to put down some logic to divide up our array.
+
+Notice that there is a return statement inside the if statement.
+
+So if we hit the if statement successfully then we're not going to execute anything else inside this
+
+function.
+
+The next thing we're going to do is divide the array into two equal halves.
+
+The first thing we have to do with to accomplish that is to determine the center point of the array.
+
+So I'll say Konst center or the center index is going to be math floor array length divided by two.
+
+So imagine this calculation right here if we have an array of length for we will divide four by two.
+
+We'll then round that down.
+
+So we'll stay out too.
+
+And that means that our index of the centerpoint of the array would be at index too which definitely
+
+makes sense.
+
+Let's imagine if we have one about a b c d.
+
+Like so if we got the center point of this thing it would be at index 2.
+
+So 0 1 2.
+
+So C would be our center point right here.
+
+Now this might not exactly seem like it really is the center point but just wait a moment until you
+
+see exactly how we divide this array into two halves.
+
+So to divide the array into two halves we'll set up the left half is going to come from array slice
+
+everything from zero to center.
+
+Now here's the key thing remember how slice works with slice.
+
+We take everything in the array from element 0 all the way up to but not including not including the
+
+center value right here.
+
+So if we consider a b c and d again and we called slice from zero to well here's indexed to.
+
+So we take everything from index zero up to two.
+
+But not including two.
+
+So the left half right now would be simply a and b.
+
+Then to calculate the right hand half we would do array slice and only pass in center by itself or a
+
+slight slice with center is going to say take everything from index to all the all the way to the end
+
+of the array.
+
+So in this case it would be elements C and D.
+
+So now at this point we have clearly two separate paths here.
+
+Now the first thing I want to do with these two halves is recursively call the merge sort algorithm.
+
+So we're going to call merge sort with the left hand side and we're going to call merge sorts with the
+
+right hand side.
+
+Now if we ran this function right now if we executed this code I think you could agree with me that
+
+we are going to recursively subdivide an input array into separate equal length halves until eventually
+
+both those halves have length of one.
+
+And at that point we would just return the array and we will stop trying to divide it into any further
+
+halves.
+
+So hopefully this part not that bad.
+
+OK we can see how this recursion is working.
+
+Here's where things are start going to are going to start to get a little bit weird.
+
+So here's the recursion part.
+
+Let's write out the code for the recursion part and we'll talk about exactly what it's doing.
+
+I mean it put both these recursive calls on the same line and split them with a semi-colon.
+
+And I'm going to pass it all to the merge function like so and I'm going to return the result.
+
+So you should have return a call to the merge function.
+
+The left and the right let's save this right now and see how our tests are doing.
+
+So going to save the file.
+
+I'll check out my journal and you'll notice that the merge sort function is now working properly.
+
+So it might be a little bit of a surprise that it's working right now right.
+
+Personally it is to me.
+
+I feel like everything in the solution everything and merge this all makes sense to me personally everything
+
+and merge sort up to like right here makes sense to me personally and it's this line of code right here
+
+that makes life really really challenging.
+
+That's my personal opinion.
+
+I think that the easiest way to understand this line of code right here is to consider what would happen
+
+if we called the merge sort function with an array of length 2 because in that case we can very easily
+
+imagine every line of code and how it gets executed.
+
+So let's take a look at another diagram that's going to walk us through the sort algorithm and specifically
+
+all these different function calls when we only have an array of length 2.
+
+All right.
+
+So here is our diagram right here.
+
+So the first array that we're working with like the array that we are trying to sort is going to be
+
+contain the values 97 and 0.
+
+So we passed this array right here to merge sort the merge sort function that we just wrote.
+
+So let's walk through the code in that case.
+
+So we passed in with 97 and 0 as the array.
+
+That does not have length 1.
+
+So we definitely come down here and divide the array into two separate halves left with then contain
+
+the value 97 inside an array.
+
+So we could say right here that we would have something that looks like this.
+
+And then the right hand side would be something like that.
+
+We then take 97 and pass it back into merge sort again.
+
+So we're going to take only the array containing 97 and pass it back into the merge sort when we do
+
+that.
+
+So here is right here if we would have as the argument we would have inside an array 97 we're going
+
+to look at the length of the array and we'll see that it is of length 1.
+
+So we return the array immediately.
+
+So the initial function called to merge sort.
+
+We divide it into two.
+
+We got 97 for left.
+
+We passed it into merge sort.
+
+It did absolutely nothing else.
+
+And so that followup function call ends up with just 97 like so then for the other half for arrays zero
+
+right here we pass that back into merge sort and merge sort immediately goes to the if statement right
+
+here.
+
+We realize it has a length of 1 and so we immediately return the array.
+
+And so again with the original function call with the first initial function call right here.
+
+We can imagine the we're backed up here.
+
+We passed in 0 to merge sort.
+
+It did absolutely nothing.
+
+And so we are back with just the array containing 0.
+
+So now we can kind of imagine that right here passing in 0 to this thing leaves us with overall 0 like
+
+so and so we then call merge with 97 and 0.
+
+And the result is a single merged array which would be 0 in 97 like so.
+
+And we return that value and that's it.
+
+So hopefully that adds a little bit of clarity to how the recursion is working here.
+
+Again I think it's really tough to visualize the recursion in this case but to get a really solid idea
+
+of what is going on you can imagine this merge sort function getting called with an array of length
+
+2.
+
+And then you can much more easily walk through everything that's going on here and it will give you
+
+a much better idea of how this is working.
+
+If you want to get really really hungry and kind of have some real fun I suppose maybe try imagining
+
+what would happen if you called merge sort with an array of like three or an array of length for one
+
+or the other and then that's when some of the recursion stuff is going to get even more clear.
+
+But that does take a lot of time and a lot of concentration to walk through.
+
+And so I don't think it's really probably the best use of time inside of a video because honestly it's
+
+something that you kind of have to go through yourself and keep track of all the different variables
+
+that are floating around.
+
+OK.
+
+So that is merge sort now merge sort and tell you I'm not a big fan of it.
+
+In an interview setting just because this recursion stuff is rather challenging to come up with on your
+
+own This is a great example just like when we were talking about Fibonacci earlier with Fibonacci it's
+
+kind of tough to imagine someone coming up with that recursion a recursive solution without previously
+
+seen it before.
+
+And I think that goes in triplicate for the more merge sort function.
+
+I think that if you sat down in an interview having never seen merge certain sort before and someone
+
+said hey let's put together merge sort.
+
+I can't imagine a person who would say OK like let me derive this solution to merge sort right now without
+
+ever seeing it previously.
+
+So if you ever see merge sort in an interview.
+
+Personally I think that it's really a test to see whether or not you literally memorized the solution.
+
+That's what it's really testing.
+
+It's not testing whether or not you can figure out on the fly.
+
+Anyways enough ranting for me.
+
+So that is merge sort.
+
+Let's take a break and now continue in the next video.
+=====================================================================================================================
