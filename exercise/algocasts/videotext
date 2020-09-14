@@ -21068,3 +21068,457 @@ All right so that's good on this question.
 
 Let's take a break and then move on to the next section.
 ============================================================================================================
+
+Раздел 30:Building Twitter - A Design Question
+
+125. How to Build Twitter
+
+In this video we're going to take a break from writing code and we're going to talk about a slightly
+
+more soft question.
+
+When I say soft I mean a question that doesn't really involve code and it's a lot more about your ability
+
+to communicate with your interviewer.
+
+So let's take a look at what the question is.
+
+All right.
+
+How would you design Twitter.
+
+Sometimes you'll see alternate.
+
+This question might be something like How would you design Uber or design eBay or any of a number of
+
+different services because this question can be asked about many different services.
+
+I'm going to use this video to give you some general strategies on how to answer this question.
+
+So we're not going to focus exactly on giving you a exact word for word answer on how to design Twitter.
+
+We're going to instead focus on some of the details of the question and try to focus on exactly what
+
+your interview interviewer wants to hear from you.
+
+So that in mind let's take a look at some high level nodes around this question.
+
+So some things to keep in mind around this question.
+
+The first and most important thing to understand is that there is no right answer to these questions
+
+whatsoever.
+
+There's no right answer.
+
+Products like eBay and Oubre and Twitter they're all built by hundreds if not thousands of different
+
+engineers.
+
+And so it would be pretty naive to think that we could get a concrete definition of exactly how to build
+
+Twitter in the 10 to 20 minutes that you'll have to answer this question.
+
+So they're not looking for the exact blueprint on exactly how you would put Twitter together.
+
+Your interviewer is much more looking at exactly how you communicate what you're trying to say and exactly
+
+what areas you are focusing on when you're answering the question.
+
+So with that in mind that leads us to the second point here which is the second most important point
+
+and that is that every single interviewer who ever asked you this question are always going to expect
+
+be expecting to hear different things so.
+
+INTERVIEWER A at one company is going to want to hear about how you would identify challenges in the
+
+product and then maybe interview or be B would want to hear about how you would scale out the product
+
+for hundreds of thousands or millions of users.
+
+So every single interviewer wants to hear a slightly different answer.
+
+It's going to be up to you to figure out exactly what to focus on now an easy way to figure out what
+
+area to focus on in a given product is to simply ask your interviewer.
+
+You can simply say to them hey this product Twitter has many different features involved in it.
+
+Is there some particular area that you want me to focus on now.
+
+Very commonly your interviewer will simply respond.
+
+No just give it your best shot.
+
+Tell me what comes to mind.
+
+But it's at least worth trying to ask that question in gleem a little bit more information out of them.
+
+Now they don't mind if your interviewer does not give you any particular area to concentrate on at all.
+
+Usually a good place to start concentrating on is the data model and when I say data model I'm talking
+
+about how you build out a database to reflect all the information for the given product.
+
+So in the case of Twitter you might focus on how you would store tweets in the database or how you would
+
+store users in the database.
+
+Again this is a question that really depends upon some amount of experience.
+
+So if you do not have experience working with a database or architecting out records in the database
+
+Well you enforce and that's kind of what the question is trying to root out here.
+
+If you don't have experience with databases like that then it's always possible for you to try to pivot
+
+the discussion over to areas that you are familiar with.
+
+So for example you might try to talk a lot more about how the web user interface should be put together.
+
+Now I really recommend that you not focus on just spouting off different frameworks or different technologies
+
+that you would use.
+
+So a very poor way to answer this question.
+
+I really recommend you never do this do not answer the question by simply saying well I would probably
+
+use react in redux and Noad and express.
+
+That's not what your interviewer wants to hear.
+
+Anyone can pick out a list of different technologies.
+
+What they're trying to get out of you when they ask this question is why you would pick a particular
+
+technology.
+
+So a much better way of answering this or addressing the different technologies would be to say something
+
+like Well I would probably decide to use a web framework on the front end.
+
+Here are the requirements of such a framework.
+
+I would need something that could easily render out a list of tweets and maybe it would be a framework
+
+that would have to work very well in mobile if I expected my users to access this page frequently from
+
+a mobile device.
+
+So don't just list out the technologies list out the qualities or the attributes of a particular framework
+
+that you want to use.
+
+Do not just say I would use react.
+
+That is not what your interviewer is looking for.
+
+The next tip I recommend here it is to draw stuff out.
+
+Draw a diagram draw.
+
+Maybe the main web application interface in the case of Twitter.
+
+That's a great example or something like Uber.
+
+Draw out the mobile screen live the way.
+
+What a user sees when they're trying to find a right that will help guide the discussion and will also
+
+help make sure that you understand the product that you're trying to build.
+
+If you've never used Twitter before well answering a question about how would you design Twitter might
+
+be really challenging.
+
+So you could start off by drawing out a diagram of the main user interface and if you don't really understand
+
+how Twitter is put together or how it works that could be an opportunity for your interviewer to correct
+
+you and say oh just you know Twitter really revolves around say the user feed or something like that.
+
+So drawing out diagrams really helps communicate your knowledge of the actual product and will help
+
+your interviewer kind of guide you if they're going to give you any guidance at all.
+
+Now finally this is bar none the most important thing to keep in mind about this question.
+
+Talk communicate.
+
+This question is not about your interviewer trying to get some insight on how to build Twitter.
+
+Like they're not sitting there taking down notes and saying oh this is priceless stuff I'm going to
+
+go home and build out Twitter thanks to what this person is saying this person is asking you this question
+
+because they want to gauge your ability to communicate complicated topics.
+
+So above all talk and voice what you're thinking.
+
+Don't sit there and say oh well I'm organizing my thoughts.
+
+Give me 30 seconds.
+
+That leads to a lot of very uncomfortable silence as soon as you as your interviewer asks you this question
+
+respond and give an instant follow up question say something like OK you want me to do Twitter.
+
+Was there a particular area that you want me to focus on.
+
+You instantly respond back to them and start talking and try to get some more insight as to what's going
+
+on is going on or at least give them some idea of what you are thinking.
+
+OK.
+
+So that's my help.
+
+High-Level notes.
+
+Now we're going to pivot a little bit and I'm going to give you one possible strategy that you can use
+
+to answer any type of question like this.
+
+Any type of question like How would you design Twitter or eBay or Facebook or whatever it might be.
+
+All right so here's the general strategy.
+
+So this is a strategy that I recommend it might work it might not always be exactly what your interviewers
+
+looking for but it's definitely a place to start.
+
+So the first thing that I do with this question because I have personally been asked this question many
+
+times.
+
+I usually start off by identifying two or three core features in the product.
+
+So to do this first thing right here this is where drawing out a diagram of the core user interface
+
+is really helpful.
+
+So if I was asked how would you build Twitter.
+
+I would probably build out or draw out a very quick sketch like this on the white board.
+
+So you don't have to be this detailed but at least you know for the purposes of this lecture and this
+
+course I decided to put a lot of detail in here.
+
+But I would least probably put on some boxes and say here are were some trending tweets go.
+
+Here's where the user feed is.
+
+Here is a list of suggestions on who to follow.
+
+And then there is a moment feature there's notifications there's messages and of course my ability to
+
+tweet.
+
+So I would probably look at this diagram right here and I would say I want to pick out two core features
+
+of this product have to focus on.
+
+And so for me I might say I want to focus on exactly how tweeting works like how does it work.
+
+How does a user create a tweet.
+
+What happens when they create a tweet and then I might also decide to focus on the user feed and start
+
+to think about how that user feed is put together.
+
+And so I would identify these two core features and start to think about possible ways of implementing
+
+them.
+
+So that would be everything from the web interface.
+
+So when the user clicks on that tweet button what should really happen.
+
+And then also think about what happens when we send a request to back and server to create a new tweet.
+
+Again this is where we start to think about some of the database implementations maybe we have to think
+
+about exactly what fields a tweet and the database has this very quickly leads into your ability to
+
+identify and address different difficulties around those two features.
+
+So in the case of let's say writing a tweet and also showing a user or a user fee or a feed of different
+
+tweets that are very popular I would start to very quickly think about some of the big challenges around
+
+implementing both of those features.
+
+So in the case of tweeting I would think to myself What does a tweet look like in the database.
+
+I would think about how do we make the hash tag topic's system work and the mentioned system work.
+
+What would be some possible implementations around those.
+
+And then finally I might think about how would we implement read tweets on the case of putting together
+
+a feed.
+
+I would start to ask myself what's the biggest challenge there.
+
+Well the biggest challenge is probably deciding what what Tweed's to show to a user like are the most
+
+interesting or the most popular tweets that we want to surface to a user when they first log into the
+
+product.
+
+So again this is really just going through the process of trying to identify and address big challenges
+
+around building a particular feature.
+
+Remember that is the real goal of this question.
+
+Your interviewer wants to see your ability to figure out and address different challenges before youre
+
+actually implementing the product.
+
+That's what this question is all about again is testing your experience with building software.
+
+Now the very last thing here and this is usually where all of these design questions lead to inevitably
+
+no matter how well you ask.
+
+The answer these first three items right here inevitably your interviewer is probably going to say okay
+
+that sounds good.
+
+Now lets think about how this product would work or how those two features would work.
+
+Once we start getting hundreds of thousands or millions of users.
+
+And so that inevitably is the question about scaling out your product.
+
+So for this this is an area where it would be really unfair for your interviewer to expect you to give
+
+a very concrete answer of oh well I would do this this and this and here are absolute concrete step
+
+by step ways that I would scale out the product.
+
+Instead I really recommend you start thinking about some general strategies for how you would scale
+
+out products in general.
+
+And so two possible ways of addressing scaling for additional users would be to mention something about
+
+caching data or caching requests from the database or data from the database.
+
+And then also think about some general ways in which we can address the overall server server architecture
+
+to make sure that we could scale it out for additional users.
+
+So this is one area that I want to give you just a little bit more detail on than some of the other
+
+areas that we've been talking about.
+
+So I first want to talk about caching a little bit again.
+
+Caching is something that can be applied to just about every single product out there.
+
+So if you've never worked with caching before I really recommend maybe reading a quick blog post or
+
+two about how you would cache data in general.
+
+So the general idea here is that maybe a user comes to our server and they say hey I want to get my
+
+tweet feed like give me my feed of top tweets.
+
+Let's imagine for a second that that feed is very computationally expensive to put together like it
+
+takes a full second to decide what tweets to show to the user.
+
+And so if we are starting to get millions of different users who are accessing our server at the same
+
+time building out that feed of tweets for every single request that comes in could get really expensive
+
+really quickly.
+
+So one possible way of addressing that is to say that for some particular user like user ABC when they
+
+first come to our server maybe we will get a list of tweets out of our database and we will run some
+
+really expensive algorithm on the server to calculate this user's feed like calculate the top 10 tweets
+
+that we want to show this user and then we could send those 10 tweets back to the user and then simultaneously
+
+also take that top 10 list of tweets and store it in some memory store like memcache or redness or whatever
+
+it might be.
+
+Then any time that this same user comes back like lets say in the next five minutes or something rather
+
+than going back to the database and pulling out our base list of tweets again and running that expensive
+
+algorithm again maybe we just go right back to that memory store pull out the previous feed that we
+
+had just calculated and send it back to the user.
+
+And so this is the idea of caching doing some expensive work one time storing the result and then reusing
+
+that result as soon as we need to recalculate it again.
+
+Again the idea of caching can be used in just about every single one of these design questions.
+
+So I really recommend you brush up on caching a little bit for the purposes of answering this.
+
+Now the other easy way to answer the scaling question is to talk about deployment options or deployment
+
+architecture.
+
+And so this is another area where it usually comes down to one very solid concrete answer.
+
+We could say that for a given user maybe we are not able to satisfy a million different users with a
+
+single machine running our server so 8 easy way to approach this would be to say that we are going to
+
+create a load balancer whenever a user makes a request to our application.
+
+It will go to this load balancer and then the load balancer will be randomly assigned that request to
+
+any one of a number of different identical servers.
+
+And so we can have many different servers that are completely invisible to the user and any one of those
+
+servers can handle a given request and respond back.
+
+And so this would be an example of horizontal scaling for our application.
+
+This is another area where it's really easy to just memorize this general idea of a load balancer.
+
+And then it's applicable to just about every single one of these design questions out there.
+
+Okay.
+
+So that is a high level overview of the classic how to design Twitter question.
+
+Again the big things to keep in mind here are that the question are trying is trying to.
+
+Scuse me the question is trying to assess your experience with building products.
+
+The interviewer wants to hear your experience and how you address the problem and its not quite so important
+
+that you nail the actual implementation.
+
+They are much more interested in seeing what you spend time on and what you start to think about as
+
+soon as you are asked this question.
+
+So as soon as possible you want to start identifying different problems because that is showing your
+
+ability as an engineer to think ahead and anticipate problems before they come up which is obviously
+
+really important in a job environment.
+
+All right.
+
+So I think thats a long enough lecture on this.
+
+Let's take a break here and continue in the next video.
+
+--------------------------------------------------------------------------------------------------------
