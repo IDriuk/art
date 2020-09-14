@@ -20654,3 +20654,417 @@ So we at least have a better idea of what's going on with this solution right he
 
 So let's take a break and move on to our next question in the next section.
 =================================================================================================================
+
+Раздел 29:Back to Javascript - Events
+
+122. What's an Eventing System?
+
+In this video we're going to take a look at a question that is going to test your understanding of basic
+
+javascript concepts.
+
+So inside of my code editor I'll find the events directory.
+
+I'll open up the index file and the example dot H.T. mail file as well.
+
+Now I want to start my tests really quickly.
+
+And I also want to open up this example that HTL file inside of our browser because we're going to use
+
+it for a little bit of a demonstration in my terminal.
+
+I will open up that each HTML file by running open events example dot each symbol.
+
+Notice that if you are in Windows you probably will get an error when you try to run this command right
+
+here which is totally fine.
+
+All you have to do is open up your file explore and open the example.
+
+Each html file in your browser.
+
+That's all I'm trying to do right now.
+
+So here's the HMO file.
+
+I'm going to open up my javascript console and we'll come back to this in just a moment.
+
+First let's look back to the terminal and make sure that our tests are running with just events test
+
+not just.
+
+Dash dash watch and we've got about five test failing right now.
+
+All right.
+
+So we're all done with this setup.
+
+Now it's time to figure out what were actually being asked here.
+
+So if I go back to the index file in my code editor we can read the directions.
+
+Our goal is to create an event team library out of this events class nonevents class should have methods
+
+like on trigger and off.
+
+And then you'll notice that those three methods are already defined for us on the class with a little
+
+bit of documentation around each one.
+
+This event's class right here is meant to serve as a simple eventing library if you have spent any amount
+
+of time with javascript.
+
+I can just about guarantee you that you've probably used a is a implementation of an events library
+
+already.
+
+So have you ever called a method like on and used it to register some type of click handler or a callback
+
+or whatever it might be you have worked with any Vence library.
+
+So our goal in this question is to put together our own custom eventing library before we get too hung
+
+up on the implementation around any of these methods just to make sure that the idea behind this eventing
+
+library is really clear.
+
+I want to give you an example of how this event stuff works by looking at a quick example in our browser.
+
+So I'm going to change on over to the example dot age female file inside of here.
+
+You'll notice that there is a script tag for Jay queery.
+
+We've got an H1 tag a button tag and a script tag the query library has an internal eventing library
+
+set up inside of it and we use that internally venting library to set up different DOM event handlers
+
+like say a click handler.
+
+So again just to make sure that you and I are on the same page with how eventing libraries work I want
+
+to do a little bit of practice here and set up an event handler on our button right here so that whenever
+
+someone clicks on the button we should cancel something out to the terminal We'll then take a look at
+
+one or two other methods just to make sure that you're really clear on exactly how this eventing stuff
+
+works.
+
+So if you're not familiar with Jay query that's totally fine.
+
+We'll walk through it step by step.
+
+We'll first write a selector to get a reference to the button right here.
+
+So we'll say button like so and then you set up a click event handler we can say dot on passing a string
+
+of click and then a callback function to execute inside the callback function call out on a concert
+
+log of Hello.
+
+Let's save this file and then test it out.
+
+Inside the browser.
+
+So back inside the browser I will refresh the page and then click on the button and you'll see if we
+
+get the console log of Hello.
+
+Well all right.
+
+That's not bad.
+
+Clearly if we call on and then pass in the name of some specific event our callback function will be
+
+invoked whenever this event occurs.
+
+Now something that you might not know immediately about.
+
+Jay queery we can actually manually trigger events.
+
+So we are not limited to actually having to click on a button we can manually trigger events at any
+
+time we wish.
+
+So for example I could again select the button and then I could manually trigger an event called Click.
+
+Now will save this file again and then flip over to a browser.
+
+And when I refresh the page you'll notice that the text Hello automatically appears.
+
+So not only can we register events but we can also trigger them ourselves.
+
+And then the final method that I want to show you here is the off method.
+
+So if we select the button again we can do the register or kind of delete all these event handlers that
+
+we've been that that we've been setting up by calling them off and passing in the event name that we
+
+want to disable.
+
+Now we save this and refresh the browser again we get the initial console log of hello from where we
+
+triggered it.
+
+But now if we click the button over here nothing happens because we turn that event off.
+
+Now the very last thing I want to show you is just to make sure it's really really clear.
+
+Let's conc along that initial event handler but in the second one I'm going to change the text to there.
+
+So we're going to cancel log out there like so now we've refreshed in the browser again you'll notice
+
+both of those callback functions are executed.
+
+All right.
+
+So I know I spent a pretty good amount of time talking about this basic J.A.G. stuff but hopefully it
+
+starts to expose some of the patterns that we expect to see around and eventing library.
+
+Namely we should be able to register an event with a given event name.
+
+In this case click we should be able to register multiple different event handlers with one event name.
+
+So in both these cases we registered two different callbacks to the click event name we should be able
+
+to trigger manually all these different event handlers by calling trigger and passing in the event name
+
+they want to trigger.
+
+And then finally we should also be able to disable all the callbacks that are associated with a single
+
+event name by calling off and passing in the given event name.
+
+So essentially we want to set up our own custom event library that behaves in the exact same way as
+
+this does to reiterate we don't really care about sending up any event handlers on a button.
+
+You know there's no click events here.
+
+All we really want to do is have the ability to register some event handler manually trigger it and
+
+then turn them off.
+
+And so that's exactly what we're trying to accomplish with this event's class right here.
+
+I want the ability to register an event trigger it and then turned it off and there's nothing having
+
+to do with click events or anything like that so no need to worry about the dom or buttons or anything.
+
+All right.
+
+So hopefully our goal here is pretty clear.
+
+Let's take a break right now.
+
+We'll come back in the next section.
+
+And I want to lay out a few tips for you on exactly how you can approach this problem.
+-------------------------------------------------------------------------------------------------------------
+
+123. A Tip on Events
+
+In the last section we spoke about the events class before you get started on writing out any implementation.
+
+I want to give you one quick tip here.
+
+So notice that whenever we call the on method we pass in any event name and a callback.
+
+And it's really important to remember that we should be able to call the method multiple times with
+
+the same event name and register multiple callbacks to the same event name.
+
+Clearly we're going to need some type of storage mechanism in the class to somehow relate an event name
+
+to a list of different callbacks.
+
+So personally I would really recommend that you consider putting in a constructor method and maybe in
+
+that constructor you initialize some data storage mechanism here.
+
+So it could be an array an object something whatever it needs to be in order to relate some event name
+
+or some multiple list of events to a multiple or two multiple callbacks or a list of callbacks.
+
+Let's take a look at one possible data structure that would probably serve this very nicely.
+
+So I'm going to pull up a diagram really quick.
+
+All right here we go.
+
+So I'm going to suggest that maybe we create a plain javascript object where the keys of the object
+
+are all the different event names that have been registered with our events library.
+
+And then the values for each of these keys could be an array that contains all the different callbacks
+
+that we should call.
+
+Then whenever one of these events are triggered we can iterate through the list of callbacks and trigger
+
+each one in line.
+
+So again this is one possible way of doing this not necessarily the only way but it's a pretty straightforward
+
+way.
+
+I recommend you give a shot.
+
+So back inside of our constructor again we could say that this event is equal to an empty object.
+
+And then you will spend a little bit of time in on trigger and off to figure out how to manipulate and
+
+add events to the events object.
+
+So at this point I'd like you to give a shot at the solution and we'll talk about one possible solution
+
+or go through the actual written implementation in the next video.
+
+So I'll see you in just a minute.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+124. Events Solution
+
+In this section we're going to take a look at the solution to the event's problem.
+
+In the last video I told you that you could use a empty object right here to store all the different
+
+events that get registered with our events library.
+
+Let's first start off by working on the on method.
+
+So in the method will be given an event name as a string and a callback to invoke when ever that event
+
+is triggered.
+
+So I get myself a little bit of space here and then we'll start putting this together.
+
+So I want to take this event name and added as a key to the events object.
+
+Now that's pretty straightforward.
+
+We can reference something like this dog events at event name like so we want to make sure that this
+
+will contain a value of an array and if it contains an array we should take this callback right here
+
+and add the callback to the array.
+
+However we also need to consider the case in which this might be the first event that is added to the
+
+event's object for the particular.
+
+If that's the case then there's probably no array here already and we'll need to create a new array.
+
+So I think that we could use a simple IF statement for that we could say if some value already exists
+
+at this dot events at event name then there must already be an array there that we added and so we can
+
+take this callback and push this callback into that array.
+
+So we'll save this dot events at event name.
+
+Push callback like so.
+
+Otherwise if there's no value at this place in the object then we must need to initialize a brand new
+
+array and add are our callback to it.
+
+So else this datt events that event name is going to be an empty array that contains only callback like
+
+so.
+
+So now either way whether this is the first time we're seeing this event or we've seen this event multiple
+
+times before we will be creating a new array in adding the callback to it.
+
+Look at it that's a good start.
+
+Now this is really the biggest challenge right here is just understanding this part.
+
+The other two steps on here are pretty straightforward.
+
+So let's give those a shot right now.
+
+Well first take care of trigger.
+
+So with Trigger we're given some event name we can look at our events object at this event named key
+
+right here.
+
+And for every callback in that array we can immediately call it.
+
+So let's right first an if statement to see if an array exists at the given key inside of our events
+
+object.
+
+So if this does events at event name exists.
+
+So if there is a value defined there then we'll iterate through that array.
+
+And for that we can use a simple for loop just like we've used many times in this course so far.
+
+So we'll say for let Colback which I'll abbreviate as Seabee of this dot events at event name go ahead
+
+and call the callback.
+
+And that's pretty much it.
+
+So as long as there is some value there ready for us to iterate over iterate over it and execute every
+
+callback in that array.
+
+Now when I save this file right now with the on and trigger methods defined we be able to go back to
+
+our tests running in the terminal and see much of them passing at this point.
+
+So we've got four passing.
+
+There's just one that is still failing and that one test that's remaining is all about the off statement
+
+down here.
+
+So for AWST we want to make sure that we deregister or remove all the existing events inside of our
+
+events object that corresponds with the given event name.
+
+Now there's two simple ways of approaching this.
+
+We could either do something where we maybe set that give an event name equal to a empty array here.
+
+Alternatively we could just attempt to delete that entire property off the object.
+
+And that's the approach that I kind of recommend here.
+
+So rather than saying oh well this Dodd event site event name will be equal to an empty array that still
+
+leaves this empty array here that we're not making any use of whatsoever.
+
+And so another way of approaching this would be to use the delete keyword so we could say delete this
+
+study events at event name like so and that lawyer will remove that entire key and the value that exists
+
+there or that entire array of callbacks.
+
+All right so let's save this and see how we're doing now.
+
+And so we've got all five test passing.
+
+Awesome.
+
+All right so the event's library is a simple little problem but it is the most common problem that I've
+
+probably seen personally in interviews I've been asked this question many times myself and it is a good
+
+question because it does kind of test your knowledge of these basic javascript concepts.
+
+For some libraries that you are probably already making use of right now on a daily basis.
+
+So it is a pretty good question in that regard.
+
+All right so that's good on this question.
+
+Let's take a break and then move on to the next section.
+============================================================================================================
