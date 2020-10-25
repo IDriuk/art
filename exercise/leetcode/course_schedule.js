@@ -48,3 +48,39 @@ var canFinish = function(numCourses, prerequisites) {
   
   return  currentsEmpty && prevsEmpty
 };
+
+/*
+var canFinish = function(numCourses, prerequisites) {
+    let prevs = Array(numCourses).fill(null).map( _ => [])
+    
+    for (let p of prerequisites) {
+        prevs[p[1]].push(p[0]) 
+    }
+    
+    let visited = Array(numCourses).fill(false)
+    
+    for (let i = 0; i < numCourses; i++) {
+        if (!dfs(prevs, visited, i)) {
+            return false
+        }
+    }
+    
+    return true
+    
+    function dfs(graph, visited, course) {
+        if (visited[course]) {
+            return false
+        }
+        
+        visited[course] = true
+        for (let next of graph[course]) {
+            if (!dfs(graph, visited, next)) {
+                return false
+            }
+        }
+        visited[course] = false
+        
+        return true
+    }
+};
+*/
