@@ -9,7 +9,7 @@ module.exports.getAll = async function(req, res) {
   try {
     const vocabulary = await Vocabulary
       .find(query)
-      .sort({date: -1})
+      .sort({description: 1, date: -1})
 
     res.status(200).json(vocabulary)
 
