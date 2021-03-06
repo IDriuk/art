@@ -1,0 +1,52 @@
+/*  RADIO  */
+.radio { 
+  grid-column: 1 / 2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+}
+
+.radio input { 
+  display: none; 
+}
+
+.radio__1 input:checked ~ label, 
+.radio__2 input:checked ~ label {
+  box-shadow: inset .2rem .2rem .5rem var(--greyLight-2), 
+              inset -.2rem -.2rem .5rem var(--white);
+}
+
+.radio__1 input:checked ~ label::after, 
+.radio__2 input:checked ~ label::after {
+  background: var(--primary);
+}
+
+.radio__1 label, 
+.radio__2 label {
+    box-shadow: .3rem .3rem .6rem var(--greyLight-2), 
+                -.2rem -.2rem .5rem var(--white);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%; 
+  }
+
+  .radio__1 label::after, 
+  .radio__2 label::after{
+    content: "";
+    position: absolute;
+    width: 1.4rem;
+    height: 1.4rem;
+    background: var(--greyDark);
+    border-radius: 50%;
+    transition: 0.3s ease;
+  }
+
+  .radio__1 label:hover::after, 
+  .radio__2 label:hover::after{
+    background: var(--primary);
+  }

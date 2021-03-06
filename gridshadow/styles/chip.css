@@ -1,0 +1,42 @@
+/*  CHIP  */
+.chip {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  justify-self: center;
+  width: 17rem;
+  height: 4rem;
+  border-radius: 1rem;
+  box-shadow: .3rem .3rem .6rem var(--greyLight-2), 
+              -.2rem -.2rem .5rem var(--white); 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chip p {
+  font-size: .9rem;
+  margin-left: -1.8rem;
+  color: var(--greyDark);
+}
+
+.chip__icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  margin: 0 0 0 .2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  color: var(--primary);
+}
+
+.chip__close {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: 0 .5rem;
+  display: flex;
+  font-size: 1.6rem;
+  color: var(--greyLight-3);
+  cursor: pointer;
+}

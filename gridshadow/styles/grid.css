@@ -1,0 +1,22 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  background: var(--greyLight-1);
+}
+
+.components {
+  width: 75rem;
+  height: 40rem;
+  border-radius: 3rem;
+  box-shadow:.8rem .8rem 1.4rem var(--greyLight-2), 
+              -.2rem -.2rem 1.8rem var(--white);
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: 17.6rem 19rem 20.4rem;
+  grid-column-gap: 5rem;
+  grid-row-gap: 2.5rem;
+  align-items: center;
+}
