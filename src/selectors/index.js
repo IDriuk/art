@@ -1,0 +1,1 @@
+export const quizzesSelector = state => state.quizzes.quizzes
