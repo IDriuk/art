@@ -4,10 +4,9 @@ import { PersistGate } from "redux-persist/integration/react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
-import styled from "styled-components";
+import Intro from './components/Intro'
 import Quizzes from './components/Quizzes'
 
 import { configStore } from "./state/store";
@@ -23,18 +22,12 @@ const App = () => (
             <Quizzes />
           </Route>
           <Route path='/'>
-            <Title>Welcome to Test day at Kilo Health</Title>
-            <Link to="/quizzes/0">Start The Quiz</Link>
+            <Intro />
           </Route>
         </Switch>
       </Router>
     </PersistGate>
   </Provider>
 );
-
-const Title = styled.h1`
-  margin-top: 15rem;
-  text-align: center;
-`;
 
 export default App;

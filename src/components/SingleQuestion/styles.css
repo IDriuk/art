@@ -1,0 +1,39 @@
+.single-question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.single-question-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  color: #212121;
+}
+
+.single-question-answers {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px 0px 0px;
+}
+
+.single-question-answer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px 0px;
+  padding: 20px;
+  width: 300px;
+  background: #FFFFFF;
+  border: 1px solid rgba(33, 33, 33, 0.16);
+  border-radius: 8px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #212121;
+  cursor: pointer;
+}

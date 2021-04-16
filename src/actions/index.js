@@ -1,5 +1,5 @@
 import { quizzesUrl } from '../apis'
-import { REQUEST_QUIZZES, RECEIVE_QUIZZES } from '../constants'
+import { REQUEST_QUIZZES, RECEIVE_QUIZZES, SET_ANSWER } from '../constants'
 
 const requestQuizzes = () => ({
   type: REQUEST_QUIZZES
@@ -20,3 +20,10 @@ export const fetchQuizzes = () => dispatch => {
       }
     })
 }
+
+export const setAnswer = (key, value, questionType) => ({
+  type: SET_ANSWER,
+  key,
+  value,
+  questionType
+}) 

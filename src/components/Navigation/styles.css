@@ -1,0 +1,30 @@
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1.5rem 10rem;
+  background: #FFFFFF;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.navigation-back {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 4rem;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #212121;
+  cursor: pointer;
+}
+
+.navigation-page {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  color: #212121;
+}
